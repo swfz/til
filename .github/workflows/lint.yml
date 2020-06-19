@@ -5,6 +5,8 @@ on:
     paths:
       - 'content/blog/**/*.md'
 
+jobs:
+  textlint:
     runs-on: ubuntu-latest
     name: run textlint
     steps:

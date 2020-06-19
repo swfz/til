@@ -6,13 +6,14 @@ tags:
   - textlint
 ---
 
-記事を書いていて良く引っかかるが今のところ自分のスタイルに合っていないので除外している
+記事を書いていて良く引っかかるが今のところ自分のスタイルに合っていないので除外している設定を抜粋して残しておく
 
-[textlint/textlint-filter-rule-node-types: textlint filter rule that ignore node's type if the type is reported.](https://github.com/textlint/textlint-filter-rule-node-types)
+使っているプラグインは下記
 
-[textlint/textlint-filter-rule-whitelist: textlint filter rule that filter any word by white list.](https://github.com/textlint/textlint-filter-rule-whitelist)
+[textlint/textlint-filter-rule-node-types](https://github.com/textlint/textlint-filter-rule-node-types)
 
-設定を一部抜粋した
+[textlint/textlint-filter-rule-whitelist](https://github.com/textlint/textlint-filter-rule-whitelist)
+
 
 - .textlintrc.yml
 
@@ -41,9 +42,9 @@ whitelistで正規表現を用いてはてな記法での画像も除外
 
 よく
 
-- hoge.html
+`- hoge.html`
 
-のような書き方でファイル名を表したりする
+のようにリスト形式でファイル名を表したりする
 
 ここで技術用語などで引っかかると困るのでこのあたりも特定できる範囲で拡張子を追加して除外
 

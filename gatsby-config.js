@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `TIL`,
+    title: `swfz.memo`,
     author: {
       name: `swfz`,
-      summary: `Today I Leaned`,
+      summary: `scrawls`,
     },
     description: `til`,
     siteUrl: `https://til.swfz.io/`,

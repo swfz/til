@@ -1,0 +1,80 @@
+filters:
+  comments: true
+  node-types:
+    nodeTypes:
+      - Link
+      - Image
+  whitelist:
+    allow:
+      - 時
+      - 出来る
+      # ファイル名のリストは除外
+      - /.*\.[js|ts|yml|rb|rake|json|html]/
+      - /\/etc\/.*
+rules:
+  prh:
+    rulePaths:
+      - custom_word_prh.yml
+      - node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml
+      - node_modules/prh/prh-rules/media/techbooster.yml
+  preset-ja-technical-writing:
+    ja-no-mixed-period: false
+      # periodMark: "."
+      # severity: info
+    max-comma:
+      max: 3
+    max-ten:
+      max: 3
+    max-kanji-continuous-len:
+      max: 10
+    no-mix-dearu-desumasu:
+      preferInHeader: ''
+      preferInBody: ですます
+      preferInList: である
+      strict: false
+    arabic-kanji-numbers: true
+    no-double-negative-ja: true
+    no-dropping-the-ra: true
+    no-doubled-conjunctive-particle-ga: true
+    no-doubled-conjunction: true
+    no-doubled-joshi:
+      min_interval: 1
+    no-nfd: true
+    no-invalid-control-character: true
+    no-exclamation-question-mark: false
+    no-hankaku-kana: true
+    ja-no-weak-phrase: true
+    ja-no-successive-word: true
+    ja-no-abusage: true
+    ja-no-redundant-expression: true
+    ja-unnatural-alphabet: true
+    no-unmatched-pair: true
+  preset-ja-spacing:
+    ja-space-between-half-and-full-width:
+      space: never
+    ja-space-around-code: false
+    ja-no-space-between-full-width: true
+    ja-nakaguro-or-halfwidth-space-between-katakana: true
+    ja-no-space-around-parentheses: true
+    ja-space-after-exclamation: false
+    ja-space-after-question: false
+  spellcheck-tech-word: true
+  period-in-list-item:
+    periodMark: ''
+    periodMarks:
+      - "."
+      - "。"
+      - "．"
+    ignoreLinkEnd: true
+    allowPeriodMarks: []
+    allowEmoji: false
+    forceAppendPeriod: false
+  general-novel-style-ja: false
+  ja-hiragana-keishikimeishi: true
+  ja-hiragana-fukushi: true
+  ja-hiragana-hojodoushi: true
+  "@textlint-ja/textlint-rule-no-insert-dropping-sa": true
+  prefer-tari-tari: true
+  abbr-within-parentheses: true
+  no-mixed-zenkaku-and-hankaku-alphabet: true
+  footnote-order: true

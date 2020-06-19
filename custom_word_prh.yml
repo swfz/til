@@ -1,0 +1,40 @@
+version: 1
+rules:
+  - pattern:
+      - aggrid
+      - Aggrid
+      - AgGrid
+      - AGGrid
+      - AGgrid
+      - agGrid
+      - /ag-grid/
+      - /Ag-grid/
+      - /Ag-Grid/
+      - /AG-grid/
+      - /AG-Grid/
+    expected: ag-Grid
+    prh: 正式名称はag-Gridです
+  - pattern:
+      - netlify
+    expected: Netlify
+    prh: 正式名称はNetlifyです
+  - pattern:
+      - service worker
+    expected: Service Worker
+    prh: 正式名称はService Workerです
+  - pattern:
+      - pwa
+    expected: PWA
+    prh: 正式名称はPWAです
+  - pattern:
+      - fluentd
+    expected: Fluentd
+    prh: 正式名称はFluentdです
+  - pattern:
+      - Athena
+    expected: Athena
+    prh: 正式名称はAthenaです
+  - pattern:
+      - circleci
+    expected: CircleCI
+    prh: 正式名称はCircleCIです

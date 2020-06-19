@@ -3,7 +3,9 @@
     "config:base"
   ],
   "packageRules": [
-    "updateTypes": ["minor","patch"],
-    "automerge": true
+    {
+      "updateTypes": ["minor","patch"],
+      "automerge": true
+    }
   ]
 }

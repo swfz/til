@@ -34,6 +34,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
+              {node.frontmatter.tags.map(tag => <small key={tag}>{tag}</small>)}
             </header>
             <section>
               <p
@@ -69,6 +70,7 @@ export const pageQuery = graphql`
             date(formatString: "YYYY-MM-DD")
             title
             description
+            tags
           }
         }
       }

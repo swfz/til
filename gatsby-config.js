@@ -16,9 +16,15 @@ module.exports = {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true,
-        jsxPragma: `jsx`,
+        jsxPragma: `React`,
         allExtensions: true,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: `types/graphql-types.d.ts`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,

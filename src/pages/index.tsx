@@ -1,14 +1,31 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { PageProps, Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+type DataProps = {
+  site: {
+    buildTime: string,
+    siteMetadata: {
+      title: string,
+      author: {
+        name: string,
+        summary: string
+      },
+      description: string
+      social: {
+        twitter: string
+      }
+    }
+  }
+}
+
+const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
+  const siteTitle = data.site?.siteMetadata?.title
+  const posts = data.allMarkdownRemark?.edges
 
   return (
     <Layout location={location} title={siteTitle}>

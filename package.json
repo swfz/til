@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "1.0.1",
-    "gatsby-plugin-graphql-codegen": "^2.7.1",
-    "gatsby-plugin-typescript": "^2.4.6",
+    "gatsby-plugin-graphql-codegen": "2.7.1",
+    "gatsby-plugin-typescript": "2.4.6",
     "prettier": "2.0.5",
     "textlint": "11.6.3",
     "textlint-filter-rule-comments": "1.2.2",

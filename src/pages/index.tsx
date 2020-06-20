@@ -5,25 +5,13 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import { AllMarkdownQuery } from '../../types/graphql-types';
 
-type DataProps = {
-  site: {
-    buildTime: string,
-    siteMetadata: {
-      title: string,
-      author: {
-        name: string,
-        summary: string
-      },
-      description: string
-      social: {
-        twitter: string
-      }
-    }
-  }
+type Props = {
+  data: AllMarkdownQuery
 }
 
-const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
+const BlogIndex: React.FC<Props> = ({ data, location }) => {
   const siteTitle = data.site?.siteMetadata?.title
   const posts = data.allMarkdownRemark?.edges
 

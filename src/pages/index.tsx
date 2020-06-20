@@ -1,14 +1,19 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { PageProps, Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import { AllMarkdownQuery } from '../../types/graphql-types';
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+type Props = {
+  data: AllMarkdownQuery
+}
+
+const BlogIndex: React.FC<Props> = ({ data, location }) => {
+  const siteTitle = data.site?.siteMetadata?.title
+  const posts = data.allMarkdownRemark?.edges
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -47,7 +52,7 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query AllMarkdown {
     site {
       siteMetadata {
         title

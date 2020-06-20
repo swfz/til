@@ -64,7 +64,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query AllMarkdown {
     site {
       siteMetadata {
         title

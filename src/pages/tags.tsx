@@ -16,6 +16,7 @@ const TagsPage = ({
       siteMetadata: { title },
     },
   },
+  location
 }) => (
   <Layout location={location} title={title}>
     <div>

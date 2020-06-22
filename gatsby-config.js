@@ -8,7 +8,7 @@ module.exports = {
     description: `til`,
     siteUrl: `https://til.swfz.io/`,
     social: {
-      twitter: `swfz`
+      twitter: `swfz`,
     },
   },
   plugins: [
@@ -21,10 +21,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: "gatsby-plugin-graphql-codegen",
       options: {
-        fileName: `types/graphql-types.d.ts`
-      }
+        fileName: `types/graphql-types.d.ts`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -67,7 +67,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
     `gatsby-plugin-feed`,

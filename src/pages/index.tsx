@@ -1,5 +1,6 @@
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -34,7 +35,10 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
-              {node.frontmatter.tags.map(tag => <small key={tag}>{tag}</small>)}
+              {node.frontmatter.tags.map(tag => (
+                  <Link key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                )
+              )}
             </header>
             <section>
               <p

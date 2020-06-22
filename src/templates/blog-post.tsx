@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -40,7 +41,10 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
             }}
           >
             {post.frontmatter.date}
-            {post.frontmatter.tags.map(tag => <span key={tag}>{tag}</span>)}
+            {post.frontmatter.tags.map(tag => (
+                <Link key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+              )
+            )}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />

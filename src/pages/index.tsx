@@ -18,7 +18,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
   const posts = data.allMarkdownRemark?.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO title="All posts" />
       <Bio />
       {posts.map(({ node }) => {
@@ -44,7 +44,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
           </article>
         )
       })}
-    </Layout>
+    </>
   )
 }
 

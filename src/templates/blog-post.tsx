@@ -18,7 +18,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -48,9 +48,6 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav>
@@ -79,7 +76,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
-    </Layout>
+    </>
   )
 }
 

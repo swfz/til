@@ -5,21 +5,15 @@ $title-color: #333333;
 #gatsby-focus-wrapper {
   width: 100%;
   height: 100%;
-  background: #aaaaaa;
 }
 
-#gatsby-focus-wrapper > div{
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: #aaaaff;
-}
 #___gatsby {
-  background: #666666;
   width: 100%;
   height: 100%;
+}
+
+body {
+  background-color: #EFEFEF;
 }
 
 @import "~bulma/bulma.sass";

@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: `https://til.swfz.io/`,
     social: {
       twitter: `swfz`,
+      github: `swfz`,
     },
   },
   plugins: [

@@ -30,6 +30,7 @@ const Bio: React.FC = () => {
           }
           social {
             twitter
+            github
           }
         }
       }
@@ -38,12 +39,8 @@ const Bio: React.FC = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <>
+      <h3>Profile</h3>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author.name}
@@ -58,13 +55,24 @@ const Bio: React.FC = () => {
         }}
       />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        <strong>{author.name}</strong>
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        <div>日々学んだことを残していく日記</div>
+        <h3>Account</h3>
+        <ul>
+          <li>
+            <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a href={`https://github.com/${social.github}`} target="_blank">
+              GitHub
+            </a>
+          </li>
+        </ul>
       </p>
-    </div>
+    </>
   )
 }
 

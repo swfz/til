@@ -3,22 +3,36 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 import Navigation from "../components/navi"
+import Bio from "./bio"
 
 const Layout = ({ location, title, children }) => {
   return (
     <>
       <Navigation></Navigation>
-      <main
+      <div
+        className="columns"
         style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(30),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          background: `#FFFFFF`,
+          marginBottom: 0,
         }}
       >
-        {children}
-      </main>
+        <div
+          className="column is-6 is-offset-one-fifth"
+          style={{
+            background: `#FFFFFF`,
+          }}
+        >
+          <main>{children}</main>
+        </div>
+        <div
+          className="column is-2"
+          style={{
+            background: `#F9F9F9`,
+          }}
+        >
+          <Bio></Bio>
+        </div>
+      </div>
+
       <footer
         className="footer has-text-grey-lighter has-background-info-dark"
         style={{

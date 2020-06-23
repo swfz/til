@@ -16,16 +16,19 @@ const Navigation: React.FC = () => {
   )
 
   return (
-<nav className="navbar" role="navigation" aria-label="main navigation">
+<nav className="navbar has-background-info-dark" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-    <a className="navbar-item" href="/">
-      {site.siteMetadata.title}
+    <a className="navbar-item has-text-grey-lighter" href="/">
+      <span style={{
+        fontWeight: `bold`,
+      }}>{site.siteMetadata.title}</span>
+
     </a>
   </div>
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
-      <Link className="navbar-item" to={`/tags`}>
+      <Link className="navbar-item has-text-grey-lighter" to={`/tags`}>
         Tags
       </Link>
     </div>

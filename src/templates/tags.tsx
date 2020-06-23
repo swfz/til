@@ -18,7 +18,7 @@ const Tags = ({ pageContext, data, location }) => {
     <>
       <SEO title="All posts" />
       <div>
-        <h1>{tagHeader}</h1>
+        <h1 className="subtitle">{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {
             const { slug } = node.fields

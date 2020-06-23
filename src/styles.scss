@@ -5,6 +5,7 @@ $title-color: #333333;
 #gatsby-focus-wrapper {
   width: 100%;
   height: 100%;
+  background-color: #EFEFEF;
 }
 
 #___gatsby {
@@ -12,8 +13,5 @@ $title-color: #333333;
   height: 100%;
 }
 
-body {
-  background-color: #EFEFEF;
-}
 
 @import "~bulma/bulma.sass";

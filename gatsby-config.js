@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `swfz[:memo]`,
+    title: `>> swfz[:memo]`,
     author: {
       name: `swfz`,
       summary: `scrawls`,

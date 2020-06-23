@@ -37,7 +37,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.date}
             {post.frontmatter.tags.map(tag => (
-                <Link className="button is-small" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                <Link className="button is-small mx-1" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
               )
             )}
           </p>

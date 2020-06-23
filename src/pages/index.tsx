@@ -20,7 +20,6 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
   return (
     <>
       <SEO title="All posts" />
-      <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
@@ -37,7 +36,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
                 </Link>
               </h2>
               {node.frontmatter.tags.map(tag => (
-                  <Link className="button is-small" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                  <Link className="button is-small mx-1" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
                 )
               )}
             </header>

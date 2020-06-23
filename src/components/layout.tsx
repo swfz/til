@@ -63,9 +63,14 @@ const Layout = ({ location, title, children }) => {
       >
         {children}
       </main>
-      <footer>
-        © {new Date().getFullYear()}.
-        swfz
+      <footer className="footer has-text-grey-lighter has-background-info-dark"  style={{
+        padding: `2rem 1.5rem 2rem`,
+        width: `100%`,
+        bottom: 0,
+        }}>
+        <div className="content has-text-centered">
+          © {new Date().getFullYear()}. swfz
+        </div>
       </footer>
     </>
   )

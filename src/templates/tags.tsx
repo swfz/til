@@ -21,9 +21,7 @@ const Tags = ({ pageContext, data, location }) => {
         <ul>
           {edges.map(({ node }) => {
             const { slug } = node.fields
-            return (
-              <Line key={slug} node={node}></Line>
-            )
+            return <Line key={slug} node={node}></Line>
           })}
         </ul>
         <Link to="/tags">All tags</Link>
@@ -58,7 +56,7 @@ Tags.propTypes = {
 export default Tags
 
 export const pageQuery = graphql`
-  query ($tag: String) {
+  query($tag: String) {
     site {
       siteMetadata {
         title

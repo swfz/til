@@ -30,7 +30,8 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <h2 className="title"
+      <h2
+        className="title"
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
@@ -63,11 +64,14 @@ const Layout = ({ location, title, children }) => {
       >
         {children}
       </main>
-      <footer className="footer has-text-grey-lighter has-background-info-dark"  style={{
-        padding: `1rem 1.5rem 1rem`,
-        width: `100%`,
-        bottom: 0,
-        }}>
+      <footer
+        className="footer has-text-grey-lighter has-background-info-dark"
+        style={{
+          padding: `1rem 1.5rem 1rem`,
+          width: `100%`,
+          bottom: 0,
+        }}
+      >
         <div className="content has-text-centered">
           © {new Date().getFullYear()}. swfz
         </div>

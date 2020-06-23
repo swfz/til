@@ -16,7 +16,7 @@ const TagsPage = ({
       siteMetadata: { title },
     },
   },
-  location
+  location,
 }) => (
   <div>
     <Helmet title={title} />

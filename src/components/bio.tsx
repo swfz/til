@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
-import { BioQueryQuery } from '../../types/graphql-types';
+import { BioQueryQuery } from "../../types/graphql-types"
 
 const Bio: React.FC = () => {
   const data: BioQueryQuery = useStaticQuery(graphql`

@@ -2,8 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
-import { AllMarkdownQuery } from '../../types/graphql-types'
-import '../styles.scss'
+import { AllMarkdownQuery } from "../../types/graphql-types"
+import "../styles.scss"
 import Line from "../components/line"
 
 type Props = {
@@ -17,9 +17,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
     <>
       <SEO title="All posts" />
       {posts.map(({ node }) => {
-        return (
-          <Line key={node.fields.slug} node={node}></Line>
-        )
+        return <Line key={node.fields.slug} node={node}></Line>
       })}
     </>
   )

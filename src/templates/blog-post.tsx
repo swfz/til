@@ -6,7 +6,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { BlogPostBySlugQuery } from '../../types/graphql-types';
+import { BlogPostBySlugQuery } from "../../types/graphql-types"
 
 type Props = {
   data: BlogPostBySlugQuery
@@ -25,9 +25,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1 className="title is-1">
-            {post.frontmatter.title}
-          </h1>
+          <h1 className="title is-1">{post.frontmatter.title}</h1>
           <p
             style={{
               ...scale(-1 / 5),
@@ -38,9 +36,14 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
             <span className="tags">
               {post.frontmatter.tags.map(tag => (
-                  <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
-                )
-              )}
+                <Link
+                  className="tag is-link is-light"
+                  key={tag}
+                  to={`/tags/${kebabCase(tag)}`}
+                >
+                  {tag}
+                </Link>
+              ))}
             </span>
           </p>
         </header>

@@ -42,11 +42,11 @@ https://gatsby.dev/no-mixed-modules
 import React from "react"
 import Layout from "./src/components/layout"
 
-const wrapPageElement = ({ element, props }) => {
+const wrapElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>
 }
 
-export { wrapPageElement as wrapPageElement }
+export { wrapElement as wrapPageElement }
 ```
 
 対応ページそのまま`export default`でexportしてしまうと呼び出し側で`wrapPageElement`を区別できないので読み込まれない

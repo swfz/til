@@ -35,10 +35,12 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
                   {title}
                 </Link>
               </h2>
-              {node.frontmatter.tags.map(tag => (
-                  <Link className="button is-small mx-1" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
-                )
-              )}
+              <span className="tags">
+                {node.frontmatter.tags.map(tag => (
+                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                  )
+                )}
+              </span>
             </header>
           </article>
         )

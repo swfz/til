@@ -25,7 +25,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1 className="title">
+          <h1 className="title is-1">
             {post.frontmatter.title}
           </h1>
           <p
@@ -36,12 +36,19 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
             }}
           >
             {post.frontmatter.date}
-            {post.frontmatter.tags.map(tag => (
-                <Link className="button is-small mx-1" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
-              )
-            )}
+            <span className="tags">
+              {post.frontmatter.tags.map(tag => (
+                  <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                )
+              )}
+            </span>
           </p>
         </header>
+        <hr
+          style={{
+            marginTop: rhythm(1),
+          }}
+        />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{

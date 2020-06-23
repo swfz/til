@@ -13,5 +13,18 @@ $title-color: #333333;
   height: 100%;
 }
 
+h2 {
+  font-family: Helvetica , "游ゴシック", sans-serif;
+}
 
 @import "~bulma/bulma.sass";
+
+.title.is-1 {
+  font-size: 2rem;
+}
+.title.is-2 {
+  font-size: 1.6rem;
+}
+.title.is-1 {
+  font-size: 1.2rem;
+}

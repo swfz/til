@@ -64,7 +64,7 @@ const Layout = ({ location, title, children }) => {
         {children}
       </main>
       <footer className="footer has-text-grey-lighter has-background-info-dark"  style={{
-        padding: `2rem 1.5rem 2rem`,
+        padding: `1rem 1.5rem 1rem`,
         width: `100%`,
         bottom: 0,
         }}>

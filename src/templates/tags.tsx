@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 
 // Components
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Line from "../components/line"
 
 const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
@@ -12,7 +12,6 @@ const Tags = ({ pageContext, data, location }) => {
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
-  const siteTitle = data.site?.siteMetadata?.title
 
   return (
     <>
@@ -22,18 +21,11 @@ const Tags = ({ pageContext, data, location }) => {
         <ul>
           {edges.map(({ node }) => {
             const { slug } = node.fields
-            const { title } = node.frontmatter
             return (
-              <li key={slug}>
-                <Link to={slug}>{title}</Link>
-              </li>
+              <Line key={slug} node={node}></Line>
             )
           })}
         </ul>
-        {/*
-                This links to a page that does not yet exist.
-                We'll come back to it!
-              */}
         <Link to="/tags">All tags</Link>
       </div>
     </>
@@ -85,6 +77,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            date(formatString: "YYYY-MM-DD")
+            tags
           }
         }
       }

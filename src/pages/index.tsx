@@ -1,48 +1,24 @@
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
-import kebabCase from "lodash/kebabCase"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import { AllMarkdownQuery } from '../../types/graphql-types'
 import '../styles.scss'
+import Line from "../components/line"
 
 type Props = {
   data: AllMarkdownQuery
 }
 
 const BlogIndex: React.FC<Props> = ({ data, location }) => {
-  const siteTitle = data.site?.siteMetadata?.title
   const posts = data.allMarkdownRemark?.edges
 
   return (
     <>
       <SEO title="All posts" />
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
         return (
-          <article className="card" key={node.fields.slug}>
-            <header className="card-content">
-              <small>[{node.frontmatter.date}]</small>
-              <h2 className="subtitle"
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h2>
-              <span className="tags">
-                {node.frontmatter.tags.map(tag => (
-                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
-                  )
-                )}
-              </span>
-            </header>
-          </article>
+          <Line key={node.fields.slug} node={node}></Line>
         )
       })}
     </>

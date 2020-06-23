@@ -25,12 +25,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
+          <h1 className="title">
             {post.frontmatter.title}
           </h1>
           <p
@@ -42,7 +37,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.date}
             {post.frontmatter.tags.map(tag => (
-                <Link key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                <Link className="button is-small" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
               )
             )}
           </p>

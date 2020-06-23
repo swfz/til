@@ -18,19 +18,14 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
+          <h1 className="title">
             {post.frontmatter.title}
           </h1>
           <p
@@ -42,7 +37,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.date}
             {post.frontmatter.tags.map(tag => (
-                <Link key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                <Link className="button is-small mx-1" key={tag} to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
               )
             )}
           </p>
@@ -53,9 +48,6 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav>
@@ -84,7 +76,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
-    </Layout>
+    </>
   )
 }
 

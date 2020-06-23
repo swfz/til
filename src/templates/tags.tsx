@@ -15,10 +15,10 @@ const Tags = ({ pageContext, data, location }) => {
   const siteTitle = data.site?.siteMetadata?.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO title="All posts" />
       <div>
-        <h1>{tagHeader}</h1>
+        <h1 className="subtitle">{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {
             const { slug } = node.fields
@@ -36,7 +36,7 @@ const Tags = ({ pageContext, data, location }) => {
               */}
         <Link to="/tags">All tags</Link>
       </div>
-    </Layout>
+    </>
   )
 }
 

@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+import Navigation from "../components/navi"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -29,7 +30,7 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <h3
+      <h2 className="title"
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
@@ -44,25 +45,34 @@ const Layout = ({ location, title, children }) => {
         >
           {title}
         </Link>
-      </h3>
+      </h2>
     )
   }
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
+    <>
+      <Navigation></Navigation>
       <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}.
-        swfz
+      <main
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(30),
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          background: `#FFFFFF`,
+        }}
+      >
+        {children}
+      </main>
+      <footer className="footer has-text-grey-lighter has-background-info-dark"  style={{
+        padding: `2rem 1.5rem 2rem`,
+        width: `100%`,
+        bottom: 0,
+        }}>
+        <div className="content has-text-centered">
+          © {new Date().getFullYear()}. swfz
+        </div>
       </footer>
-    </div>
+    </>
   )
 }
 

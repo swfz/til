@@ -54,24 +54,22 @@ const Bio: React.FC = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        <strong>{author.name}</strong>
-        {` `}
-        <div>日々学んだことを残していく日記</div>
-        <h3>Account</h3>
-        <ul>
-          <li>
-            <a href={`https://twitter.com/${social.twitter}`} target="_blank">
-              Twitter
-            </a>
-          </li>
-          <li>
-            <a href={`https://github.com/${social.github}`} target="_blank">
-              GitHub
-            </a>
-          </li>
-        </ul>
-      </p>
+      <strong>{author.name}</strong>
+      {` `}
+      <div>日々学んだことを残していく日記</div>
+      <h3>Account</h3>
+      <ul>
+        <li>
+          <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a href={`https://github.com/${social.github}`} target="_blank">
+            GitHub
+          </a>
+        </li>
+      </ul>
     </>
   )
 }

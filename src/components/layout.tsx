@@ -13,7 +13,7 @@ const Layout = ({ location, title, children }) => {
         className="columns"
         style={{
           marginBottom: 0,
-          paddingTop: `0.5rem`
+          paddingTop: `0.5rem`,
         }}
       >
         <div

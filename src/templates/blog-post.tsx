@@ -25,7 +25,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1 className="title is-1">{post.frontmatter.title}</h1>
+          <h1 className="title">{post.frontmatter.title}</h1>
           <p
             style={{
               ...scale(-1 / 5),

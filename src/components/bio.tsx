@@ -55,8 +55,10 @@ const Bio: React.FC = () => {
         }}
       />
       <strong>{author.name}</strong>
-      {` `}
+      <hr />
       <div>日々学んだことを残していく日記</div>
+      <div>コード片置き場</div>
+      <hr />
       <h3>Account</h3>
       <ul>
         <li>

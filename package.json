@@ -40,6 +40,7 @@
     "bulma": "0.9.0",
     "gatsby-plugin-graphql-codegen": "2.7.1",
     "gatsby-plugin-sass": "2.3.7",
+    "gatsby-plugin-sitemap": "^2.4.11",
     "gatsby-plugin-typescript": "2.4.8",
     "gatsby-remark-bulma": "1.0.1",
     "gatsby-remark-external-links": "0.0.4",

@@ -46,7 +46,7 @@
     "gatsby-remark-external-links": "0.0.4",
     "node-sass": "4.14.1",
     "prettier": "2.0.5",
-    "textlint": "11.6.3",
+    "textlint": "11.7.4",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-filter-rule-node-types": "1.0.1",
     "textlint-filter-rule-whitelist": "2.0.0",

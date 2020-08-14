@@ -32,6 +32,7 @@ const Layout = ({ location, title, children }) => {
           }}
         >
           <Bio></Bio>
+          <hr />
           <Archive></Archive>
         </div>
       </div>

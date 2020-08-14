@@ -1,5 +1,6 @@
 const path = require(`path`)
 const _ = require("lodash")
+const moment = require("moment")
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -70,20 +71,28 @@ exports.createPages = async ({ graphql, actions }) => {
   }, {})
 
   Object.entries(archives).forEach(([year, items]) => {
+    const startDate = moment(`${year}-01-01`).format("YYYY-MM-DD")
+    const endDate = moment(`${year}-01-01`).add(1, 'years').format("YYYY-MM-DD")
     createPage({
       path: `/archives/${year}`,
       component: archiveTemplate,
       context: {
-        year: year
+        year: year,
+        startDate: startDate,
+        endDate: endDate
       }
     })
     Object.entries(items).forEach(([month, nodes]) => {
+      const startDate = moment(`${year}-${month}-01`).format("YYYY-MM-DD")
+      const endDate = moment(`${year}-${month}-01`).add(1, 'months').format("YYYY-MM-DD")
       createPage({
         path: `/archives/${year}/${month}`,
         component: archiveTemplate,
         context: {
           year: year,
-          month: month
+          month: month,
+          startDate: startDate,
+          endDate: endDate
         }
       })
     })

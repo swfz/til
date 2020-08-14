@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
+  const archiveTemplate = path.resolve(`./src/templates/archives.tsx`)
   const result = await graphql(
     `
       {
@@ -21,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
+                date
                 title
                 tags
               }
@@ -55,6 +57,35 @@ exports.createPages = async ({ graphql, actions }) => {
         previous,
         next,
       },
+    })
+  })
+
+  const archives = posts.reduce((acc, cur) => {
+    const date = cur.node.frontmatter.date
+    const [year, month] = date.split('-')
+    acc[year] = acc[year] ? acc[year] : {}
+    acc[year][month] = acc[year][month] ? acc[year][month] : []
+    acc[year][month].push(cur)
+    return acc
+  }, {})
+
+  Object.entries(archives).forEach(([year, items]) => {
+    createPage({
+      path: `/archives/${year}`,
+      component: archiveTemplate,
+      context: {
+        year: year
+      }
+    })
+    Object.entries(items).forEach(([month, nodes]) => {
+      createPage({
+        path: `/archives/${year}/${month}`,
+        component: archiveTemplate,
+        context: {
+          year: year,
+          month: month
+        }
+      })
     })
   })
 

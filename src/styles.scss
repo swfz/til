@@ -30,3 +30,16 @@ h3 {
 .title.is-3 {
   font-size: 1.2rem;
 }
+
+// prismjs
+code.language-javascript {
+ .token.number {
+  margin-right: initial;
+  min-width: initial;
+  padding: initial;
+  background-color: initial;
+  border-radius: initial;
+  display: initial;
+  font-size: initial;
+}
+}

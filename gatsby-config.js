@@ -63,7 +63,10 @@ module.exports = {
                 rel: "noopener noreferrer"
             }
           },
-          `gatsby-remark-bulma`,
+          {
+            resolve: `gatsby-remark-bulma`,
+            options: {}
+          },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,

@@ -1,8 +1,7 @@
 // custom typefaces
 import "typeface-montserrat"
 import "typeface-merriweather"
-
-import "prismjs/themes/prism.css"
+import "prismjs/themes/prism-coy.css"
 
 import React from "react"
 import Layout from "./src/components/layout"

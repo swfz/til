@@ -32,7 +32,7 @@ h3 {
 }
 
 // prismjs
-code.language-javascript {
+code.language-javascript, code.language-typescript {
  .token.number {
   margin-right: initial;
   min-width: initial;

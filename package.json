@@ -45,7 +45,7 @@
     "gatsby-remark-bulma": "1.0.1",
     "gatsby-remark-external-links": "0.0.4",
     "node-sass": "4.14.1",
-    "prettier": "2.1.0",
+    "prettier": "2.1.1",
     "textlint": "11.7.6",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-filter-rule-node-types": "1.0.1",

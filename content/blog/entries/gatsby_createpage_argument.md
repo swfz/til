@@ -1,5 +1,5 @@
 ---
-title: GatsbyでpageQuery任意のパラメータを渡す
+title: GatsbyでpageQueryに任意のパラメータを渡す
 date: "2020-09-10"
 description: "createPage"
 tags:

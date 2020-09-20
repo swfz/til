@@ -19,8 +19,7 @@ docker-compose up -d
 
 パラメータストアのモックにも対応している
 
-これ開発環境でモックできるのは嬉しい
-
+この機能を開発環境でモックできるのはうれしい
 
 ```shell
 $ aws --profile localstack --endpoint-url=http://192.168.30.94:4583 ssm put-parameter --name 'test' --type "string" --value "hello" --region ap-northeast-1

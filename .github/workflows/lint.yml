@@ -24,3 +24,14 @@ jobs:
       - name: lint check markdown
         run: |
           npx textlint content/blog
+
+  slack-notify:
+    if: always()
+    needs: [textlint]
+    name: post slack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Gamesight/slack-workflow-status@master
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

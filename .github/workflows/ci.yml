@@ -19,3 +19,14 @@ jobs:
       - run: |
           npm ci
           npm run build
+
+  slack-notify:
+    if: always()
+    needs: [build]
+    name: post slack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Gamesight/slack-workflow-status@master
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

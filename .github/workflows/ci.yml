@@ -17,8 +17,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: |
-          npm ci
-          npm run build
+          yarn
+          yarn build
 
   slack-notify:
     if: always()

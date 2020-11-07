@@ -7,7 +7,7 @@ tags:
   - Docker
 ---
 
-CloudRun(Ruby)のチュートリアルを進めた後に`google-cloud`のGemを使って色々やってみようとインストールして見たら怒られた
+CloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろやってみようとインストールして見たら怒られた
 
 - Dockerfile
 

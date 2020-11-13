@@ -8,7 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "gatsby": "2.26.0",
+    "gatsby": "2.26.1",
     "gatsby-image": "2.5.0",
     "gatsby-plugin-feed": "2.7.0",
     "gatsby-plugin-google-analytics": "2.5.0",
@@ -18,7 +18,7 @@
     "gatsby-plugin-sharp": "2.8.0",
     "gatsby-plugin-typography": "2.6.0",
     "gatsby-remark-copy-linked-files": "2.4.0",
-    "gatsby-remark-images": "3.5.0",
+    "gatsby-remark-images": "3.5.1",
     "gatsby-remark-prismjs": "3.7.0",
     "gatsby-remark-responsive-iframe": "2.5.0",
     "gatsby-remark-smartypants": "2.4.0",
@@ -40,7 +40,7 @@
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "1.0.1",
     "bulma": "0.9.1",
     "gatsby-plugin-graphql-codegen": "2.7.1",
-    "gatsby-plugin-sass": "2.5.0",
+    "gatsby-plugin-sass": "2.5.1",
     "gatsby-plugin-sitemap": "2.6.0",
     "gatsby-plugin-typescript": "2.6.0",
     "gatsby-remark-bulma": "1.0.1",

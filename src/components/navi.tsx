@@ -15,7 +15,7 @@ const Navigation: React.FC = () => {
   )
 
   return (
-    <nav
+    <div
       className="navbar has-background-info-dark"
       role="navigation"
       aria-label="main navigation"
@@ -39,7 +39,7 @@ const Navigation: React.FC = () => {
           </Link>
         </div>
       </div>
-    </nav>
+    </div>
   )
 }
 

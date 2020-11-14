@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 import { AllMarkdownQuery } from "../../types/graphql-types"
-import "../styles.scss"
 import Line from "../components/line"
 
 type Props = {

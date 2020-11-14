@@ -2,6 +2,7 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 import "prismjs/themes/prism-coy.css"
+import "./src/styles.scss"
 
 import React from "react"
 import Layout from "./src/components/layout"

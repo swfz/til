@@ -8,6 +8,7 @@ filters:
     allow:
       - 時
       - 出来る
+      - で他の
       # ファイル名のリストは除外
       - /.*\.[js|ts|yml|rb|rake|json|html]/
       - /\/etc\/.*

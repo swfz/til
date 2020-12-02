@@ -24,3 +24,16 @@ exec -l $SHELL
 <!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
 本当インストールに時間掛けるの無駄以外の何物でもないので…
+
+## 追記（2020-12-03）
+
+上記だけだと`bq`や`gsutil`が入らなかったので次の方法のほうが良いかも
+
+[Google Cloud SDK のインストール  |  Cloud SDK のドキュメント](https://cloud.google.com/sdk/docs/install?hl=JA#installation_instructions)
+
+```shell
+$ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-linux-x86_64.tar.gz
+$ tar zxvf google-cloud-sdk-319.0.0-linux-x86_64.tar.gz
+$ cd google-cloud-sdk
+$ ./google-cloud-sdk/install.sh
+```

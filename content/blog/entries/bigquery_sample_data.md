@@ -14,7 +14,7 @@ WITH sample AS(
   SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>
     [
       ("2020-08-01", "2020-11-30", "hoge", 100),
-      ("2020-10-01", "2020-10-31", "fuga", 200),
+      ("2020-10-01", "2020-10-31", "fuga", 200)
     ]
   )
 )

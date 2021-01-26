@@ -29,7 +29,7 @@ ERROR: (gcloud.builds.submit) HTTPError 403: <?xml version='1.0' encoding='UTF-8
 
 ## projectの閲覧者権限の追加
 
-[text](https://qiita.com/rodotan/items/9a97dbffd8cd0bbd3ae9)
+[個人的によく使うgcloudコマンドまとめ ~ IAM・サービスアカウント関連 ~](https://qiita.com/rodotan/items/9a97dbffd8cd0bbd3ae9)
 
 ```shell
 gcloud projects add-iam-policy-binding ${project-id} --member=serviceAccount:${name}-run-invoker@${project-id}.iam.gserviceaccount.com --role=roles/viewer

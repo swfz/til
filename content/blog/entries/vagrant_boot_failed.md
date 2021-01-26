@@ -55,7 +55,7 @@ The VM is stopping.
 
 - 参考
 
-[text](https://qiita.com/Ikumi/items/557808a232a0c12d3027)
+[VirtualBoxで仮想コンピュータが反応しなくなった時( = _ = )](https://qiita.com/Ikumi/items/557808a232a0c12d3027)
 
 を参考に強制的に落とす
 
@@ -105,7 +105,7 @@ the timeout ("config.vm.boot_timeout") value.
 
 が、立ち上がったは良いがsshできないという感じになってしまった
 
-VirtuALBoxからものぞいてみようと試みたがVMが完全に立ち上がらない状態で操作できず
+VirtualBoxからものぞいてみようと試みたがVMが完全に立ち上がらない状態で操作できず
 
 結局ホストのWindowsを再起動してVM起動したら動くようになっていた
 

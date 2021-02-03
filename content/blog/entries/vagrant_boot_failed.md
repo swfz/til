@@ -107,6 +107,6 @@ the timeout ("config.vm.boot_timeout") value.
 
 VirtualBoxからものぞいてみようと試みたがVMが完全に立ち上がらない状態で操作できず
 
-結局ホストのWindowsを再起動してVM起動したら動くようになっていた
+結局ホストのWindowsを完全シャットダウン（shift+シャットダウン）&起動してVM起動したら動くようになっていた
 
 ただの徒労…

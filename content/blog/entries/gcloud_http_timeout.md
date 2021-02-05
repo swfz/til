@@ -15,6 +15,8 @@ This may be due to network connectivity issues. Please check your network settin
 
 gcloudのコマンド自体（APIコール）のタイムアウトは`--http-timeout`を設定すればよさそう
 
+デフォルトだと300秒だった（気がする）
+
 ```shell
 gcloud functions call sample_function --http-timeout 540
 ```

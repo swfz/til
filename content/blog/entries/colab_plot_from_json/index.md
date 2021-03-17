@@ -72,7 +72,9 @@ ax.legend(['Errors'])
 
 ![alt](colab_plot_from_json02.png)
 
+<!-- textlint-disable prh -->
 colab初めて触ったけどjupyter notebookがブラウザから簡単に使えるのかなり良い
+<!-- textlint-enable prh -->
 
 `Ctrl+Enterで実行`や`Shift+Enterで次のコードへ遷移`などjupyter notebookと同じ使い心地
 

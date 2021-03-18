@@ -38,8 +38,9 @@ const Archive: React.FC = () => {
     <>
       <p>Archive</p>
       {Object.entries(archives).sort(desc).map(([year, items]) => (
-        <details key={year}>
+        <details open="true" key={year}>
           <summary>
+            +
             <Link to={`/archives/${year}`}>
               {year}({Object.entries(items).reduce((acc, [_, v]) => acc + v.length, 0)})
             </Link>
@@ -48,7 +49,7 @@ const Archive: React.FC = () => {
             {Object.entries(items).sort(desc).map(([month, items]) => (
               <li key={`${year}-${month}`}>
                 <Link to={`/archives/${year}/${month}`}>
-                  {year}-{month}({items.length})
+                  <p>&nbsp;&nbsp;&nbsp;{year}-{month}({items.length})</p>
                 </Link>
               </li>
             ))}

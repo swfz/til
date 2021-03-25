@@ -31,6 +31,7 @@ gem "sinatra"
 require "functions_framework"
 require "active_support/all"
 require "sinatra/base"
+require "json"
 
 class Router < Sinatra::Base
 
@@ -41,10 +42,12 @@ class Router < Sinatra::Base
   end
 
   get('/') do
+    content_type :json
     {path: 'slash'}.to_json
   end
 
   get('/yesterday') do
+    content_type :json
     {
       date: {
         from: Time.current.yesterday.strftime('%Y-%m-%d'),
@@ -62,6 +65,7 @@ class Router < Sinatra::Base
   end
 
   get('/last_week') do
+    content_type :json
     {
       recent: {
         date: {
@@ -77,6 +81,7 @@ class Router < Sinatra::Base
   end
 
   get('/this_month') do
+    content_type :json
     {
       last_month_in_first_day: {
         date: {

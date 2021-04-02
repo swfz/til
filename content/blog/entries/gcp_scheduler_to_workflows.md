@@ -12,8 +12,6 @@ CloudSchedulerからCloudWorkflowsを実行するためのTips
 
 [Cloud Scheduler の使用によるワークフローのスケジュール設定  |  Google Cloud](https://cloud.google.com/workflows/docs/schedule-workflow)
 
-[https://cloud.google.com/workflows/docs/schedule-workflow:embed:cite]
-
 に単純に実行するだけのパターンは載っていたがWorkflowsの実行時にパラメータを渡すときどうするのかは書いていなかった
 
 そのため単純に渡したいJSONを突っ込んだだけでは`INVALID_ARGUMENTS`で怒られた
@@ -21,8 +19,6 @@ CloudSchedulerからCloudWorkflowsを実行するためのTips
 そこで下記APIドキュメントを見てWorkflowをたたくためのJSONの中身を調べた
 
 [REST Resource: projects.locations.workflows.executions  |  ワークフロー](https://cloud.google.com/workflows/docs/reference/executions/rest/v1beta/projects.locations.workflows.executions?hl=ja#Execution)
-
-[https://cloud.google.com/workflows/docs/reference/executions/rest/v1beta/projects.locations.workflows.executions?hl=ja#Execution:embed:cite]
 
 `argument`というキーにencodeしたJSON文字列をいれてたたくと意図通りパラメータが渡されるよう
 

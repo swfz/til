@@ -49,7 +49,7 @@ open "https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redire
 
 ## access tokenの発行
 
-先の手順で得たrequest tokenを用いてaccess tokenの発行を行う
+先の手順で得たrequest tokenを用いてaccess tokenの発行する
 
 ```shell
 $ curl -H "Content-Type: application/json; charset=UTF-8" -X POST \

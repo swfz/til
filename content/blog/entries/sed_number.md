@@ -14,7 +14,7 @@ sedでURLの数値部分だけを抜き出したい
 $ echo -n "https://api.github.com/repos/swfz/github-actions-playground/actions/runs/855305996/cancel" | sed -e 's/runs\/\(\d+\)\/cancel/\1/g'
 ```
 
-これで`run_id`(855305996)を抜き出せるかとやってみてたが何も反応がない
+これで`run_id`（855305996）を抜き出せるかとやってみてたが何も反応がない
 
 それで調べてみたところstackoverflowが引っかかった
 

@@ -16,7 +16,12 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: |
+      - name: build
+        # dummy ID
+        env:
+          GOOGLE_ANALYTICS_TRACKING_ID: UA-hoge
+          GOOGLE_TAGMANAGER_TRACKING_ID: G-hoge
+        run: |
           yarn
           yarn build
 

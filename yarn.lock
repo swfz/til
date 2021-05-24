@@ -2370,15 +2370,14 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@textlint-ja/textlint-rule-no-insert-dropping-sa/-/textlint-rule-no-insert-dropping-sa-2.0.0.tgz#73b1fd56dad9270fb1e15965c1ebf7930b8d4e47"
-  integrity sha512-XmK1S2eZRvAOFunOpUELwNcxlJWw4bXHYbiYkGOXXGueiUXNG/Zgz5hcvX2jyf89SimH44usjuMGwuHytqmNxA==
+"@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@textlint-ja/textlint-rule-no-insert-dropping-sa/-/textlint-rule-no-insert-dropping-sa-2.0.1.tgz#7b193356b06aebfe4e19b1c12554215089862f40"
+  integrity sha512-ayBSq7K54TeA23dJt/oZeC4532+IwJ6J7ejHvbLV3AgdqlyXEC3xkVsBFmxT90sUegWxpzJwu9qBeByfVXR2FA==
   dependencies:
     array-find-index "^1.0.2"
     kuromojin "^3.0.0"
     morpheme-match-all "^2.0.5"
-    textlint-tester "^5.3.4"
 
 "@textlint-rule/textlint-rule-no-invalid-control-character@^1.2.0":
   version "1.2.0"
@@ -16185,15 +16184,6 @@ textlint-tester@5.0.1:
     "@textlint/kernel" "^3.0.0"
     textlint "^11.0.1"
 
-textlint-tester@^5.3.4:
-  version "5.3.4"
-  resolved "https://registry.yarnpkg.com/textlint-tester/-/textlint-tester-5.3.4.tgz#18a637e49e42ea20428e49835ef398f5afe5b655"
-  integrity sha512-u2OpIs8RI/eeeBGgBqM1eFKrXp0xv+sA9tKPiVON2C9RA59o/bsRlA7SP4kG78qygUi2W8TxBh+OMEA9/xflVg==
-  dependencies:
-    "@textlint/feature-flag" "^3.3.4"
-    "@textlint/kernel" "^3.4.4"
-    textlint "^11.9.0"
-
 textlint-util-to-string@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/textlint-util-to-string/-/textlint-util-to-string-2.1.1.tgz"
@@ -16248,7 +16238,7 @@ textlint@11.9.1:
     try-resolve "^1.0.1"
     unique-concat "^0.2.2"
 
-textlint@^11.0.1, textlint@^11.9.0:
+textlint@^11.0.1:
   version "11.9.0"
   resolved "https://registry.yarnpkg.com/textlint/-/textlint-11.9.0.tgz#508a8181a2ff8582613bcef5081424ecca5c822d"
   integrity sha512-a9ZCfCOcOTNxEQsRbYBDFNu8m5cjJC+znnXCBommGSdP0W+9QmwZnkralwpxrVhRgWvLz+QyuDXtLBZcqfDmHg==

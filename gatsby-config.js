@@ -1,3 +1,34 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const algoliaQuery = `{
+  allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    edges {
+      node {
+        id
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+        }
+      }
+    }
+  }
+}`;
+
+const queries = [
+  {
+    query: algoliaQuery,
+    transformer: ({ data }) => data.allMarkdownRemark.edges.map(({node}) => node), // optional
+    indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
+  },
+];
+
 module.exports = {
   siteMetadata: {
     title: `>> swfz[:memo]`,
@@ -170,6 +201,27 @@ module.exports = {
       options: {
         dsn: `https://a52b2817a4214407b72c88d2d8d62ca7@o554110.ingest.sentry.io/5682225`,
         sampleRate: 0.7
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        // Use Admin API key without GATSBY_ prefix, so that the key isn't exposed in the application
+        // Tip: use Search API key with GATSBY_ prefix to access the service from within components
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries,
+        chunkSize: 10000, // default: 1000
+        settings: {
+          // optional, any index settings
+          // Note: by supplying settings, you will overwrite all existing settings on the index
+        },
+        enablePartialUpdates: true, // default: false
+        matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
+        concurrentQueries: false, // default: true
+        skipIndexing: false, // default: false, useful for e.g. preview deploys or local development
+        continueOnFailure: false // default: false, don't fail the build if algolia indexing fails
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

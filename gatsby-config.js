@@ -4,7 +4,7 @@ require('dotenv').config({
 
 const escapeStringRegexp = require("escape-string-regexp")
 
-const pagePath = `content`
+const pagePath = `content/blog`
 
 const algoliaQuery = `{
   pages: allMarkdownRemark(
@@ -239,7 +239,7 @@ module.exports = {
         enablePartialUpdates: false, // default: false
         matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
         concurrentQueries: false, // default: true
-        skipIndexing: false, // default: false, useful for e.g. preview deploys or local development
+        skipIndexing: process.env.BRANCH !== 'master', // default: false, useful for e.g. preview deploys or local development
         continueOnFailure: false // default: false, don't fail the build if algolia indexing fails
       }
     }

@@ -2,30 +2,48 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const escapeStringRegexp = require("escape-string-regexp")
+
+const pagePath = `content`
+
 const algoliaQuery = `{
-  allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  pages: allMarkdownRemark(
+    filter: {
+      fileAbsolutePath: { regex: "/${escapeStringRegexp(pagePath)}/" },
+    }
+  ) {
     edges {
       node {
         id
-        excerpt
-        fields {
-          slug
-        }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          description
         }
+        fields {
+          slug
+        }
+        rawMarkdownBody
+        timeToRead
       }
     }
   }
-}`;
+}`
+
+function pageToAlgoliaRecord({ node: { id, frontmatter, fields, ...rest } }) {
+  return {
+    objectID: id,
+    ...frontmatter,
+    ...fields,
+    ...rest,
+  }
+}
 
 const queries = [
   {
     query: algoliaQuery,
-    transformer: ({ data }) => data.allMarkdownRemark.edges.map(({node}) => node), // optional
+    transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
     indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
+    settings: { attributesToSnippet: [`excerpt:20`] },
   },
 ];
 
@@ -196,6 +214,7 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `@sentry/gatsby`,
       options: {
@@ -217,7 +236,7 @@ module.exports = {
           // optional, any index settings
           // Note: by supplying settings, you will overwrite all existing settings on the index
         },
-        enablePartialUpdates: true, // default: false
+        enablePartialUpdates: false, // default: false
         matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
         concurrentQueries: false, // default: true
         skipIndexing: false, // default: false, useful for e.g. preview deploys or local development

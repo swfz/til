@@ -1,7 +1,11 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
+import Search from "./search"
+
 const Navigation: React.FC = () => {
+  const searchIndices = [{ name: `til`, title: `Pages` }]
+
   const { site } = useStaticQuery(
     graphql`
       query Layout {
@@ -39,6 +43,8 @@ const Navigation: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      <Search indices={searchIndices}></Search>
     </div>
   )
 }

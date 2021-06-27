@@ -47,7 +47,7 @@
   "devDependencies": {
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "bulma": "0.9.3",
-    "gatsby-plugin-graphql-codegen": "2.7.1",
+    "gatsby-plugin-graphql-codegen": "2.7.3",
     "gatsby-plugin-sass": "4.8.0",
     "gatsby-plugin-sitemap": "4.4.0",
     "gatsby-plugin-typescript": "3.8.0",

@@ -10,7 +10,8 @@ rc=$?
 
 if [ "$rc" = "1" ]; then
   echo "content changed."
-  CONTENT_CHANGED=true gatsby build
+  # CONTENT_CHANGED=true gatsby build
+  CONTENT_CHANGED=false gatsby build
 else
   echo "content not changed."
   CONTENT_CHANGED=false gatsby build

@@ -7,5 +7,12 @@
 ## development
 
 ```
-npm run develop
+yarn dev
 ```
+
+## manual deploy
+
+```
+yarn build
+```
+

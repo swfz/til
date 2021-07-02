@@ -11,7 +11,7 @@ tags:
 
 ## 前提
 
-- Netlifyでビルドとデプロイを行っていてビルド時に都度Algoliaのインデックス更新を行っている
+- Netlifyでビルドとデプロイを行っていてビルド時に都度Algoliaのインデックス更新している
 - DependabotやRenovateなどのパッケージの更新でも上記処理が走ってしまっていたので利用上限に達してしまったよう
 
 - build時エラーログ
@@ -41,7 +41,7 @@ yarn netlify login
 
 configファイルにtokenが出力される
 
-ファイルの場所は `~/.config/netlify/config.json`に置かれる(OSによる)
+ファイルの場所は `~/.config/netlify/config.json`に置かれる（OSによる）
 
 - デプロイ
 
@@ -75,8 +75,8 @@ Deploying to draft URL...
 ✔ Finished uploading 377 assets
 ✔ Deploy is live!
 
-Logs:              https://app.netlify.com/sites/hoge/deploys/60d9bfaf3228686aa7d17d0f
-Website Draft URL: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxx--boring-lovelace-5e047b.netlify.app
+Logs:              https://app.netlify.com/sites/hoge/deploys/xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Website Draft URL: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxx--hoge.netlify.app
 
 If everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.
 netlify deploy --prod
@@ -118,7 +118,7 @@ CLIのドキュメントは下記
 
 AlgoliaのIndexingが必要なのは記事の更新があったときのみなので条件によって挙動を分ける
 
-ドキュメントでは`netlify.toml`に設定書けば良いよ、となっているがGUIからの基本的な設定(主にシークレットなどの情報)とうまい具合にマージしてくれるわけではないらしい
+ドキュメントでは`netlify.toml`に設定書けば良いよ、となっているがGUIからの基本的な設定（主にシークレットなどの情報）とうまい具合にマージしてくれるわけではないらしい
 
 そうなると各種キーがデプロイ時に必要なのでパブリックなリポジトリでは`netlify.toml`を使って設定は行えない
 
@@ -162,9 +162,11 @@ skipIndexing: (process.env.BRANCH !== 'master' || process.env.CONTENT_CHANGED ==
 
 これでAlgoliaへのインデックス情報の更新は
 
-- masterブランチのとき
+- `master`ブランチのとき
 - 記事情報が更新されたとき
 
+<!-- textlint-disable prh -->
 が満たされて初めて更新されるようになった
+<!-- textlint-enable prh -->
 
 ここまでやっていまさらだが、ざっとしか調べてないのでもし検索でリミットに達していたのなら来月も手動デプロイが発生するかもw

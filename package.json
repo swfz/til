@@ -55,7 +55,7 @@
     "gatsby-remark-external-links": "0.0.4",
     "husky": "4.3.8",
     "lint-staged": "11.0.0",
-    "netlify-cli": "3.39.2",
+    "netlify-cli": "3.39.4",
     "node-sass": "6.0.1",
     "prettier": "2.3.2",
     "textlint": "12.0.2",

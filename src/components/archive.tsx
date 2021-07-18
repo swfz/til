@@ -38,7 +38,7 @@ const Archive: React.FC = () => {
     <>
       <p>Archive</p>
       {Object.entries(archives).sort(desc).map(([year, items]) => (
-        <details open="true" key={year}>
+        <details open={true} key={year}>
           <summary>
             +
             <Link to={`/archives/${year}`}>

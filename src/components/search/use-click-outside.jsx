@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 const events = [`mousedown`, `touchstart`]
-export default (ref, onClickOutside) => {
+
+const ClickOutside = (ref, onClickOutside) => {
   const isOutside = element => !ref.current || !ref.current.contains(element)
   const onClick = event => {
     if (isOutside(event.target)) {
@@ -16,3 +17,5 @@ export default (ref, onClickOutside) => {
     }
   })
 }
+
+export default ClickOutside

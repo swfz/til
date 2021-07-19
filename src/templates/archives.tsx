@@ -13,7 +13,10 @@ const ArchivesTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   return (
     <div>
       <div>
-        <h1 className="subtitle">{pageContext.year}{pageContext.month && `-${pageContext.month}`} are {totalCount} posts</h1>
+        <h1 className="subtitle">
+          {pageContext.year}
+          {pageContext.month && `-${pageContext.month}`} are {totalCount} posts
+        </h1>
         <ul>
           {edges.map(({ node }) => {
             const { slug } = node.fields
@@ -26,7 +29,7 @@ const ArchivesTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
 }
 
 export const pageQuery = graphql`
-  query($startDate: Date, $endDate: Date) {
+  query ($startDate: Date, $endDate: Date) {
     site {
       siteMetadata {
         title
@@ -35,7 +38,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { date: { gte: $startDate, lt: $endDate }}}
+      filter: { frontmatter: { date: { gte: $startDate, lt: $endDate } } }
     ) {
       totalCount
       edges {

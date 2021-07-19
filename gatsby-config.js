@@ -1,6 +1,6 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 const escapeStringRegexp = require("escape-string-regexp")
 
@@ -45,7 +45,7 @@ const queries = [
     indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
     settings: { attributesToSnippet: [`excerpt:20`] },
   },
-];
+]
 
 module.exports = {
   siteMetadata: {
@@ -76,9 +76,9 @@ module.exports = {
         fileName: `types/graphql-types.d.ts`,
         codegenConfig: {
           resolverValidationOptions: {
-            requireResolversForResolveType: false
-          }
-        }
+            requireResolversForResolveType: false,
+          },
+        },
       },
     },
     {
@@ -114,12 +114,12 @@ module.exports = {
           {
             resolve: "gatsby-remark-external-links",
             options: {
-                rel: "noopener noreferrer"
-            }
+              rel: "noopener noreferrer",
+            },
           },
           {
             resolve: `gatsby-remark-bulma`,
-            options: {}
+            options: {},
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
@@ -133,7 +133,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        head: true
+        head: true,
       },
     },
     {
@@ -141,8 +141,8 @@ module.exports = {
       options: {
         id: process.env.GOOGLE_TAGMANAGER_TRACKING_ID,
         includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" }
-      }
+        defaultDataLayer: { platform: "gatsby" },
+      },
     },
     `gatsby-plugin-feed`,
     {
@@ -224,8 +224,8 @@ module.exports = {
       resolve: `@sentry/gatsby`,
       options: {
         dsn: `https://a52b2817a4214407b72c88d2d8d62ca7@o554110.ingest.sentry.io/5682225`,
-        sampleRate: 0.7
-      }
+        sampleRate: 0.7,
+      },
     },
     {
       resolve: `gatsby-plugin-algolia`,
@@ -242,12 +242,14 @@ module.exports = {
           // Note: by supplying settings, you will overwrite all existing settings on the index
         },
         enablePartialUpdates: false, // default: false
-        matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
+        matchFields: ["slug", "modified"], // Array<String> default: ['modified']
         concurrentQueries: false, // default: true
-        skipIndexing: (process.env.BRANCH !== 'master' || process.env.CONTENT_CHANGED === 'false'), // default: false, useful for e.g. preview deploys or local development
-        continueOnFailure: false // default: false, don't fail the build if algolia indexing fails
-      }
-    }
+        skipIndexing:
+          process.env.BRANCH !== "master" ||
+          process.env.CONTENT_CHANGED === "false", // default: false, useful for e.g. preview deploys or local development
+        continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

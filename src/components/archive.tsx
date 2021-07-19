@@ -19,7 +19,7 @@ const Archive: React.FC = () => {
 
   const archives = data.allMarkdownRemark.edges.reduce((acc, cur) => {
     const date = cur.node.frontmatter.date
-    const [year, month] = date.split('-')
+    const [year, month] = date.split("-")
     acc[year] = acc?.[year] ?? {}
     acc[year][month] = acc?.[year]?.[month] ?? []
     acc[year][month].push(cur)
@@ -37,25 +37,36 @@ const Archive: React.FC = () => {
   return (
     <>
       <p>Archive</p>
-      {Object.entries(archives).sort(desc).map(([year, items]) => (
-        <details open={true} key={year}>
-          <summary>
-            +
-            <Link to={`/archives/${year}`}>
-              {year}({Object.entries(items).reduce((acc, [_, v]) => acc + v.length, 0)})
-            </Link>
-          </summary>
-          <ul>
-            {Object.entries(items).sort(desc).map(([month, items]) => (
-              <li key={`${year}-${month}`}>
-                <Link to={`/archives/${year}/${month}`}>
-                  <p>&nbsp;&nbsp;&nbsp;{year}-{month}({items.length})</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </details>
-      ))}
+      {Object.entries(archives)
+        .sort(desc)
+        .map(([year, items]) => (
+          <details open={true} key={year}>
+            <summary>
+              +
+              <Link to={`/archives/${year}`}>
+                {year}(
+                {Object.entries(items).reduce(
+                  (acc, [_, v]) => acc + v.length,
+                  0
+                )}
+                )
+              </Link>
+            </summary>
+            <ul>
+              {Object.entries(items)
+                .sort(desc)
+                .map(([month, items]) => (
+                  <li key={`${year}-${month}`}>
+                    <Link to={`/archives/${year}/${month}`}>
+                      <p>
+                        &nbsp;&nbsp;&nbsp;{year}-{month}({items.length})
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </details>
+        ))}
     </>
   )
 }

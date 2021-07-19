@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const archives = posts.reduce((acc, cur) => {
     const date = cur.node.frontmatter.date
-    const [year, month] = date.split('-')
+    const [year, month] = date.split("-")
     acc[year] = acc[year] ? acc[year] : {}
     acc[year][month] = acc[year][month] ? acc[year][month] : []
     acc[year][month].push(cur)
@@ -72,19 +72,21 @@ exports.createPages = async ({ graphql, actions }) => {
 
   Object.entries(archives).forEach(([year, items]) => {
     const startDate = moment(`${year}-01-01`).format("YYYY-MM-DD")
-    const endDate = moment(`${year}-01-01`).add(1, 'years').format("YYYY-MM-DD")
+    const endDate = moment(`${year}-01-01`).add(1, "years").format("YYYY-MM-DD")
     createPage({
       path: `/archives/${year}`,
       component: archiveTemplate,
       context: {
         year: year,
         startDate: startDate,
-        endDate: endDate
-      }
+        endDate: endDate,
+      },
     })
     Object.entries(items).forEach(([month, nodes]) => {
       const startDate = moment(`${year}-${month}-01`).format("YYYY-MM-DD")
-      const endDate = moment(`${year}-${month}-01`).add(1, 'months').format("YYYY-MM-DD")
+      const endDate = moment(`${year}-${month}-01`)
+        .add(1, "months")
+        .format("YYYY-MM-DD")
       createPage({
         path: `/archives/${year}/${month}`,
         component: archiveTemplate,
@@ -92,8 +94,8 @@ exports.createPages = async ({ graphql, actions }) => {
           year: year,
           month: month,
           startDate: startDate,
-          endDate: endDate
-        }
+          endDate: endDate,
+        },
       })
     })
   })

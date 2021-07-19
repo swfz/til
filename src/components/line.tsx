@@ -23,6 +23,7 @@ const Line: React.FC = ({ node }) => {
           {node.frontmatter.tags.map(tag => (
             <Link
               className="tag is-link is-light"
+              aria-label={"tag"}
               key={tag}
               to={`/tags/${kebabCase(tag)}`}
             >

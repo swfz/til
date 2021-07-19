@@ -25,9 +25,31 @@ jobs:
           yarn
           yarn build
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: actions/setup-node@v2.2.0
+        with:
+          node-version: 12.22.1
+      - uses: actions/cache@v2.1.6
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: build
+        # dummy ID
+        env:
+          GOOGLE_ANALYTICS_TRACKING_ID: UA-hoge
+          GOOGLE_TAGMANAGER_TRACKING_ID: G-hoge
+        run: |
+          yarn
+          yarn test
+
   slack-notify:
     if: always()
-    needs: [build]
+    needs: [build, test]
     name: post slack
     runs-on: ubuntu-latest
     steps:

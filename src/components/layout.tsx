@@ -1,7 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import { rhythm, scale } from "../utils/typography"
 import Navigation from "../components/navi"
 import Bio from "./bio"
 import Archive from "./archive"

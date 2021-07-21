@@ -47,6 +47,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.0.0",
+    "@testing-library/user-event": "^13.2.0",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/jest": "26.0.24",
     "@types/react-test-renderer": "17.0.1",
@@ -60,9 +61,9 @@
     "gatsby-remark-bulma": "1.0.1",
     "gatsby-remark-external-links": "0.0.4",
     "husky": "4.3.8",
-    "lint-staged": "11.0.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.0.6",
+    "lint-staged": "11.0.1",
     "netlify-cli": "3.39.4",
     "node-sass": "6.0.1",
     "prettier": "2.3.2",

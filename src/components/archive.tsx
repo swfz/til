@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { ArchiveQueryQuery } from "../../types/graphql-types"
 
-const Archive: React.FC = () => {
+const ArchiveContainer = () => {
   const data: ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
       allMarkdownRemark(limit: 2000) {
@@ -17,6 +17,10 @@ const Archive: React.FC = () => {
     }
   `)
 
+  return <Archive data={data}></Archive>
+}
+
+export const Archive: React.FC = ({ data }) => {
   const archives = data.allMarkdownRemark.edges.reduce((acc, cur) => {
     const date = cur.node.frontmatter.date
     const [year, month] = date.split("-")
@@ -26,7 +30,7 @@ const Archive: React.FC = () => {
     return acc
   }, {})
 
-  const desc = (a, b) => {
+  const descFn = (a, b) => {
     if (a[0] > b[0]) {
       return -1
     } else {
@@ -38,12 +42,12 @@ const Archive: React.FC = () => {
     <>
       <p>Archive</p>
       {Object.entries(archives)
-        .sort(desc)
+        .sort(descFn)
         .map(([year, items]) => (
           <details open={true} key={year}>
             <summary>
               +
-              <Link to={`/archives/${year}`}>
+              <Link aria-label={"year-link"} to={`/archives/${year}`}>
                 {year}(
                 {Object.entries(items).reduce(
                   (acc, [_, v]) => acc + v.length,
@@ -54,9 +58,9 @@ const Archive: React.FC = () => {
             </summary>
             <ul>
               {Object.entries(items)
-                .sort(desc)
+                .sort(descFn)
                 .map(([month, items]) => (
-                  <li key={`${year}-${month}`}>
+                  <li aria-label={"month-link"} key={`${year}-${month}`}>
                     <Link to={`/archives/${year}/${month}`}>
                       <p>
                         &nbsp;&nbsp;&nbsp;{year}-{month}({items.length})
@@ -71,4 +75,4 @@ const Archive: React.FC = () => {
   )
 }
 
-export default Archive
+export default ArchiveContainer

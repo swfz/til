@@ -7,7 +7,7 @@ tags:
   - AWS
 ---
 
-S3でpresigned_urlを発行してファイルをDLさせる場合(サンプルはAWS-SDKのRubyクライアントを使用)
+S3でpresigned_urlを発行してファイルをDLさせる場合（サンプルはAWS-SDKのRubyクライアントを使用）
 
 S3にあるファイルを別名でダウンロードさせるためには`response_content_disposition`の指定を良しなにする
 

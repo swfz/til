@@ -11,7 +11,7 @@
     "@sentry/gatsby": "6.10.0",
     "@styled-icons/fa-solid": "10.34.0",
     "dotenv": "10.0.0",
-    "gatsby": "3.10.1",
+    "gatsby": "3.10.2",
     "gatsby-image": "3.10.0",
     "gatsby-plugin-algolia": "0.22.0",
     "gatsby-plugin-feed": "3.10.0",

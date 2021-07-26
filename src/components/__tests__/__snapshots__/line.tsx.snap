@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Line snapshot 1`] = `
+<article
+  className="card"
+>
+  <header
+    className="card-content"
+  >
+    <small>
+      [
+      2021-05-01
+      ]
+    </small>
+    <h2
+      className="subtitle"
+      style={
+        Object {
+          "marginBottom": "0.4375rem",
+        }
+      }
+    >
+      <a
+        href="/sample_hoge/fuga"
+        style={
+          Object {
+            "boxShadow": "none",
+          }
+        }
+      >
+        hoge
+      </a>
+    </h2>
+    <span
+      className="tags"
+    >
+      <a
+        aria-label="tag"
+        className="tag is-link is-light"
+        href="/tags/a"
+      >
+        A
+      </a>
+      <a
+        aria-label="tag"
+        className="tag is-link is-light"
+        href="/tags/b"
+      >
+        B
+      </a>
+    </span>
+  </header>
+</article>
+`;

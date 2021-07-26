@@ -3,22 +3,23 @@ import "@testing-library/jest-dom/extend-expect"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Archive } from "../archive"
+import renderer from "react-test-renderer"
 
 describe("Archive", () => {
+  const data = {
+    allMarkdownRemark: {
+      edges: [
+        { node: { frontmatter: { date: "2021-01-11" } } },
+        { node: { frontmatter: { date: "2021-01-20" } } },
+        { node: { frontmatter: { date: "2021-01-25" } } },
+        { node: { frontmatter: { date: "2020-12-28" } } },
+        { node: { frontmatter: { date: "2020-12-20" } } },
+        { node: { frontmatter: { date: "2020-12-15" } } },
+        { node: { frontmatter: { date: "2020-11-10" } } },
+      ],
+    },
+  }
   it("renders correctly", () => {
-    const data = {
-      allMarkdownRemark: {
-        edges: [
-          { node: { frontmatter: { date: "2021-01-11" } } },
-          { node: { frontmatter: { date: "2021-01-20" } } },
-          { node: { frontmatter: { date: "2021-01-25" } } },
-          { node: { frontmatter: { date: "2020-12-28" } } },
-          { node: { frontmatter: { date: "2020-12-20" } } },
-          { node: { frontmatter: { date: "2020-12-15" } } },
-          { node: { frontmatter: { date: "2020-11-10" } } },
-        ],
-      },
-    }
     const { getAllByText, getAllByLabelText } = render(
       <Archive data={data}></Archive>
     )
@@ -57,5 +58,9 @@ describe("Archive", () => {
     expect(monthLInkList[0]).not.toBeVisible()
     expect(monthLInkList[1]).not.toBeVisible()
     expect(monthLInkList[2]).not.toBeVisible()
+  })
+  it("snapshot", () => {
+    const tree = renderer.create(<Archive data={data}></Archive>).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

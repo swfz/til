@@ -2,19 +2,20 @@ import React from "react"
 import { render } from "@testing-library/react"
 import "@testing-library/jest-dom/extend-expect"
 import Line from "../line"
+import renderer from "react-test-renderer"
 
 describe("Line", () => {
+  const node = {
+    frontmatter: {
+      title: "hoge",
+      tags: ["A", "B"],
+      date: "2021-05-01",
+    },
+    fields: {
+      slug: "/sample_hoge/fuga",
+    },
+  }
   it("renders correctly", () => {
-    const node = {
-      frontmatter: {
-        title: "hoge",
-        tags: ["A", "B"],
-        date: "2021-05-01",
-      },
-      fields: {
-        slug: "/sample_hoge/fuga",
-      },
-    }
     const { getByText, getAllByLabelText } = render(<Line node={node}></Line>)
 
     // タイトルが表示されているか
@@ -28,5 +29,10 @@ describe("Line", () => {
     // 更新日が表示されているか
     const published = getByText(/2021-05-01/i)
     expect(published).toBeInTheDocument()
+  })
+
+  it("snapshot", () => {
+    const tree = renderer.create(<Line node={node}></Line>).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

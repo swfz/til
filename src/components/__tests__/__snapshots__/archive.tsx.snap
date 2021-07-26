@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Archive snapshot 1`] = `
+Array [
+  <p>
+    Archive
+  </p>,
+  <details
+    open={true}
+  >
+    <summary>
+      +
+      <a
+        aria-label="year-link"
+        href="/archives/2021"
+      >
+        2021
+        (
+        3
+        )
+      </a>
+    </summary>
+    <ul>
+      <li
+        aria-label="month-link"
+      >
+        <a
+          href="/archives/2021/01"
+        >
+          <p>
+               
+            2021
+            -
+            01
+            (
+            3
+            )
+          </p>
+        </a>
+      </li>
+    </ul>
+  </details>,
+  <details
+    open={true}
+  >
+    <summary>
+      +
+      <a
+        aria-label="year-link"
+        href="/archives/2020"
+      >
+        2020
+        (
+        4
+        )
+      </a>
+    </summary>
+    <ul>
+      <li
+        aria-label="month-link"
+      >
+        <a
+          href="/archives/2020/12"
+        >
+          <p>
+               
+            2020
+            -
+            12
+            (
+            3
+            )
+          </p>
+        </a>
+      </li>
+      <li
+        aria-label="month-link"
+      >
+        <a
+          href="/archives/2020/11"
+        >
+          <p>
+               
+            2020
+            -
+            11
+            (
+            1
+            )
+          </p>
+        </a>
+      </li>
+    </ul>
+  </details>,
+]
+`;

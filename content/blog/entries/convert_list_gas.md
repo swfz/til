@@ -7,7 +7,7 @@ tags:
   - JavaScript
 ---
 
-完全に事例なので他で使えない気がするけど残しておく
+完全に事例なのであまり流用できなそうな気がするけど残しておく
 
 管理職的なことを始めるとこういうのをサクッとかけると割と便利そう
 
@@ -81,4 +81,6 @@ function myFunction() {
 }
 ```
 
+<!-- textlint-disable prh -->
 スプレッド演算子を駆使してimmutableに…とは行かなかった
+<!-- textlint-enable prh -->

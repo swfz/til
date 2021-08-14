@@ -60,7 +60,7 @@
     "gatsby-plugin-typescript": "3.10.0",
     "gatsby-remark-bulma": "1.0.1",
     "gatsby-remark-external-links": "0.0.4",
-    "husky": "7.0.1",
+    "husky": "^7.0.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.0.6",
     "lint-staged": "11.0.1",
@@ -96,11 +96,6 @@
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
@@ -109,6 +104,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest --config ./jest.config.js"
+    "test": "jest --config ./jest.config.js",
+    "prepare": "husky install"
   }
 }

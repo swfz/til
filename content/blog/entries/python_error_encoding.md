@@ -1,6 +1,6 @@
 ---
 title: "Python環境でencode系のエラーが出たときの対応例"
-date: "2021-08-15"
+date: "2021-08-16"
 description: "大体UTF-8"
 tags:
   - Python

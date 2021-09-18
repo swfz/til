@@ -32,6 +32,23 @@ const Layout = ({ location, title, children }) => {
           <Bio></Bio>
           <hr />
           <Archive></Archive>
+          <hr />
+          <div>
+            <object
+              type="image/svg+xml"
+              data={`${process.env.PIXELA_GRAPH_URL}`}
+            ></object>
+            <div
+              style={{
+                "text-align": `right`,
+              }}
+            >
+              Powered by{" "}
+              <a href="https://pixe.la/" target="_blank">
+                Pixela
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

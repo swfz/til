@@ -2,6 +2,7 @@
 
 echo $CACHED_COMMIT_REF
 echo $COMMIT_REF
+echo $PIXELA_GRAPH_URL
 
 # 差分があると終了コード1
 git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF content/blog/entries/

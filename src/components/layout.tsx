@@ -36,7 +36,7 @@ const Layout = ({ location, title, children }) => {
           <div>
             <object
               type="image/svg+xml"
-              data={`${process.env.PIXELA_GRAPH_URL}`}
+              data="https://pixe.la/v1/users/swfz/graphs/til-pv?mode=short"
             ></object>
             <div
               style={{

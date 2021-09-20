@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import Tippy from "@tippyjs/react"
+import { tippy } from "@tippyjs/react"
 
 import Navigation from "../components/navi"
 import Bio from "./bio"
 import Archive from "./archive"
+import Pixela from "./pixela"
 
 const Layout = ({ location, title, children }) => {
   return (
@@ -33,22 +36,7 @@ const Layout = ({ location, title, children }) => {
           <hr />
           <Archive></Archive>
           <hr />
-          <div>
-            <object
-              type="image/svg+xml"
-              data="https://pixe.la/v1/users/swfz/graphs/til-pv?mode=short"
-            ></object>
-            <div
-              style={{
-                "text-align": `right`,
-              }}
-            >
-              Powered by{" "}
-              <a href="https://pixe.la/" target="_blank">
-                Pixela
-              </a>
-            </div>
-          </div>
+          <Pixela></Pixela>
         </div>
       </div>
 

@@ -4641,7 +4641,7 @@
   resolved "https://registry.yarnpkg.com/@textlint/utils/-/utils-12.0.2.tgz#0c756f460ed5c7b904802bf2f01c9894aab1daf0"
   integrity sha512-IYmibhDMWd8EmRvk8ii9AA/ecrZk5Wj5NNcKuB78+ae2PIVI1zWzQoieSvQyX7DLPRVH4S22RORiEpruRcDzng==
 
-"@tippyjs/react@^4.2.5":
+"@tippyjs/react@4.2.5":
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.5.tgz#9b5837db93a1cac953962404df906aef1a18e80d"
   integrity sha512-YBLgy+1zznBNbx4JOoOdFXWMLXjBh9hLPwRtq3s8RRdrez2l3tPBRt2m2909wZd9S1KUeKjOOYYsnitccI9I3A==

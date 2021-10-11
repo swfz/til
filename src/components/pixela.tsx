@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import fetch from "node-fetch"
 import { tippy } from "@tippyjs/react"
 import "tippy.js/dist/tippy.css"
+import DOMPurify from 'dompurify';
 
 const Pixela = () => {
   const [pixelaSvg, setPixelaSvg] = useState('')
@@ -13,7 +14,7 @@ const Pixela = () => {
       )
       const html: any = await res.text()
 
-      setPixelaSvg(html)
+      setPixelaSvg(DOMPurify.sanitize(html))
       tippy(".each-day", { arrow: true })
     }
     fetchPixelaSvg()

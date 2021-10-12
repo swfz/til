@@ -17,7 +17,6 @@ const Pixela = () => {
       setPixelaSvg(DOMPurify.sanitize(html))
       tippy(".each-day", { arrow: true })
     }
-    console.log("fetch pixela")
     fetchPixelaSvg()
 
     const cleanUp = () => {}

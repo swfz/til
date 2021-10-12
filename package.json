@@ -102,7 +102,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "NODE_ENV=development gatsby develop",
     "textlint": "textlint content/blog",
     "format": "prettier --write \"**/*.{js,jsx,tsx,json}\"",
     "start": "npm run develop",

@@ -17,7 +17,9 @@ const startWorker = async () => {
 }
 
 export const onClientEntry = () => {
-  startWorker()
+  if (process.env.NODE_ENV === "development") {
+    startWorker()
+  }
 }
 
 const wrapElement = ({ element, props }) => {

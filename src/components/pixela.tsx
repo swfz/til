@@ -7,8 +7,10 @@ import DOMPurify from 'dompurify';
 const Pixela = () => {
   const [pixelaSvg, setPixelaSvg] = useState('')
 
+        // "https://pixe.la/v1/users/swfz/graphs/til-pageviews?mode=short"
   useEffect(() => {
     const fetchPixelaSvg = async () => {
+      // const res = await fetch("http://localhost:8081/pixela.svg")
       const res = await fetch(
         "https://pixe.la/v1/users/swfz/graphs/til-pageviews?mode=short"
       )

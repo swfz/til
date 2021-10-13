@@ -18,9 +18,6 @@ const Pixela = () => {
       tippy(".each-day", { arrow: true })
     }
     fetchPixelaSvg()
-
-    const cleanUp = () => {}
-    return cleanUp
   }, [])
 
   return (

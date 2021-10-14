@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import fetch from "node-fetch"
 import { tippy } from "@tippyjs/react"
 import "tippy.js/dist/tippy.css"
 import DOMPurify from "dompurify"

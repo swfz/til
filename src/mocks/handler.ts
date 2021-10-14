@@ -7,7 +7,7 @@ export const handlers = [
 
     return res(ctx.status(200), ctx.body(svgBuffer))
   }),
-  rest.post('https://undefined-1.algolianet.com/1/indexes/*/queries', (req, res, ctx) => {
+  rest.post('https://undefined-*.algolianet.com/1/indexes/*/queries', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({results: {hits: []}}))
   })
 ]

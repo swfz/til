@@ -12,7 +12,7 @@ const Pixela = () => {
       const res = await fetch(
         "https://pixe.la/v1/users/swfz/graphs/til-pageviews?mode=short"
       )
-      const html: any = await res.text()
+      const html: string = await res.text()
 
       setPixelaSvg(DOMPurify.sanitize(html))
       tippy(".each-day", { arrow: true })

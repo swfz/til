@@ -10,7 +10,7 @@
   "dependencies": {
     "@sentry/gatsby": "6.13.3",
     "@styled-icons/fa-solid": "10.34.0",
-    "@tippyjs/react": "4.2.5",
+    "@tippyjs/react": "4.2.6",
     "@types/dompurify": "2.3.1",
     "dompurify": "2.3.3",
     "dotenv": "10.0.0",

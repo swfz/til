@@ -3517,10 +3517,10 @@
     outvariant "^1.2.0"
     strict-event-emitter "^0.2.0"
 
-"@netlify/build@^18.20.0":
-  version "18.20.0"
-  resolved "https://registry.yarnpkg.com/@netlify/build/-/build-18.20.0.tgz#003ef3bf31c67322aeed9e2cac64a20ff6d518f3"
-  integrity sha512-2wSCu6BiJeCaSaQ7eqc73M30Iq31bzVu/8amdv5nPT9ZXgeLhZEvOcKwUpanCEe0Ndr/VUen/3zm/MIQmz2EpQ==
+"@netlify/build@^18.20.1":
+  version "18.20.1"
+  resolved "https://registry.yarnpkg.com/@netlify/build/-/build-18.20.1.tgz#235a11554a4cbdd55602a39998083dde1cf017d5"
+  integrity sha512-YFmQO9wMxZhjTSfsGk6LPcW8XhBp8SIpJ5a/ltLugOa2GBuxRxi+U9BcC/emH6+dDQ43aaW9+Oe+drRZUQ2GJQ==
   dependencies:
     "@bugsnag/js" "^7.0.0"
     "@netlify/cache-utils" "^2.0.0"
@@ -3528,7 +3528,7 @@
     "@netlify/functions-utils" "^2.0.0"
     "@netlify/git-utils" "^2.0.0"
     "@netlify/plugin-edge-handlers" "^1.11.22"
-    "@netlify/plugins-list" "^4.0.1"
+    "@netlify/plugins-list" "^4.1.0"
     "@netlify/run-utils" "^2.0.0"
     "@netlify/zip-it-and-ship-it" "^4.28.1"
     "@sindresorhus/slugify" "^1.1.0"
@@ -3809,11 +3809,6 @@
     rollup-plugin-node-polyfills "^0.2.1"
     rollup-plugin-terser "^7.0.2"
     typescript "^4.1.5"
-
-"@netlify/plugins-list@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@netlify/plugins-list/-/plugins-list-4.0.1.tgz#16a90eef6131f66de54a4aab2f712053d6c271e7"
-  integrity sha512-5SNHrs6dfW8YlyTmJvLGTIZsdxtADuYRMn8mlRapBLLDazd99yDokzMfC8oigACyu553ghn/dtetPHHxsdGuXQ==
 
 "@netlify/plugins-list@^4.1.0":
   version "4.1.0"
@@ -16012,12 +16007,12 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@6.14.7:
-  version "6.14.7"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-6.14.7.tgz#50d89c16305bdc307f802884607c06293c75d31c"
-  integrity sha512-0VZKerauXjJVuzgXc1jHexe1TPSPOr7yQ+WqY1No7MaHjgz4/buuhk5KIjaYSoA6JkRPN2kdyX76n1NE1zbmNQ==
+netlify-cli@6.14.9:
+  version "6.14.9"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-6.14.9.tgz#b84c5b74d91818fd6295616db3c449aa74a798cd"
+  integrity sha512-yb2eSh1N5Tqplv8+ohPIiwbIam3L7YDRHtq0PHwNkXdi1MDual4vbneJU/lUGhyVgBdAvcqdZvNLqKTF+exeOw==
   dependencies:
-    "@netlify/build" "^18.20.0"
+    "@netlify/build" "^18.20.1"
     "@netlify/config" "^15.8.0"
     "@netlify/framework-info" "^5.11.0"
     "@netlify/local-functions-proxy" "^1.1.1"

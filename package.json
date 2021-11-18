@@ -14,7 +14,7 @@
     "@types/dompurify": "2.3.1",
     "dompurify": "2.3.3",
     "dotenv": "10.0.0",
-    "gatsby": "3.14.5",
+    "gatsby": "3.14.6",
     "gatsby-image": "3.11.0",
     "gatsby-plugin-algolia": "0.23.1",
     "gatsby-plugin-feed": "3.14.0",

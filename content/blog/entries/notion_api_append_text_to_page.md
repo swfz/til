@@ -51,6 +51,6 @@ curl -X PATCH "https://api.notion.com/v1/blocks/${page_id}/children" \
 EOS
 ```
 
-Notion上でテストが追加されたことを確認できた
+Notion上でテキストが追加されたことを確認できた
 
 ある程度触ってみたけど割と扱いやすい気がしてきた

@@ -3,7 +3,7 @@ title: "VS Codeのターミナルプロファイル設定"
 date: "2021-11-30"
 description: "profile"
 tags:
-  - VSCode
+  - VS Code
 ---
 
 - 前提のバージョン情報

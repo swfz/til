@@ -70,7 +70,7 @@
     "msw": "0.36.0",
     "netlify-cli": "7.1.0",
     "node-sass": "6.0.1",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "react-test-renderer": "17.0.2",
     "textlint": "12.1.0",
     "textlint-filter-rule-comments": "1.2.2",

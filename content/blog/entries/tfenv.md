@@ -23,8 +23,10 @@ $ ln -s ~/.tfenv/bin/* ~/.local/bin
 - .bashrc
 
 ```
-export PATH="$PATH:/home/hoge/.tfenv/bin"
+export PATH="$HOME/.tfenv/bin:$PATH"
 ```
+
+当たり前だが既存のパスより前にtfenvのパスが先にないと既存でterraformを使っている場合そっちが先に見つかってしまうのでtfenvのパスを先にする
 
 ### 切り替え、使用
 

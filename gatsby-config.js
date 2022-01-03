@@ -144,7 +144,6 @@ module.exports = {
         defaultDataLayer: { platform: "gatsby" },
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {

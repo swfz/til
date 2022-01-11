@@ -68,7 +68,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "27.4.7",
     "lint-staged": "12.1.7",
-    "msw": "0.36.3",
+    "msw": "0.36.4",
     "netlify-cli": "8.6.18",
     "prettier": "2.5.1",
     "react-test-renderer": "17.0.2",

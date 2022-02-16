@@ -1,6 +1,6 @@
 ---
 title: "GitHubのコミットコメントでIssueを自動でCloseさせる"
-date: "2022-02-17"
+date: "2022-02-16"
 description: "そういう機能があった"
 tags:
   - GitHub

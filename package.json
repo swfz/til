@@ -58,7 +58,7 @@
     "babel-jest": "27.4.6",
     "babel-preset-gatsby": "2.6.0",
     "bulma": "0.9.3",
-    "gatsby-plugin-graphql-codegen": "3.1.0",
+    "gatsby-plugin-graphql-codegen": "3.1.1",
     "gatsby-plugin-sass": "5.6.0",
     "gatsby-plugin-sitemap": "5.6.0",
     "gatsby-plugin-typescript": "4.6.0",

@@ -16,7 +16,7 @@
     "dotenv": "14.3.2",
     "gatsby": "4.6.0",
     "gatsby-image": "3.11.0",
-    "gatsby-plugin-algolia": "0.25.0",
+    "gatsby-plugin-algolia": "0.26.0",
     "gatsby-plugin-feed": "4.6.0",
     "gatsby-plugin-google-analytics": "4.6.0",
     "gatsby-plugin-google-tagmanager": "4.6.0",

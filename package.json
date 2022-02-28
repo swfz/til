@@ -13,7 +13,7 @@
     "@tippyjs/react": "4.2.6",
     "@types/dompurify": "2.3.3",
     "dompurify": "2.3.6",
-    "dotenv": "14.3.2",
+    "dotenv": "16.0.0",
     "gatsby": "4.6.0",
     "gatsby-image": "3.11.0",
     "gatsby-plugin-algolia": "0.26.0",

@@ -3247,15 +3247,15 @@
     "@types/set-cookie-parser" "^2.4.0"
     set-cookie-parser "^2.4.6"
 
-"@mswjs/interceptors@^0.13.3":
-  version "0.13.4"
-  resolved "https://registry.yarnpkg.com/@mswjs/interceptors/-/interceptors-0.13.4.tgz#2553b9c2eb530b74948023cda4e0ffce8945ba87"
-  integrity sha512-dtO8y4c8hq5QgWemTQQwIWSuuJJ34TyENG5lhLOarhhlG8CG5szWIfpw7FrBjsmcFeV0+k1wjUvS1/tp38XNkg==
+"@mswjs/interceptors@^0.13.5":
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/@mswjs/interceptors/-/interceptors-0.13.6.tgz#db46ba29c9ec118aefcf6ef61ecc38b25837967f"
+  integrity sha512-28FzF44Q84h9vxQ0XBpEz940KC/q3fzlo+TtaIyfilnJ7+HeIcnVfRM4hkp0/q2Uh466PmgpD4BH7A0F0kCBbQ==
   dependencies:
     "@open-draft/until" "^1.0.3"
     "@xmldom/xmldom" "^0.7.5"
     debug "^4.3.3"
-    headers-polyfill "^3.0.3"
+    headers-polyfill "^3.0.4"
     outvariant "^1.2.1"
     strict-event-emitter "^0.2.0"
 
@@ -9880,10 +9880,10 @@ header-case@^2.0.4:
     capital-case "^1.0.4"
     tslib "^2.0.3"
 
-headers-polyfill@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-3.0.3.tgz#222bd9a6b5a1f610ad563473efb0d34a13eb7ebc"
-  integrity sha512-Ak5m549Y+5vBtWNnIUcyARJjF0tQpINuy3+vOqG8tK/qjF0itYhAPgrzJc0zsZJh7AX8PalzICMPuWIqHpZlEA==
+headers-polyfill@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-3.0.4.tgz#cd70c815a441dd882372fcd6eda212ce997c9b18"
+  integrity sha512-I1DOM1EdWYntdrnCvqQtcKwSSuiTzoqOExy4v1mdcFixFZABlWP4IPHdmoLtPda0abMHqDOY4H9svhQ10DFR4w==
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
@@ -12769,13 +12769,13 @@ msgpackr@^1.5.0:
   optionalDependencies:
     msgpackr-extract "^1.0.14"
 
-msw@0.38.1:
-  version "0.38.1"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-0.38.1.tgz#87b59f4ea49a4d1b7abde080de2ecceea7f78c5a"
-  integrity sha512-4BMEc54nX12UzOAxw6cB31tEytuxfTPwmGoBrItCHoD9Aj9ZLO9aoBaZjCA1W0wfiYcd7sjekLpnT0lE/uR0qA==
+msw@0.38.2:
+  version "0.38.2"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-0.38.2.tgz#0c3637b392b65d5cc781468036c4be5965382c58"
+  integrity sha512-gD2vkV/ol3+zaC6AHKlPxB4zvl5mTV1uzhcv+0H6kwlbaiTZe/vVwiEGPeE9mQroAFvh0c8uJmltDebEys28qA==
   dependencies:
     "@mswjs/cookies" "^0.1.7"
-    "@mswjs/interceptors" "^0.13.3"
+    "@mswjs/interceptors" "^0.13.5"
     "@open-draft/until" "^1.0.3"
     "@types/cookie" "^0.4.1"
     "@types/js-levenshtein" "^1.1.1"
@@ -12783,7 +12783,7 @@ msw@0.38.1:
     chokidar "^3.4.2"
     cookie "^0.4.2"
     graphql "^16.3.0"
-    headers-polyfill "^3.0.3"
+    headers-polyfill "^3.0.4"
     inquirer "^8.2.0"
     is-node-process "^1.0.1"
     js-levenshtein "^1.1.6"

@@ -13,9 +13,9 @@ jobs:
       - uses: actions/cache@v2.1.7
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-node-1-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node-1-
       - name: build
         # dummy ID
         env:
@@ -35,9 +35,9 @@ jobs:
       - uses: actions/cache@v2.1.7
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-node-1-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node-1-
       - name: build
         # dummy ID
         env:

@@ -9352,16 +9352,16 @@ gatsby-plugin-algolia@0.26.0:
     deep-equal "^2.0.5"
     lodash.chunk "^4.2.0"
 
-gatsby-plugin-feed@4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.10.0.tgz#7cc28b9b0549619af3f78d650e38388e50c9da8f"
-  integrity sha512-0L4vkY/E0uEWaDtWzOLKk6arocnlmtB4+FPmeayNLUJhVhuBv/ooOT9Vr443kaSVbep7ay9OnEbX5qO8LolD3A==
+gatsby-plugin-feed@4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.10.1.tgz#f7e926cdaef93fbf93379d492298e347348066fa"
+  integrity sha512-eXD+hEzxmTujA8fGuOC8DnEUWIa6GH1oIzXNySsBukvr3c25BHuDXmD7niuQE/DJQKkyBKciSsLdu65IIcUW8g==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.2"
     fs-extra "^10.0.0"
-    gatsby-plugin-utils "^3.4.0"
+    gatsby-plugin-utils "^3.4.1"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
@@ -9412,10 +9412,10 @@ gatsby-plugin-manifest@4.10.0:
     semver "^7.3.5"
     sharp "^0.30.1"
 
-gatsby-plugin-offline@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-5.10.0.tgz#0dd5fbd86a1b8e64cd22a460fb8dafca3821c65e"
-  integrity sha512-UInZjkLoq8+zlLhP5wKfvd3guetKYDNeHtA0pmg1tJXaqDriVSuwYg/S0mASDS8OYyjOEu8YrahxPMArHndlDA==
+gatsby-plugin-offline@5.10.1:
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-5.10.1.tgz#b4d6296ca788cb301af989612dea7fc13637f0fa"
+  integrity sha512-l33iJlXfnY9xg3iEG1qCyu7bz0tnoMzocUY1KUCE2I4FMhSHtzMzcHqVHlrULbaye0fxikwsQ9oEX0bZPBuMHA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     cheerio "^1.0.0-rc.10"
@@ -9483,10 +9483,10 @@ gatsby-plugin-sharp@4.10.0:
     svgo "1.3.2"
     uuid "3.4.0"
 
-gatsby-plugin-sitemap@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-5.10.0.tgz#c6071698df7a992c894fb9c7bb9ba47bb40d8a5b"
-  integrity sha512-OttBTRbGeDB+2ObJREFS8PlXJ+aDyppYVCHIalDhTq7MHKwM2g2CEfCIfhUQmCnODOGi6PVMFapQOl3MQ01vZg==
+gatsby-plugin-sitemap@5.10.1:
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-5.10.1.tgz#297e9434802e1d829b257ab9627ba581f48cb154"
+  integrity sha512-EO5GWLhkN3gfOXLX8QlbIepu2Kq1kk4bBgU5M2CjZAyVQhahZAJxdBat7JgLTpKZL4lSJgVSCl9IkeKgHvm+pg==
   dependencies:
     "@babel/runtime" "^7.15.4"
     common-tags "^1.8.2"
@@ -9526,6 +9526,20 @@ gatsby-plugin-utils@^3.4.0:
   integrity sha512-ACMIJZ/yaGDgNfw3cIGytbrIMK88rvv/r/Art6gPgu7g664uAh4FDnVqJQyFbJ3G+3gCRKtNs4sRxEx2fJib9A==
   dependencies:
     "@babel/runtime" "^7.15.4"
+    gatsby-core-utils "^3.10.0"
+    gatsby-sharp "^0.4.0"
+    graphql-compose "^9.0.7"
+    import-from "^4.0.0"
+    joi "^17.4.2"
+    mime "^3.0.0"
+
+gatsby-plugin-utils@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-3.4.1.tgz#14c9cff75af32a32860575069af44bdabc8f65d9"
+  integrity sha512-sDMVGauxMgXyX8WGZDndZI2vIaolJzlXBMdKhgP7DIT+Qa5wjvyHWvZy34dxtVrT3IHPK/PRMgpE81Gr7gKveg==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    fs-extra "^10.0.0"
     gatsby-core-utils "^3.10.0"
     gatsby-sharp "^0.4.0"
     graphql-compose "^9.0.7"
@@ -9666,10 +9680,10 @@ gatsby-telemetry@^3.10.0:
     lodash "^4.17.21"
     node-fetch "^2.6.7"
 
-gatsby-transformer-remark@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-5.10.0.tgz#85e7d50046a3bc134857b287ab819556e0ecafbf"
-  integrity sha512-N9+Rm0R+C+d5jxSq6a3gRBu1k5aGjdyZ5rVL54kJ5kk2Kt/eMige1WSqt74sC7cVVTjophHfmdDunUB7XXqeLw==
+gatsby-transformer-remark@5.10.1:
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-5.10.1.tgz#6e4d73eef1cef42abfb2db1a9ada999aeaa76228"
+  integrity sha512-vQjqEjvgUhLGe/oh6IrDyDPlRzN60F6fRrMWdxeAnVWWZ4AAVpEPdJrd3ZjNdEP1UZSpzYb+YfQYROXvdfmHkQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     gatsby-core-utils "^3.10.0"

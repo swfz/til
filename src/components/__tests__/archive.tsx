@@ -6,6 +6,7 @@ import { Archive } from "../archive"
 import renderer from "react-test-renderer"
 
 describe("Archive", () => {
+  const user = userEvent.setup()
   const data = {
     allMarkdownRemark: {
       edges: [
@@ -19,7 +20,7 @@ describe("Archive", () => {
       ],
     },
   }
-  it("renders correctly", () => {
+  it("renders correctly", async () => {
     const { getAllByText, getAllByLabelText } = render(
       <Archive data={data}></Archive>
     )
@@ -46,14 +47,14 @@ describe("Archive", () => {
 
     // +ボタンクリック後にリストが閉じた状態になっているか
     const plusText2021 = getAllByText(/\+/i)[0]
-    userEvent.click(plusText2021)
+    await user.click(plusText2021)
 
     expect(monthLInkList[0]).not.toBeVisible()
     expect(monthLInkList[1]).toBeVisible()
     expect(monthLInkList[2]).toBeVisible()
 
     const plusText2020 = getAllByText(/\+/i)[1]
-    userEvent.click(plusText2020)
+    await user.click(plusText2020)
 
     expect(monthLInkList[0]).not.toBeVisible()
     expect(monthLInkList[1]).not.toBeVisible()

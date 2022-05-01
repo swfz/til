@@ -1,9 +1,3 @@
-// const { compilerOptions } = require("./tsconfig.json")
-// const { pathsToModuleNameMapper } = require("ts-jest/utils")
-// const paths = pathsToModuleNameMapper(compilerOptions.paths, {
-//   prefix: "<rootDir>/",
-// })
-
 module.exports = {
   transform: {
     "^.+\\.[jt]sx?$": "<rootDir>/jest-preprocess.js",
@@ -18,7 +12,9 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``,
   },
-  testURL: `http://localhost`,
   setupFiles: [`<rootDir>/loadershim.js`],
   testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    url: `http://localhost`
+  }
 }

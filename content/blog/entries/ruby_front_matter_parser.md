@@ -74,3 +74,18 @@ yaml_loaderでwhitelistにDateやTimeなど日付関連のクラスをwhitelist�
 `Psych::DisallowedClass: Tried to load unspecified class: Date`
 
 とりあえず使うならこのくらいでOKそう
+
+## 2022-05-08追記
+
+追記時点では執筆時と違いallowlistとして指定する必要がある
+
+READMEもそういう記述になっている
+
+[waiting-for-dev/front_matter_parser: Ruby library to parse files or strings with a front matter. It has automatic syntax detection.](https://github.com/waiting-for-dev/front_matter_parser)
+
+差分としては下記のようになる
+
+```diff
+- yaml_loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Time, Date])
++ yaml_loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time, Date])
+```

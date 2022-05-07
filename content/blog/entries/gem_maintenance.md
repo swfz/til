@@ -57,11 +57,20 @@ rake release
 bundle update hatenablog_publisher
 ```
 
-対象のGemだけ更新する場合
-
 ```
 bundle update --source hatenablog_publisher
 ```
 
+### 2022-05-07追記
+
+対象のGemだけ更新する場合
 
 
+- 参考
+[bundle updateで特定のgemのみ更新する時に気をつけるべきポイント - 10nin blog](https://scrapbox.io/10nin/bundle_update%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AEgem%E3%81%AE%E3%81%BF%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88)
+
+sourceで指定するより`--conservative`のほうが良いらしい
+
+```
+bundle update --conservative activesupport
+```

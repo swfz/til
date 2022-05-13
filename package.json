@@ -12,7 +12,7 @@
     "@styled-icons/fa-solid": "10.34.0",
     "@tippyjs/react": "4.2.6",
     "@types/dompurify": "2.3.3",
-    "dompurify": "2.3.7",
+    "dompurify": "2.3.8",
     "dotenv": "16.0.1",
     "gatsby": "4.14.0",
     "gatsby-image": "3.11.0",

@@ -121,6 +121,10 @@ module.exports = {
             resolve: `gatsby-remark-bulma`,
             options: {},
           },
+          {
+            resolve: "gatsby-remark-embed-gist",
+            options: {}
+          },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,

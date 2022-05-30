@@ -4,6 +4,7 @@ date: "2022-05-30"
 description: "Custom Domainだけちょっと作業あった"
 tags:
   - Netlify
+  - Cloudflare
   - Cloudflare Pages
 ---
 

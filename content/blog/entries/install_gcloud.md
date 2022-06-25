@@ -37,3 +37,14 @@ $ tar zxvf google-cloud-sdk-319.0.0-linux-x86_64.tar.gz
 $ cd google-cloud-sdk
 $ ./google-cloud-sdk/install.sh
 ```
+
+## 追記（2022-06-25）
+
+`version 391`ではインストールスクリプトの置き場所が変わってた
+
+```shell
+$ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-391.0.0-linux-x86_64.tar.gz
+$ tar zxvf google-cloud-sdk-391.0.0-linux-x86_64.tar.gz
+$ cd google-cloud-sdk
+$ ./install.sh
+```

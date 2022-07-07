@@ -1,0 +1,20 @@
+name: slack notification
+
+on:
+  workflow_run:
+    workflows:
+      - ci
+      - lint content
+    types:
+      - completed
+jobs:
+  main:
+    name: main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: swfz/slack-workflow-status@feature/follow-workflow-run
+        with:
+          workflow_run: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+

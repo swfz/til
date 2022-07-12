@@ -1,6 +1,6 @@
 ---
 title: "GitのLogフォーマットを指定し、日付を表示する"
-date: "2022-07-08"
+date: "2022-07-12"
 description: "--pretty=format:"
 tags:
   - Git

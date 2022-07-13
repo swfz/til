@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from "react"
-import Tippy from "@tippyjs/react"
-import { tippy } from "@tippyjs/react"
-
+import React from "react"
 import Navigation from "../components/navi"
 import Bio from "./bio"
 import Archive from "./archive"

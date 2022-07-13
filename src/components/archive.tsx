@@ -1,8 +1,20 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import isNil from "lodash/isNil"
+import { Link, useStaticQuery, graphql, PageProps } from "gatsby"
 import { ArchiveQueryQuery } from "../../types/graphql-types"
 
-const ArchiveContainer = () => {
+declare type ElementType<T> = T extends (infer U)[] ? U : never
+type ArchiveEdges = ArchiveQueryQuery["allMarkdownRemark"]["edges"]
+type ArchiveEdge = ElementType<ArchiveEdges>
+type ArchiveMonth = { [key: string]: ArchiveEdge[] }
+type Archives = {
+  [key: string]: ArchiveMonth
+}
+type Props = {
+  data: ArchiveQueryQuery
+}
+
+const ArchiveContainer = (props: PageProps) => {
   const data: ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
       allMarkdownRemark(limit: 2000) {
@@ -20,22 +32,37 @@ const ArchiveContainer = () => {
   return <Archive data={data}></Archive>
 }
 
-export const Archive: React.FC = ({ data }) => {
-  const archives = data.allMarkdownRemark.edges.reduce((acc, cur) => {
+export const Archive = (props: Props) => {
+  const archives = props.data.allMarkdownRemark.edges.reduce((acc, cur) => {
+    if (isNil(cur) || isNil(cur.node) || isNil(cur.node.frontmatter)) {
+      return acc
+    }
+
     const date = cur.node.frontmatter.date
     const [year, month] = date.split("-")
-    acc[year] = acc?.[year] ?? {}
-    acc[year][month] = acc?.[year]?.[month] ?? []
-    acc[year][month].push(cur)
-    return acc
-  }, {})
 
-  const descFn = (a, b) => {
+    const ym = acc?.[year]?.[month] ? [...acc[year][month], cur] : [cur]
+
+    const updateValue = { ...acc[year], [month]: ym }
+
+    return { ...acc, [year]: updateValue }
+  }, {} as Archives)
+
+  const descFn = (
+    a: [string, ArchiveMonth | ArchiveEdges],
+    b: [string, ArchiveMonth | ArchiveEdges]
+  ) => {
     if (a[0] > b[0]) {
       return -1
     } else {
       return 1
     }
+  }
+
+  const isOpen = (year: number) => {
+    const nowYear = new Date().getFullYear()
+
+    return nowYear === year
   }
 
   return (
@@ -44,7 +71,7 @@ export const Archive: React.FC = ({ data }) => {
       {Object.entries(archives)
         .sort(descFn)
         .map(([year, items]) => (
-          <details open={true} key={year}>
+          <details open={isOpen(parseInt(year))} key={year}>
             <summary>
               +
               <Link aria-label={"year-link"} to={`/archives/${year}`}>

@@ -21,6 +21,7 @@ jobs:
         env:
           GOOGLE_ANALYTICS_TRACKING_ID: UA-hoge
           GOOGLE_TAGMANAGER_TRACKING_ID: G-hoge
+          GATSBY_CPU_COUNT: logical_cores
         run: |
           yarn
           yarn build

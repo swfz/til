@@ -41,7 +41,7 @@ Array [
     </ul>
   </details>,
   <details
-    open={true}
+    open={false}
   >
     <summary>
       +

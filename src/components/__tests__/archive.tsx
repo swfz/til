@@ -5,6 +5,12 @@ import userEvent from "@testing-library/user-event"
 import { Archive } from "../archive"
 import renderer from "react-test-renderer"
 
+beforeAll(() => {
+  // 2021-03-10T15:00:00.000Z
+  const mockDate = new Date(1615388400000)
+  jest.spyOn(global, "Date").mockImplementation(() => mockDate)
+})
+
 describe("Archive", () => {
   const user = userEvent.setup()
   const data = {
@@ -34,7 +40,7 @@ describe("Archive", () => {
     expect(yearLinkList[0]).toBeVisible()
     expect(yearLinkList[1]).toBeVisible()
 
-    // 初回レンダリング時にリストが展開された状態で表示されているか
+    // 初回レンダリング時に現在の年のリストが展開された状態で表示されているか
     const monthLInkList = getAllByLabelText("month-link")
     expect(monthLInkList).toHaveLength(3)
     expect(monthLInkList[0]).toHaveTextContent("2021-01(3)")
@@ -42,23 +48,24 @@ describe("Archive", () => {
     expect(monthLInkList[2]).toHaveTextContent("2020-11(1)")
 
     expect(monthLInkList[0]).toBeVisible()
-    expect(monthLInkList[1]).toBeVisible()
-    expect(monthLInkList[2]).toBeVisible()
+    expect(monthLInkList[1]).not.toBeVisible()
+    expect(monthLInkList[2]).not.toBeVisible()
 
     // +ボタンクリック後にリストが閉じた状態になっているか
     const plusText2021 = getAllByText(/\+/i)[0]
     await user.click(plusText2021)
 
     expect(monthLInkList[0]).not.toBeVisible()
-    expect(monthLInkList[1]).toBeVisible()
-    expect(monthLInkList[2]).toBeVisible()
+    expect(monthLInkList[1]).not.toBeVisible()
+    expect(monthLInkList[2]).not.toBeVisible()
 
+    // 2020年のリストクリック時に展開された状態になっているか
     const plusText2020 = getAllByText(/\+/i)[1]
     await user.click(plusText2020)
 
     expect(monthLInkList[0]).not.toBeVisible()
-    expect(monthLInkList[1]).not.toBeVisible()
-    expect(monthLInkList[2]).not.toBeVisible()
+    expect(monthLInkList[1]).toBeVisible()
+    expect(monthLInkList[2]).toBeVisible()
   })
   it("snapshot", () => {
     const tree = renderer.create(<Archive data={data}></Archive>).toJSON()

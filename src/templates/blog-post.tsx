@@ -16,6 +16,16 @@ type PageContext = {
   next: ElementType<AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
 }
 
+const Divider = () => {
+  return (
+    <hr
+      style={{
+        marginTop: rhythm(1),
+      }}
+    />
+  )
+}
+
 const BlogPostTemplate: React.FC<
   PageProps<BlogPostBySlugQuery, PageContext>
 > = ({ data, pageContext }) => {
@@ -59,17 +69,9 @@ const BlogPostTemplate: React.FC<
               </span>
             </p>
           </header>
-          <hr
-            style={{
-              marginTop: rhythm(1),
-            }}
-          />
+          <Divider />
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
+          <Divider />
         </article>
 
         <div>
@@ -85,11 +87,7 @@ const BlogPostTemplate: React.FC<
               )
             })}
           </ul>
-          <hr
-            style={{
-              marginTop: rhythm(1),
-            }}
-          />
+          <Divider />
         </div>
 
         <nav>

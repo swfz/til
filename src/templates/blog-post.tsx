@@ -12,7 +12,7 @@ type Props = {
 
 const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
+  const relatedPosts = data.relatedMarkdownRemarks?.posts?.slice(0, 3)
   const { previous, next } = pageContext
 
   return (
@@ -58,6 +58,24 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
         />
       </article>
 
+      <div>
+        <h2>関連記事</h2>
+        <ul>
+          {relatedPosts?.map(p => {
+            return (
+              <li>
+                <Link to={p?.fields.slug}>{p?.frontmatter.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+        <hr
+          style={{
+            marginTop: rhythm(1),
+          }}
+        />
+      </div>
+
       <nav>
         <ul
           style={{
@@ -91,13 +109,13 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($id: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       html
@@ -106,6 +124,16 @@ export const pageQuery = graphql`
         date(formatString: "YYYY-MM-DD")
         description
         tags
+      }
+    }
+    relatedMarkdownRemarks(parent: { id: { eq: $id } }) {
+      posts {
+        frontmatter {
+          title
+        }
+        fields {
+          slug
+        }
       }
     }
   }

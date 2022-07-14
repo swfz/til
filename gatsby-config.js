@@ -256,5 +256,14 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-remark-related-posts',
+      options: {
+        doc_lang: 'ja', // optional
+        target_node: 'MarkdownRemark', // optional
+        getMarkdown: (node) => node.rawMarkdownBody, // optional
+        each_bow_size: 20, // optional
+      },
+    }
   ],
 }

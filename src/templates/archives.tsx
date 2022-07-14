@@ -1,13 +1,19 @@
 import React from "react"
-// Components
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
+
 import Line from "../components/line"
 
-type Props = {
-  data: any
+import { ArchivesByDateRangeQuery } from "../../types/graphql-types"
+
+declare type ElementType<T> = T extends (infer U)[] ? U : never
+type PageContext = {
+  year: string
+  month: string
 }
 
-const ArchivesTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
+const ArchivesTemplate: React.FC<
+  PageProps<ArchivesByDateRangeQuery, PageContext>
+> = ({ data, pageContext }) => {
   const { edges, totalCount } = data.allMarkdownRemark
 
   return (
@@ -29,7 +35,7 @@ const ArchivesTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
 }
 
 export const pageQuery = graphql`
-  query ($startDate: Date, $endDate: Date) {
+  query ArchivesByDateRange($startDate: Date, $endDate: Date) {
     site {
       siteMetadata {
         title

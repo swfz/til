@@ -1,21 +1,20 @@
 import React from "react"
 import isNil from "lodash/isNil"
 import { Link, useStaticQuery, graphql, PageProps } from "gatsby"
-import { ArchiveQueryQuery } from "../../types/graphql-types"
 
 declare type ElementType<T> = T extends (infer U)[] ? U : never
-type ArchiveEdges = ArchiveQueryQuery["allMarkdownRemark"]["edges"]
+type ArchiveEdges = Queries.ArchiveQueryQuery["allMarkdownRemark"]["edges"]
 type ArchiveEdge = ElementType<ArchiveEdges>
 type ArchiveMonth = { [key: string]: ArchiveEdge[] }
 type Archives = {
   [key: string]: ArchiveMonth
 }
 type Props = {
-  data: ArchiveQueryQuery
+  data: Queries.ArchiveQueryQuery
 }
 
 const ArchiveList = () => {
-  const data: ArchiveQueryQuery = useStaticQuery(graphql`
+  const data: Queries.ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
       allMarkdownRemark(limit: 2000) {
         edges {

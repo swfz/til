@@ -5,15 +5,15 @@ import isNil from "lodash/isNil"
 
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import {
-  BlogPostBySlugQuery,
-  AllMarkdownQuery,
-} from "../../types/graphql-types"
 
 declare type ElementType<T> = T extends (infer U)[] ? U : never
 type PageContext = {
-  previous: ElementType<AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
-  next: ElementType<AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
+  previous: ElementType<
+    Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
+  >["node"]
+  next: ElementType<
+    Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
+  >["node"]
 }
 
 const Divider = () => {
@@ -27,7 +27,7 @@ const Divider = () => {
 }
 
 const BlogPostTemplate: React.FC<
-  PageProps<BlogPostBySlugQuery, PageContext>
+  PageProps<Queries.BlogPostBySlugQuery, PageContext>
 > = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const relatedPosts = data.relatedMarkdownRemarks?.posts?.slice(0, 3)

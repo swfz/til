@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
-import { AllMarkdownQuery } from "../../types/graphql-types"
 import SEO from "../components/seo"
 import Line from "../components/line"
 
-const BlogIndex: React.FC<PageProps<AllMarkdownQuery>> = ({ data }) => {
+const BlogIndex: React.FC<PageProps<Queries.AllMarkdownQuery>> = ({ data }) => {
   const posts = data.allMarkdownRemark?.edges
 
   return (

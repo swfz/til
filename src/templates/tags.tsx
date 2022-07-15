@@ -1,9 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql, PageProps } from "gatsby"
-
-import { MarkdownRemarkByTagQuery } from "../../types/graphql-types"
-
 import SEO from "../components/seo"
 import Line from "../components/line"
 
@@ -11,10 +8,9 @@ type PageContext = {
   tag: string
 }
 
-const Tags: React.FC<PageProps<MarkdownRemarkByTagQuery, PageContext>> = ({
-  data,
-  pageContext,
-}) => {
+const Tags: React.FC<
+  PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>
+> = ({ data, pageContext }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
 

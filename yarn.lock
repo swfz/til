@@ -5401,6 +5401,11 @@
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
+"@types/typography@^0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@types/typography/-/typography-0.16.4.tgz#ef7e46c6143c869ea78368605e663b3be0a99046"
+  integrity sha512-/dGcnJhnkPVlP1A5wDhRhvfvyqJ9yePHyNKRjcR701vMGjDsTnIN3C+l33blkwijtEoQgN8g1CZhbkks1DyBfw==
+
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.3"
   resolved "https://registry.npmjs.org/@types/unist/-/unist-2.0.3.tgz"

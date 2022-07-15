@@ -10,11 +10,11 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
-import { BioQueryQuery } from "../../types/graphql-types"
+import { BioQuery } from "../../types/graphql-types"
 
 const Bio: React.FC = () => {
-  const data: BioQueryQuery = useStaticQuery(graphql`
-    query BioQuery {
+  const data: BioQuery = useStaticQuery(graphql`
+    query Bio {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
           fixed(width: 50, height: 50) {
@@ -41,13 +41,18 @@ const Bio: React.FC = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author, social } = data!.site!.siteMetadata!
+  const childImageSharp = data.avatar?.childImageSharp
+  const fixed = Array.isArray(childImageSharp?.fixed)
+    ? childImageSharp?.fixed[0]
+    : childImageSharp?.fixed
+
   return (
     <>
       <h3>Profile</h3>
       <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
+        fixed={fixed}
+        alt={author?.name || ""}
         style={{
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
@@ -58,7 +63,7 @@ const Bio: React.FC = () => {
           borderRadius: `50%`,
         }}
       />
-      <strong>{author.name}</strong>
+      <strong>{author?.name}</strong>
       <hr />
       <div>日々学んだことを残していく日記</div>
       <div>コード片置き場</div>

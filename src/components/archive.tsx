@@ -7,14 +7,11 @@ declare type ElementType<T> = T extends (infer U)[] ? U : never
 type ArchiveEdges = ArchiveQueryQuery["allMarkdownRemark"]["edges"]
 type ArchiveEdge = ElementType<ArchiveEdges>
 type ArchiveMonth = { [key: string]: ArchiveEdge[] }
-type Archives = {
+type ArchiveList = {
   [key: string]: ArchiveMonth
 }
-type Props = {
-  data: ArchiveQueryQuery
-}
 
-const ArchiveContainer = (props: PageProps) => {
+const Archive = () => {
   const data: ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
       allMarkdownRemark(limit: 2000) {
@@ -29,11 +26,7 @@ const ArchiveContainer = (props: PageProps) => {
     }
   `)
 
-  return <Archive data={data}></Archive>
-}
-
-export const Archive = (props: Props) => {
-  const archives = props.data.allMarkdownRemark.edges.reduce((acc, cur) => {
+  const archives = data.allMarkdownRemark.edges.reduce((acc, cur) => {
     if (isNil(cur) || isNil(cur.node) || isNil(cur.node.frontmatter)) {
       return acc
     }
@@ -46,7 +39,7 @@ export const Archive = (props: Props) => {
     const updateValue = { ...acc[year], [month]: ym }
 
     return { ...acc, [year]: updateValue }
-  }, {} as Archives)
+  }, {} as ArchiveList)
 
   const descFn = (
     a: [string, ArchiveMonth | ArchiveEdges],
@@ -102,4 +95,4 @@ export const Archive = (props: Props) => {
   )
 }
 
-export default ArchiveContainer
+export default Archive

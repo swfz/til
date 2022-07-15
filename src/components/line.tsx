@@ -3,10 +3,9 @@ import React from "react"
 import kebabCase from "lodash/kebabCase"
 import { rhythm } from "../utils/typography"
 import { Link } from "gatsby"
-import { AllMarkdownQuery } from "../../types/graphql-types"
 
 declare type ElementType<T> = T extends (infer U)[] ? U : never
-type MarkdownNode = ElementType<AllMarkdownQuery["allMarkdownRemark"]["edges"]>
+type MarkdownNode = ElementType<Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]>
 
 const Line: React.FC<MarkdownNode> = ({ node }) => {
   return (

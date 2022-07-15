@@ -25,7 +25,7 @@ const ArchivesTemplate: React.FC<
         </h1>
         <ul>
           {edges.map(({ node }) => {
-            const { slug } = node.fields
+            const slug = node?.fields?.slug || ""
             return <Line key={slug} node={node}></Line>
           })}
         </ul>

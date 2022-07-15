@@ -1,57 +1,34 @@
 import React from "react"
-import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
 import { Helmet } from "react-helmet"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
+import { TagsQuery } from "../../types/graphql-types"
 
-const TagsPage = ({
-  data: {
-    allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
-  },
-  location,
-}) => (
-  <div>
-    <Helmet title={title} />
+const TagsPage: React.FC<PageProps<TagsQuery>> = ({ data }) => {
+  const title = data.site?.siteMetadata?.title || ""
+  const group = data.allMarkdownRemark.group
+
+  return (
     <div>
-      <h1 className="subtitle">Tags</h1>
-      <ul>
-        {group.map(tag => (
-          <li key={tag.fieldValue}>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Helmet title={title} />
+      <div>
+        <h1 className="subtitle">Tags</h1>
+        <ul>
+          {group.map(tag => (
+            <li key={tag.fieldValue}>
+              <Link to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}>
+                {tag.fieldValue} ({tag.totalCount})
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-)
-
-TagsPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      group: PropTypes.arrayOf(
-        PropTypes.shape({
-          fieldValue: PropTypes.string.isRequired,
-          totalCount: PropTypes.number.isRequired,
-        }).isRequired
-      ),
-    }),
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }),
-    }),
-  }),
+  )
 }
 
-export default TagsPage
-
 export const pageQuery = graphql`
-  query {
+  query Tags {
     site {
       siteMetadata {
         title
@@ -65,3 +42,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default TagsPage

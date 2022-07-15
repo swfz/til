@@ -1,9 +1,6 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+import type { GatsbyConfig } from 'gatsby'
 
 const escapeStringRegexp = require("escape-string-regexp")
-
 const pagePath = `content/blog`
 
 const algoliaQuery = `{
@@ -47,40 +44,27 @@ const queries = [
   },
 ]
 
-module.exports = {
-  siteMetadata: {
-    title: `>> swfz[:memo]`,
-    author: {
-      name: `swfz`,
-      summary: `scrawls`,
-    },
-    description: `til`,
-    siteUrl: `https://til.swfz.io/`,
-    social: {
-      twitter: `swfz`,
-      github: `swfz`,
-    },
-  },
-  plugins: [
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true,
-        jsxPragma: `React`,
-        allExtensions: true,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-graphql-codegen",
-      options: {
-        fileName: `types/graphql-types.d.ts`,
-        codegenConfig: {
-          resolverValidationOptions: {
-            requireResolversForResolveType: false,
-          },
-        },
-      },
-    },
+
+const plugins: GatsbyConfig['plugins'] = [
+    // {
+    //   resolve: `gatsby-plugin-typescript`,
+    //   options: {
+    //     isTSX: true,
+    //     jsxPragma: `jsx`,
+    //     allExtensions: true,
+    //   },
+    // },
+    // {
+    //   resolve: "gatsby-plugin-graphql-codegen",
+    //   options: {
+    //     fileName: `types/graphql-types.d.ts`,
+    //     codegenConfig: {
+    //       resolverValidationOptions: {
+    //         requireResolversForResolveType: false,
+    //       },
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -123,7 +107,7 @@ module.exports = {
           },
           {
             resolve: "gatsby-remark-embed-gist",
-            options: {}
+            options: {},
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
@@ -265,5 +249,24 @@ module.exports = {
         each_bow_size: 20, // optional
       },
     },
-  ],
+  ]
+
+const config: GatsbyConfig = {
+  siteMetadata: {
+    title: `swfz[:memo]<<TIL`,
+    author: {
+      name: `swfz`,
+      summary: `Today I Learned`,
+    },
+    description: `til`,
+    siteUrl: `https://til.swfz.io/`,
+    social: {
+      twitter: `swfz`,
+      github: `swfz`,
+    },
+  },
+  graphqlTypegen: true,
+  plugins: plugins,
 }
+
+export default config

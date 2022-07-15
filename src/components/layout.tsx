@@ -4,7 +4,7 @@ import Bio from "./bio"
 import Archive from "./archive"
 import Pixela from "./pixela"
 
-const Layout = ({ location, title, children }) => {
+const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Navigation></Navigation>

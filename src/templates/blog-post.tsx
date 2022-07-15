@@ -43,7 +43,7 @@ const BlogPostTemplate: React.FC<
       <>
         <SEO
           title={post.frontmatter.title ?? ""}
-          description={post.frontmatter.description || post.excerpt}
+          description={post.frontmatter.description || post.excerpt || ""}
         />
         <article>
           <header>

@@ -253,12 +253,12 @@ const plugins: GatsbyConfig['plugins'] = [
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `swfz[:memo]<<TIL`,
+    title: `swfz[:memo] << TIL`,
     author: {
       name: `swfz`,
-      summary: `Today I Learned`,
+      summary: `Software Programmer`,
     },
-    description: `til`,
+    description: `Today I Learned`,
     siteUrl: `https://til.swfz.io/`,
     social: {
       twitter: `swfz`,

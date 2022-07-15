@@ -3,15 +3,13 @@ import { graphql, PageProps } from "gatsby"
 
 import Line from "../components/line"
 
-import { ArchivesByDateRangeQuery } from "../../types/graphql-types"
-
 type PageContext = {
   year: string
   month: string
 }
 
 const ArchivesTemplate: React.FC<
-  PageProps<ArchivesByDateRangeQuery, PageContext>
+  PageProps<Queries.ArchivesByDateRangeQuery, PageContext>
 > = ({ data, pageContext }) => {
   const { edges, totalCount } = data.allMarkdownRemark
 

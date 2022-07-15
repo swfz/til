@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
 
-import { TitleQuery } from "../../types/graphql-types"
 import SEO from "../components/seo"
 
-const NotFoundPage: React.FC<PageProps<TitleQuery>> = () => {
+const NotFoundPage: React.FC<PageProps<Queries.TitleQuery>> = () => {
   return (
     <>
       <SEO title="404: Not Found" />

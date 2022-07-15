@@ -8,12 +8,10 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-
 import { rhythm } from "../utils/typography"
-import { BioQuery } from "../../types/graphql-types"
 
 const Bio: React.FC = () => {
-  const data: BioQuery = useStaticQuery(graphql`
+  const data: Queries.BioQuery = useStaticQuery(graphql`
     query Bio {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
@@ -74,12 +72,18 @@ const Bio: React.FC = () => {
       <h3>Account</h3>
       <ul>
         <li>
-          <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+          <a
+            href={`https://twitter.com/${social?.twitter || ""}`}
+            target="_blank"
+          >
             Twitter
           </a>
         </li>
         <li>
-          <a href={`https://github.com/${social.github}`} target="_blank">
+          <a
+            href={`https://github.com/${social?.github || ""}`}
+            target="_blank"
+          >
             GitHub
           </a>
         </li>

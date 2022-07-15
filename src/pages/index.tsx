@@ -1,22 +1,17 @@
 import React from "react"
-import { graphql } from "gatsby"
-
-import SEO from "../components/seo"
+import { graphql, PageProps } from "gatsby"
 import { AllMarkdownQuery } from "../../types/graphql-types"
+import SEO from "../components/seo"
 import Line from "../components/line"
 
-type Props = {
-  data: AllMarkdownQuery
-}
-
-const BlogIndex: React.FC<Props> = ({ data, location }) => {
+const BlogIndex: React.FC<PageProps<AllMarkdownQuery>> = ({ data }) => {
   const posts = data.allMarkdownRemark?.edges
 
   return (
     <>
       <SEO title="All posts" />
       {posts.map(({ node }) => {
-        return <Line key={node.fields.slug} node={node}></Line>
+        return <Line key={node?.fields?.slug} node={node}></Line>
       })}
     </>
   )

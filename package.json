@@ -55,7 +55,7 @@
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.2.3",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
-    "@types/jest": "28.1.5",
+    "@types/jest": "^28.1.5",
     "@types/react-helmet": "^6.1.5",
     "@types/react-instantsearch-dom": "^6.12.3",
     "@types/react-test-renderer": "18.0.0",
@@ -94,7 +94,8 @@
     "textlint-rule-preset-ja-technical-writing": "7.0.0",
     "textlint-rule-preset-jtf-style": "2.3.13",
     "textlint-rule-prh": "5.3.0",
-    "textlint-rule-spellcheck-tech-word": "5.0.0"
+    "textlint-rule-spellcheck-tech-word": "5.0.0",
+    "ts-jest": "^28.0.6"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -115,6 +116,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest --config ./jest.config.js",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky install"
   },
   "proxy": "http://localhost:8081/",

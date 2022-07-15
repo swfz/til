@@ -5,7 +5,6 @@ import Line from "../components/line"
 
 import { ArchivesByDateRangeQuery } from "../../types/graphql-types"
 
-declare type ElementType<T> = T extends (infer U)[] ? U : never
 type PageContext = {
   year: string
   month: string

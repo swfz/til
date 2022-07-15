@@ -16,7 +16,7 @@ exports[`Line snapshot 1`] = `
       className="subtitle"
       style={
         Object {
-          "marginBottom": "0.4375rem",
+          "marginBottom": "0.3625rem",
         }
       }
     >

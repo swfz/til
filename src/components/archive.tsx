@@ -14,7 +14,7 @@ type Props = {
   data: ArchiveQueryQuery
 }
 
-const ArchiveContainer = (props: PageProps) => {
+const ArchiveList = () => {
   const data: ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
       allMarkdownRemark(limit: 2000) {
@@ -28,7 +28,6 @@ const ArchiveContainer = (props: PageProps) => {
       }
     }
   `)
-
   return <Archive data={data}></Archive>
 }
 
@@ -102,4 +101,4 @@ export const Archive = (props: Props) => {
   )
 }
 
-export default ArchiveContainer
+export default ArchiveList

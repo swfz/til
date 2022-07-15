@@ -14,16 +14,8 @@ $title-size: 1.8rem;
   height: 100%;
 }
 
-h2 {
-  font-family: Helvetica , "游ゴシック", sans-serif;
-}
-
-h3 {
-  font-family: Helvetica , "游ゴシック", sans-serif;
-}
-
-h4 {
-  font-family: Helvetica , "游ゴシック", sans-serif;
+p, a, div, h1, h2, h3, h4 {
+  font-family: "Noto Sans JP", Helvetica , "游ゴシック", sans-serif;
 }
 
 @import "~bulma/bulma.sass";
@@ -38,12 +30,15 @@ h4 {
 // prismjs
 code.language-json, code.language-hcl, code.language-python, code.language-yaml, code.language-sql, code.language-javascript, code.language-typescript, code.language-ruby, code.language-shell, code.language-graphql {
  .token.number {
-  margin-right: initial;
-  min-width: initial;
-  padding: initial;
-  background-color: initial;
-  border-radius: initial;
-  display: initial;
-  font-size: initial;
+    margin-right: initial;
+    min-width: initial;
+    padding: initial;
+    background-color: initial;
+    border-radius: initial;
+    display: initial;
+    font-size: initial;
+  }
 }
+pre[class*="language-"]:before, pre[class*="language-"]:after {
+  box-shadow: 0px 0px 0px #979797
 }

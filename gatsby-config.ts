@@ -13,7 +13,7 @@ const algoliaQuery = `{
       node {
         id
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date
           title
         }
         fields {
@@ -46,25 +46,6 @@ const queries = [
 
 
 const plugins: GatsbyConfig['plugins'] = [
-    // {
-    //   resolve: `gatsby-plugin-typescript`,
-    //   options: {
-    //     isTSX: true,
-    //     jsxPragma: `jsx`,
-    //     allExtensions: true,
-    //   },
-    // },
-    // {
-    //   resolve: "gatsby-plugin-graphql-codegen",
-    //   options: {
-    //     fileName: `types/graphql-types.d.ts`,
-    //     codegenConfig: {
-    //       resolverValidationOptions: {
-    //         requireResolversForResolveType: false,
-    //       },
-    //     },
-    //   },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

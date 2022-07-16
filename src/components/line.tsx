@@ -1,10 +1,9 @@
 import React from "react"
-
+import { Link } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import { rhythm } from "../utils/typography"
-import { Link } from "gatsby"
+import { ElementType } from "../../types"
 
-declare type ElementType<T> = T extends (infer U)[] ? U : never
 type MarkdownNode = ElementType<
   Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
 >

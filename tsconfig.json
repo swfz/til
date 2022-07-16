@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*", "gatsby-*.ts"],
+  "include": ["./src/**/*", "gatsby-(node|config|ssr|browser).ts(x)?"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "target": "ES2017",

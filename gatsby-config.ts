@@ -13,7 +13,7 @@ const algoliaQuery = `{
       node {
         id
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date
           title
         }
         fields {

@@ -31,12 +31,7 @@ const BlogPostTemplate: React.FC<
   const relatedPosts = data.relatedMarkdownRemarks?.posts?.slice(0, 3)
   const { previous, next } = pageContext
 
-  if (
-    !isNil(post) &&
-    !isNil(post.html) &&
-    !isNil(post.frontmatter) &&
-    !isNil(post.frontmatter.tags)
-  ) {
+  if (!isNil(post) && !isNil(post.html)) {
     return (
       <>
         <SEO
@@ -101,14 +96,14 @@ const BlogPostTemplate: React.FC<
             <li>
               {previous && (
                 <Link to={previous?.fields?.slug || ""} rel="prev">
-                  ← {previous?.frontmatter?.title}
+                  ← {previous?.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next?.fields?.slug || ""} rel="next">
-                  {next?.frontmatter?.title} →
+                  {next?.frontmatter.title} →
                 </Link>
               )}
             </li>
@@ -136,7 +131,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "YYYY-MM-DD")
+        date
         description
         tags
       }

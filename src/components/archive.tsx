@@ -1,8 +1,8 @@
 import React from "react"
 import isNil from "lodash/isNil"
-import { Link, useStaticQuery, graphql, PageProps } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { ElementType } from "../../types"
 
-declare type ElementType<T> = T extends (infer U)[] ? U : never
 type ArchiveEdges = Queries.ArchiveQueryQuery["allMarkdownRemark"]["edges"]
 type ArchiveEdge = ElementType<ArchiveEdges>
 type ArchiveMonth = { [key: string]: ArchiveEdge[] }

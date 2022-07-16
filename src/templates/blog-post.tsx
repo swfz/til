@@ -2,18 +2,16 @@ import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import isNil from "lodash/isNil"
-
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import { ElementType } from "../../types"
 
-declare type ElementType<T> = T extends (infer U)[] ? U : never
+type MarkdownNode = ElementType<
+  Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
+>["node"]
 type PageContext = {
-  previous: ElementType<
-    Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
-  >["node"]
-  next: ElementType<
-    Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
-  >["node"]
+  previous: MarkdownNode
+  next: MarkdownNode
 }
 
 const Divider = () => {

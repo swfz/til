@@ -1,14 +1,8 @@
 import React from "react"
 import isNil from "lodash/isNil"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { ElementType } from "../../types"
+import { Archives, ArchiveMonth, ArchiveEdges } from "../../types"
 
-type ArchiveEdges = Queries.ArchiveQueryQuery["allMarkdownRemark"]["edges"]
-type ArchiveEdge = ElementType<ArchiveEdges>
-type ArchiveMonth = { [key: string]: ArchiveEdge[] }
-type Archives = {
-  [key: string]: ArchiveMonth
-}
 type Props = {
   data: Queries.ArchiveQueryQuery
 }
@@ -20,7 +14,7 @@ const ArchiveList = () => {
         edges {
           node {
             frontmatter {
-              date(formatString: "YYYY-MM-DD")
+              date
             }
           }
         }
@@ -32,7 +26,7 @@ const ArchiveList = () => {
 
 export const Archive = (props: Props) => {
   const archives = props.data.allMarkdownRemark.edges.reduce((acc, cur) => {
-    if (isNil(cur) || isNil(cur.node) || isNil(cur.node.frontmatter)) {
+    if (isNil(cur) || isNil(cur.node)) {
       return acc
     }
 

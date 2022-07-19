@@ -35,8 +35,8 @@ const BlogPostTemplate: React.FC<
     return (
       <>
         <SEO
-          title={post.frontmatter.title ?? ""}
-          description={post.frontmatter.description || post.excerpt || ""}
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt || ''}
         />
         <article>
           <header>
@@ -73,8 +73,8 @@ const BlogPostTemplate: React.FC<
             {relatedPosts?.map(relatedPost => {
               return (
                 <li>
-                  <Link to={relatedPost?.fields?.slug ?? ""}>
-                    {relatedPost?.frontmatter?.title}
+                  <Link to={relatedPost?.fields.slug ?? ""}>
+                    {relatedPost?.frontmatter.title}
                   </Link>
                 </li>
               )
@@ -95,15 +95,15 @@ const BlogPostTemplate: React.FC<
           >
             <li>
               {previous && (
-                <Link to={previous?.fields?.slug || ""} rel="prev">
-                  ← {previous?.frontmatter.title}
+                <Link to={previous.fields.slug || ""} rel="prev">
+                  ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next?.fields?.slug || ""} rel="next">
-                  {next?.frontmatter.title} →
+                <Link to={next.fields.slug || ""} rel="next">
+                  {next.frontmatter.title} →
                 </Link>
               )}
             </li>

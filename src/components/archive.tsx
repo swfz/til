@@ -30,7 +30,7 @@ export const Archive = (props: Props) => {
       return acc
     }
 
-    const date = cur.node.frontmatter.date
+    const date = cur?.node?.frontmatter?.date || ""
     const [year, month] = date.split("-")
 
     const ym = acc?.[year]?.[month] ? [...acc[year][month], cur] : [cur]

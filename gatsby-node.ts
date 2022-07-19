@@ -4,13 +4,16 @@ import moment from "moment"
 import kebabCase from "lodash/kebabCase"
 import isNil from "lodash/isNil"
 import { createFilePath } from "gatsby-source-filesystem"
-import { Archives } from "./types"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   // Frontmatterは必ず全て入力している前提
   actions.createTypes(`
     type MarkdownRemark implements Node {
+      fields: MarkdownRemarkFields!
       frontmatter: MarkdownRemarkFrontmatter!
+    }
+    type MarkdownRemarkFields {
+      slug: String!
     }
     type MarkdownRemarkFrontmatter {
       title: String!
@@ -91,7 +94,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     const updateValue = { ...acc[year], [month]: ym }
 
     return { ...acc, [year]: updateValue }
-  }, {} as Archives)
+  }, {})
 
   Object.entries(archives).forEach(([year, items]) => {
     const startDate = moment(`${year}-01-01`).format("YYYY-MM-DD")

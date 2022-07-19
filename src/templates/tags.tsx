@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link, graphql, PageProps } from "gatsby"
 import SEO from "../components/seo"
 import Line from "../components/line"
@@ -50,6 +49,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
           }
@@ -57,6 +57,7 @@ export const pageQuery = graphql`
             title
             date
             tags
+            description
           }
         }
       }

@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
-
 import Line from "../components/line"
 
 type PageContext = {
@@ -22,7 +21,7 @@ const ArchivesTemplate: React.FC<
         </h1>
         <ul>
           {edges.map(({ node }) => {
-            const slug = node?.fields?.slug || ""
+            const slug = node.fields.slug
             return <Line key={slug} node={node}></Line>
           })}
         </ul>
@@ -54,6 +53,7 @@ export const pageQuery = graphql`
             title
             date
             tags
+            description
           }
         }
       }

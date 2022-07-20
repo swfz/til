@@ -1,14 +1,16 @@
 import React from "react"
 import "@testing-library/jest-dom/extend-expect"
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { Archive } from "../archive"
 import renderer from "react-test-renderer"
+import { Archive } from "../archive"
 
 beforeAll(() => {
   // 2021-03-10T15:00:00.000Z
   const mockDate = new Date(1615388400000)
-  jest.spyOn(global, "Date").mockImplementation(() => mockDate)
+  jest
+    .spyOn(global, "Date")
+    .mockImplementation(() => mockDate as unknown as string)
 })
 
 describe("Archive", () => {

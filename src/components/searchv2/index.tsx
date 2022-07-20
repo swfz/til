@@ -1,4 +1,4 @@
-import { default as React, useState } from "react"
+import { default as React, useState, createRef } from "react"
 import { Link } from "gatsby"
 import algoliasearch from "algoliasearch/lite"
 import {
@@ -11,6 +11,7 @@ import {
   useHits,
   Hits,
 } from "react-instantsearch-hooks-web"
+import useClickOutside from "../search/use-click-outside"
 import type { UseSearchBoxProps } from "react-instantsearch-hooks-web"
 import { Search as SearchIcon } from "@styled-icons/fa-solid"
 
@@ -33,23 +34,42 @@ const SearchResult = ({ indices, className, show }) => (
   </div>
 )
 
+
 const CustomSearch = ({ indices }) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
+  // const { hits, results, sendEvent } = useHits({});
   const [hasFocus, setFocus] = useState(false)
 
+  const searchRootRef = createRef()
+  useClickOutside(searchRootRef, () => setFocus(false))
+
+  const refineHandler = (e) => {
+    console.log(e.target.value);
+    console.log(isSearchStalled);
+    if(isSearchStalled) {
+      refine(e.target.value)
+    }
+  }
+
   return (
-    <>
+    <div className="search-root" ref={searchRootRef}>
       <SearchBox
-        onFocus={() => setFocus(true)}
-        className="search-input"
+        placeholder="Search"
+        onFocus={()=>{setFocus(true)}}
+        classNames={{
+          form: hasFocus ? 'search-input open' : 'search-input close',
+          input: 'search-input',
+          submit: 'search-button',
+          reset: 'reset-button',
+          submitIcon: 'search-icon',
+        }}
       ></SearchBox>
-      <SearchIcon className="search-icon" />
       <SearchResult
         show={query && query.length > 0 && hasFocus}
         className="popover"
         indices={indices}
       ></SearchResult>
-    </>
+    </div>
   )
 }
 
@@ -58,12 +78,9 @@ const SearchV2 = ({ indices }: Props) => {
     process.env.GATSBY_ALGOLIA_APP_ID || "",
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   );
-  // const [query, setQuery] = useState("")
 
-  // const { hits, results, sendEvent } = useHits(props);
   return (
     <InstantSearch
-      // onStateChange={({ query }) => {setQuery(query)}}
       searchClient={searchClient}
       stalledSearchDelay={1000}
       indexName={indices[0].name}

@@ -63,7 +63,7 @@ const SearchResult = ({ indices, className, show }) => {
   )
 }
 
-const CustomSearch = ({ indices }) => {
+const CustomSearch = ({ indices, queryHook }) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
   const [hasFocus, setFocus] = useState(false)
 
@@ -77,6 +77,7 @@ const CustomSearch = ({ indices }) => {
         onFocus={() => {
           setFocus(true)
         }}
+        queryHook={queryHook}
         classNames={{
           form: hasFocus ? "search-input open" : "search-input close",
           input: "search-input",
@@ -100,13 +101,24 @@ const SearchV2 = ({ indices }: Props) => {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   )
 
+  let timerId = undefined
+  function queryHook(query, search) {
+    if (timerId) {
+      clearTimeout(timerId)
+    }
+
+    console.log(timerId)
+
+    timerId = setTimeout(() => search(query), 1000)
+  }
+
   return (
     <InstantSearch
       searchClient={searchClient}
       stalledSearchDelay={1000}
       indexName={indices[0].name}
     >
-      <CustomSearch indices={indices}></CustomSearch>
+      <CustomSearch queryHook={queryHook} indices={indices}></CustomSearch>
     </InstantSearch>
   )
 }

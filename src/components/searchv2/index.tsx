@@ -12,56 +12,77 @@ import {
   Hits,
 } from "react-instantsearch-hooks-web"
 import useClickOutside from "../search/use-click-outside"
-import type { UseSearchBoxProps } from "react-instantsearch-hooks-web"
+import type {
+  UseSearchBoxProps,
+  HitsProps,
+} from "react-instantsearch-hooks-web"
 import { Search as SearchIcon } from "@styled-icons/fa-solid"
 
-const PageHit = ({ hit }) => (
-  <div>
+type HitRecord = {
+  date: string
+  objectID: string
+  rawMarkdownBody: string
+  slug: string
+  timeToRead: number
+  title: string
+}
+
+const PageHit = ({ hit }: HitsProps<HitRecord>) => (
+  <div className="search-result-item">
     <Link to={hit.slug}>
       <Highlight attribute="title" hit={hit} />
     </Link>
-    <Snippet attribute="excerpt" hit={hit} />
+    <br />
+    <Snippet
+      attribute="rawMarkdownBody"
+      hit={hit}
+      classNames={{
+        root: "search-result-item-snippet",
+      }}
+    />
   </div>
 )
 
-const SearchResult = ({ indices, className, show }) => (
-  <div className={className} style={{ display: show ? `block` : `none` }}>
-    {indices.map(index => (
-      <Index indexName={index.name}>
-        <Hits hitComponent={PageHit}></Hits>
-      </Index>
-    ))}
-  </div>
-)
+const SearchResult = ({ indices, className, show }) => {
+  const { hits, results, sendEvent } = useHits({})
 
+  return (
+    <div className={className} style={{ display: show ? `block` : `none` }}>
+      <div>{results?.nbHits} results</div>
+      {indices.map(index => (
+        <Index indexName={index.name}>
+          <Hits
+            classNames={{
+              list: "search-result-list",
+            }}
+            hitComponent={PageHit}
+          ></Hits>
+        </Index>
+      ))}
+    </div>
+  )
+}
 
 const CustomSearch = ({ indices }) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
-  // const { hits, results, sendEvent } = useHits({});
   const [hasFocus, setFocus] = useState(false)
 
   const searchRootRef = createRef()
   useClickOutside(searchRootRef, () => setFocus(false))
 
-  const refineHandler = (e) => {
-    console.log(e.target.value);
-    console.log(isSearchStalled);
-    if(isSearchStalled) {
-      refine(e.target.value)
-    }
-  }
-
   return (
     <div className="search-root" ref={searchRootRef}>
       <SearchBox
         placeholder="Search"
-        onFocus={()=>{setFocus(true)}}
+        onFocus={() => {
+          setFocus(true)
+        }}
         classNames={{
-          form: hasFocus ? 'search-input open' : 'search-input close',
-          input: 'search-input',
-          submit: 'search-button',
-          reset: 'reset-button',
-          submitIcon: 'search-icon',
+          form: hasFocus ? "search-input open" : "search-input close",
+          input: "search-input",
+          submit: "search-button",
+          reset: "reset-button",
+          submitIcon: "search-icon",
         }}
       ></SearchBox>
       <SearchResult
@@ -77,7 +98,7 @@ const SearchV2 = ({ indices }: Props) => {
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID || "",
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
-  );
+  )
 
   return (
     <InstantSearch

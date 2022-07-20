@@ -44,7 +44,7 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 }
 
 .popover {
-  max-height: 80vh;
+  max-height: 100vh;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   position: absolute;
@@ -52,8 +52,8 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
   right: 0;
   top: 100%;
   margin-top: 0.5em;
-  width: 80vw;
-  max-width: 30em;
+  width: 100vw;
+  max-width: 50em;
   box-shadow: 0 0 5px 0;
   padding: 1em;
   border-radius: 2px;
@@ -117,4 +117,19 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 
 .reset-button {
   display: none;
+}
+
+.search-result-list {
+  list-style-type: none;
+}
+
+.search-result-item {
+  border-top: 1px solid #979797;
+}
+
+.search-result-item-snippet {
+  padding-left: 1em;
+  padding-right: 1em;
+  color: #979797;
+  font-size: 0.7em;
 }

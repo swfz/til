@@ -1,10 +1,18 @@
 {
-  "include": ["./src/**/*", "gatsby-(node|config|ssr|browser).ts(x)?"],
+  "include": [
+    "./src/**/*",
+    "types/index.d.ts",
+    "gatsby-node.ts",
+    "gatsby-config.ts",
+    "gatsby-browser.tsx"
+  ],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ESNext",
     "module": "commonjs",
     "jsx": "react",
+    "allowJs": true,
+    "checkJs": true,
     "declaration": false,
     "strict": true,
     "allowSyntheticDefaultImports": true,

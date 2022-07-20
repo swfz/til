@@ -27,7 +27,28 @@ type HitRecord = {
   title: string
 }
 
-const PageHit = ({ hit }: HitsProps<HitRecord>) => (
+type SearchProps = {
+  indices: Indices[]
+}
+
+type Indices = {
+  name: string
+  title: string
+}
+
+// NOTE: queryHookはSearchBoxConnectorParamsを持ってきたかったが持ってくる方法がわからなかったのでコピーしている
+type CustomSearchProps = {
+  indices: Indices[]
+  queryHook: (query: string, hook: (value: string) => void) => void
+}
+
+type SearchResultProps = {
+  indices: Indices[]
+  className: string
+  show: boolean
+}
+
+const PageHit = ({ hit }) => (
   <div className="search-result-item">
     <Link to={hit.slug}>
       <Highlight attribute="title" hit={hit} />
@@ -43,7 +64,7 @@ const PageHit = ({ hit }: HitsProps<HitRecord>) => (
   </div>
 )
 
-const SearchResult = ({ indices, className, show }) => {
+const SearchResult = ({ indices, className, show }: SearchResultProps) => {
   const { hits, results, sendEvent } = useHits({})
 
   return (
@@ -63,7 +84,7 @@ const SearchResult = ({ indices, className, show }) => {
   )
 }
 
-const CustomSearch = ({ indices, queryHook }) => {
+const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
   const [hasFocus, setFocus] = useState(false)
 
@@ -95,21 +116,21 @@ const CustomSearch = ({ indices, queryHook }) => {
   )
 }
 
-const SearchV2 = ({ indices }: Props) => {
+const SearchV2 = ({ indices }: SearchProps) => {
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID || "",
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   )
 
-  let timerId = undefined
-  function queryHook(query, search) {
+  const [timerId, setTimerId] = useState<number | undefined>(undefined)
+
+  const queryHook: CustomSearchProps["queryHook"] = (query, search) => {
     if (timerId) {
       clearTimeout(timerId)
     }
 
-    console.log(timerId)
-
-    timerId = setTimeout(() => search(query), 1000)
+    const id = setTimeout(() => search(query), 1000)
+    setTimerId(id)
   }
 
   return (

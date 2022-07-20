@@ -11,7 +11,7 @@ import {
   useHits,
   Hits,
 } from "react-instantsearch-hooks-web"
-import useClickOutside from "../search/use-click-outside"
+import useClickOutside from "./use-click-outside"
 import type { Hit } from "instantsearch.js"
 
 type PageHitProps = {
@@ -107,7 +107,7 @@ const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
   )
 }
 
-const SearchV2 = ({ indices }: SearchProps) => {
+const Search = ({ indices }: SearchProps) => {
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID || "",
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
@@ -135,4 +135,4 @@ const SearchV2 = ({ indices }: SearchProps) => {
   )
 }
 
-export default SearchV2
+export default Search

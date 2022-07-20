@@ -2,7 +2,6 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Search from "./search"
-import SearchV2 from "./searchv2"
 
 const Navigation: React.FC = () => {
   const searchIndices = [{ name: `til`, title: `Pages` }]
@@ -45,8 +44,7 @@ const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* <Search indices={searchIndices}></Search> */}
-      <SearchV2 indices={searchIndices}></SearchV2>
+      <Search indices={searchIndices}></Search>
     </div>
   )
 }

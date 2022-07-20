@@ -113,7 +113,7 @@ const SearchV2 = ({ indices }: SearchProps) => {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   )
 
-  const [timerId, setTimerId] = useState<number | undefined>(undefined)
+  const [timerId, setTimerId] = useState<ReturnType<typeof setTimeout>>()
 
   const queryHook: CustomSearchProps["queryHook"] = (query, search) => {
     if (timerId) {

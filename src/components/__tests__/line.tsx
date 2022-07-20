@@ -1,15 +1,23 @@
 import React from "react"
 import { render } from "@testing-library/react"
 import "@testing-library/jest-dom/extend-expect"
-import Line from "../line"
 import renderer from "react-test-renderer"
+import Line from "../line"
+
+type MarkdownNode = {
+  frontmatter: Queries.MarkdownRemarkFrontmatter
+  fields: {
+    slug: string
+  }
+}
 
 describe("Line", () => {
-  const node = {
+  const node: MarkdownNode = {
     frontmatter: {
       title: "hoge",
       tags: ["A", "B"],
       date: "2021-05-01",
+      description: "This is Description",
     },
     fields: {
       slug: "/sample_hoge/fuga",

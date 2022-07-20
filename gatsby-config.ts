@@ -1,138 +1,142 @@
-import type { GatsbyConfig } from 'gatsby'
-import { algoliaQueries, feedOptions, remarkRelatedPostsOptions } from './src/gatsby/config';
+import type { GatsbyConfig } from "gatsby"
+import {
+  algoliaQueries,
+  feedOptions,
+  remarkRelatedPostsOptions,
+} from "./src/gatsby/config"
 
-const plugins: GatsbyConfig['plugins'] = [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+const plugins: GatsbyConfig["plugins"] = [
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/content/blog`,
+      name: `blog`,
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/content/assets`,
+      name: `assets`,
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
+  },
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 590,
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              rel: "noopener noreferrer",
-            },
-          },
-          {
-            resolve: `gatsby-remark-bulma`,
-            options: {},
-          },
-          {
-            resolve: "gatsby-remark-embed-gist",
-            options: {},
-          },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "dummy",
-        head: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-tagmanager`,
-      options: {
-        id: process.env.GOOGLE_TAGMANAGER_TRACKING_ID,
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: feedOptions,
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
-      },
-    },
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-styled-components`,
-    {
-      resolve: `@sentry/gatsby`,
-      options: {
-        dsn: `https://a52b2817a4214407b72c88d2d8d62ca7@o554110.ingest.sentry.io/5682225`,
-        sampleRate: 0.7,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        // Use Admin API key without GATSBY_ prefix, so that the key isn't exposed in the application
-        // Tip: use Search API key with GATSBY_ prefix to access the service from within components
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
-        algoliaQueries,
-        chunkSize: 10000, // default: 1000
-        settings: {
-          // optional, any index settings
-          // Note: by supplying settings, you will overwrite all existing settings on the index
         },
-        enablePartialUpdates: false, // default: false
-        matchFields: ["slug", "modified"], // Array<String> default: ['modified']
-        concurrentQueries: false, // default: true
-        skipIndexing:
-          process.env.BRANCH !== "master" ||
-          process.env.CONTENT_CHANGED === "false", // default: false, useful for e.g. preview deploys or local development
-        continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
+        {
+          resolve: `gatsby-remark-responsive-iframe`,
+          options: {
+            wrapperStyle: `margin-bottom: 1.0725rem`,
+          },
+        },
+        {
+          resolve: "gatsby-remark-external-links",
+          options: {
+            rel: "noopener noreferrer",
+          },
+        },
+        {
+          resolve: `gatsby-remark-bulma`,
+          options: {},
+        },
+        {
+          resolve: "gatsby-remark-embed-gist",
+          options: {},
+        },
+        `gatsby-remark-prismjs`,
+        `gatsby-remark-copy-linked-files`,
+        `gatsby-remark-smartypants`,
+      ],
+    },
+  },
+  `gatsby-transformer-sharp`,
+  `gatsby-plugin-sharp`,
+  {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "dummy",
+      head: true,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-google-tagmanager`,
+    options: {
+      id: process.env.GOOGLE_TAGMANAGER_TRACKING_ID,
+      includeInDevelopment: false,
+      defaultDataLayer: { platform: "gatsby" },
+    },
+  },
+  {
+    resolve: `gatsby-plugin-feed`,
+    options: feedOptions,
+  },
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Gatsby Starter Blog`,
+      short_name: `GatsbyJS`,
+      start_url: `/`,
+      background_color: `#ffffff`,
+      theme_color: `#663399`,
+      display: `minimal-ui`,
+      icon: `content/assets/gatsby-icon.png`,
+    },
+  },
+  `gatsby-plugin-react-helmet`,
+  {
+    resolve: `gatsby-plugin-typography`,
+    options: {
+      pathToConfigModule: `src/utils/typography`,
+    },
+  },
+  `gatsby-plugin-sitemap`,
+  `gatsby-plugin-sass`,
+  `gatsby-plugin-styled-components`,
+  {
+    resolve: `@sentry/gatsby`,
+    options: {
+      dsn: `https://a52b2817a4214407b72c88d2d8d62ca7@o554110.ingest.sentry.io/5682225`,
+      sampleRate: 0.7,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-algolia`,
+    options: {
+      appId: process.env.ALGOLIA_APP_ID,
+      // Use Admin API key without GATSBY_ prefix, so that the key isn't exposed in the application
+      // Tip: use Search API key with GATSBY_ prefix to access the service from within components
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+      algoliaQueries,
+      chunkSize: 10000, // default: 1000
+      settings: {
+        // optional, any index settings
+        // Note: by supplying settings, you will overwrite all existing settings on the index
       },
+      enablePartialUpdates: false, // default: false
+      matchFields: ["slug", "modified"], // Array<String> default: ['modified']
+      concurrentQueries: false, // default: true
+      skipIndexing:
+        process.env.BRANCH !== "master" ||
+        process.env.CONTENT_CHANGED === "false", // default: false, useful for e.g. preview deploys or local development
+      continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-    {
-      resolve: "gatsby-remark-related-posts",
-      options: remarkRelatedPostsOptions,
-    },
-  ]
+  },
+  // this (optional) plugin enables Progressive Web App + Offline functionality
+  // To learn more, visit: https://gatsby.dev/offline
+  // `gatsby-plugin-offline`,
+  {
+    resolve: "gatsby-remark-related-posts",
+    options: remarkRelatedPostsOptions,
+  },
+]
 
 const config: GatsbyConfig = {
   siteMetadata: {

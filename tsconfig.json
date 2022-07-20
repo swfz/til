@@ -1,7 +1,6 @@
 {
   "include": [
     "./src/**/*",
-    "types/index.d.ts",
     "gatsby-node.ts",
     "gatsby-config.ts",
     "gatsby-browser.tsx"

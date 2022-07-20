@@ -4,7 +4,7 @@ import "typeface-merriweather"
 import "prismjs/themes/prism-coy.css"
 import "./src/styles.scss"
 
-import React from "react"
+import { default as React, ReactNode } from "react"
 import Layout from "./src/components/layout"
 
 const startWorker = async () => {
@@ -22,7 +22,13 @@ export const onClientEntry = () => {
   }
 }
 
-const wrapElement = ({ element, props }) => {
+const wrapElement = ({
+  element,
+  props,
+}: {
+  element: ReactNode
+  props: object
+}) => {
   return <Layout {...props}>{element}</Layout>
 }
 

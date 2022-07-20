@@ -12,19 +12,10 @@ import {
   Hits,
 } from "react-instantsearch-hooks-web"
 import useClickOutside from "../search/use-click-outside"
-import type {
-  UseSearchBoxProps,
-  HitsProps,
-} from "react-instantsearch-hooks-web"
-import { Search as SearchIcon } from "@styled-icons/fa-solid"
+import type { Hit } from "instantsearch.js"
 
-type HitRecord = {
-  date: string
-  objectID: string
-  rawMarkdownBody: string
-  slug: string
-  timeToRead: number
-  title: string
+type PageHitProps = {
+  hit: Hit
 }
 
 type SearchProps = {
@@ -45,10 +36,10 @@ type CustomSearchProps = {
 type SearchResultProps = {
   indices: Indices[]
   className: string
-  show: string|boolean
+  show: string | boolean
 }
 
-const PageHit = ({ hit }) => (
+const PageHit = ({ hit }: PageHitProps) => (
   <div className="search-result-item">
     <Link to={hit.slug}>
       <Highlight attribute="title" hit={hit} />

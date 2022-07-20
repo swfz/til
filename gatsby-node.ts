@@ -4,6 +4,7 @@ import moment from "moment"
 import kebabCase from "lodash/kebabCase"
 import isNil from "lodash/isNil"
 import { createFilePath } from "gatsby-source-filesystem"
+import { Archives } from "./types"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   // Frontmatterは必ず全て入力している前提
@@ -30,7 +31,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
   const archiveTemplate = path.resolve(`./src/templates/archives.tsx`)
-  const result = await graphql(
+  const result = await graphql<Queries.AllPostAndTagsQuery>(
     `
       query AllPostAndTags {
         postsRemark: allMarkdownRemark(
@@ -94,7 +95,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     const updateValue = { ...acc[year], [month]: ym }
 
     return { ...acc, [year]: updateValue }
-  }, {})
+  }, {} as Archives)
 
   Object.entries(archives).forEach(([year, items]) => {
     const startDate = moment(`${year}-01-01`).format("YYYY-MM-DD")

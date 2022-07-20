@@ -1,5 +1,5 @@
 // For gatsby-plugin-algolia
-import { ElementType } from "../../types"
+import { ElementType } from "../@types"
 type MarkdownNode = {
   node: ElementType<
   Queries.AllPostAndTagsQuery["postsRemark"]["edges"]

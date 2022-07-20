@@ -1,7 +1,7 @@
 import React from "react"
 import isNil from "lodash/isNil"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { Archives, ArchiveMonth, ArchiveEdges } from "../../types"
+import { Archives, ArchiveMonth, ArchiveEdges } from "../@types"
 
 type Props = {
   data: Queries.ArchiveQueryQuery

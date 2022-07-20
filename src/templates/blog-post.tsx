@@ -4,7 +4,7 @@ import kebabCase from "lodash/kebabCase"
 import isNil from "lodash/isNil"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { ElementType } from "../../types"
+import { ElementType } from "../@types"
 
 type MarkdownNode = ElementType<
   Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
@@ -36,7 +36,7 @@ const BlogPostTemplate: React.FC<
       <>
         <SEO
           title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt || ''}
+          description={post.frontmatter.description || post.excerpt || ""}
         />
         <article>
           <header>

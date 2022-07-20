@@ -1,4 +1,4 @@
-// For Plugin Algolia
+// For gatsby-plugin-algolia
 import { ElementType } from "../../types"
 type MarkdownNode = {
   node: ElementType<
@@ -63,3 +63,11 @@ export const algoliaQueries = [
     settings: { attributesToSnippet: [`rawMarkdownBody:30`] },
   },
 ]
+
+// For gatsby-remark-related-posts
+export const remarkRelatedPostsOptions = {
+  doc_lang: "ja", // optional
+  target_node: "MarkdownRemark", // optional
+  getMarkdown: (node: Queries.MarkdownRemark) => node.rawMarkdownBody, // optional
+  each_bow_size: 20, // optional
+}

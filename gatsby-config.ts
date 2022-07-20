@@ -1,5 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
-import { algoliaQueries } from './src/gatsby/config';
+import { algoliaQueries, remarkRelatedPostsOptions } from './src/gatsby/config';
 
 const plugins: GatsbyConfig['plugins'] = [
     {
@@ -179,12 +179,7 @@ const plugins: GatsbyConfig['plugins'] = [
     // `gatsby-plugin-offline`,
     {
       resolve: "gatsby-remark-related-posts",
-      options: {
-        doc_lang: "ja", // optional
-        target_node: "MarkdownRemark", // optional
-        getMarkdown: node => node.rawMarkdownBody, // optional
-        each_bow_size: 20, // optional
-      },
+      options: remarkRelatedPostsOptions,
     },
   ]
 

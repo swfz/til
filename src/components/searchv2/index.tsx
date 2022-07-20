@@ -1,4 +1,4 @@
-import { default as React, useState, createRef } from "react"
+import { default as React, useState, useRef } from "react"
 import { Link } from "gatsby"
 import algoliasearch from "algoliasearch/lite"
 import {
@@ -45,7 +45,7 @@ type CustomSearchProps = {
 type SearchResultProps = {
   indices: Indices[]
   className: string
-  show: boolean
+  show: string|boolean
 }
 
 const PageHit = ({ hit }) => (
@@ -88,7 +88,7 @@ const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
   const [hasFocus, setFocus] = useState(false)
 
-  const searchRootRef = createRef()
+  const searchRootRef = useRef<HTMLDivElement>(null)
   useClickOutside(searchRootRef, () => setFocus(false))
 
   return (

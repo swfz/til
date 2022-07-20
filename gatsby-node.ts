@@ -6,9 +6,10 @@ import isNil from "lodash/isNil"
 import { createFilePath } from "gatsby-source-filesystem"
 import { Archives } from "./src/@types"
 
-export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
-  // Frontmatterは必ず全て入力している前提
-  actions.createTypes(`
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  ({ actions }) => {
+    // Frontmatterは必ず全て入力している前提
+    actions.createTypes(`
     type MarkdownRemark implements Node {
       fields: MarkdownRemarkFields!
       frontmatter: MarkdownRemarkFrontmatter!
@@ -23,9 +24,12 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       description: String!
     }
   `)
-}
+  }
 
-export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+}) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
@@ -73,7 +77,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     const next = index === 0 ? null : posts[index - 1].node
 
     createPage({
-      path: post?.node?.fields?.slug || '',
+      path: post?.node?.fields?.slug || "",
       component: blogPost,
       context: {
         id: post.node.id,
@@ -131,7 +135,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   // Make tag pages
   tags.forEach(tag => {
     createPage({
-      path: `/tags/${kebabCase(tag?.fieldValue || '')}/`,
+      path: `/tags/${kebabCase(tag?.fieldValue || "")}/`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
@@ -140,7 +144,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   })
 }
 
-export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({
+  node,
+  actions,
+  getNode,
+}) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {

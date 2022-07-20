@@ -1,18 +1,17 @@
 // For gatsby-plugin-algolia
 import { ElementType } from "../@types"
 type MarkdownNode = {
-  node: ElementType<
-  Queries.AllPostAndTagsQuery["postsRemark"]["edges"]
->["node"]}
+  node: ElementType<Queries.AllPostAndTagsQuery["postsRemark"]["edges"]>["node"]
+}
 
 const escapeStringRegexp = (str: string): string => {
-	if (typeof str !== 'string') {
-		throw new TypeError('Expected a string');
-	}
+  if (typeof str !== "string") {
+    throw new TypeError("Expected a string")
+  }
 
-  const matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+  const matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g
 
-	return str.replace(matchOperatorsRe, '\\$&');
+  return str.replace(matchOperatorsRe, "\\$&")
 }
 const pagePath = `content/blog`
 
@@ -42,7 +41,9 @@ const algoliaQuery = `
   }
 }`
 
-function pageToAlgoliaRecord({ node: { id, frontmatter, fields, ...rest }}: MarkdownNode) {
+function pageToAlgoliaRecord({
+  node: { id, frontmatter, fields, ...rest },
+}: MarkdownNode) {
   return {
     objectID: id,
     ...frontmatter,
@@ -58,7 +59,8 @@ type Data = {
 export const algoliaQueries = [
   {
     query: algoliaQuery,
-    transformer: ({ data }: Data) => data.postsRemark.edges.map(pageToAlgoliaRecord),
+    transformer: ({ data }: Data) =>
+      data.postsRemark.edges.map(pageToAlgoliaRecord),
     indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
     settings: { attributesToSnippet: [`rawMarkdownBody:30`] },
   },
@@ -72,11 +74,10 @@ export const remarkRelatedPostsOptions = {
   each_bow_size: 20, // optional
 }
 
-
 // For gatsby-plugin-feed
 type FeedSerializeProps = {
   query: {
-    site: Queries.Site,
+    site: Queries.Site
     allMarkdownRemark: {
       edges: {
         node: Queries.MarkdownRemark
@@ -99,7 +100,9 @@ export const feedOptions = {
   `,
   feeds: [
     {
-      serialize: ({ query: { site, allMarkdownRemark }}: FeedSerializeProps) => {
+      serialize: ({
+        query: { site, allMarkdownRemark },
+      }: FeedSerializeProps) => {
         return allMarkdownRemark.edges.map(edge => {
           return Object.assign({}, edge.node.frontmatter, {
             description: edge.node.excerpt,

@@ -7,7 +7,7 @@ const typography = new Typography({
     {
       name: "Noto+Sans+JP",
       styles: ["400"],
-    }
+    },
   ],
 })
 

@@ -107,7 +107,7 @@
     "build": "gatsby build",
     "dev": "NODE_ENV=development gatsby develop",
     "textlint": "textlint content/blog",
-    "format": "prettier --write \"**/*.{js,jsx,tsx,json}\"",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

@@ -1,49 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
-
-const escapeStringRegexp = require("escape-string-regexp")
-const pagePath = `content/blog`
-
-const algoliaQuery = `{
-  pages: allMarkdownRemark(
-    filter: {
-      fileAbsolutePath: { regex: "/${escapeStringRegexp(pagePath)}/" },
-    }
-  ) {
-    edges {
-      node {
-        id
-        frontmatter {
-          date
-          title
-        }
-        fields {
-          slug
-        }
-        rawMarkdownBody
-        timeToRead
-      }
-    }
-  }
-}`
-
-function pageToAlgoliaRecord({ node: { id, frontmatter, fields, ...rest } }) {
-  return {
-    objectID: id,
-    ...frontmatter,
-    ...fields,
-    ...rest,
-  }
-}
-
-const queries = [
-  {
-    query: algoliaQuery,
-    transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
-    indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
-    settings: { attributesToSnippet: [`excerpt:20`] },
-  },
-]
-
+import { algoliaQueries } from './src/gatsby/config';
 
 const plugins: GatsbyConfig['plugins'] = [
     {
@@ -203,7 +159,7 @@ const plugins: GatsbyConfig['plugins'] = [
         // Tip: use Search API key with GATSBY_ prefix to access the service from within components
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
-        queries,
+        algoliaQueries,
         chunkSize: 10000, // default: 1000
         settings: {
           // optional, any index settings

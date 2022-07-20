@@ -1,13 +1,23 @@
-import { useEffect } from "react"
-const events = [`mousedown`, `touchstart`]
+import { useEffect, RefObject } from "react"
 
-const ClickOutside = (ref, onClickOutside) => {
-  const isOutside = element => !ref.current || !ref.current.contains(element)
-  const onClick = event => {
-    if (isOutside(event.target)) {
-      onClickOutside()
+type EventMap = keyof DocumentEventMap
+const events: EventMap[] = [`mousedown`, `touchstart`]
+
+const ClickOutside = (
+  ref: RefObject<HTMLElement>,
+  onClickOutsideFn: () => void
+) => {
+  const isOutside = (element: HTMLElement) =>
+    !ref.current || !ref.current.contains(element)
+
+  const onClick: EventListener = (event): any => {
+    const target = event.target as HTMLElement
+
+    if (isOutside(target)) {
+      onClickOutsideFn()
     }
   }
+
   useEffect(() => {
     for (const event of events) {
       document.addEventListener(event, onClick)

@@ -3,7 +3,7 @@ title: "Dataportalで月毎に日平均値を計算する"
 date: "2021-04-30"
 description: "count_distinct"
 tags:
-  - Dataportal
+  - DataPortal
   - GoogleCloudPlatform
 ---
 

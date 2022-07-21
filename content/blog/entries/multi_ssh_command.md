@@ -5,7 +5,7 @@ description: "ssh -o ProxyCommand"
 tags:
   - ssh
   - ワンライナー
-  - shell
+  - ShellScript
 ---
 
 ## Step Server

@@ -3,7 +3,7 @@ title: "Dataportalで時間の単位をよしなに扱う計算フィールド"
 date: "2021-06-18"
 description: "RoundとかFloorとか"
 tags:
-  - Dataportal
+  - DataPortal
   - GoogleCloudPlatform
 ---
 

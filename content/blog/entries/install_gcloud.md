@@ -3,7 +3,7 @@ title: gcloudコマンドのインストール
 date: "2020-10-30"
 description: "インストーラを使う"
 tags:
-  - GCP
+  - GoogleCloudPlatform
 ---
 
 以前はyumでインストールしていたが更新しようとしたらエラーに阻まれ困ってしまったので調べたらインストーラがあるらしい

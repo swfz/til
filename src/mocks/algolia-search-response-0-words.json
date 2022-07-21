@@ -1,0 +1,1674 @@
+{
+  "results": [
+    {
+      "hits": [
+        {
+          "date": "September 25, 2021",
+          "title": "GitHubのコントリビュート一覧に飛ぶためのブックマークレット",
+          "slug": "/entries/github_contribute_bookmarklet/",
+          "rawMarkdownBody": "\n以前Twitterで`採用などでGitHubアカウントもらったらこのクエリでコントリビューションみますね`みたいなのを見かけた\n\n<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->\nとりあえずそのうち見るときのためにタブをそのままにしていたが、いろいろな人のも見られるとおもしろいかもと思ってブックマークレットを書いた\n<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->\n\nユーザーページもしくは対象ユーザーのどこかのリポジトリなど、ユーザー名がURLに存在すれば実行可能\n\n- github_contribute.js\n\n```javascript\n(function(){\n  const user = window.location.href.split(\"/\")[3];\n  const excludeOrgs = [];\n  const w = window.open();\n  const excludeOrgQuery = excludeOrgs.map(o => `-org%3A${o}`).join('+');\n  w.location.href = `https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;\n})()\n```\n\n- ブックマークバーへの貼り付け用出力\n\n```shell\n$ cat github_contribute.js |  sed -e ':loop;N;$!b loop;s/\\n/ /g' -e 's/ \\+/%20/g' -e 's/^/javascript:/'\njavascript:(function(){%20const%20user%20=%20window.location.href.split(\"/\")[3];%20const%20excludeOrgs%20=%20[];%20const%20w%20=%20window.open();%20const%20excludeOrgQuery%20=%20excludeOrgs.map(o%20=>%20`-org%3A${o}`).join('+');%20w.location.href%20=%20`https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;%20})()\n```\n\n`excludeOrgs`は自分が所属している組織へのPRやissueは除外するための記述\n\nGitHubで仕事の開発している場合は対象組織のPRなども表示されてしまうのでその除外\n\n感想としては自分はあんまりコントリビュートできてません!ということがわかりました。まる。\n",
+          "timeToRead": 1,
+          "objectID": "fb6ffa09-87e0-5cfc-a9fa-8886cfcd6da5",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n以前Twitterで`採用などでGitHubアカウントもらったらこのクエリでコント",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 25, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "GitHubのコントリビュート一覧に飛ぶためのブックマークレット",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/github_contribute_bookmarklet/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n以前Twitterで`採用などでGitHubアカウントもらったらこのクエリでコントリビューションみますね`みたいなのを見かけた\n\n<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->\nとりあえずそのうち見るときのためにタブをそのままにしていたが、いろいろな人のも見られるとおもしろいかもと思ってブックマークレットを書いた\n<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->\n\nユーザーページもしくは対象ユーザーのどこかのリポジトリなど、ユーザー名がURLに存在すれば実行可能\n\n- github_contribute.js\n\n```javascript\n(function(){\n  const user = window.location.href.split(\"/\")[3];\n  const excludeOrgs = [];\n  const w = window.open();\n  const excludeOrgQuery = excludeOrgs.map(o => `-org%3A${o}`).join('+');\n  w.location.href = `https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;\n})()\n```\n\n- ブックマークバーへの貼り付け用出力\n\n```shell\n$ cat github_contribute.js |  sed -e ':loop;N;$!b loop;s/\\n/ /g' -e 's/ \\+/%20/g' -e 's/^/javascript:/'\njavascript:(function(){%20const%20user%20=%20window.location.href.split(\"/\")[3];%20const%20excludeOrgs%20=%20[];%20const%20w%20=%20window.open();%20const%20excludeOrgQuery%20=%20excludeOrgs.map(o%20=>%20`-org%3A${o}`).join('+');%20w.location.href%20=%20`https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;%20})()\n```\n\n`excludeOrgs`は自分が所属している組織へのPRやissueは除外するための記述\n\nGitHubで仕事の開発している場合は対象組織のPRなども表示されてしまうのでその除外\n\n感想としては自分はあんまりコントリビュートできてません!ということがわかりました。まる。\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "March 05, 2021",
+          "title": "Kindle for PC(Windows)のショートカットを無効にする",
+          "slug": "/entries/kindle_deny_shortcut/",
+          "rawMarkdownBody": "\n## Kindle for PCのショートカットキー\n\nデフォルトだと`Ctrl+Alt+k`でKindleが起動する\n\nショートカットキーを無効にするためにはショートカットのアイコンのプロパティから`ショートカット`欄を消すことで行える\n\n自分はデスクトップにショートカットを置くようにしたのでそこだけ消せばOKだと思っていた\n\nしかし、消してもまだ治らず\n\nディスク内で検索したら\n\n```\nC:\\Users\\hoge\\Desktop\nC:\\Users\\hoge\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon\\Amazon Kindle\n```\n\n2つ存在した!!!\n\n`Start Menu`にも配置される模様…\n\n両方解除することでショートカットが発動しないようになる\n\nこれに気付かずアプリケーションのアップデートのタイミングでショートカットが更新されてしまい毎度探すということをやっていたのでメモとして残しておく\n",
+          "timeToRead": 1,
+          "objectID": "f8327805-b086-5db8-bd60-3d6e6d058e7f",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n## Kindle for PCのショートカットキー\n\nデフォルトだと`Ctrl+Alt+k`でKindleが起動す",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "March 05, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Kindle for PC(Windows)のショートカットを無効にする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/kindle_deny_shortcut/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n## Kindle for PCのショートカットキー\n\nデフォルトだと`Ctrl+Alt+k`でKindleが起動する\n\nショートカットキーを無効にするためにはショートカットのアイコンのプロパティから`ショートカット`欄を消すことで行える\n\n自分はデスクトップにショートカットを置くようにしたのでそこだけ消せばOKだと思っていた\n\nしかし、消してもまだ治らず\n\nディスク内で検索したら\n\n```\nC:\\Users\\hoge\\Desktop\nC:\\Users\\hoge\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon\\Amazon Kindle\n```\n\n2つ存在した!!!\n\n`Start Menu`にも配置される模様…\n\n両方解除することでショートカットが発動しないようになる\n\nこれに気付かずアプリケーションのアップデートのタイミングでショートカットが更新されてしまい毎度探すということをやっていたのでメモとして残しておく\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "January 10, 2022",
+          "title": "Docker環境でAnsibleのget_url実行が失敗する",
+          "slug": "/entries/docker_compose_dns/",
+          "rawMarkdownBody": "\n新しい開発環境ではAnsibleでローカル環境を作るようにしているが次のようにansibleの`get_url`実行に失敗してしまっていた\n\n```\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Failed to connect to objects.githubusercontent.com at port 443: [Errno -5] No address associated with hostname\"}\n```\n\n名前解決ができていないという状態のようだったのでDNSサーバを指定してあげれば良い\n\n- docker-compose.yml\n\n```yaml\nversion: \"3\"\nservices:\n  app:\n    build:\n      context: ./ansible\n    dns:\n      - 8.8.8.8\n```\n\n上記のように`dns`を指定することで解決した\n\n",
+          "timeToRead": 1,
+          "objectID": "ef087dcc-2c23-50ac-9f0d-05a6de497606",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n新しい開発環境ではAnsibleでローカル環境を作るようにしているが次",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "January 10, 2022",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Docker環境でAnsibleのget_url実行が失敗する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/docker_compose_dns/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n新しい開発環境ではAnsibleでローカル環境を作るようにしているが次のようにansibleの`get_url`実行に失敗してしまっていた\n\n```\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Failed to connect to objects.githubusercontent.com at port 443: [Errno -5] No address associated with hostname\"}\n```\n\n名前解決ができていないという状態のようだったのでDNSサーバを指定してあげれば良い\n\n- docker-compose.yml\n\n```yaml\nversion: \"3\"\nservices:\n  app:\n    build:\n      context: ./ansible\n    dns:\n      - 8.8.8.8\n```\n\n上記のように`dns`を指定することで解決した\n\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 24, 2020",
+          "title": "SlackのAPI経由でリンク文字列を生成する",
+          "slug": "/entries/slack_link_string/",
+          "rawMarkdownBody": "\n忘れるので備忘録\n\n[Formatting text for app surfaces | Slack](https://api.slack.com/reference/surfaces/formatting#linking_to_urls)\n\nSlackのAPI経由でtextを生成において、Markdown記法が使えるもののリンクなどは独自の記法になっている\n\n`<url|文字列>`という感じ\n\n```json\n\"blocks\": [\n  {\n    \"type\": \"context\",\n    \"elements\": [\n      {\n        \"type\": \"mrkdwn\",\n        \"text\": \"Location: *Dogpatch* <https://github.com/swfz|swfz>)\"\n      }\n    ]\n  }\n]\n```\n\nめちゃめちゃ細かい話だがスペースとかが入ると変換してくれない\n\n## 失敗パターン\n\n```\n< https://github.com/swfz | swfz>\n```\n\n\n## 成功パターン\n\n```\n<https://github.com/swfz | swfz>\n```\n\n![alt](slack_link_string01.png)",
+          "timeToRead": 1,
+          "objectID": "ea08f6ab-daf8-5e72-bbf6-9ea04b758243",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n忘れるので備忘録\n\n[Formatting text for app surfaces | Slack](https://api.slack.com/reference/surfaces/formatting#linking_to_urls)\n\nSlackのAPI経由",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 24, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "SlackのAPI経由でリンク文字列を生成する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/slack_link_string/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n忘れるので備忘録\n\n[Formatting text for app surfaces | Slack](https://api.slack.com/reference/surfaces/formatting#linking_to_urls)\n\nSlackのAPI経由でtextを生成において、Markdown記法が使えるもののリンクなどは独自の記法になっている\n\n`<url|文字列>`という感じ\n\n```json\n\"blocks\": [\n  {\n    \"type\": \"context\",\n    \"elements\": [\n      {\n        \"type\": \"mrkdwn\",\n        \"text\": \"Location: *Dogpatch* <https://github.com/swfz|swfz>)\"\n      }\n    ]\n  }\n]\n```\n\nめちゃめちゃ細かい話だがスペースとかが入ると変換してくれない\n\n## 失敗パターン\n\n```\n< https://github.com/swfz | swfz>\n```\n\n\n## 成功パターン\n\n```\n<https://github.com/swfz | swfz>\n```\n\n![alt](slack_link_string01.png)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "July 03, 2021",
+          "title": "Netlifyに手動でデプロイする",
+          "slug": "/entries/netlify_manual_deploy/",
+          "rawMarkdownBody": "\n割と月の早い段階でAlgoliaの使用制限で継続的デプロイができなくなってしまったのでCLI経由でデプロイできないか調べて試した\n\n## 前提\n\n- Netlifyでビルドとデプロイを行っていてビルド時に都度Algoliaのインデックス更新している\n- DependabotやRenovateなどのパッケージの更新でも上記処理が走ってしまっていたので利用上限に達してしまったよう\n\n- build時エラーログ\n\n```\nERROR\n\nfailed to index to Algolia Operations quota exceeded. Change plan to get more Operations.\nError: Operations quota exceeded. Change plan to get more Operations.\n```\n\n途中で落ちてしまいデプロイできないのでIndexの再生成だけ除外して記事をデプロイする\n\n- Netlify-cliのインストール\n\n```shell\nyarn add -D netlify-cli\n```\n\n- ログイン\n\n```\nyarn netlify login\n```\n\nブラウザに遷移して`Authorize`をクリックして認証する\n\nconfigファイルにtokenが出力される\n\nファイルの場所は `~/.config/netlify/config.json`に置かれる（OSによる）\n\n- デプロイ\n\n`.env.production`にはデプロイに必要な環境変数が入っている\n\n```\n$ envfile .env.production yarn netlify deploy\nyarn run v1.22.10\n$ /home/user/til/node_modules/.bin/netlify deploy\nThis folder isn't linked to a site yet\n? What would you like to do? Link this directory to an existing site\n\nnetlify link will connect this folder to a site on Netlify\n\n? How do you want to link this folder to a site? Use current git remote origin (https://github.com/swfz/til)\n\nLooking for sites connected to 'https://github.com/swfz/til'...\n\n\nDirectory Linked\n\nSite url:  https://til.swfz.io\n\nSite id saved to /home/user/til/.netlify/state.json\n\nYou can now run other `netlify` cli commands in this directory\nDeploy path: /home/user/til/public\nDeploying to draft URL...\n✔ Finished hashing 641 files\n✔ CDN requesting 377 files\n✔ Finished uploading 377 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/hoge/deploys/xxxxxxxxxxxxxxxxxxxxxxxxxxx\nWebsite Draft URL: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxx--hoge.netlify.app\n\nIf everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.\nnetlify deploy --prod\n\nDone in 118.77s.\n```\n\n`--prod`オプションを付けない場合はデプロイプレビュー用のよう\n\n- 本番デプロイ\n\n```\n$ envfile .env.production yarn build\n$ envfile .env.production yarn netlify deploy --prod\nDeploy path: /home/user/deploy-til/public\nDeploying to main site URL...\n✔ Finished hashing 450 files\n✔ CDN requesting 249 files\n✔ Finished uploading 249 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/.....\nUnique Deploy URL: https://......netlify.app\nWebsite URL:       https://til.swfz.io\nDone in 51.37s.\n```\n\npublic以下のファイル群をNetlifyにアップロードする\n\nこれで無事デプロイできた\n\nCLIのドキュメントは下記\n\n[Get started with Netlify CLI | Netlify Docs](https://docs.netlify.com/cli/get-started/)\n\n## Algoliaのインデックス更新のコントロール\n\nとりあえず手動デプロイで当座はしのげるようになったが来月も同じ様になってしまうと困るので対策する\n\nAlgoliaのIndexingが必要なのは記事の更新があったときのみなので条件によって挙動を分ける\n\nドキュメントでは`netlify.toml`に設定書けば良いよ、となっているがGUIからの基本的な設定（主にシークレットなどの情報）とうまい具合にマージしてくれるわけではないらしい\n\nそうなると各種キーがデプロイ時に必要なのでパブリックなリポジトリでは`netlify.toml`を使って設定は行えない\n\n[File-based configuration | Netlify Docs](https://docs.netlify.com/configure-builds/file-based-configuration/)\n\n[https://docs.netlify.com/configure-builds/file-based-configuration/:embed:cite]\n\nドキュメントを眺めていると\n\n`$CACHED_COMMIT_REF`、`$COMMIT_REF`という環境変数が用意されているようなのでそれを用いてラップするコマンドを書いてデプロイするようにした\n\n- deploy.sh\n\n```bash\n#!/bin/bash\n\necho $CACHED_COMMIT_REF\necho $COMMIT_REF\n\n# 差分があると終了コード1\ngit diff --quiet $CACHED_COMMIT_REF $COMMIT_REF content/blog/entries/\n\nrc=$?\n\nif [ \"$rc\" = \"1\" ]; then\n  echo \"content changed.\"\n  CONTENT_CHANGED=true gatsby build\nelse\n  echo \"content not changed.\"\n  CONTENT_CHANGED=false gatsby build\nfi\n```\n\n記事のディレクトリに変更があるかどうかで`CONTENT_CHANGED`環境変数を切り分ける\n\n- gatsby-config.js\n\n```javascript\nskipIndexing: (process.env.BRANCH !== 'master' || process.env.CONTENT_CHANGED === 'false'),\n```\n\nこれでAlgoliaへのインデックス情報の更新は\n\n- `master`ブランチのとき\n- 記事情報が更新されたとき\n\n<!-- textlint-disable prh -->\nが満たされて初めて更新されるようになった\n<!-- textlint-enable prh -->\n\nここまでやっていまさらだが、ざっとしか調べてないのでもし検索でリミットに達していたのなら来月も手動デプロイが発生するかもw",
+          "timeToRead": 4,
+          "objectID": "e76ffc08-7c83-572c-bbcd-5360a527178e",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n割と月の早い段階でAlgoliaの使用制限で継続的デプロイができなくな",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "July 03, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Netlifyに手動でデプロイする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/netlify_manual_deploy/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n割と月の早い段階でAlgoliaの使用制限で継続的デプロイができなくなってしまったのでCLI経由でデプロイできないか調べて試した\n\n## 前提\n\n- Netlifyでビルドとデプロイを行っていてビルド時に都度Algoliaのインデックス更新している\n- DependabotやRenovateなどのパッケージの更新でも上記処理が走ってしまっていたので利用上限に達してしまったよう\n\n- build時エラーログ\n\n```\nERROR\n\nfailed to index to Algolia Operations quota exceeded. Change plan to get more Operations.\nError: Operations quota exceeded. Change plan to get more Operations.\n```\n\n途中で落ちてしまいデプロイできないのでIndexの再生成だけ除外して記事をデプロイする\n\n- Netlify-cliのインストール\n\n```shell\nyarn add -D netlify-cli\n```\n\n- ログイン\n\n```\nyarn netlify login\n```\n\nブラウザに遷移して`Authorize`をクリックして認証する\n\nconfigファイルにtokenが出力される\n\nファイルの場所は `~/.config/netlify/config.json`に置かれる（OSによる）\n\n- デプロイ\n\n`.env.production`にはデプロイに必要な環境変数が入っている\n\n```\n$ envfile .env.production yarn netlify deploy\nyarn run v1.22.10\n$ /home/user/til/node_modules/.bin/netlify deploy\nThis folder isn't linked to a site yet\n? What would you like to do? Link this directory to an existing site\n\nnetlify link will connect this folder to a site on Netlify\n\n? How do you want to link this folder to a site? Use current git remote origin (https://github.com/swfz/til)\n\nLooking for sites connected to 'https://github.com/swfz/til'...\n\n\nDirectory Linked\n\nSite url:  https://til.swfz.io\n\nSite id saved to /home/user/til/.netlify/state.json\n\nYou can now run other `netlify` cli commands in this directory\nDeploy path: /home/user/til/public\nDeploying to draft URL...\n✔ Finished hashing 641 files\n✔ CDN requesting 377 files\n✔ Finished uploading 377 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/hoge/deploys/xxxxxxxxxxxxxxxxxxxxxxxxxxx\nWebsite Draft URL: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxx--hoge.netlify.app\n\nIf everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.\nnetlify deploy --prod\n\nDone in 118.77s.\n```\n\n`--prod`オプションを付けない場合はデプロイプレビュー用のよう\n\n- 本番デプロイ\n\n```\n$ envfile .env.production yarn build\n$ envfile .env.production yarn netlify deploy --prod\nDeploy path: /home/user/deploy-til/public\nDeploying to main site URL...\n✔ Finished hashing 450 files\n✔ CDN requesting 249 files\n✔ Finished uploading 249 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/.....\nUnique Deploy URL: https://......netlify.app\nWebsite URL:       https://til.swfz.io\nDone in 51.37s.\n```\n\npublic以下のファイル群をNetlifyにアップロードする\n\nこれで無事デプロイできた\n\nCLIのドキュメントは下記\n\n[Get started with Netlify CLI | Netlify Docs](https://docs.netlify.com/cli/get-started/)\n\n## Algoliaのインデックス更新のコントロール\n\nとりあえず手動デプロイで当座はしのげるようになったが来月も同じ様になってしまうと困るので対策する\n\nAlgoliaのIndexingが必要なのは記事の更新があったときのみなので条件によって挙動を分ける\n\nドキュメントでは`netlify.toml`に設定書けば良いよ、となっているがGUIからの基本的な設定（主にシークレットなどの情報）とうまい具合にマージしてくれるわけではないらしい\n\nそうなると各種キーがデプロイ時に必要なのでパブリックなリポジトリでは`netlify.toml`を使って設定は行えない\n\n[File-based configuration | Netlify Docs](https://docs.netlify.com/configure-builds/file-based-configuration/)\n\n[https://docs.netlify.com/configure-builds/file-based-configuration/:embed:cite]\n\nドキュメントを眺めていると\n\n`$CACHED_COMMIT_REF`、`$COMMIT_REF`という環境変数が用意されているようなのでそれを用いてラップするコマンドを書いてデプロイするようにした\n\n- deploy.sh\n\n```bash\n#!/bin/bash\n\necho $CACHED_COMMIT_REF\necho $COMMIT_REF\n\n# 差分があると終了コード1\ngit diff --quiet $CACHED_COMMIT_REF $COMMIT_REF content/blog/entries/\n\nrc=$?\n\nif [ \"$rc\" = \"1\" ]; then\n  echo \"content changed.\"\n  CONTENT_CHANGED=true gatsby build\nelse\n  echo \"content not changed.\"\n  CONTENT_CHANGED=false gatsby build\nfi\n```\n\n記事のディレクトリに変更があるかどうかで`CONTENT_CHANGED`環境変数を切り分ける\n\n- gatsby-config.js\n\n```javascript\nskipIndexing: (process.env.BRANCH !== 'master' || process.env.CONTENT_CHANGED === 'false'),\n```\n\nこれでAlgoliaへのインデックス情報の更新は\n\n- `master`ブランチのとき\n- 記事情報が更新されたとき\n\n<!-- textlint-disable prh -->\nが満たされて初めて更新されるようになった\n<!-- textlint-enable prh -->\n\nここまでやっていまさらだが、ざっとしか調べてないのでもし検索でリミットに達していたのなら来月も手動デプロイが発生するかもw",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "4",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "June 15, 2021",
+          "title": "GatsbyにAlgoliaを導入する",
+          "slug": "/entries/gatsby_algolia/",
+          "rawMarkdownBody": "\n一応ログとして残すがやったのは下記プラグインを入れただけ\n\n[gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n\n\n## インデックスの更新\n\n記事の内容をAlgoliaのインデックスに登録するための設定\n\nインデックスの登録はbuild時に行われる\n\nこちらはAlgoliaの管理画面からAdminのAPI Keyが必要\n\ngraphqlのクエリに関しては自分の設定に合わせる必要があるので`/__graphql`でよしなにできるようにクエリを確かめる\n\nとりあえずデータが登録できるところまでを確認\n\n## UIの実装\n\n[React InstantSearch Widgets | React InstantSearch | API Reference | Algolia Documentation](https://www.algolia.com/doc/api-reference/widgets/react/)\n\nGatsbyのブログ見てとりあえずコピー&ペーストしてIndexNameだけ変更すれば動くものは作れた\n\nあとは細かく必要そうなものを足したり調整したりするくらいでOKそう\n\n## 参考と若干変えた部分\n\n### デプロイ時のみインデックス情報を設定するようにした\n\n- gatsby-config.js\n\n```javascript\n        skipIndexing: process.env.BRANCH !== 'master', // default: false, useful for e.g. preview deploys or local development\n```\n\nデプロイ時のみAlgoliaにデータ更新すればよいのでこうした\n\n### AlgoliaへのSearchクエリ部分\n\nedgesの内容に次の2項目を足した\n\n```\nrawMarkdownBody\ntimeToRead\n```\n\nこれでMarkdownBodyも検索対象に含まれるのかな?そこまで確認してないがいったん突っ込めるので突っ込んだ\n\n### .envについて\n\n`dotenv`を入れているがこれを使っているのは開発時のみで`.env.development`を用意して環境変数を読み込ませている\n\nデプロイ時はすでに環境変数に各種キーを入れているので`.env`を使用していない\n\n## まとめ\n\n取り急ぎ検索は可能になった\n\nが若干もっさり感が残っていて、とりあえず使えるようになりました!って感じなのでそのあたりチューニングしたい\n\nあと検索対象や検索結果の見た目もカスタマイズしたいところ\n\nどっかで時間作ってやる…\n\nあとgraphqlのエディタが項目チェックするだけでクエリ作ってくれる感じになっていてとても使いやすかった\n\n### 全体の参考\n- [Adding Search with Algolia | Gatsby](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)\n- [gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n- [Gatsby+microCMSサイトにAlgolia全文検索機能を実装 - Qiita](https://qiita.com/atomyah/items/b772a63fc70bf8e7dbdd)",
+          "timeToRead": 2,
+          "objectID": "e279e9b1-6506-5bd9-8be7-157c24dc02f4",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n一応ログとして残すがやったのは下記プラグインを入れただけ\n\n[gatsby",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "June 15, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "GatsbyにAlgoliaを導入する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/gatsby_algolia/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n一応ログとして残すがやったのは下記プラグインを入れただけ\n\n[gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n\n\n## インデックスの更新\n\n記事の内容をAlgoliaのインデックスに登録するための設定\n\nインデックスの登録はbuild時に行われる\n\nこちらはAlgoliaの管理画面からAdminのAPI Keyが必要\n\ngraphqlのクエリに関しては自分の設定に合わせる必要があるので`/__graphql`でよしなにできるようにクエリを確かめる\n\nとりあえずデータが登録できるところまでを確認\n\n## UIの実装\n\n[React InstantSearch Widgets | React InstantSearch | API Reference | Algolia Documentation](https://www.algolia.com/doc/api-reference/widgets/react/)\n\nGatsbyのブログ見てとりあえずコピー&ペーストしてIndexNameだけ変更すれば動くものは作れた\n\nあとは細かく必要そうなものを足したり調整したりするくらいでOKそう\n\n## 参考と若干変えた部分\n\n### デプロイ時のみインデックス情報を設定するようにした\n\n- gatsby-config.js\n\n```javascript\n        skipIndexing: process.env.BRANCH !== 'master', // default: false, useful for e.g. preview deploys or local development\n```\n\nデプロイ時のみAlgoliaにデータ更新すればよいのでこうした\n\n### AlgoliaへのSearchクエリ部分\n\nedgesの内容に次の2項目を足した\n\n```\nrawMarkdownBody\ntimeToRead\n```\n\nこれでMarkdownBodyも検索対象に含まれるのかな?そこまで確認してないがいったん突っ込めるので突っ込んだ\n\n### .envについて\n\n`dotenv`を入れているがこれを使っているのは開発時のみで`.env.development`を用意して環境変数を読み込ませている\n\nデプロイ時はすでに環境変数に各種キーを入れているので`.env`を使用していない\n\n## まとめ\n\n取り急ぎ検索は可能になった\n\nが若干もっさり感が残っていて、とりあえず使えるようになりました!って感じなのでそのあたりチューニングしたい\n\nあと検索対象や検索結果の見た目もカスタマイズしたいところ\n\nどっかで時間作ってやる…\n\nあとgraphqlのエディタが項目チェックするだけでクエリ作ってくれる感じになっていてとても使いやすかった\n\n### 全体の参考\n- [Adding Search with Algolia | Gatsby](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)\n- [gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n- [Gatsby+microCMSサイトにAlgolia全文検索機能を実装 - Qiita](https://qiita.com/atomyah/items/b772a63fc70bf8e7dbdd)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "2",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 18, 2020",
+          "title": "docker-composeからmysqldumpコマンドを実行する",
+          "slug": "/entries/mysqldump_in_docker_compose/",
+          "rawMarkdownBody": "\ndocker-composeからmysqldumpやdumpファイルの入れ込みを行う\n\n- dump\n\n```shell\ndocker-compose exec database mysqldump -u root -phoge hoge > develop.sql\n```\n\n- 入れ込み\n\n```shell\ndocker-compose exec -T database mysql -u root -phoge hoge < hoge_dump.sql\n```\n\n`-T` がポイント\n\n```\n    -T                Disable pseudo-tty allocation. By default `docker-compose exec`\n                      allocates a TTY.\n```\n",
+          "timeToRead": 1,
+          "objectID": "e227e67e-8d76-54b7-a1f5-762e18418249",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\ndocker-composeからmysqldumpやdumpファイルの入れ込みを行う\n\n- dump\n\n```shell\ndocker-compose exec database mysqldump -u root -phoge",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 18, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "docker-composeからmysqldumpコマンドを実行する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/mysqldump_in_docker_compose/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\ndocker-composeからmysqldumpやdumpファイルの入れ込みを行う\n\n- dump\n\n```shell\ndocker-compose exec database mysqldump -u root -phoge hoge > develop.sql\n```\n\n- 入れ込み\n\n```shell\ndocker-compose exec -T database mysql -u root -phoge hoge < hoge_dump.sql\n```\n\n`-T` がポイント\n\n```\n    -T                Disable pseudo-tty allocation. By default `docker-compose exec`\n                      allocates a TTY.\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 07, 2021",
+          "title": "gh cliでCodespace上のインスタンスにファイルをコピーする",
+          "slug": "/entries/codespace_instance_access/",
+          "rawMarkdownBody": "\nやりたい機会があったので調べてみた\n\n[Using Codespaces with GitHub CLI - GitHub Docs](https://docs.github.com/ja/codespaces/developing-in-codespaces/using-codespaces-with-github-cli)\n\nドキュメントを見れば解決ではある\n\n## ファイルのコピー\n\n```\n$ gh codespace cp -e ~/memo/hoge.png 'remote:/workspaces/til/'\n? Choose codespace: swfz/til: master* [swfz-til-xxxxxxxxxxxx]\nhoge.png                                                                                                      100%   51KB 220.8KB/s   00:00\n```\n\nどのcodespaceに接続するか選択する、もしくは事前に調べておいて`-c`オプションで指定する\n\ngh_codespace_cp01.png\n\n`-e`はヘルプを見れば分かるがexpand\n\n''で囲った中身をremote側で展開するためのもの\n\nなので↑のような書き方になっている\n\nGitHubのCLIが使えればOKなのでWSL2の中から特定のファイルをコピーする、といった使い方もできる\n\n## SSH接続\n\nsshもできる\n\n```bash\n$ gh codespace ssh -c swfz-til-xxxxxxxxxxxx\n```\n\n`-c`で対象のcodespaceを指定しない場合はインタラクティブに選択させてくれる\n\nVS Codeのターミナルだと一部ショートカットが競合してしまったりすることがあるのでSSH接続していろいろやったほうが何も気にしなくてよいこともある\n\n## おわり\n\nあらためてGitHubのCLI便利だな!と感じた\n",
+          "timeToRead": 1,
+          "objectID": "db49c913-dddd-5271-827d-3fdfebce790c",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nやりたい機会があったので調べてみた\n\n[Using Codespaces with GitHub CLI - GitHub Docs](https://docs.github.com/ja",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 07, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "gh cliでCodespace上のインスタンスにファイルをコピーする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/codespace_instance_access/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nやりたい機会があったので調べてみた\n\n[Using Codespaces with GitHub CLI - GitHub Docs](https://docs.github.com/ja/codespaces/developing-in-codespaces/using-codespaces-with-github-cli)\n\nドキュメントを見れば解決ではある\n\n## ファイルのコピー\n\n```\n$ gh codespace cp -e ~/memo/hoge.png 'remote:/workspaces/til/'\n? Choose codespace: swfz/til: master* [swfz-til-xxxxxxxxxxxx]\nhoge.png                                                                                                      100%   51KB 220.8KB/s   00:00\n```\n\nどのcodespaceに接続するか選択する、もしくは事前に調べておいて`-c`オプションで指定する\n\ngh_codespace_cp01.png\n\n`-e`はヘルプを見れば分かるがexpand\n\n''で囲った中身をremote側で展開するためのもの\n\nなので↑のような書き方になっている\n\nGitHubのCLIが使えればOKなのでWSL2の中から特定のファイルをコピーする、といった使い方もできる\n\n## SSH接続\n\nsshもできる\n\n```bash\n$ gh codespace ssh -c swfz-til-xxxxxxxxxxxx\n```\n\n`-c`で対象のcodespaceを指定しない場合はインタラクティブに選択させてくれる\n\nVS Codeのターミナルだと一部ショートカットが競合してしまったりすることがあるのでSSH接続していろいろやったほうが何も気にしなくてよいこともある\n\n## おわり\n\nあらためてGitHubのCLI便利だな!と感じた\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 07, 2020",
+          "title": "Puppeteerのデバッグ用のテンプレート",
+          "slug": "/entries/puppeteer_debug/",
+          "rawMarkdownBody": "\n最初の数行が定型文で貼り付けるだけにしたいので残しておく\n\n- REPL起動\n\n```\nnode --experimental-repl-await\n```\n\ntoplevelでawaitを使えるようになるオプションをつける（node12以降）\n\n- REPL\n\n```javascript\nconst puppeteer = require('puppeteer');\nconst browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});\nconst page = await browser.newPage();\n\n// この辺からはその時時に合わせて変える\nlet requestUrl = 'https://example.com'\nawait page.goto(requestUrl);\nlet rows = await page.$x('//article');\nawait (await rows[0].getProperty('textContent')).jsonValue();\nawait (await (await rows[0].$x('.//a[contains(@role, \"link\") and contains(@data-focusable, \"true\")]/time'))[0].getProperty('textContent')).jsonValue();\n```\n",
+          "timeToRead": 1,
+          "objectID": "d669ff17-278b-504b-b144-77702a910eb9",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n最初の数行が定型文で貼り付けるだけにしたいので残しておく\n\n- REPL",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 07, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Puppeteerのデバッグ用のテンプレート",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/puppeteer_debug/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n最初の数行が定型文で貼り付けるだけにしたいので残しておく\n\n- REPL起動\n\n```\nnode --experimental-repl-await\n```\n\ntoplevelでawaitを使えるようになるオプションをつける（node12以降）\n\n- REPL\n\n```javascript\nconst puppeteer = require('puppeteer');\nconst browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});\nconst page = await browser.newPage();\n\n// この辺からはその時時に合わせて変える\nlet requestUrl = 'https://example.com'\nawait page.goto(requestUrl);\nlet rows = await page.$x('//article');\nawait (await rows[0].getProperty('textContent')).jsonValue();\nawait (await (await rows[0].$x('.//a[contains(@role, \"link\") and contains(@data-focusable, \"true\")]/time'))[0].getProperty('textContent')).jsonValue();\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 18, 2021",
+          "title": "ConfluenceにAPI経由で投稿する",
+          "slug": "/entries/confluence_post_via_api/",
+          "rawMarkdownBody": "\n## 下準備\n\nアカウント管理ページでAPIトークンを作成する\n\n[api-tokens](https://id.atlassian.com/manage/api-tokens)\n\n\n## APIをたたく\n\n参考にするのはこの辺\n\n[The Confluence Cloud REST API](https://developer.atlassian.com/cloud/confluence/rest/api-group-content/#api-api-content-post)\n\n- 基本系\n\n```shell\ncurl -X GET \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Accept: application/json'\n```\n\n上記をもとにブログポストを生成するスクリプトを用意した\n\n`CONFLUENCE_API_TOKEN`,`ATLASSIAN_DOMAIN`,`EMAIL`は環境変数に適切な値を入れておく\n\n`CONFLUENCE_API_TOKEN`は下準備で生成したAPIトークン\n\n最低限だとこんな感じで投稿できるはず\n\n- blogpost.sh\n\n```shell\ntitle=\"From API Test\"\nspace_key=\"~username\"\nbody_value=\"hoge\"\n\ncurl -X POST \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Content-Type: application/json' \\\n  -H 'Accept: application/json' \\\n  -d @- <<EOS\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n    \"storage\": {\n      \"value\": \"${body_value}\",\n      \"representation\": \"storage\"\n    }\n  }\n}\nEOS\n```\n\n### 試行錯誤\n\n最初`body.storage`の部分を`body.view`にしていたら投稿はできるがコンテンツが空の状態になってしまっていた\n\nライブラリはどうやってんだと思い次のソースをよんだ\n\n[confluence-api/confluence.js at master · johnpduane/confluence-api](https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js)\n\n[https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js:embed:cite]\n\n```diff\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n-    \"view\": {\n+    \"storage\": {\n      \"value\": \"${body_value}\",\n-      \"representation\": \"view\"\n+      \"representation\": \"storage\"\n    }\n  }\n}\n```\n\nこんな感じの差分で投稿できるようになった\n\nrepresentationが何を意味するのかまでちゃんと読んでないが無事コンテンツの中身も反映されるようになった\n\nAPIでのやりとりではHTMLをそのまま投げるという感じ\n\nmarkdown2confluenceなど使えばMarkdownで書いた文書をコンフルに同期とかできるかと思ったけどそもそも記法が違うので今回は使わなかった\n\n## 更新を伴う投稿\n\n新規投稿ならPOSTだけでOKだが更新処理を含める場合はversion番号が必要なため複数APIをたたかないといけない\n\njsonで定義した値をフォーマットして定期的に更新するスクリプトを書いた\n\n- scrap.json\n\n```json\n[\n  \"リプレイスとかバージョンアップとかの記事\",\n  \"https://blog.cybozu.io/entry/2021/06/16/080000\",\n  \"https://developers.cyberagent.co.jp/blog/archives/30257/\",\n  \"https://buildersbox.corp-sansan.com/entry/2021/06/24/110000\",\n  \"comment: リプレイスとかやりました！その後の話は結構ありかも\",\n  \"エンジニアブログ系\",\n  \"https://tech.classi.jp/entry/2021/06/18/120000\",\n  \"comment: こんな感じで運営してますってのは運営の価値観が垣間見れてよい、他のも見てみたい感ある\",\n  \"https://tech.pepabo.com/2021/07/14/pepabo-tech-blog-2021/\",\n  \"comment: ブログの執筆ふろーの自動化周りの話と思想、おもしろい\"\n]\n```\n\n- scrap.js\n\n```javascript\nconst fetch = require('node-fetch');\nconst fs = require('fs');\n\nconst pageId = 1111111111;\n\nconst formatTitle = (value) => {\n  return `<p><h2>${value}</h2></p>`;\n}\n\nconst formatLink = (url) => {\n  return `<p><a href=\\\"${url}\\\" data-card-appearance=\\\"inline\\\">${url}</a></p>`;\n}\n\nconst formatComment = (value) => {\n  return `<p>${value}</p>`;\n}\n\nconst generateBody = () => {\n  const scraps = JSON.parse(fs.readFileSync('./scrap.json'));\n  console.log(scraps)\n\n  return scraps.map((line)=> {\n    if (line.match('http')) {\n      return formatLink(line)\n    }\n    if (line.match('comment:')) {\n      return formatComment(line)\n    }\n\n    return formatTitle(line);\n  }).join(\"\\n\");\n}\n\nconst authString = () => {\n  const username = process.env.EMAIL;\n  const token = process.env.CONFLUENCE_API_TOKEN;\n  const buffer = Buffer.from(`${username}:${token}`);\n\n  return buffer.toString('base64');\n}\n\nconst putText = async (authString, pageId, versionNumber) => {\n  const title = '記事スクラップ'\n  const spaceKey = '~username';\n  const type = 'page';\n\n  const bodyData = {\n    \"version\": {\n      \"number\": versionNumber\n    },\n    \"title\": title,\n    \"type\": type,\n    \"id\": pageId,\n    \"space\": {\n      \"key\": spaceKey\n    },\n    \"status\": \"current\",\n    \"body\": {\n      \"storage\": {\n        \"value\": generateBody(),\n        \"representation\": \"storage\"\n      },\n    }\n  };\n\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}`, {\n    method: 'PUT',\n    headers: {\n      'Accept': 'application/json',\n      'Content-Type': 'application/json',\n      'Authorization': `Basic ${authString}`\n    },\n    body: JSON.stringify(bodyData)\n  });\n\n  return await res.json();\n}\n\nconst getVersion = async (authString, pageId) => {\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}?expand=version`, {\n    method: 'GET',\n    headers: {\n      'Accept': 'application/json',\n      'Authorization': `Basic ${authString}`\n    }\n  });\n\n  return await res.json();\n}\n\n(async () => {\n  const versionResponse = await getVersion(authString(), pageId);\n  const putResponse = await putText(authString(), pageId, versionResponse.version.number + 1);\n  console.log(putResponse);\n})\n```\n\n`spaceKey`,`pageId`は環境によって記述を変える必要がある\n\nさっと書いたのでいろいろ考慮足りない部分もあるが投稿までのしくみはこんな感じでOKそう",
+          "timeToRead": 4,
+          "objectID": "d6478df3-32d6-5f2f-81bf-35a9c96f2f68",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n## 下準備\n\nアカウント管理ページでAPIトークンを作成する\n\n[api-tokens](https://id.atlassian",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 18, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "ConfluenceにAPI経由で投稿する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/confluence_post_via_api/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n## 下準備\n\nアカウント管理ページでAPIトークンを作成する\n\n[api-tokens](https://id.atlassian.com/manage/api-tokens)\n\n\n## APIをたたく\n\n参考にするのはこの辺\n\n[The Confluence Cloud REST API](https://developer.atlassian.com/cloud/confluence/rest/api-group-content/#api-api-content-post)\n\n- 基本系\n\n```shell\ncurl -X GET \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Accept: application/json'\n```\n\n上記をもとにブログポストを生成するスクリプトを用意した\n\n`CONFLUENCE_API_TOKEN`,`ATLASSIAN_DOMAIN`,`EMAIL`は環境変数に適切な値を入れておく\n\n`CONFLUENCE_API_TOKEN`は下準備で生成したAPIトークン\n\n最低限だとこんな感じで投稿できるはず\n\n- blogpost.sh\n\n```shell\ntitle=\"From API Test\"\nspace_key=\"~username\"\nbody_value=\"hoge\"\n\ncurl -X POST \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Content-Type: application/json' \\\n  -H 'Accept: application/json' \\\n  -d @- <<EOS\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n    \"storage\": {\n      \"value\": \"${body_value}\",\n      \"representation\": \"storage\"\n    }\n  }\n}\nEOS\n```\n\n### 試行錯誤\n\n最初`body.storage`の部分を`body.view`にしていたら投稿はできるがコンテンツが空の状態になってしまっていた\n\nライブラリはどうやってんだと思い次のソースをよんだ\n\n[confluence-api/confluence.js at master · johnpduane/confluence-api](https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js)\n\n[https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js:embed:cite]\n\n```diff\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n-    \"view\": {\n+    \"storage\": {\n      \"value\": \"${body_value}\",\n-      \"representation\": \"view\"\n+      \"representation\": \"storage\"\n    }\n  }\n}\n```\n\nこんな感じの差分で投稿できるようになった\n\nrepresentationが何を意味するのかまでちゃんと読んでないが無事コンテンツの中身も反映されるようになった\n\nAPIでのやりとりではHTMLをそのまま投げるという感じ\n\nmarkdown2confluenceなど使えばMarkdownで書いた文書をコンフルに同期とかできるかと思ったけどそもそも記法が違うので今回は使わなかった\n\n## 更新を伴う投稿\n\n新規投稿ならPOSTだけでOKだが更新処理を含める場合はversion番号が必要なため複数APIをたたかないといけない\n\njsonで定義した値をフォーマットして定期的に更新するスクリプトを書いた\n\n- scrap.json\n\n```json\n[\n  \"リプレイスとかバージョンアップとかの記事\",\n  \"https://blog.cybozu.io/entry/2021/06/16/080000\",\n  \"https://developers.cyberagent.co.jp/blog/archives/30257/\",\n  \"https://buildersbox.corp-sansan.com/entry/2021/06/24/110000\",\n  \"comment: リプレイスとかやりました！その後の話は結構ありかも\",\n  \"エンジニアブログ系\",\n  \"https://tech.classi.jp/entry/2021/06/18/120000\",\n  \"comment: こんな感じで運営してますってのは運営の価値観が垣間見れてよい、他のも見てみたい感ある\",\n  \"https://tech.pepabo.com/2021/07/14/pepabo-tech-blog-2021/\",\n  \"comment: ブログの執筆ふろーの自動化周りの話と思想、おもしろい\"\n]\n```\n\n- scrap.js\n\n```javascript\nconst fetch = require('node-fetch');\nconst fs = require('fs');\n\nconst pageId = 1111111111;\n\nconst formatTitle = (value) => {\n  return `<p><h2>${value}</h2></p>`;\n}\n\nconst formatLink = (url) => {\n  return `<p><a href=\\\"${url}\\\" data-card-appearance=\\\"inline\\\">${url}</a></p>`;\n}\n\nconst formatComment = (value) => {\n  return `<p>${value}</p>`;\n}\n\nconst generateBody = () => {\n  const scraps = JSON.parse(fs.readFileSync('./scrap.json'));\n  console.log(scraps)\n\n  return scraps.map((line)=> {\n    if (line.match('http')) {\n      return formatLink(line)\n    }\n    if (line.match('comment:')) {\n      return formatComment(line)\n    }\n\n    return formatTitle(line);\n  }).join(\"\\n\");\n}\n\nconst authString = () => {\n  const username = process.env.EMAIL;\n  const token = process.env.CONFLUENCE_API_TOKEN;\n  const buffer = Buffer.from(`${username}:${token}`);\n\n  return buffer.toString('base64');\n}\n\nconst putText = async (authString, pageId, versionNumber) => {\n  const title = '記事スクラップ'\n  const spaceKey = '~username';\n  const type = 'page';\n\n  const bodyData = {\n    \"version\": {\n      \"number\": versionNumber\n    },\n    \"title\": title,\n    \"type\": type,\n    \"id\": pageId,\n    \"space\": {\n      \"key\": spaceKey\n    },\n    \"status\": \"current\",\n    \"body\": {\n      \"storage\": {\n        \"value\": generateBody(),\n        \"representation\": \"storage\"\n      },\n    }\n  };\n\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}`, {\n    method: 'PUT',\n    headers: {\n      'Accept': 'application/json',\n      'Content-Type': 'application/json',\n      'Authorization': `Basic ${authString}`\n    },\n    body: JSON.stringify(bodyData)\n  });\n\n  return await res.json();\n}\n\nconst getVersion = async (authString, pageId) => {\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}?expand=version`, {\n    method: 'GET',\n    headers: {\n      'Accept': 'application/json',\n      'Authorization': `Basic ${authString}`\n    }\n  });\n\n  return await res.json();\n}\n\n(async () => {\n  const versionResponse = await getVersion(authString(), pageId);\n  const putResponse = await putText(authString(), pageId, versionResponse.version.number + 1);\n  console.log(putResponse);\n})\n```\n\n`spaceKey`,`pageId`は環境によって記述を変える必要がある\n\nさっと書いたのでいろいろ考慮足りない部分もあるが投稿までのしくみはこんな感じでOKそう",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "4",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "July 30, 2020",
+          "title": "WindowsのエクスプローラからWSLなどのファイルを扱う",
+          "slug": "/entries/windows_file_access/",
+          "rawMarkdownBody": "\nWindows <-> WSL間でのファイルのやりとり\n\n## Windows -> WSL上ファイルへのアクセス\n\nエクスプローラで`\\\\wsl$`と入力するとファイル群を閲覧できる\n\n## Windows -> VM + sambaへのアクセス\n\nエクスプローラで`\\\\192.168.30.11\\...`と入力するとファイル群を閲覧できる\n\n## WSL -> Windows上ファイルへのアクセス\n\nWindows上のファイルへのアクセスは次のように行う\n\n```shell\nls /mnt/c/Users/.....\n```",
+          "timeToRead": 1,
+          "objectID": "d0467113-254c-553c-ae44-16298ed716bb",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nWindows <-> WSL間でのファイルのやりとり\n\n## Windows -> WSL上ファイルへのアクセス\n\nエク",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "July 30, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "WindowsのエクスプローラからWSLなどのファイルを扱う",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/windows_file_access/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nWindows <-> WSL間でのファイルのやりとり\n\n## Windows -> WSL上ファイルへのアクセス\n\nエクスプローラで`\\\\wsl$`と入力するとファイル群を閲覧できる\n\n## Windows -> VM + sambaへのアクセス\n\nエクスプローラで`\\\\192.168.30.11\\...`と入力するとファイル群を閲覧できる\n\n## WSL -> Windows上ファイルへのアクセス\n\nWindows上のファイルへのアクセスは次のように行う\n\n```shell\nls /mnt/c/Users/.....\n```",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 12, 2020",
+          "title": "curl: (3) [globbing] error: bad range specification after pos 3",
+          "slug": "/entries/curl_with_grep_color/",
+          "rawMarkdownBody": "\ntflintを入れてみようと思いREADMEにしたがいワンライナーで落としてこようと思ったら思わぬところでつまずいた\n\n```shell\n$ curl -L \"$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\")\" -o tflint.zip && unzip tflint.zip && rm tflint.zip\ncurl: (3) [globbing] error: bad range specification after pos 3\n```\n\nglob…どこかで`[]`や`{}`使っているか?という感じだったが`grep`が悪さをしていた\n\n自分のシェル環境だとデフォルトでgrepの結果に色をつけるようにしていたのでその結果に対して`curl`しようとすることでエスケープシーケンスも含まれてしまっていた\n\n```\n$ curl  -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\" > url.txt\n$ cat -v url.txt\n^[[01;31m^[[Khttps://github.com/terraform-linters/tflint/releases/download/v0.22.0/tflint_linux_amd64.zip^[[m^[[K\n```\n\nもともとURLに`[]`や`{}`が含まれているパターンではないのでこの場合の対応は`--globoff`ではだめだった\n\n`grep --color=no`を追加することでcurl対象のURLがプレーンなテキストになるのでcurlできるようになった\n\nエスケープシーケンスはよくやるので気を付けたい\n",
+          "timeToRead": 1,
+          "objectID": "cf55191e-5e3e-54f6-8964-be56698fe6ff",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\ntflintを入れてみようと思いREADMEにしたがいワンライナーで落としてこ",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 12, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "curl: (3) [globbing] error: bad range specification after pos 3",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/curl_with_grep_color/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\ntflintを入れてみようと思いREADMEにしたがいワンライナーで落としてこようと思ったら思わぬところでつまずいた\n\n```shell\n$ curl -L \"$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\")\" -o tflint.zip && unzip tflint.zip && rm tflint.zip\ncurl: (3) [globbing] error: bad range specification after pos 3\n```\n\nglob…どこかで`[]`や`{}`使っているか?という感じだったが`grep`が悪さをしていた\n\n自分のシェル環境だとデフォルトでgrepの結果に色をつけるようにしていたのでその結果に対して`curl`しようとすることでエスケープシーケンスも含まれてしまっていた\n\n```\n$ curl  -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\" > url.txt\n$ cat -v url.txt\n^[[01;31m^[[Khttps://github.com/terraform-linters/tflint/releases/download/v0.22.0/tflint_linux_amd64.zip^[[m^[[K\n```\n\nもともとURLに`[]`や`{}`が含まれているパターンではないのでこの場合の対応は`--globoff`ではだめだった\n\n`grep --color=no`を追加することでcurl対象のURLがプレーンなテキストになるのでcurlできるようになった\n\nエスケープシーケンスはよくやるので気を付けたい\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "May 01, 2022",
+          "title": "CloudFrontのキャッシュをクリアする",
+          "slug": "/entries/cloudfront_cache_clear/",
+          "rawMarkdownBody": "\nメモ\n\n`hogehoge.cloudfront.net`は実行時適切なものに割り当てる\n\n```\n# DISTRIBUTION_IDの取得\n$ export DISTRIBUTION_ID=$(aws cloudfront list-distributions --query 'DistributionList.Items[]' | jq -r '.[]|select(.DomainName=\"hogehoge.cloudfront.net\")|.Id')\n# INVALIDATION_IDの取得、invalidationでキャッシュの削除を行う、非同期処理のためIDを取得しておく\n$ export INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths \"/*\" | jq -r '.Invalidation.Id')\n# チェック、Completeになっていれば完了\n$ aws cloudfront get-invalidation --distribution-id ${DISTRIBUTION_ID} --id ${INVALIDATION_ID}\n```\n",
+          "timeToRead": 1,
+          "objectID": "c71540b7-1d53-519c-bf60-e0213a1d512f",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nメモ\n\n`hogehoge.cloudfront.net`は実行時適切なものに割り当てる\n\n```\n# DISTRIBUTION_IDの取得\n$ export DISTRIBUTION_ID",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "May 01, 2022",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "CloudFrontのキャッシュをクリアする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/cloudfront_cache_clear/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nメモ\n\n`hogehoge.cloudfront.net`は実行時適切なものに割り当てる\n\n```\n# DISTRIBUTION_IDの取得\n$ export DISTRIBUTION_ID=$(aws cloudfront list-distributions --query 'DistributionList.Items[]' | jq -r '.[]|select(.DomainName=\"hogehoge.cloudfront.net\")|.Id')\n# INVALIDATION_IDの取得、invalidationでキャッシュの削除を行う、非同期処理のためIDを取得しておく\n$ export INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths \"/*\" | jq -r '.Invalidation.Id')\n# チェック、Completeになっていれば完了\n$ aws cloudfront get-invalidation --distribution-id ${DISTRIBUTION_ID} --id ${INVALIDATION_ID}\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "January 21, 2022",
+          "title": "GitHub Projects(beta)のデータを収集する",
+          "slug": "/entries/github_projects_data_from_graphql/",
+          "rawMarkdownBody": "\nGitHubのProjects（Beta）を使って自動化や集計をするなどしたい場合のメモ\n\nAPIの基本的な使い方に関しては下記を参照し、1つずつ実行していけばイメージはつかめる\n\n[APIを使ったプロジェクト（ベータ）の管理 - GitHub Docs](https://docs.github.com/ja/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)\n\n事前にProjectのIDだけ取得しメモしておく\n\n次のクエリ一発でだいたい必要なデータは取れそう\n\n```graphql\nquery ($project_id: ID!) {\n  node(id: $project_id) {\n    ... on ProjectNext {\n      items(first: 100) {\n        nodes {\n          title\n          createdAt\n          fieldValues(first: 8) {\n            nodes {\n              value\n              createdAt\n              projectField {\n                name\n                settings\n              }\n            }\n          }\n          content {\n            ... on Issue {\n              id\n              number\n              url\n              repository {\n                name\n              }\n              milestone {\n                id\n                title\n              }\n              createdAt\n              closed\n              closedAt\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n            }\n            ... on PullRequest {\n              id\n              number\n              url\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n              repository {\n                name\n              }\n              createdAt\n              closed\n              closedAt\n              merged\n              mergedAt\n              reviewRequests(first: 10) {\n                nodes {\n                  requestedReviewer {\n                    ... on User {\n                      name\n                    }\n                  }\n                }\n              }\n            }\n          }\n          id\n          updatedAt\n        }\n      }\n    }\n  }\n}\n```\n\nproject_idは事前にメモしておいた値\n\nどのカラムが必要かなどは下記で`Explorer`を展開して1つずつ見ていけば把握できる\n\n[Explorer - GitHub Docs](https://docs.github.com/ja/graphql/overview/explorer)\n\nExplorerのiframeの範囲が狭くて見づらいのがちょっと不満ではあるがそれ以外は便利に使える\n\nカードに紐づくIssueやPullRequestなどの情報も取ってこれるのでフラットにして集計する前のデータとして使える\n\nとりあえずプロジェクトのデータ使って云々やりたい場合はこのくらいデータが有れば十分かなと感じる\n\n- 結果（一部抜粋）\n\n```json\n{\n  \"data\": {\n    \"node\": {\n      \"items\": {\n        \"nodes\": [\n          {\n            \"title\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n            \"id\": \"PNI_xxxxxxxxxxxxxxxxxxxx\",\n            \"updatedAt\": \"2022-01-19T06:12:59Z\",\n            \"fieldValues\": {\n              \"nodes\": [\n                {\n                  \"value\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n                  \"projectField\": {\n                    \"name\": \"Title\",\n                    \"settings\": \"{\\\"width\\\":319}\"\n                  }\n                },\n                {\n                  \"value\": \"98236657\",\n                  \"projectField\": {\n                    \"name\": \"Status\",\n                    \"settings\": \"{\\\"width\\\":125,\\\"options\\\":[{\\\"id\\\":\\\"xxxxxxx1\\\",\\\"name\\\":\\\"New\\\",\\\"name_html\\\":\\\"New\\\"},{\\\"id\\\":\\\"xxxxxxx2\\\",\\\"name\\\":\\\"Epic\\\",\\\"name_html\\\":\\\"Epic\\\"},{\\\"id\\\":\\\"xxxxxxx3\\\",\\\"name\\\":\\\"Idea\\\",\\\"name_html\\\":\\\"Idea\\\"},{\\\"id\\\":\\\"xxxxxxx4\\\",\\\"name\\\":\\\"Todo\\\",\\\"name_html\\\":\\\"Todo\\\"},{\\\"id\\\":\\\"xxxxxxx5\\\",\\\"name\\\":\\\"In Progress\\\",\\\"name_html\\\":\\\"In Progress\\\"},{\\\"id\\\":\\\"xxxxxxx6\\\",\\\"name\\\":\\\"Review\\\",\\\"name_html\\\":\\\"Review\\\"},{\\\"id\\\":\\\"xxxxxxx7\\\",\\\"name\\\":\\\"Done\\\",\\\"name_html\\\":\\\"Done\\\"}]}\"\n                  }\n                },\n                {\n                  \"value\": \"2\",\n                  \"projectField\": {\n                    \"name\": \"Point\",\n                    \"settings\": \"{\\\"width\\\":69}\"\n                  }\n                },\n                {\n                  \"value\": \"2022-01-01T00:00:00+00:00\",\n                  \"projectField\": {\n                    \"name\": \"Month\",\n                    \"settings\": \"null\"\n                  }\n                },\n                {\n                  \"value\": \"e9bbecfa\",\n                  \"projectField\": {\n                    \"name\": \"Iteration\",\n                    \"settings\": \"{\\\"configuration\\\":{\\\"duration\\\":14,\\\"start_day\\\":1,\\\"iterations\\\":[{\\\"id\\\":\\\"xxxxxxa\\\",\\\"title\\\":\\\"2022-01_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-17\\\",\\\"title_html\\\":\\\"2022-01_2\\\"},{\\\"id\\\":\\\"xxxxxxb\\\",\\\"title\\\":\\\"2022-02_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-31\\\",\\\"title_html\\\":\\\"2022-02_1\\\"},{\\\"id\\\":\\\"xxxxxxc\\\",\\\"title\\\":\\\"2022-02_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-02-14\\\",\\\"title_html\\\":\\\"2022-02_2\\\"}],\\\"completed_iterations\\\":[{\\\"id\\\":\\\"xxxxxxd\\\",\\\"title\\\":\\\"2022-01_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-03\\\",\\\"title_html\\\":\\\"2022-01_1\\\"},{\\\"id\\\":\\\"xxxxxxe\\\",\\\"title\\\":\\\"Iteration 1\\\",\\\"duration\\\":7,\\\"start_date\\\":\\\"2021-12-27\\\",\\\"title_html\\\":\\\"Iteration 1\\\"}]}}\"\n                  }\n                }\n              ]\n            },\n            \"content\": {\n              \"id\": \"I_xxxxxxxxxxxxxxxx\",\n              \"number\": 56,\n              \"url\": \"https://github.com/swfz/tools/issues/56\",\n              \"closed\": true,\n              \"closedAt\": \"2022-01-20T16:27:38Z\",\n              \"createdAt\": \"2022-01-19T06:12:59Z\",\n              \"repository\": {\n                \"name\": \"tools\"\n              },\n              \"milestone\": null,\n              \"assignees\": {\n                \"nodes\": [\n                  {\n                    \"name\": \"swfz\"\n                  }\n                ]\n              }\n            }\n          },\n          .....\n          .....\n          .....\n          .....\n```\n\nまた、実際にこのデータを用いて何かやるなら100件以上のデータが存在することのほうが多いはずなのでページングにも対応したクエリにする必要があるが今回はここまで\n",
+          "timeToRead": 3,
+          "objectID": "c5f74971-5cdb-55f9-ab0e-c99b41357a69",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nGitHubのProjects（Beta）を使って自動化や集計をするなどしたい場合のメモ\n\nAPIの",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "January 21, 2022",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "GitHub Projects(beta)のデータを収集する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/github_projects_data_from_graphql/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nGitHubのProjects（Beta）を使って自動化や集計をするなどしたい場合のメモ\n\nAPIの基本的な使い方に関しては下記を参照し、1つずつ実行していけばイメージはつかめる\n\n[APIを使ったプロジェクト（ベータ）の管理 - GitHub Docs](https://docs.github.com/ja/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)\n\n事前にProjectのIDだけ取得しメモしておく\n\n次のクエリ一発でだいたい必要なデータは取れそう\n\n```graphql\nquery ($project_id: ID!) {\n  node(id: $project_id) {\n    ... on ProjectNext {\n      items(first: 100) {\n        nodes {\n          title\n          createdAt\n          fieldValues(first: 8) {\n            nodes {\n              value\n              createdAt\n              projectField {\n                name\n                settings\n              }\n            }\n          }\n          content {\n            ... on Issue {\n              id\n              number\n              url\n              repository {\n                name\n              }\n              milestone {\n                id\n                title\n              }\n              createdAt\n              closed\n              closedAt\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n            }\n            ... on PullRequest {\n              id\n              number\n              url\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n              repository {\n                name\n              }\n              createdAt\n              closed\n              closedAt\n              merged\n              mergedAt\n              reviewRequests(first: 10) {\n                nodes {\n                  requestedReviewer {\n                    ... on User {\n                      name\n                    }\n                  }\n                }\n              }\n            }\n          }\n          id\n          updatedAt\n        }\n      }\n    }\n  }\n}\n```\n\nproject_idは事前にメモしておいた値\n\nどのカラムが必要かなどは下記で`Explorer`を展開して1つずつ見ていけば把握できる\n\n[Explorer - GitHub Docs](https://docs.github.com/ja/graphql/overview/explorer)\n\nExplorerのiframeの範囲が狭くて見づらいのがちょっと不満ではあるがそれ以外は便利に使える\n\nカードに紐づくIssueやPullRequestなどの情報も取ってこれるのでフラットにして集計する前のデータとして使える\n\nとりあえずプロジェクトのデータ使って云々やりたい場合はこのくらいデータが有れば十分かなと感じる\n\n- 結果（一部抜粋）\n\n```json\n{\n  \"data\": {\n    \"node\": {\n      \"items\": {\n        \"nodes\": [\n          {\n            \"title\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n            \"id\": \"PNI_xxxxxxxxxxxxxxxxxxxx\",\n            \"updatedAt\": \"2022-01-19T06:12:59Z\",\n            \"fieldValues\": {\n              \"nodes\": [\n                {\n                  \"value\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n                  \"projectField\": {\n                    \"name\": \"Title\",\n                    \"settings\": \"{\\\"width\\\":319}\"\n                  }\n                },\n                {\n                  \"value\": \"98236657\",\n                  \"projectField\": {\n                    \"name\": \"Status\",\n                    \"settings\": \"{\\\"width\\\":125,\\\"options\\\":[{\\\"id\\\":\\\"xxxxxxx1\\\",\\\"name\\\":\\\"New\\\",\\\"name_html\\\":\\\"New\\\"},{\\\"id\\\":\\\"xxxxxxx2\\\",\\\"name\\\":\\\"Epic\\\",\\\"name_html\\\":\\\"Epic\\\"},{\\\"id\\\":\\\"xxxxxxx3\\\",\\\"name\\\":\\\"Idea\\\",\\\"name_html\\\":\\\"Idea\\\"},{\\\"id\\\":\\\"xxxxxxx4\\\",\\\"name\\\":\\\"Todo\\\",\\\"name_html\\\":\\\"Todo\\\"},{\\\"id\\\":\\\"xxxxxxx5\\\",\\\"name\\\":\\\"In Progress\\\",\\\"name_html\\\":\\\"In Progress\\\"},{\\\"id\\\":\\\"xxxxxxx6\\\",\\\"name\\\":\\\"Review\\\",\\\"name_html\\\":\\\"Review\\\"},{\\\"id\\\":\\\"xxxxxxx7\\\",\\\"name\\\":\\\"Done\\\",\\\"name_html\\\":\\\"Done\\\"}]}\"\n                  }\n                },\n                {\n                  \"value\": \"2\",\n                  \"projectField\": {\n                    \"name\": \"Point\",\n                    \"settings\": \"{\\\"width\\\":69}\"\n                  }\n                },\n                {\n                  \"value\": \"2022-01-01T00:00:00+00:00\",\n                  \"projectField\": {\n                    \"name\": \"Month\",\n                    \"settings\": \"null\"\n                  }\n                },\n                {\n                  \"value\": \"e9bbecfa\",\n                  \"projectField\": {\n                    \"name\": \"Iteration\",\n                    \"settings\": \"{\\\"configuration\\\":{\\\"duration\\\":14,\\\"start_day\\\":1,\\\"iterations\\\":[{\\\"id\\\":\\\"xxxxxxa\\\",\\\"title\\\":\\\"2022-01_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-17\\\",\\\"title_html\\\":\\\"2022-01_2\\\"},{\\\"id\\\":\\\"xxxxxxb\\\",\\\"title\\\":\\\"2022-02_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-31\\\",\\\"title_html\\\":\\\"2022-02_1\\\"},{\\\"id\\\":\\\"xxxxxxc\\\",\\\"title\\\":\\\"2022-02_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-02-14\\\",\\\"title_html\\\":\\\"2022-02_2\\\"}],\\\"completed_iterations\\\":[{\\\"id\\\":\\\"xxxxxxd\\\",\\\"title\\\":\\\"2022-01_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-03\\\",\\\"title_html\\\":\\\"2022-01_1\\\"},{\\\"id\\\":\\\"xxxxxxe\\\",\\\"title\\\":\\\"Iteration 1\\\",\\\"duration\\\":7,\\\"start_date\\\":\\\"2021-12-27\\\",\\\"title_html\\\":\\\"Iteration 1\\\"}]}}\"\n                  }\n                }\n              ]\n            },\n            \"content\": {\n              \"id\": \"I_xxxxxxxxxxxxxxxx\",\n              \"number\": 56,\n              \"url\": \"https://github.com/swfz/tools/issues/56\",\n              \"closed\": true,\n              \"closedAt\": \"2022-01-20T16:27:38Z\",\n              \"createdAt\": \"2022-01-19T06:12:59Z\",\n              \"repository\": {\n                \"name\": \"tools\"\n              },\n              \"milestone\": null,\n              \"assignees\": {\n                \"nodes\": [\n                  {\n                    \"name\": \"swfz\"\n                  }\n                ]\n              }\n            }\n          },\n          .....\n          .....\n          .....\n          .....\n```\n\nまた、実際にこのデータを用いて何かやるなら100件以上のデータが存在することのほうが多いはずなのでページングにも対応したクエリにする必要があるが今回はここまで\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 08, 2021",
+          "title": "AWSの請求書の金額と同じ値を取得するためのワンライナー",
+          "slug": "/entries/aws_ce_get_cost_and_usage/",
+          "rawMarkdownBody": "\n`AWSのサービスの料金`と同じ値を出す\n\n```shell\nlast_month=2021-08-01\nthis_month=2021-09-01\naws ce get-cost-and-usage --granularity MONTHLY --metrics UnblendedCost --region us-east-1  --time-period Start=${last_month},End=${this_month}| jq -r '.ResultsByTime[0].Total.UnblendedCost.Amount' | xargs printf '%.2f'\n```\n\nで、8月分のAWSサービス料金が取得できる\n\n## get-cost-and-usage\n\nコストエクスプローラで閲覧できる値をCLIからたたける\n\nドキュメントは下記\n\n[get-cost-and-usage — AWS CLI 1.20.36 Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ce/get-cost-and-usage.html)\n\n気を付けるのはregionが`us-east-1`で固定なことくらい\n\n## bashで小数点第2位で四捨五入する\n\nprintfはCの書式でフォーマットを記述する\n\n```shell\n$ printf '%.2f' 2.222\n2.22\n$ printf '%.2f' 2.225\n2.23\n```\n\n四捨五入なら上記でOK\n\n## pipeで受け取った値をprintfする\n\n```shell\n$ echo -n 2.225 | xargs printf '%.2f'\n2.22\n```\n\nん?.....\n\n```shell\n$ echo 2.2251 | xargs printf '%.2f'\n2.23\n$ echo 2.2250000000 | xargs printf '%.2f'\n2.22\n$ echo 2.22500000001 | xargs printf '%.2f'\n2.23\n```\n\nprintfだと精度の問題があるみたい\n\n小数点第2位で四捨五入するパターンの場合\n\n小数点第3位がちょうど5の場合は期待する値にならない\n\nなので別の方法を検討する必要がある\n\nが、今回はcliで取得できる値を見た感じこの減少にほぼ当たらないだろうと判断してこのままやることにした\n",
+          "timeToRead": 1,
+          "objectID": "c565e3ff-0605-5981-b903-0b0823a76552",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n`AWSのサービスの料金`と同じ値を出す\n\n```shell\nlast_month=2021-08-01\nthis_month=2021-09-01\naws ce",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 08, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "AWSの請求書の金額と同じ値を取得するためのワンライナー",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/aws_ce_get_cost_and_usage/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n`AWSのサービスの料金`と同じ値を出す\n\n```shell\nlast_month=2021-08-01\nthis_month=2021-09-01\naws ce get-cost-and-usage --granularity MONTHLY --metrics UnblendedCost --region us-east-1  --time-period Start=${last_month},End=${this_month}| jq -r '.ResultsByTime[0].Total.UnblendedCost.Amount' | xargs printf '%.2f'\n```\n\nで、8月分のAWSサービス料金が取得できる\n\n## get-cost-and-usage\n\nコストエクスプローラで閲覧できる値をCLIからたたける\n\nドキュメントは下記\n\n[get-cost-and-usage — AWS CLI 1.20.36 Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ce/get-cost-and-usage.html)\n\n気を付けるのはregionが`us-east-1`で固定なことくらい\n\n## bashで小数点第2位で四捨五入する\n\nprintfはCの書式でフォーマットを記述する\n\n```shell\n$ printf '%.2f' 2.222\n2.22\n$ printf '%.2f' 2.225\n2.23\n```\n\n四捨五入なら上記でOK\n\n## pipeで受け取った値をprintfする\n\n```shell\n$ echo -n 2.225 | xargs printf '%.2f'\n2.22\n```\n\nん?.....\n\n```shell\n$ echo 2.2251 | xargs printf '%.2f'\n2.23\n$ echo 2.2250000000 | xargs printf '%.2f'\n2.22\n$ echo 2.22500000001 | xargs printf '%.2f'\n2.23\n```\n\nprintfだと精度の問題があるみたい\n\n小数点第2位で四捨五入するパターンの場合\n\n小数点第3位がちょうど5の場合は期待する値にならない\n\nなので別の方法を検討する必要がある\n\nが、今回はcliで取得できる値を見た感じこの減少にほぼ当たらないだろうと判断してこのままやることにした\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 21, 2020",
+          "title": "Disallow empty functions (no-empty-function)",
+          "slug": "/entries/eslint_disallow_empty_function/",
+          "rawMarkdownBody": "\nESLintで怒られたときの対応\n\n\n次のような形で何もしない関数をコールバックとして渡していて怒られた\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => {})\n```\n\n\n```\nDisallow empty functions (no-empty-function)\n```\n\n`()`でくくって対応する\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => ({}))\n```\n\n出典どこだったか忘れてしまったのでメモ残しておく",
+          "timeToRead": 1,
+          "objectID": "c560b2b5-0fd4-5cd9-b3c0-0bf190336238",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nESLintで怒られたときの対応\n\n\n次のような形で何もしない関数をコール",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 21, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Disallow empty functions (no-empty-function)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/eslint_disallow_empty_function/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nESLintで怒られたときの対応\n\n\n次のような形で何もしない関数をコールバックとして渡していて怒られた\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => {})\n```\n\n\n```\nDisallow empty functions (no-empty-function)\n```\n\n`()`でくくって対応する\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => ({}))\n```\n\n出典どこだったか忘れてしまったのでメモ残しておく",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "November 07, 2020",
+          "title": "digest-crc gemがインストールできない",
+          "slug": "/entries/install_digest_crc_in_docker_image/",
+          "rawMarkdownBody": "\nCloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろやってみようとインストールして見たら怒られた\n\n- Dockerfile\n\n```dockerfile\nFROM ruby:2.7-slim\n\nWORKDIR /usr/src/app\nCOPY Gemfile Gemfile.lock ./\nENV BUNDLE_FROZEN=true\nRUN gem install bundler && bundle install --without test\n\nCOPY . ./\n\nCMD [\"ruby\", \"./app.rb\"]\n```\n\n- Gemfile\n\n```gemfile\nsource \"https://rubygems.org\"\n\ngem \"google-cloud-storage\"\ngem \"google-cloud-secret_manager\"\ngem \"sinatra\", \"~>2.0\"\n\ngroup :test do\n  gem \"rack-test\"\n  gem \"rest-client\"\n  gem \"rspec\"\n  gem \"rspec_junit_formatter\"\n  gem \"rubysl-securerandom\"\nend\n```\n\n```\nInstalling digest-crc 0.6.1 with native extensions\nGem::Ext::BuildError: ERROR: Failed to build gem native extension.\n\n    current directory: /usr/local/bundle/gems/digest-crc-0.6.1/ext/digest\n/usr/local/bin/ruby -I/usr/local/lib/ruby/2.7.0/rubygems -rrubygems\n/usr/local/lib/ruby/gems/2.7.0/gems/rake-13.0.1/exe/rake\nRUBYARCHDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\nRUBYLIBDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\n/usr/local/bin/ruby -S extconf.rb\nchecking for stdint.h... *** extconf.rb failed ***\nCould not create Makefile due to some reason, probably lack of necessary\nlibraries and/or headers.  Check the mkmf.log file for more details.  You may\nneed configuration options.\n\nProvided configuration options:\n        --with-opt-dir\n        --without-opt-dir\n        --with-opt-include\n        --without-opt-include=${opt-dir}/include\n        --with-opt-lib\n        --without-opt-lib=${opt-dir}/lib\n        --with-make-prog\n        --without-make-prog\n        --srcdir=.\n        --curdir\n        --ruby=/usr/local/bin/$(RUBY_BASE_NAME)\n        --with-stdint-dir\n        --without-stdint-dir\n        --with-stdint-include\n        --without-stdint-include=${stdint-dir}/include\n        --with-stdint-lib\n        --without-stdint-lib=${stdint-dir}/lib\n/usr/local/lib/ruby/2.7.0/mkmf.rb:471:in `try_do': The compiler failed to\ngenerate an executable file. (RuntimeError)\nYou have to install development tools first.\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:613:in `try_cpp'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1124:in `block in have_header'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:971:in `block in checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block (2 levels) in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:357:in `postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:970:in `checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1123:in `have_header'\n        from extconf.rb:3:in `<main>'\nrake aborted!\nCommand failed with status (1): [/usr/local/bin/ruby -S extconf.rb...]\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:32:in `block (3\nlevels) in <top (required)>'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `chdir'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `block (2\nlevels) in <top (required)>'\nTasks: TOP => default => crc15/crc15_ext.so => crc15/Makefile\n(See full trace by running task with --trace)\n\nrake failed, exit code 1\n\nGem files will remain installed in /usr/local/bundle/gems/digest-crc-0.6.1 for\ninspection.\nResults logged to\n/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1/gem_make.out\n\nAn error occurred while installing digest-crc (0.6.1), and Bundler cannot\ncontinue.\nMake sure that `gem install digest-crc -v '0.6.1' --source\n'https://rubygems.org/'` succeeds before bundling.\n\nIn Gemfile:\n  google-cloud-storage was resolved to 1.29.1, which depends on\n    digest-crc\nThe command '/bin/sh -c gem install bundler && bundle install --without test' returned a non-zero code: 5\nERROR\nERROR: build step 0 \"gcr.io/cloud-builders/docker\" failed: step exited with non-zero status: 5\n\n-----------------------------------------------------------------------------------------------------------------------------------------------------\n\nERROR: (gcloud.builds.submit) build 57e77985-ae0b-40b7-b0d7-04ce7bcbd099 completed with status \"FAILURE\"\n```\n\nちょっと調べただけだとわからなかった\n\nruby2.7-slim -> ruby2.7にしたらインストールできたのでいったんそれでも良いかと思ったがよく読んだら\n\n`You have to install development tools first.`ということで次の対応でインストールできるようにした\n\n```diff\n COPY Gemfile Gemfile.lock ./\n ENV BUNDLE_FROZEN=true\n+\n+RUN apt-get update && apt-get install -y \\\n+    build-essential\n```\n\nもっと詳しい中身までは追っていない…\n",
+          "timeToRead": 3,
+          "objectID": "be05a748-ceea-5021-b4c2-917df2ef41c7",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nCloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろや",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "November 07, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "digest-crc gemがインストールできない",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/install_digest_crc_in_docker_image/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nCloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろやってみようとインストールして見たら怒られた\n\n- Dockerfile\n\n```dockerfile\nFROM ruby:2.7-slim\n\nWORKDIR /usr/src/app\nCOPY Gemfile Gemfile.lock ./\nENV BUNDLE_FROZEN=true\nRUN gem install bundler && bundle install --without test\n\nCOPY . ./\n\nCMD [\"ruby\", \"./app.rb\"]\n```\n\n- Gemfile\n\n```gemfile\nsource \"https://rubygems.org\"\n\ngem \"google-cloud-storage\"\ngem \"google-cloud-secret_manager\"\ngem \"sinatra\", \"~>2.0\"\n\ngroup :test do\n  gem \"rack-test\"\n  gem \"rest-client\"\n  gem \"rspec\"\n  gem \"rspec_junit_formatter\"\n  gem \"rubysl-securerandom\"\nend\n```\n\n```\nInstalling digest-crc 0.6.1 with native extensions\nGem::Ext::BuildError: ERROR: Failed to build gem native extension.\n\n    current directory: /usr/local/bundle/gems/digest-crc-0.6.1/ext/digest\n/usr/local/bin/ruby -I/usr/local/lib/ruby/2.7.0/rubygems -rrubygems\n/usr/local/lib/ruby/gems/2.7.0/gems/rake-13.0.1/exe/rake\nRUBYARCHDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\nRUBYLIBDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\n/usr/local/bin/ruby -S extconf.rb\nchecking for stdint.h... *** extconf.rb failed ***\nCould not create Makefile due to some reason, probably lack of necessary\nlibraries and/or headers.  Check the mkmf.log file for more details.  You may\nneed configuration options.\n\nProvided configuration options:\n        --with-opt-dir\n        --without-opt-dir\n        --with-opt-include\n        --without-opt-include=${opt-dir}/include\n        --with-opt-lib\n        --without-opt-lib=${opt-dir}/lib\n        --with-make-prog\n        --without-make-prog\n        --srcdir=.\n        --curdir\n        --ruby=/usr/local/bin/$(RUBY_BASE_NAME)\n        --with-stdint-dir\n        --without-stdint-dir\n        --with-stdint-include\n        --without-stdint-include=${stdint-dir}/include\n        --with-stdint-lib\n        --without-stdint-lib=${stdint-dir}/lib\n/usr/local/lib/ruby/2.7.0/mkmf.rb:471:in `try_do': The compiler failed to\ngenerate an executable file. (RuntimeError)\nYou have to install development tools first.\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:613:in `try_cpp'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1124:in `block in have_header'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:971:in `block in checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block (2 levels) in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:357:in `postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:970:in `checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1123:in `have_header'\n        from extconf.rb:3:in `<main>'\nrake aborted!\nCommand failed with status (1): [/usr/local/bin/ruby -S extconf.rb...]\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:32:in `block (3\nlevels) in <top (required)>'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `chdir'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `block (2\nlevels) in <top (required)>'\nTasks: TOP => default => crc15/crc15_ext.so => crc15/Makefile\n(See full trace by running task with --trace)\n\nrake failed, exit code 1\n\nGem files will remain installed in /usr/local/bundle/gems/digest-crc-0.6.1 for\ninspection.\nResults logged to\n/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1/gem_make.out\n\nAn error occurred while installing digest-crc (0.6.1), and Bundler cannot\ncontinue.\nMake sure that `gem install digest-crc -v '0.6.1' --source\n'https://rubygems.org/'` succeeds before bundling.\n\nIn Gemfile:\n  google-cloud-storage was resolved to 1.29.1, which depends on\n    digest-crc\nThe command '/bin/sh -c gem install bundler && bundle install --without test' returned a non-zero code: 5\nERROR\nERROR: build step 0 \"gcr.io/cloud-builders/docker\" failed: step exited with non-zero status: 5\n\n-----------------------------------------------------------------------------------------------------------------------------------------------------\n\nERROR: (gcloud.builds.submit) build 57e77985-ae0b-40b7-b0d7-04ce7bcbd099 completed with status \"FAILURE\"\n```\n\nちょっと調べただけだとわからなかった\n\nruby2.7-slim -> ruby2.7にしたらインストールできたのでいったんそれでも良いかと思ったがよく読んだら\n\n`You have to install development tools first.`ということで次の対応でインストールできるようにした\n\n```diff\n COPY Gemfile Gemfile.lock ./\n ENV BUNDLE_FROZEN=true\n+\n+RUN apt-get update && apt-get install -y \\\n+    build-essential\n```\n\nもっと詳しい中身までは追っていない…\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "April 30, 2021",
+          "title": "Dataportalで月毎に日平均値を計算する",
+          "slug": "/entries/dataportal_custom_field_count_distinct/",
+          "rawMarkdownBody": "\nこういうのはどうしてもView側で用意しないと計算できないのでメモしておく\n\n- 計算フィールドを用意する\n\n```\nsum(hour)/count_distinct(start_date)\n```\n\n月ごとで1日あたりの時間数を取りたいのでこんな感じになる\n\nSQLと一緒といえば一緒なので割と把握しやすい",
+          "timeToRead": 1,
+          "objectID": "bd76cabf-7748-50b6-8047-880446bc7319",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nこういうのはどうしてもView側で用意しないと計算できないのでメ",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "April 30, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Dataportalで月毎に日平均値を計算する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/dataportal_custom_field_count_distinct/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nこういうのはどうしてもView側で用意しないと計算できないのでメモしておく\n\n- 計算フィールドを用意する\n\n```\nsum(hour)/count_distinct(start_date)\n```\n\n月ごとで1日あたりの時間数を取りたいのでこんな感じになる\n\nSQLと一緒といえば一緒なので割と把握しやすい",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "February 08, 2021",
+          "title": "CloudSQLへの接続方法",
+          "slug": "/entries/cloud_sql_proxy/",
+          "rawMarkdownBody": "\n## CloudShellからの接続\n\n- CloudShellから接続する場合は簡単\n- 該当プロジェクトでcloud shellを起動し`gcloud sql connect`で接続するだけ\n\n```\n$ gcloud sql connect mysql-instance --user=root\nAllowlisting your IP for incoming connection for 5 minutes...done.\nConnecting to database with SQL user [root].Enter password:\nWelcome to the MySQL monitor.  Commands end with ; or \\g.\nYour MySQL connection id is 351117\nServer version: 5.7.25-google-log (Google)\nCopyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.\nOracle is a registered trademark of Oracle Corporation and/or its\naffiliates. Other names may be trademarks of their respective\nowners.\nType 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\nmysql> show databases;\n```\n\n`gcloud sql connect ${instance name} --user=root`\n\nこれだけでOK\n\n## ローカルからの接続\n\ncloud_sql_proxyを使ってforwardingする\n\n[Cloud SQL Proxy について  |  Cloud SQL for MySQL  |  Google Cloud](https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja#install)\n\n### インストール\n\nLinux64ビットにしたがってやっていく\n\n```shell\n$ curl -LO https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64\n$ chmod +x ./cloud_sql_proxy\n$ mv ./cloud_sql_proxy /usr/local/bin/\n```\n\n### 実行\n\n```shell\n$ cloud_sql_proxy -instances=sample-project:us-west1:mysql-instance=tcp:13306\n```\n\n- フォーマット\n\n```\n-instances=${project name}:${region}:${instance name}=tcp:${forward port}\n```\n\nローカルの`13306`ポートで接続できるようにした\n\n### 接続\n\n```\nmysql -uroot -h 127.0.0.1  -P 13306 -p\n```\n\nこれだけでOK",
+          "timeToRead": 1,
+          "objectID": "bba9db7a-c748-5246-8981-c2d9c78cc19e",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n## CloudShellからの接続\n\n- CloudShellから接続する場合は簡単\n- 該当プロジェクトでcloud shell",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "February 08, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "CloudSQLへの接続方法",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/cloud_sql_proxy/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n## CloudShellからの接続\n\n- CloudShellから接続する場合は簡単\n- 該当プロジェクトでcloud shellを起動し`gcloud sql connect`で接続するだけ\n\n```\n$ gcloud sql connect mysql-instance --user=root\nAllowlisting your IP for incoming connection for 5 minutes...done.\nConnecting to database with SQL user [root].Enter password:\nWelcome to the MySQL monitor.  Commands end with ; or \\g.\nYour MySQL connection id is 351117\nServer version: 5.7.25-google-log (Google)\nCopyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.\nOracle is a registered trademark of Oracle Corporation and/or its\naffiliates. Other names may be trademarks of their respective\nowners.\nType 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\nmysql> show databases;\n```\n\n`gcloud sql connect ${instance name} --user=root`\n\nこれだけでOK\n\n## ローカルからの接続\n\ncloud_sql_proxyを使ってforwardingする\n\n[Cloud SQL Proxy について  |  Cloud SQL for MySQL  |  Google Cloud](https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja#install)\n\n### インストール\n\nLinux64ビットにしたがってやっていく\n\n```shell\n$ curl -LO https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64\n$ chmod +x ./cloud_sql_proxy\n$ mv ./cloud_sql_proxy /usr/local/bin/\n```\n\n### 実行\n\n```shell\n$ cloud_sql_proxy -instances=sample-project:us-west1:mysql-instance=tcp:13306\n```\n\n- フォーマット\n\n```\n-instances=${project name}:${region}:${instance name}=tcp:${forward port}\n```\n\nローカルの`13306`ポートで接続できるようにした\n\n### 接続\n\n```\nmysql -uroot -h 127.0.0.1  -P 13306 -p\n```\n\nこれだけでOK",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "May 14, 2021",
+          "title": "gcloudのActionsを差し替える",
+          "slug": "/entries/github_actions_replace_setup_gcloud/",
+          "rawMarkdownBody": "\n普段のGitHubActionsでログを見ていたら次のようなメッセージが出ていた\n\n```\nThank you for using setup-gcloud Action. GoogleCloudPlatform/github-actions/setup-gcloud has been deprecated, please switch to google-github-actions/setup-gcloud.\n```\n\nということで、既存の`setup-gcloud`を`google-github-actions/setup-gcloud`に移行する\n\n既存で`uses`している部分を書き換えるだけでOK\n\n- before\n\n```\nGoogleCloudPlatform/github-actions/setup-gcloud@v0.2.1\n```\n\n- after\n\n```\ngoogle-github-actions/setup-gcloud@v0.2.1\n```\n",
+          "timeToRead": 1,
+          "objectID": "bb120c80-d98c-5a50-93a8-7c91293799cb",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n普段のGitHubActionsでログを見ていたら次のようなメッセージが出ていた\n\n```\nThank",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "May 14, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "gcloudのActionsを差し替える",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/github_actions_replace_setup_gcloud/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n普段のGitHubActionsでログを見ていたら次のようなメッセージが出ていた\n\n```\nThank you for using setup-gcloud Action. GoogleCloudPlatform/github-actions/setup-gcloud has been deprecated, please switch to google-github-actions/setup-gcloud.\n```\n\nということで、既存の`setup-gcloud`を`google-github-actions/setup-gcloud`に移行する\n\n既存で`uses`している部分を書き換えるだけでOK\n\n- before\n\n```\nGoogleCloudPlatform/github-actions/setup-gcloud@v0.2.1\n```\n\n- after\n\n```\ngoogle-github-actions/setup-gcloud@v0.2.1\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        }
+      ],
+      "nbHits": 117,
+      "page": 0,
+      "nbPages": 6,
+      "hitsPerPage": 20,
+      "exhaustiveNbHits": true,
+      "exhaustiveTypo": true,
+      "query": "",
+      "params": "facets=%5B%5D&highlightPostTag=__%2Fais-highlight__&highlightPreTag=__ais-highlight__&query=&tagFilters=",
+      "index": "til",
+      "renderingContent": {},
+      "processingTimeMS": 13
+    },
+    {
+      "hits": [
+        {
+          "date": "September 25, 2021",
+          "title": "GitHubのコントリビュート一覧に飛ぶためのブックマークレット",
+          "slug": "/entries/github_contribute_bookmarklet/",
+          "rawMarkdownBody": "\n以前Twitterで`採用などでGitHubアカウントもらったらこのクエリでコントリビューションみますね`みたいなのを見かけた\n\n<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->\nとりあえずそのうち見るときのためにタブをそのままにしていたが、いろいろな人のも見られるとおもしろいかもと思ってブックマークレットを書いた\n<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->\n\nユーザーページもしくは対象ユーザーのどこかのリポジトリなど、ユーザー名がURLに存在すれば実行可能\n\n- github_contribute.js\n\n```javascript\n(function(){\n  const user = window.location.href.split(\"/\")[3];\n  const excludeOrgs = [];\n  const w = window.open();\n  const excludeOrgQuery = excludeOrgs.map(o => `-org%3A${o}`).join('+');\n  w.location.href = `https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;\n})()\n```\n\n- ブックマークバーへの貼り付け用出力\n\n```shell\n$ cat github_contribute.js |  sed -e ':loop;N;$!b loop;s/\\n/ /g' -e 's/ \\+/%20/g' -e 's/^/javascript:/'\njavascript:(function(){%20const%20user%20=%20window.location.href.split(\"/\")[3];%20const%20excludeOrgs%20=%20[];%20const%20w%20=%20window.open();%20const%20excludeOrgQuery%20=%20excludeOrgs.map(o%20=>%20`-org%3A${o}`).join('+');%20w.location.href%20=%20`https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;%20})()\n```\n\n`excludeOrgs`は自分が所属している組織へのPRやissueは除外するための記述\n\nGitHubで仕事の開発している場合は対象組織のPRなども表示されてしまうのでその除外\n\n感想としては自分はあんまりコントリビュートできてません!ということがわかりました。まる。\n",
+          "timeToRead": 1,
+          "objectID": "fb6ffa09-87e0-5cfc-a9fa-8886cfcd6da5",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n以前Twitterで`採用などでGitHubアカウントもらったらこのクエリでコント",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 25, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "GitHubのコントリビュート一覧に飛ぶためのブックマークレット",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/github_contribute_bookmarklet/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n以前Twitterで`採用などでGitHubアカウントもらったらこのクエリでコントリビューションみますね`みたいなのを見かけた\n\n<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->\nとりあえずそのうち見るときのためにタブをそのままにしていたが、いろいろな人のも見られるとおもしろいかもと思ってブックマークレットを書いた\n<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->\n\nユーザーページもしくは対象ユーザーのどこかのリポジトリなど、ユーザー名がURLに存在すれば実行可能\n\n- github_contribute.js\n\n```javascript\n(function(){\n  const user = window.location.href.split(\"/\")[3];\n  const excludeOrgs = [];\n  const w = window.open();\n  const excludeOrgQuery = excludeOrgs.map(o => `-org%3A${o}`).join('+');\n  w.location.href = `https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;\n})()\n```\n\n- ブックマークバーへの貼り付け用出力\n\n```shell\n$ cat github_contribute.js |  sed -e ':loop;N;$!b loop;s/\\n/ /g' -e 's/ \\+/%20/g' -e 's/^/javascript:/'\njavascript:(function(){%20const%20user%20=%20window.location.href.split(\"/\")[3];%20const%20excludeOrgs%20=%20[];%20const%20w%20=%20window.open();%20const%20excludeOrgQuery%20=%20excludeOrgs.map(o%20=>%20`-org%3A${o}`).join('+');%20w.location.href%20=%20`https://github.com/pulls?q=involves%3A${user}+-user%3A${user}+${excludeOrgQuery}`;%20})()\n```\n\n`excludeOrgs`は自分が所属している組織へのPRやissueは除外するための記述\n\nGitHubで仕事の開発している場合は対象組織のPRなども表示されてしまうのでその除外\n\n感想としては自分はあんまりコントリビュートできてません!ということがわかりました。まる。\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "March 05, 2021",
+          "title": "Kindle for PC(Windows)のショートカットを無効にする",
+          "slug": "/entries/kindle_deny_shortcut/",
+          "rawMarkdownBody": "\n## Kindle for PCのショートカットキー\n\nデフォルトだと`Ctrl+Alt+k`でKindleが起動する\n\nショートカットキーを無効にするためにはショートカットのアイコンのプロパティから`ショートカット`欄を消すことで行える\n\n自分はデスクトップにショートカットを置くようにしたのでそこだけ消せばOKだと思っていた\n\nしかし、消してもまだ治らず\n\nディスク内で検索したら\n\n```\nC:\\Users\\hoge\\Desktop\nC:\\Users\\hoge\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon\\Amazon Kindle\n```\n\n2つ存在した!!!\n\n`Start Menu`にも配置される模様…\n\n両方解除することでショートカットが発動しないようになる\n\nこれに気付かずアプリケーションのアップデートのタイミングでショートカットが更新されてしまい毎度探すということをやっていたのでメモとして残しておく\n",
+          "timeToRead": 1,
+          "objectID": "f8327805-b086-5db8-bd60-3d6e6d058e7f",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n## Kindle for PCのショートカットキー\n\nデフォルトだと`Ctrl+Alt+k`でKindleが起動す",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "March 05, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Kindle for PC(Windows)のショートカットを無効にする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/kindle_deny_shortcut/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n## Kindle for PCのショートカットキー\n\nデフォルトだと`Ctrl+Alt+k`でKindleが起動する\n\nショートカットキーを無効にするためにはショートカットのアイコンのプロパティから`ショートカット`欄を消すことで行える\n\n自分はデスクトップにショートカットを置くようにしたのでそこだけ消せばOKだと思っていた\n\nしかし、消してもまだ治らず\n\nディスク内で検索したら\n\n```\nC:\\Users\\hoge\\Desktop\nC:\\Users\\hoge\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon\\Amazon Kindle\n```\n\n2つ存在した!!!\n\n`Start Menu`にも配置される模様…\n\n両方解除することでショートカットが発動しないようになる\n\nこれに気付かずアプリケーションのアップデートのタイミングでショートカットが更新されてしまい毎度探すということをやっていたのでメモとして残しておく\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "January 10, 2022",
+          "title": "Docker環境でAnsibleのget_url実行が失敗する",
+          "slug": "/entries/docker_compose_dns/",
+          "rawMarkdownBody": "\n新しい開発環境ではAnsibleでローカル環境を作るようにしているが次のようにansibleの`get_url`実行に失敗してしまっていた\n\n```\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Failed to connect to objects.githubusercontent.com at port 443: [Errno -5] No address associated with hostname\"}\n```\n\n名前解決ができていないという状態のようだったのでDNSサーバを指定してあげれば良い\n\n- docker-compose.yml\n\n```yaml\nversion: \"3\"\nservices:\n  app:\n    build:\n      context: ./ansible\n    dns:\n      - 8.8.8.8\n```\n\n上記のように`dns`を指定することで解決した\n\n",
+          "timeToRead": 1,
+          "objectID": "ef087dcc-2c23-50ac-9f0d-05a6de497606",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n新しい開発環境ではAnsibleでローカル環境を作るようにしているが次",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "January 10, 2022",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Docker環境でAnsibleのget_url実行が失敗する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/docker_compose_dns/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n新しい開発環境ではAnsibleでローカル環境を作るようにしているが次のようにansibleの`get_url`実行に失敗してしまっていた\n\n```\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Failed to connect to objects.githubusercontent.com at port 443: [Errno -5] No address associated with hostname\"}\n```\n\n名前解決ができていないという状態のようだったのでDNSサーバを指定してあげれば良い\n\n- docker-compose.yml\n\n```yaml\nversion: \"3\"\nservices:\n  app:\n    build:\n      context: ./ansible\n    dns:\n      - 8.8.8.8\n```\n\n上記のように`dns`を指定することで解決した\n\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 24, 2020",
+          "title": "SlackのAPI経由でリンク文字列を生成する",
+          "slug": "/entries/slack_link_string/",
+          "rawMarkdownBody": "\n忘れるので備忘録\n\n[Formatting text for app surfaces | Slack](https://api.slack.com/reference/surfaces/formatting#linking_to_urls)\n\nSlackのAPI経由でtextを生成において、Markdown記法が使えるもののリンクなどは独自の記法になっている\n\n`<url|文字列>`という感じ\n\n```json\n\"blocks\": [\n  {\n    \"type\": \"context\",\n    \"elements\": [\n      {\n        \"type\": \"mrkdwn\",\n        \"text\": \"Location: *Dogpatch* <https://github.com/swfz|swfz>)\"\n      }\n    ]\n  }\n]\n```\n\nめちゃめちゃ細かい話だがスペースとかが入ると変換してくれない\n\n## 失敗パターン\n\n```\n< https://github.com/swfz | swfz>\n```\n\n\n## 成功パターン\n\n```\n<https://github.com/swfz | swfz>\n```\n\n![alt](slack_link_string01.png)",
+          "timeToRead": 1,
+          "objectID": "ea08f6ab-daf8-5e72-bbf6-9ea04b758243",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n忘れるので備忘録\n\n[Formatting text for app surfaces | Slack](https://api.slack.com/reference/surfaces/formatting#linking_to_urls)\n\nSlackのAPI経由",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 24, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "SlackのAPI経由でリンク文字列を生成する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/slack_link_string/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n忘れるので備忘録\n\n[Formatting text for app surfaces | Slack](https://api.slack.com/reference/surfaces/formatting#linking_to_urls)\n\nSlackのAPI経由でtextを生成において、Markdown記法が使えるもののリンクなどは独自の記法になっている\n\n`<url|文字列>`という感じ\n\n```json\n\"blocks\": [\n  {\n    \"type\": \"context\",\n    \"elements\": [\n      {\n        \"type\": \"mrkdwn\",\n        \"text\": \"Location: *Dogpatch* <https://github.com/swfz|swfz>)\"\n      }\n    ]\n  }\n]\n```\n\nめちゃめちゃ細かい話だがスペースとかが入ると変換してくれない\n\n## 失敗パターン\n\n```\n< https://github.com/swfz | swfz>\n```\n\n\n## 成功パターン\n\n```\n<https://github.com/swfz | swfz>\n```\n\n![alt](slack_link_string01.png)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "July 03, 2021",
+          "title": "Netlifyに手動でデプロイする",
+          "slug": "/entries/netlify_manual_deploy/",
+          "rawMarkdownBody": "\n割と月の早い段階でAlgoliaの使用制限で継続的デプロイができなくなってしまったのでCLI経由でデプロイできないか調べて試した\n\n## 前提\n\n- Netlifyでビルドとデプロイを行っていてビルド時に都度Algoliaのインデックス更新している\n- DependabotやRenovateなどのパッケージの更新でも上記処理が走ってしまっていたので利用上限に達してしまったよう\n\n- build時エラーログ\n\n```\nERROR\n\nfailed to index to Algolia Operations quota exceeded. Change plan to get more Operations.\nError: Operations quota exceeded. Change plan to get more Operations.\n```\n\n途中で落ちてしまいデプロイできないのでIndexの再生成だけ除外して記事をデプロイする\n\n- Netlify-cliのインストール\n\n```shell\nyarn add -D netlify-cli\n```\n\n- ログイン\n\n```\nyarn netlify login\n```\n\nブラウザに遷移して`Authorize`をクリックして認証する\n\nconfigファイルにtokenが出力される\n\nファイルの場所は `~/.config/netlify/config.json`に置かれる（OSによる）\n\n- デプロイ\n\n`.env.production`にはデプロイに必要な環境変数が入っている\n\n```\n$ envfile .env.production yarn netlify deploy\nyarn run v1.22.10\n$ /home/user/til/node_modules/.bin/netlify deploy\nThis folder isn't linked to a site yet\n? What would you like to do? Link this directory to an existing site\n\nnetlify link will connect this folder to a site on Netlify\n\n? How do you want to link this folder to a site? Use current git remote origin (https://github.com/swfz/til)\n\nLooking for sites connected to 'https://github.com/swfz/til'...\n\n\nDirectory Linked\n\nSite url:  https://til.swfz.io\n\nSite id saved to /home/user/til/.netlify/state.json\n\nYou can now run other `netlify` cli commands in this directory\nDeploy path: /home/user/til/public\nDeploying to draft URL...\n✔ Finished hashing 641 files\n✔ CDN requesting 377 files\n✔ Finished uploading 377 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/hoge/deploys/xxxxxxxxxxxxxxxxxxxxxxxxxxx\nWebsite Draft URL: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxx--hoge.netlify.app\n\nIf everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.\nnetlify deploy --prod\n\nDone in 118.77s.\n```\n\n`--prod`オプションを付けない場合はデプロイプレビュー用のよう\n\n- 本番デプロイ\n\n```\n$ envfile .env.production yarn build\n$ envfile .env.production yarn netlify deploy --prod\nDeploy path: /home/user/deploy-til/public\nDeploying to main site URL...\n✔ Finished hashing 450 files\n✔ CDN requesting 249 files\n✔ Finished uploading 249 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/.....\nUnique Deploy URL: https://......netlify.app\nWebsite URL:       https://til.swfz.io\nDone in 51.37s.\n```\n\npublic以下のファイル群をNetlifyにアップロードする\n\nこれで無事デプロイできた\n\nCLIのドキュメントは下記\n\n[Get started with Netlify CLI | Netlify Docs](https://docs.netlify.com/cli/get-started/)\n\n## Algoliaのインデックス更新のコントロール\n\nとりあえず手動デプロイで当座はしのげるようになったが来月も同じ様になってしまうと困るので対策する\n\nAlgoliaのIndexingが必要なのは記事の更新があったときのみなので条件によって挙動を分ける\n\nドキュメントでは`netlify.toml`に設定書けば良いよ、となっているがGUIからの基本的な設定（主にシークレットなどの情報）とうまい具合にマージしてくれるわけではないらしい\n\nそうなると各種キーがデプロイ時に必要なのでパブリックなリポジトリでは`netlify.toml`を使って設定は行えない\n\n[File-based configuration | Netlify Docs](https://docs.netlify.com/configure-builds/file-based-configuration/)\n\n[https://docs.netlify.com/configure-builds/file-based-configuration/:embed:cite]\n\nドキュメントを眺めていると\n\n`$CACHED_COMMIT_REF`、`$COMMIT_REF`という環境変数が用意されているようなのでそれを用いてラップするコマンドを書いてデプロイするようにした\n\n- deploy.sh\n\n```bash\n#!/bin/bash\n\necho $CACHED_COMMIT_REF\necho $COMMIT_REF\n\n# 差分があると終了コード1\ngit diff --quiet $CACHED_COMMIT_REF $COMMIT_REF content/blog/entries/\n\nrc=$?\n\nif [ \"$rc\" = \"1\" ]; then\n  echo \"content changed.\"\n  CONTENT_CHANGED=true gatsby build\nelse\n  echo \"content not changed.\"\n  CONTENT_CHANGED=false gatsby build\nfi\n```\n\n記事のディレクトリに変更があるかどうかで`CONTENT_CHANGED`環境変数を切り分ける\n\n- gatsby-config.js\n\n```javascript\nskipIndexing: (process.env.BRANCH !== 'master' || process.env.CONTENT_CHANGED === 'false'),\n```\n\nこれでAlgoliaへのインデックス情報の更新は\n\n- `master`ブランチのとき\n- 記事情報が更新されたとき\n\n<!-- textlint-disable prh -->\nが満たされて初めて更新されるようになった\n<!-- textlint-enable prh -->\n\nここまでやっていまさらだが、ざっとしか調べてないのでもし検索でリミットに達していたのなら来月も手動デプロイが発生するかもw",
+          "timeToRead": 4,
+          "objectID": "e76ffc08-7c83-572c-bbcd-5360a527178e",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n割と月の早い段階でAlgoliaの使用制限で継続的デプロイができなくな",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "July 03, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Netlifyに手動でデプロイする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/netlify_manual_deploy/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n割と月の早い段階でAlgoliaの使用制限で継続的デプロイができなくなってしまったのでCLI経由でデプロイできないか調べて試した\n\n## 前提\n\n- Netlifyでビルドとデプロイを行っていてビルド時に都度Algoliaのインデックス更新している\n- DependabotやRenovateなどのパッケージの更新でも上記処理が走ってしまっていたので利用上限に達してしまったよう\n\n- build時エラーログ\n\n```\nERROR\n\nfailed to index to Algolia Operations quota exceeded. Change plan to get more Operations.\nError: Operations quota exceeded. Change plan to get more Operations.\n```\n\n途中で落ちてしまいデプロイできないのでIndexの再生成だけ除外して記事をデプロイする\n\n- Netlify-cliのインストール\n\n```shell\nyarn add -D netlify-cli\n```\n\n- ログイン\n\n```\nyarn netlify login\n```\n\nブラウザに遷移して`Authorize`をクリックして認証する\n\nconfigファイルにtokenが出力される\n\nファイルの場所は `~/.config/netlify/config.json`に置かれる（OSによる）\n\n- デプロイ\n\n`.env.production`にはデプロイに必要な環境変数が入っている\n\n```\n$ envfile .env.production yarn netlify deploy\nyarn run v1.22.10\n$ /home/user/til/node_modules/.bin/netlify deploy\nThis folder isn't linked to a site yet\n? What would you like to do? Link this directory to an existing site\n\nnetlify link will connect this folder to a site on Netlify\n\n? How do you want to link this folder to a site? Use current git remote origin (https://github.com/swfz/til)\n\nLooking for sites connected to 'https://github.com/swfz/til'...\n\n\nDirectory Linked\n\nSite url:  https://til.swfz.io\n\nSite id saved to /home/user/til/.netlify/state.json\n\nYou can now run other `netlify` cli commands in this directory\nDeploy path: /home/user/til/public\nDeploying to draft URL...\n✔ Finished hashing 641 files\n✔ CDN requesting 377 files\n✔ Finished uploading 377 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/hoge/deploys/xxxxxxxxxxxxxxxxxxxxxxxxxxx\nWebsite Draft URL: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxx--hoge.netlify.app\n\nIf everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.\nnetlify deploy --prod\n\nDone in 118.77s.\n```\n\n`--prod`オプションを付けない場合はデプロイプレビュー用のよう\n\n- 本番デプロイ\n\n```\n$ envfile .env.production yarn build\n$ envfile .env.production yarn netlify deploy --prod\nDeploy path: /home/user/deploy-til/public\nDeploying to main site URL...\n✔ Finished hashing 450 files\n✔ CDN requesting 249 files\n✔ Finished uploading 249 assets\n✔ Deploy is live!\n\nLogs:              https://app.netlify.com/sites/.....\nUnique Deploy URL: https://......netlify.app\nWebsite URL:       https://til.swfz.io\nDone in 51.37s.\n```\n\npublic以下のファイル群をNetlifyにアップロードする\n\nこれで無事デプロイできた\n\nCLIのドキュメントは下記\n\n[Get started with Netlify CLI | Netlify Docs](https://docs.netlify.com/cli/get-started/)\n\n## Algoliaのインデックス更新のコントロール\n\nとりあえず手動デプロイで当座はしのげるようになったが来月も同じ様になってしまうと困るので対策する\n\nAlgoliaのIndexingが必要なのは記事の更新があったときのみなので条件によって挙動を分ける\n\nドキュメントでは`netlify.toml`に設定書けば良いよ、となっているがGUIからの基本的な設定（主にシークレットなどの情報）とうまい具合にマージしてくれるわけではないらしい\n\nそうなると各種キーがデプロイ時に必要なのでパブリックなリポジトリでは`netlify.toml`を使って設定は行えない\n\n[File-based configuration | Netlify Docs](https://docs.netlify.com/configure-builds/file-based-configuration/)\n\n[https://docs.netlify.com/configure-builds/file-based-configuration/:embed:cite]\n\nドキュメントを眺めていると\n\n`$CACHED_COMMIT_REF`、`$COMMIT_REF`という環境変数が用意されているようなのでそれを用いてラップするコマンドを書いてデプロイするようにした\n\n- deploy.sh\n\n```bash\n#!/bin/bash\n\necho $CACHED_COMMIT_REF\necho $COMMIT_REF\n\n# 差分があると終了コード1\ngit diff --quiet $CACHED_COMMIT_REF $COMMIT_REF content/blog/entries/\n\nrc=$?\n\nif [ \"$rc\" = \"1\" ]; then\n  echo \"content changed.\"\n  CONTENT_CHANGED=true gatsby build\nelse\n  echo \"content not changed.\"\n  CONTENT_CHANGED=false gatsby build\nfi\n```\n\n記事のディレクトリに変更があるかどうかで`CONTENT_CHANGED`環境変数を切り分ける\n\n- gatsby-config.js\n\n```javascript\nskipIndexing: (process.env.BRANCH !== 'master' || process.env.CONTENT_CHANGED === 'false'),\n```\n\nこれでAlgoliaへのインデックス情報の更新は\n\n- `master`ブランチのとき\n- 記事情報が更新されたとき\n\n<!-- textlint-disable prh -->\nが満たされて初めて更新されるようになった\n<!-- textlint-enable prh -->\n\nここまでやっていまさらだが、ざっとしか調べてないのでもし検索でリミットに達していたのなら来月も手動デプロイが発生するかもw",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "4",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "June 15, 2021",
+          "title": "GatsbyにAlgoliaを導入する",
+          "slug": "/entries/gatsby_algolia/",
+          "rawMarkdownBody": "\n一応ログとして残すがやったのは下記プラグインを入れただけ\n\n[gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n\n\n## インデックスの更新\n\n記事の内容をAlgoliaのインデックスに登録するための設定\n\nインデックスの登録はbuild時に行われる\n\nこちらはAlgoliaの管理画面からAdminのAPI Keyが必要\n\ngraphqlのクエリに関しては自分の設定に合わせる必要があるので`/__graphql`でよしなにできるようにクエリを確かめる\n\nとりあえずデータが登録できるところまでを確認\n\n## UIの実装\n\n[React InstantSearch Widgets | React InstantSearch | API Reference | Algolia Documentation](https://www.algolia.com/doc/api-reference/widgets/react/)\n\nGatsbyのブログ見てとりあえずコピー&ペーストしてIndexNameだけ変更すれば動くものは作れた\n\nあとは細かく必要そうなものを足したり調整したりするくらいでOKそう\n\n## 参考と若干変えた部分\n\n### デプロイ時のみインデックス情報を設定するようにした\n\n- gatsby-config.js\n\n```javascript\n        skipIndexing: process.env.BRANCH !== 'master', // default: false, useful for e.g. preview deploys or local development\n```\n\nデプロイ時のみAlgoliaにデータ更新すればよいのでこうした\n\n### AlgoliaへのSearchクエリ部分\n\nedgesの内容に次の2項目を足した\n\n```\nrawMarkdownBody\ntimeToRead\n```\n\nこれでMarkdownBodyも検索対象に含まれるのかな?そこまで確認してないがいったん突っ込めるので突っ込んだ\n\n### .envについて\n\n`dotenv`を入れているがこれを使っているのは開発時のみで`.env.development`を用意して環境変数を読み込ませている\n\nデプロイ時はすでに環境変数に各種キーを入れているので`.env`を使用していない\n\n## まとめ\n\n取り急ぎ検索は可能になった\n\nが若干もっさり感が残っていて、とりあえず使えるようになりました!って感じなのでそのあたりチューニングしたい\n\nあと検索対象や検索結果の見た目もカスタマイズしたいところ\n\nどっかで時間作ってやる…\n\nあとgraphqlのエディタが項目チェックするだけでクエリ作ってくれる感じになっていてとても使いやすかった\n\n### 全体の参考\n- [Adding Search with Algolia | Gatsby](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)\n- [gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n- [Gatsby+microCMSサイトにAlgolia全文検索機能を実装 - Qiita](https://qiita.com/atomyah/items/b772a63fc70bf8e7dbdd)",
+          "timeToRead": 2,
+          "objectID": "e279e9b1-6506-5bd9-8be7-157c24dc02f4",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n一応ログとして残すがやったのは下記プラグインを入れただけ\n\n[gatsby",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "June 15, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "GatsbyにAlgoliaを導入する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/gatsby_algolia/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n一応ログとして残すがやったのは下記プラグインを入れただけ\n\n[gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n\n\n## インデックスの更新\n\n記事の内容をAlgoliaのインデックスに登録するための設定\n\nインデックスの登録はbuild時に行われる\n\nこちらはAlgoliaの管理画面からAdminのAPI Keyが必要\n\ngraphqlのクエリに関しては自分の設定に合わせる必要があるので`/__graphql`でよしなにできるようにクエリを確かめる\n\nとりあえずデータが登録できるところまでを確認\n\n## UIの実装\n\n[React InstantSearch Widgets | React InstantSearch | API Reference | Algolia Documentation](https://www.algolia.com/doc/api-reference/widgets/react/)\n\nGatsbyのブログ見てとりあえずコピー&ペーストしてIndexNameだけ変更すれば動くものは作れた\n\nあとは細かく必要そうなものを足したり調整したりするくらいでOKそう\n\n## 参考と若干変えた部分\n\n### デプロイ時のみインデックス情報を設定するようにした\n\n- gatsby-config.js\n\n```javascript\n        skipIndexing: process.env.BRANCH !== 'master', // default: false, useful for e.g. preview deploys or local development\n```\n\nデプロイ時のみAlgoliaにデータ更新すればよいのでこうした\n\n### AlgoliaへのSearchクエリ部分\n\nedgesの内容に次の2項目を足した\n\n```\nrawMarkdownBody\ntimeToRead\n```\n\nこれでMarkdownBodyも検索対象に含まれるのかな?そこまで確認してないがいったん突っ込めるので突っ込んだ\n\n### .envについて\n\n`dotenv`を入れているがこれを使っているのは開発時のみで`.env.development`を用意して環境変数を読み込ませている\n\nデプロイ時はすでに環境変数に各種キーを入れているので`.env`を使用していない\n\n## まとめ\n\n取り急ぎ検索は可能になった\n\nが若干もっさり感が残っていて、とりあえず使えるようになりました!って感じなのでそのあたりチューニングしたい\n\nあと検索対象や検索結果の見た目もカスタマイズしたいところ\n\nどっかで時間作ってやる…\n\nあとgraphqlのエディタが項目チェックするだけでクエリ作ってくれる感じになっていてとても使いやすかった\n\n### 全体の参考\n- [Adding Search with Algolia | Gatsby](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)\n- [gatsby-plugin-algolia | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-algolia/)\n- [Gatsby+microCMSサイトにAlgolia全文検索機能を実装 - Qiita](https://qiita.com/atomyah/items/b772a63fc70bf8e7dbdd)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "2",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 18, 2020",
+          "title": "docker-composeからmysqldumpコマンドを実行する",
+          "slug": "/entries/mysqldump_in_docker_compose/",
+          "rawMarkdownBody": "\ndocker-composeからmysqldumpやdumpファイルの入れ込みを行う\n\n- dump\n\n```shell\ndocker-compose exec database mysqldump -u root -phoge hoge > develop.sql\n```\n\n- 入れ込み\n\n```shell\ndocker-compose exec -T database mysql -u root -phoge hoge < hoge_dump.sql\n```\n\n`-T` がポイント\n\n```\n    -T                Disable pseudo-tty allocation. By default `docker-compose exec`\n                      allocates a TTY.\n```\n",
+          "timeToRead": 1,
+          "objectID": "e227e67e-8d76-54b7-a1f5-762e18418249",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\ndocker-composeからmysqldumpやdumpファイルの入れ込みを行う\n\n- dump\n\n```shell\ndocker-compose exec database mysqldump -u root -phoge",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 18, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "docker-composeからmysqldumpコマンドを実行する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/mysqldump_in_docker_compose/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\ndocker-composeからmysqldumpやdumpファイルの入れ込みを行う\n\n- dump\n\n```shell\ndocker-compose exec database mysqldump -u root -phoge hoge > develop.sql\n```\n\n- 入れ込み\n\n```shell\ndocker-compose exec -T database mysql -u root -phoge hoge < hoge_dump.sql\n```\n\n`-T` がポイント\n\n```\n    -T                Disable pseudo-tty allocation. By default `docker-compose exec`\n                      allocates a TTY.\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 07, 2021",
+          "title": "gh cliでCodespace上のインスタンスにファイルをコピーする",
+          "slug": "/entries/codespace_instance_access/",
+          "rawMarkdownBody": "\nやりたい機会があったので調べてみた\n\n[Using Codespaces with GitHub CLI - GitHub Docs](https://docs.github.com/ja/codespaces/developing-in-codespaces/using-codespaces-with-github-cli)\n\nドキュメントを見れば解決ではある\n\n## ファイルのコピー\n\n```\n$ gh codespace cp -e ~/memo/hoge.png 'remote:/workspaces/til/'\n? Choose codespace: swfz/til: master* [swfz-til-xxxxxxxxxxxx]\nhoge.png                                                                                                      100%   51KB 220.8KB/s   00:00\n```\n\nどのcodespaceに接続するか選択する、もしくは事前に調べておいて`-c`オプションで指定する\n\ngh_codespace_cp01.png\n\n`-e`はヘルプを見れば分かるがexpand\n\n''で囲った中身をremote側で展開するためのもの\n\nなので↑のような書き方になっている\n\nGitHubのCLIが使えればOKなのでWSL2の中から特定のファイルをコピーする、といった使い方もできる\n\n## SSH接続\n\nsshもできる\n\n```bash\n$ gh codespace ssh -c swfz-til-xxxxxxxxxxxx\n```\n\n`-c`で対象のcodespaceを指定しない場合はインタラクティブに選択させてくれる\n\nVS Codeのターミナルだと一部ショートカットが競合してしまったりすることがあるのでSSH接続していろいろやったほうが何も気にしなくてよいこともある\n\n## おわり\n\nあらためてGitHubのCLI便利だな!と感じた\n",
+          "timeToRead": 1,
+          "objectID": "db49c913-dddd-5271-827d-3fdfebce790c",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nやりたい機会があったので調べてみた\n\n[Using Codespaces with GitHub CLI - GitHub Docs](https://docs.github.com/ja",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 07, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "gh cliでCodespace上のインスタンスにファイルをコピーする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/codespace_instance_access/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nやりたい機会があったので調べてみた\n\n[Using Codespaces with GitHub CLI - GitHub Docs](https://docs.github.com/ja/codespaces/developing-in-codespaces/using-codespaces-with-github-cli)\n\nドキュメントを見れば解決ではある\n\n## ファイルのコピー\n\n```\n$ gh codespace cp -e ~/memo/hoge.png 'remote:/workspaces/til/'\n? Choose codespace: swfz/til: master* [swfz-til-xxxxxxxxxxxx]\nhoge.png                                                                                                      100%   51KB 220.8KB/s   00:00\n```\n\nどのcodespaceに接続するか選択する、もしくは事前に調べておいて`-c`オプションで指定する\n\ngh_codespace_cp01.png\n\n`-e`はヘルプを見れば分かるがexpand\n\n''で囲った中身をremote側で展開するためのもの\n\nなので↑のような書き方になっている\n\nGitHubのCLIが使えればOKなのでWSL2の中から特定のファイルをコピーする、といった使い方もできる\n\n## SSH接続\n\nsshもできる\n\n```bash\n$ gh codespace ssh -c swfz-til-xxxxxxxxxxxx\n```\n\n`-c`で対象のcodespaceを指定しない場合はインタラクティブに選択させてくれる\n\nVS Codeのターミナルだと一部ショートカットが競合してしまったりすることがあるのでSSH接続していろいろやったほうが何も気にしなくてよいこともある\n\n## おわり\n\nあらためてGitHubのCLI便利だな!と感じた\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 07, 2020",
+          "title": "Puppeteerのデバッグ用のテンプレート",
+          "slug": "/entries/puppeteer_debug/",
+          "rawMarkdownBody": "\n最初の数行が定型文で貼り付けるだけにしたいので残しておく\n\n- REPL起動\n\n```\nnode --experimental-repl-await\n```\n\ntoplevelでawaitを使えるようになるオプションをつける（node12以降）\n\n- REPL\n\n```javascript\nconst puppeteer = require('puppeteer');\nconst browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});\nconst page = await browser.newPage();\n\n// この辺からはその時時に合わせて変える\nlet requestUrl = 'https://example.com'\nawait page.goto(requestUrl);\nlet rows = await page.$x('//article');\nawait (await rows[0].getProperty('textContent')).jsonValue();\nawait (await (await rows[0].$x('.//a[contains(@role, \"link\") and contains(@data-focusable, \"true\")]/time'))[0].getProperty('textContent')).jsonValue();\n```\n",
+          "timeToRead": 1,
+          "objectID": "d669ff17-278b-504b-b144-77702a910eb9",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n最初の数行が定型文で貼り付けるだけにしたいので残しておく\n\n- REPL",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 07, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Puppeteerのデバッグ用のテンプレート",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/puppeteer_debug/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n最初の数行が定型文で貼り付けるだけにしたいので残しておく\n\n- REPL起動\n\n```\nnode --experimental-repl-await\n```\n\ntoplevelでawaitを使えるようになるオプションをつける（node12以降）\n\n- REPL\n\n```javascript\nconst puppeteer = require('puppeteer');\nconst browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});\nconst page = await browser.newPage();\n\n// この辺からはその時時に合わせて変える\nlet requestUrl = 'https://example.com'\nawait page.goto(requestUrl);\nlet rows = await page.$x('//article');\nawait (await rows[0].getProperty('textContent')).jsonValue();\nawait (await (await rows[0].$x('.//a[contains(@role, \"link\") and contains(@data-focusable, \"true\")]/time'))[0].getProperty('textContent')).jsonValue();\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 18, 2021",
+          "title": "ConfluenceにAPI経由で投稿する",
+          "slug": "/entries/confluence_post_via_api/",
+          "rawMarkdownBody": "\n## 下準備\n\nアカウント管理ページでAPIトークンを作成する\n\n[api-tokens](https://id.atlassian.com/manage/api-tokens)\n\n\n## APIをたたく\n\n参考にするのはこの辺\n\n[The Confluence Cloud REST API](https://developer.atlassian.com/cloud/confluence/rest/api-group-content/#api-api-content-post)\n\n- 基本系\n\n```shell\ncurl -X GET \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Accept: application/json'\n```\n\n上記をもとにブログポストを生成するスクリプトを用意した\n\n`CONFLUENCE_API_TOKEN`,`ATLASSIAN_DOMAIN`,`EMAIL`は環境変数に適切な値を入れておく\n\n`CONFLUENCE_API_TOKEN`は下準備で生成したAPIトークン\n\n最低限だとこんな感じで投稿できるはず\n\n- blogpost.sh\n\n```shell\ntitle=\"From API Test\"\nspace_key=\"~username\"\nbody_value=\"hoge\"\n\ncurl -X POST \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Content-Type: application/json' \\\n  -H 'Accept: application/json' \\\n  -d @- <<EOS\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n    \"storage\": {\n      \"value\": \"${body_value}\",\n      \"representation\": \"storage\"\n    }\n  }\n}\nEOS\n```\n\n### 試行錯誤\n\n最初`body.storage`の部分を`body.view`にしていたら投稿はできるがコンテンツが空の状態になってしまっていた\n\nライブラリはどうやってんだと思い次のソースをよんだ\n\n[confluence-api/confluence.js at master · johnpduane/confluence-api](https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js)\n\n[https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js:embed:cite]\n\n```diff\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n-    \"view\": {\n+    \"storage\": {\n      \"value\": \"${body_value}\",\n-      \"representation\": \"view\"\n+      \"representation\": \"storage\"\n    }\n  }\n}\n```\n\nこんな感じの差分で投稿できるようになった\n\nrepresentationが何を意味するのかまでちゃんと読んでないが無事コンテンツの中身も反映されるようになった\n\nAPIでのやりとりではHTMLをそのまま投げるという感じ\n\nmarkdown2confluenceなど使えばMarkdownで書いた文書をコンフルに同期とかできるかと思ったけどそもそも記法が違うので今回は使わなかった\n\n## 更新を伴う投稿\n\n新規投稿ならPOSTだけでOKだが更新処理を含める場合はversion番号が必要なため複数APIをたたかないといけない\n\njsonで定義した値をフォーマットして定期的に更新するスクリプトを書いた\n\n- scrap.json\n\n```json\n[\n  \"リプレイスとかバージョンアップとかの記事\",\n  \"https://blog.cybozu.io/entry/2021/06/16/080000\",\n  \"https://developers.cyberagent.co.jp/blog/archives/30257/\",\n  \"https://buildersbox.corp-sansan.com/entry/2021/06/24/110000\",\n  \"comment: リプレイスとかやりました！その後の話は結構ありかも\",\n  \"エンジニアブログ系\",\n  \"https://tech.classi.jp/entry/2021/06/18/120000\",\n  \"comment: こんな感じで運営してますってのは運営の価値観が垣間見れてよい、他のも見てみたい感ある\",\n  \"https://tech.pepabo.com/2021/07/14/pepabo-tech-blog-2021/\",\n  \"comment: ブログの執筆ふろーの自動化周りの話と思想、おもしろい\"\n]\n```\n\n- scrap.js\n\n```javascript\nconst fetch = require('node-fetch');\nconst fs = require('fs');\n\nconst pageId = 1111111111;\n\nconst formatTitle = (value) => {\n  return `<p><h2>${value}</h2></p>`;\n}\n\nconst formatLink = (url) => {\n  return `<p><a href=\\\"${url}\\\" data-card-appearance=\\\"inline\\\">${url}</a></p>`;\n}\n\nconst formatComment = (value) => {\n  return `<p>${value}</p>`;\n}\n\nconst generateBody = () => {\n  const scraps = JSON.parse(fs.readFileSync('./scrap.json'));\n  console.log(scraps)\n\n  return scraps.map((line)=> {\n    if (line.match('http')) {\n      return formatLink(line)\n    }\n    if (line.match('comment:')) {\n      return formatComment(line)\n    }\n\n    return formatTitle(line);\n  }).join(\"\\n\");\n}\n\nconst authString = () => {\n  const username = process.env.EMAIL;\n  const token = process.env.CONFLUENCE_API_TOKEN;\n  const buffer = Buffer.from(`${username}:${token}`);\n\n  return buffer.toString('base64');\n}\n\nconst putText = async (authString, pageId, versionNumber) => {\n  const title = '記事スクラップ'\n  const spaceKey = '~username';\n  const type = 'page';\n\n  const bodyData = {\n    \"version\": {\n      \"number\": versionNumber\n    },\n    \"title\": title,\n    \"type\": type,\n    \"id\": pageId,\n    \"space\": {\n      \"key\": spaceKey\n    },\n    \"status\": \"current\",\n    \"body\": {\n      \"storage\": {\n        \"value\": generateBody(),\n        \"representation\": \"storage\"\n      },\n    }\n  };\n\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}`, {\n    method: 'PUT',\n    headers: {\n      'Accept': 'application/json',\n      'Content-Type': 'application/json',\n      'Authorization': `Basic ${authString}`\n    },\n    body: JSON.stringify(bodyData)\n  });\n\n  return await res.json();\n}\n\nconst getVersion = async (authString, pageId) => {\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}?expand=version`, {\n    method: 'GET',\n    headers: {\n      'Accept': 'application/json',\n      'Authorization': `Basic ${authString}`\n    }\n  });\n\n  return await res.json();\n}\n\n(async () => {\n  const versionResponse = await getVersion(authString(), pageId);\n  const putResponse = await putText(authString(), pageId, versionResponse.version.number + 1);\n  console.log(putResponse);\n})\n```\n\n`spaceKey`,`pageId`は環境によって記述を変える必要がある\n\nさっと書いたのでいろいろ考慮足りない部分もあるが投稿までのしくみはこんな感じでOKそう",
+          "timeToRead": 4,
+          "objectID": "d6478df3-32d6-5f2f-81bf-35a9c96f2f68",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n## 下準備\n\nアカウント管理ページでAPIトークンを作成する\n\n[api-tokens](https://id.atlassian",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 18, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "ConfluenceにAPI経由で投稿する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/confluence_post_via_api/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n## 下準備\n\nアカウント管理ページでAPIトークンを作成する\n\n[api-tokens](https://id.atlassian.com/manage/api-tokens)\n\n\n## APIをたたく\n\n参考にするのはこの辺\n\n[The Confluence Cloud REST API](https://developer.atlassian.com/cloud/confluence/rest/api-group-content/#api-api-content-post)\n\n- 基本系\n\n```shell\ncurl -X GET \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Accept: application/json'\n```\n\n上記をもとにブログポストを生成するスクリプトを用意した\n\n`CONFLUENCE_API_TOKEN`,`ATLASSIAN_DOMAIN`,`EMAIL`は環境変数に適切な値を入れておく\n\n`CONFLUENCE_API_TOKEN`は下準備で生成したAPIトークン\n\n最低限だとこんな感じで投稿できるはず\n\n- blogpost.sh\n\n```shell\ntitle=\"From API Test\"\nspace_key=\"~username\"\nbody_value=\"hoge\"\n\ncurl -X POST \"https://${ATLASSIAN_DOMAIN}/wiki/rest/api/content\" \\\n  -u \"${EMAIL}:${CONFLUENCE_API_TOKEN}\" \\\n  -H 'Content-Type: application/json' \\\n  -H 'Accept: application/json' \\\n  -d @- <<EOS\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n    \"storage\": {\n      \"value\": \"${body_value}\",\n      \"representation\": \"storage\"\n    }\n  }\n}\nEOS\n```\n\n### 試行錯誤\n\n最初`body.storage`の部分を`body.view`にしていたら投稿はできるがコンテンツが空の状態になってしまっていた\n\nライブラリはどうやってんだと思い次のソースをよんだ\n\n[confluence-api/confluence.js at master · johnpduane/confluence-api](https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js)\n\n[https://github.com/johnpduane/confluence-api/blob/master/lib/confluence.js:embed:cite]\n\n```diff\n{\n  \"title\": \"${title}\",\n  \"type\": \"blogpost\",\n  \"space\": {\n    \"key\": \"${space_key}\"\n  },\n  \"status\": \"current\",\n  \"body\": {\n-    \"view\": {\n+    \"storage\": {\n      \"value\": \"${body_value}\",\n-      \"representation\": \"view\"\n+      \"representation\": \"storage\"\n    }\n  }\n}\n```\n\nこんな感じの差分で投稿できるようになった\n\nrepresentationが何を意味するのかまでちゃんと読んでないが無事コンテンツの中身も反映されるようになった\n\nAPIでのやりとりではHTMLをそのまま投げるという感じ\n\nmarkdown2confluenceなど使えばMarkdownで書いた文書をコンフルに同期とかできるかと思ったけどそもそも記法が違うので今回は使わなかった\n\n## 更新を伴う投稿\n\n新規投稿ならPOSTだけでOKだが更新処理を含める場合はversion番号が必要なため複数APIをたたかないといけない\n\njsonで定義した値をフォーマットして定期的に更新するスクリプトを書いた\n\n- scrap.json\n\n```json\n[\n  \"リプレイスとかバージョンアップとかの記事\",\n  \"https://blog.cybozu.io/entry/2021/06/16/080000\",\n  \"https://developers.cyberagent.co.jp/blog/archives/30257/\",\n  \"https://buildersbox.corp-sansan.com/entry/2021/06/24/110000\",\n  \"comment: リプレイスとかやりました！その後の話は結構ありかも\",\n  \"エンジニアブログ系\",\n  \"https://tech.classi.jp/entry/2021/06/18/120000\",\n  \"comment: こんな感じで運営してますってのは運営の価値観が垣間見れてよい、他のも見てみたい感ある\",\n  \"https://tech.pepabo.com/2021/07/14/pepabo-tech-blog-2021/\",\n  \"comment: ブログの執筆ふろーの自動化周りの話と思想、おもしろい\"\n]\n```\n\n- scrap.js\n\n```javascript\nconst fetch = require('node-fetch');\nconst fs = require('fs');\n\nconst pageId = 1111111111;\n\nconst formatTitle = (value) => {\n  return `<p><h2>${value}</h2></p>`;\n}\n\nconst formatLink = (url) => {\n  return `<p><a href=\\\"${url}\\\" data-card-appearance=\\\"inline\\\">${url}</a></p>`;\n}\n\nconst formatComment = (value) => {\n  return `<p>${value}</p>`;\n}\n\nconst generateBody = () => {\n  const scraps = JSON.parse(fs.readFileSync('./scrap.json'));\n  console.log(scraps)\n\n  return scraps.map((line)=> {\n    if (line.match('http')) {\n      return formatLink(line)\n    }\n    if (line.match('comment:')) {\n      return formatComment(line)\n    }\n\n    return formatTitle(line);\n  }).join(\"\\n\");\n}\n\nconst authString = () => {\n  const username = process.env.EMAIL;\n  const token = process.env.CONFLUENCE_API_TOKEN;\n  const buffer = Buffer.from(`${username}:${token}`);\n\n  return buffer.toString('base64');\n}\n\nconst putText = async (authString, pageId, versionNumber) => {\n  const title = '記事スクラップ'\n  const spaceKey = '~username';\n  const type = 'page';\n\n  const bodyData = {\n    \"version\": {\n      \"number\": versionNumber\n    },\n    \"title\": title,\n    \"type\": type,\n    \"id\": pageId,\n    \"space\": {\n      \"key\": spaceKey\n    },\n    \"status\": \"current\",\n    \"body\": {\n      \"storage\": {\n        \"value\": generateBody(),\n        \"representation\": \"storage\"\n      },\n    }\n  };\n\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}`, {\n    method: 'PUT',\n    headers: {\n      'Accept': 'application/json',\n      'Content-Type': 'application/json',\n      'Authorization': `Basic ${authString}`\n    },\n    body: JSON.stringify(bodyData)\n  });\n\n  return await res.json();\n}\n\nconst getVersion = async (authString, pageId) => {\n  const res = await fetch(`https://${process.env.ATLASSIAN_DOMAIN}/wiki/rest/api/content/${pageId}?expand=version`, {\n    method: 'GET',\n    headers: {\n      'Accept': 'application/json',\n      'Authorization': `Basic ${authString}`\n    }\n  });\n\n  return await res.json();\n}\n\n(async () => {\n  const versionResponse = await getVersion(authString(), pageId);\n  const putResponse = await putText(authString(), pageId, versionResponse.version.number + 1);\n  console.log(putResponse);\n})\n```\n\n`spaceKey`,`pageId`は環境によって記述を変える必要がある\n\nさっと書いたのでいろいろ考慮足りない部分もあるが投稿までのしくみはこんな感じでOKそう",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "4",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "July 30, 2020",
+          "title": "WindowsのエクスプローラからWSLなどのファイルを扱う",
+          "slug": "/entries/windows_file_access/",
+          "rawMarkdownBody": "\nWindows <-> WSL間でのファイルのやりとり\n\n## Windows -> WSL上ファイルへのアクセス\n\nエクスプローラで`\\\\wsl$`と入力するとファイル群を閲覧できる\n\n## Windows -> VM + sambaへのアクセス\n\nエクスプローラで`\\\\192.168.30.11\\...`と入力するとファイル群を閲覧できる\n\n## WSL -> Windows上ファイルへのアクセス\n\nWindows上のファイルへのアクセスは次のように行う\n\n```shell\nls /mnt/c/Users/.....\n```",
+          "timeToRead": 1,
+          "objectID": "d0467113-254c-553c-ae44-16298ed716bb",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nWindows <-> WSL間でのファイルのやりとり\n\n## Windows -> WSL上ファイルへのアクセス\n\nエク",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "July 30, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "WindowsのエクスプローラからWSLなどのファイルを扱う",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/windows_file_access/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nWindows <-> WSL間でのファイルのやりとり\n\n## Windows -> WSL上ファイルへのアクセス\n\nエクスプローラで`\\\\wsl$`と入力するとファイル群を閲覧できる\n\n## Windows -> VM + sambaへのアクセス\n\nエクスプローラで`\\\\192.168.30.11\\...`と入力するとファイル群を閲覧できる\n\n## WSL -> Windows上ファイルへのアクセス\n\nWindows上のファイルへのアクセスは次のように行う\n\n```shell\nls /mnt/c/Users/.....\n```",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 12, 2020",
+          "title": "curl: (3) [globbing] error: bad range specification after pos 3",
+          "slug": "/entries/curl_with_grep_color/",
+          "rawMarkdownBody": "\ntflintを入れてみようと思いREADMEにしたがいワンライナーで落としてこようと思ったら思わぬところでつまずいた\n\n```shell\n$ curl -L \"$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\")\" -o tflint.zip && unzip tflint.zip && rm tflint.zip\ncurl: (3) [globbing] error: bad range specification after pos 3\n```\n\nglob…どこかで`[]`や`{}`使っているか?という感じだったが`grep`が悪さをしていた\n\n自分のシェル環境だとデフォルトでgrepの結果に色をつけるようにしていたのでその結果に対して`curl`しようとすることでエスケープシーケンスも含まれてしまっていた\n\n```\n$ curl  -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\" > url.txt\n$ cat -v url.txt\n^[[01;31m^[[Khttps://github.com/terraform-linters/tflint/releases/download/v0.22.0/tflint_linux_amd64.zip^[[m^[[K\n```\n\nもともとURLに`[]`や`{}`が含まれているパターンではないのでこの場合の対応は`--globoff`ではだめだった\n\n`grep --color=no`を追加することでcurl対象のURLがプレーンなテキストになるのでcurlできるようになった\n\nエスケープシーケンスはよくやるので気を付けたい\n",
+          "timeToRead": 1,
+          "objectID": "cf55191e-5e3e-54f6-8964-be56698fe6ff",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\ntflintを入れてみようと思いREADMEにしたがいワンライナーで落としてこ",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 12, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "curl: (3) [globbing] error: bad range specification after pos 3",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/curl_with_grep_color/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\ntflintを入れてみようと思いREADMEにしたがいワンライナーで落としてこようと思ったら思わぬところでつまずいた\n\n```shell\n$ curl -L \"$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\")\" -o tflint.zip && unzip tflint.zip && rm tflint.zip\ncurl: (3) [globbing] error: bad range specification after pos 3\n```\n\nglob…どこかで`[]`や`{}`使っているか?という感じだったが`grep`が悪さをしていた\n\n自分のシェル環境だとデフォルトでgrepの結果に色をつけるようにしていたのでその結果に対して`curl`しようとすることでエスケープシーケンスも含まれてしまっていた\n\n```\n$ curl  -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E \"https://.+?_linux_amd64.zip\" > url.txt\n$ cat -v url.txt\n^[[01;31m^[[Khttps://github.com/terraform-linters/tflint/releases/download/v0.22.0/tflint_linux_amd64.zip^[[m^[[K\n```\n\nもともとURLに`[]`や`{}`が含まれているパターンではないのでこの場合の対応は`--globoff`ではだめだった\n\n`grep --color=no`を追加することでcurl対象のURLがプレーンなテキストになるのでcurlできるようになった\n\nエスケープシーケンスはよくやるので気を付けたい\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "May 01, 2022",
+          "title": "CloudFrontのキャッシュをクリアする",
+          "slug": "/entries/cloudfront_cache_clear/",
+          "rawMarkdownBody": "\nメモ\n\n`hogehoge.cloudfront.net`は実行時適切なものに割り当てる\n\n```\n# DISTRIBUTION_IDの取得\n$ export DISTRIBUTION_ID=$(aws cloudfront list-distributions --query 'DistributionList.Items[]' | jq -r '.[]|select(.DomainName=\"hogehoge.cloudfront.net\")|.Id')\n# INVALIDATION_IDの取得、invalidationでキャッシュの削除を行う、非同期処理のためIDを取得しておく\n$ export INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths \"/*\" | jq -r '.Invalidation.Id')\n# チェック、Completeになっていれば完了\n$ aws cloudfront get-invalidation --distribution-id ${DISTRIBUTION_ID} --id ${INVALIDATION_ID}\n```\n",
+          "timeToRead": 1,
+          "objectID": "c71540b7-1d53-519c-bf60-e0213a1d512f",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nメモ\n\n`hogehoge.cloudfront.net`は実行時適切なものに割り当てる\n\n```\n# DISTRIBUTION_IDの取得\n$ export DISTRIBUTION_ID",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "May 01, 2022",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "CloudFrontのキャッシュをクリアする",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/cloudfront_cache_clear/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nメモ\n\n`hogehoge.cloudfront.net`は実行時適切なものに割り当てる\n\n```\n# DISTRIBUTION_IDの取得\n$ export DISTRIBUTION_ID=$(aws cloudfront list-distributions --query 'DistributionList.Items[]' | jq -r '.[]|select(.DomainName=\"hogehoge.cloudfront.net\")|.Id')\n# INVALIDATION_IDの取得、invalidationでキャッシュの削除を行う、非同期処理のためIDを取得しておく\n$ export INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths \"/*\" | jq -r '.Invalidation.Id')\n# チェック、Completeになっていれば完了\n$ aws cloudfront get-invalidation --distribution-id ${DISTRIBUTION_ID} --id ${INVALIDATION_ID}\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "January 21, 2022",
+          "title": "GitHub Projects(beta)のデータを収集する",
+          "slug": "/entries/github_projects_data_from_graphql/",
+          "rawMarkdownBody": "\nGitHubのProjects（Beta）を使って自動化や集計をするなどしたい場合のメモ\n\nAPIの基本的な使い方に関しては下記を参照し、1つずつ実行していけばイメージはつかめる\n\n[APIを使ったプロジェクト（ベータ）の管理 - GitHub Docs](https://docs.github.com/ja/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)\n\n事前にProjectのIDだけ取得しメモしておく\n\n次のクエリ一発でだいたい必要なデータは取れそう\n\n```graphql\nquery ($project_id: ID!) {\n  node(id: $project_id) {\n    ... on ProjectNext {\n      items(first: 100) {\n        nodes {\n          title\n          createdAt\n          fieldValues(first: 8) {\n            nodes {\n              value\n              createdAt\n              projectField {\n                name\n                settings\n              }\n            }\n          }\n          content {\n            ... on Issue {\n              id\n              number\n              url\n              repository {\n                name\n              }\n              milestone {\n                id\n                title\n              }\n              createdAt\n              closed\n              closedAt\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n            }\n            ... on PullRequest {\n              id\n              number\n              url\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n              repository {\n                name\n              }\n              createdAt\n              closed\n              closedAt\n              merged\n              mergedAt\n              reviewRequests(first: 10) {\n                nodes {\n                  requestedReviewer {\n                    ... on User {\n                      name\n                    }\n                  }\n                }\n              }\n            }\n          }\n          id\n          updatedAt\n        }\n      }\n    }\n  }\n}\n```\n\nproject_idは事前にメモしておいた値\n\nどのカラムが必要かなどは下記で`Explorer`を展開して1つずつ見ていけば把握できる\n\n[Explorer - GitHub Docs](https://docs.github.com/ja/graphql/overview/explorer)\n\nExplorerのiframeの範囲が狭くて見づらいのがちょっと不満ではあるがそれ以外は便利に使える\n\nカードに紐づくIssueやPullRequestなどの情報も取ってこれるのでフラットにして集計する前のデータとして使える\n\nとりあえずプロジェクトのデータ使って云々やりたい場合はこのくらいデータが有れば十分かなと感じる\n\n- 結果（一部抜粋）\n\n```json\n{\n  \"data\": {\n    \"node\": {\n      \"items\": {\n        \"nodes\": [\n          {\n            \"title\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n            \"id\": \"PNI_xxxxxxxxxxxxxxxxxxxx\",\n            \"updatedAt\": \"2022-01-19T06:12:59Z\",\n            \"fieldValues\": {\n              \"nodes\": [\n                {\n                  \"value\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n                  \"projectField\": {\n                    \"name\": \"Title\",\n                    \"settings\": \"{\\\"width\\\":319}\"\n                  }\n                },\n                {\n                  \"value\": \"98236657\",\n                  \"projectField\": {\n                    \"name\": \"Status\",\n                    \"settings\": \"{\\\"width\\\":125,\\\"options\\\":[{\\\"id\\\":\\\"xxxxxxx1\\\",\\\"name\\\":\\\"New\\\",\\\"name_html\\\":\\\"New\\\"},{\\\"id\\\":\\\"xxxxxxx2\\\",\\\"name\\\":\\\"Epic\\\",\\\"name_html\\\":\\\"Epic\\\"},{\\\"id\\\":\\\"xxxxxxx3\\\",\\\"name\\\":\\\"Idea\\\",\\\"name_html\\\":\\\"Idea\\\"},{\\\"id\\\":\\\"xxxxxxx4\\\",\\\"name\\\":\\\"Todo\\\",\\\"name_html\\\":\\\"Todo\\\"},{\\\"id\\\":\\\"xxxxxxx5\\\",\\\"name\\\":\\\"In Progress\\\",\\\"name_html\\\":\\\"In Progress\\\"},{\\\"id\\\":\\\"xxxxxxx6\\\",\\\"name\\\":\\\"Review\\\",\\\"name_html\\\":\\\"Review\\\"},{\\\"id\\\":\\\"xxxxxxx7\\\",\\\"name\\\":\\\"Done\\\",\\\"name_html\\\":\\\"Done\\\"}]}\"\n                  }\n                },\n                {\n                  \"value\": \"2\",\n                  \"projectField\": {\n                    \"name\": \"Point\",\n                    \"settings\": \"{\\\"width\\\":69}\"\n                  }\n                },\n                {\n                  \"value\": \"2022-01-01T00:00:00+00:00\",\n                  \"projectField\": {\n                    \"name\": \"Month\",\n                    \"settings\": \"null\"\n                  }\n                },\n                {\n                  \"value\": \"e9bbecfa\",\n                  \"projectField\": {\n                    \"name\": \"Iteration\",\n                    \"settings\": \"{\\\"configuration\\\":{\\\"duration\\\":14,\\\"start_day\\\":1,\\\"iterations\\\":[{\\\"id\\\":\\\"xxxxxxa\\\",\\\"title\\\":\\\"2022-01_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-17\\\",\\\"title_html\\\":\\\"2022-01_2\\\"},{\\\"id\\\":\\\"xxxxxxb\\\",\\\"title\\\":\\\"2022-02_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-31\\\",\\\"title_html\\\":\\\"2022-02_1\\\"},{\\\"id\\\":\\\"xxxxxxc\\\",\\\"title\\\":\\\"2022-02_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-02-14\\\",\\\"title_html\\\":\\\"2022-02_2\\\"}],\\\"completed_iterations\\\":[{\\\"id\\\":\\\"xxxxxxd\\\",\\\"title\\\":\\\"2022-01_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-03\\\",\\\"title_html\\\":\\\"2022-01_1\\\"},{\\\"id\\\":\\\"xxxxxxe\\\",\\\"title\\\":\\\"Iteration 1\\\",\\\"duration\\\":7,\\\"start_date\\\":\\\"2021-12-27\\\",\\\"title_html\\\":\\\"Iteration 1\\\"}]}}\"\n                  }\n                }\n              ]\n            },\n            \"content\": {\n              \"id\": \"I_xxxxxxxxxxxxxxxx\",\n              \"number\": 56,\n              \"url\": \"https://github.com/swfz/tools/issues/56\",\n              \"closed\": true,\n              \"closedAt\": \"2022-01-20T16:27:38Z\",\n              \"createdAt\": \"2022-01-19T06:12:59Z\",\n              \"repository\": {\n                \"name\": \"tools\"\n              },\n              \"milestone\": null,\n              \"assignees\": {\n                \"nodes\": [\n                  {\n                    \"name\": \"swfz\"\n                  }\n                ]\n              }\n            }\n          },\n          .....\n          .....\n          .....\n          .....\n```\n\nまた、実際にこのデータを用いて何かやるなら100件以上のデータが存在することのほうが多いはずなのでページングにも対応したクエリにする必要があるが今回はここまで\n",
+          "timeToRead": 3,
+          "objectID": "c5f74971-5cdb-55f9-ab0e-c99b41357a69",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nGitHubのProjects（Beta）を使って自動化や集計をするなどしたい場合のメモ\n\nAPIの",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "January 21, 2022",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "GitHub Projects(beta)のデータを収集する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/github_projects_data_from_graphql/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nGitHubのProjects（Beta）を使って自動化や集計をするなどしたい場合のメモ\n\nAPIの基本的な使い方に関しては下記を参照し、1つずつ実行していけばイメージはつかめる\n\n[APIを使ったプロジェクト（ベータ）の管理 - GitHub Docs](https://docs.github.com/ja/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)\n\n事前にProjectのIDだけ取得しメモしておく\n\n次のクエリ一発でだいたい必要なデータは取れそう\n\n```graphql\nquery ($project_id: ID!) {\n  node(id: $project_id) {\n    ... on ProjectNext {\n      items(first: 100) {\n        nodes {\n          title\n          createdAt\n          fieldValues(first: 8) {\n            nodes {\n              value\n              createdAt\n              projectField {\n                name\n                settings\n              }\n            }\n          }\n          content {\n            ... on Issue {\n              id\n              number\n              url\n              repository {\n                name\n              }\n              milestone {\n                id\n                title\n              }\n              createdAt\n              closed\n              closedAt\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n            }\n            ... on PullRequest {\n              id\n              number\n              url\n              assignees(first: 5) {\n                nodes {\n                  name\n                }\n              }\n              repository {\n                name\n              }\n              createdAt\n              closed\n              closedAt\n              merged\n              mergedAt\n              reviewRequests(first: 10) {\n                nodes {\n                  requestedReviewer {\n                    ... on User {\n                      name\n                    }\n                  }\n                }\n              }\n            }\n          }\n          id\n          updatedAt\n        }\n      }\n    }\n  }\n}\n```\n\nproject_idは事前にメモしておいた値\n\nどのカラムが必要かなどは下記で`Explorer`を展開して1つずつ見ていけば把握できる\n\n[Explorer - GitHub Docs](https://docs.github.com/ja/graphql/overview/explorer)\n\nExplorerのiframeの範囲が狭くて見づらいのがちょっと不満ではあるがそれ以外は便利に使える\n\nカードに紐づくIssueやPullRequestなどの情報も取ってこれるのでフラットにして集計する前のデータとして使える\n\nとりあえずプロジェクトのデータ使って云々やりたい場合はこのくらいデータが有れば十分かなと感じる\n\n- 結果（一部抜粋）\n\n```json\n{\n  \"data\": {\n    \"node\": {\n      \"items\": {\n        \"nodes\": [\n          {\n            \"title\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n            \"id\": \"PNI_xxxxxxxxxxxxxxxxxxxx\",\n            \"updatedAt\": \"2022-01-19T06:12:59Z\",\n            \"fieldValues\": {\n              \"nodes\": [\n                {\n                  \"value\": \"timerの時刻がブラウザの負荷状況によってずれる\",\n                  \"projectField\": {\n                    \"name\": \"Title\",\n                    \"settings\": \"{\\\"width\\\":319}\"\n                  }\n                },\n                {\n                  \"value\": \"98236657\",\n                  \"projectField\": {\n                    \"name\": \"Status\",\n                    \"settings\": \"{\\\"width\\\":125,\\\"options\\\":[{\\\"id\\\":\\\"xxxxxxx1\\\",\\\"name\\\":\\\"New\\\",\\\"name_html\\\":\\\"New\\\"},{\\\"id\\\":\\\"xxxxxxx2\\\",\\\"name\\\":\\\"Epic\\\",\\\"name_html\\\":\\\"Epic\\\"},{\\\"id\\\":\\\"xxxxxxx3\\\",\\\"name\\\":\\\"Idea\\\",\\\"name_html\\\":\\\"Idea\\\"},{\\\"id\\\":\\\"xxxxxxx4\\\",\\\"name\\\":\\\"Todo\\\",\\\"name_html\\\":\\\"Todo\\\"},{\\\"id\\\":\\\"xxxxxxx5\\\",\\\"name\\\":\\\"In Progress\\\",\\\"name_html\\\":\\\"In Progress\\\"},{\\\"id\\\":\\\"xxxxxxx6\\\",\\\"name\\\":\\\"Review\\\",\\\"name_html\\\":\\\"Review\\\"},{\\\"id\\\":\\\"xxxxxxx7\\\",\\\"name\\\":\\\"Done\\\",\\\"name_html\\\":\\\"Done\\\"}]}\"\n                  }\n                },\n                {\n                  \"value\": \"2\",\n                  \"projectField\": {\n                    \"name\": \"Point\",\n                    \"settings\": \"{\\\"width\\\":69}\"\n                  }\n                },\n                {\n                  \"value\": \"2022-01-01T00:00:00+00:00\",\n                  \"projectField\": {\n                    \"name\": \"Month\",\n                    \"settings\": \"null\"\n                  }\n                },\n                {\n                  \"value\": \"e9bbecfa\",\n                  \"projectField\": {\n                    \"name\": \"Iteration\",\n                    \"settings\": \"{\\\"configuration\\\":{\\\"duration\\\":14,\\\"start_day\\\":1,\\\"iterations\\\":[{\\\"id\\\":\\\"xxxxxxa\\\",\\\"title\\\":\\\"2022-01_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-17\\\",\\\"title_html\\\":\\\"2022-01_2\\\"},{\\\"id\\\":\\\"xxxxxxb\\\",\\\"title\\\":\\\"2022-02_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-31\\\",\\\"title_html\\\":\\\"2022-02_1\\\"},{\\\"id\\\":\\\"xxxxxxc\\\",\\\"title\\\":\\\"2022-02_2\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-02-14\\\",\\\"title_html\\\":\\\"2022-02_2\\\"}],\\\"completed_iterations\\\":[{\\\"id\\\":\\\"xxxxxxd\\\",\\\"title\\\":\\\"2022-01_1\\\",\\\"duration\\\":14,\\\"start_date\\\":\\\"2022-01-03\\\",\\\"title_html\\\":\\\"2022-01_1\\\"},{\\\"id\\\":\\\"xxxxxxe\\\",\\\"title\\\":\\\"Iteration 1\\\",\\\"duration\\\":7,\\\"start_date\\\":\\\"2021-12-27\\\",\\\"title_html\\\":\\\"Iteration 1\\\"}]}}\"\n                  }\n                }\n              ]\n            },\n            \"content\": {\n              \"id\": \"I_xxxxxxxxxxxxxxxx\",\n              \"number\": 56,\n              \"url\": \"https://github.com/swfz/tools/issues/56\",\n              \"closed\": true,\n              \"closedAt\": \"2022-01-20T16:27:38Z\",\n              \"createdAt\": \"2022-01-19T06:12:59Z\",\n              \"repository\": {\n                \"name\": \"tools\"\n              },\n              \"milestone\": null,\n              \"assignees\": {\n                \"nodes\": [\n                  {\n                    \"name\": \"swfz\"\n                  }\n                ]\n              }\n            }\n          },\n          .....\n          .....\n          .....\n          .....\n```\n\nまた、実際にこのデータを用いて何かやるなら100件以上のデータが存在することのほうが多いはずなのでページングにも対応したクエリにする必要があるが今回はここまで\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "September 08, 2021",
+          "title": "AWSの請求書の金額と同じ値を取得するためのワンライナー",
+          "slug": "/entries/aws_ce_get_cost_and_usage/",
+          "rawMarkdownBody": "\n`AWSのサービスの料金`と同じ値を出す\n\n```shell\nlast_month=2021-08-01\nthis_month=2021-09-01\naws ce get-cost-and-usage --granularity MONTHLY --metrics UnblendedCost --region us-east-1  --time-period Start=${last_month},End=${this_month}| jq -r '.ResultsByTime[0].Total.UnblendedCost.Amount' | xargs printf '%.2f'\n```\n\nで、8月分のAWSサービス料金が取得できる\n\n## get-cost-and-usage\n\nコストエクスプローラで閲覧できる値をCLIからたたける\n\nドキュメントは下記\n\n[get-cost-and-usage — AWS CLI 1.20.36 Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ce/get-cost-and-usage.html)\n\n気を付けるのはregionが`us-east-1`で固定なことくらい\n\n## bashで小数点第2位で四捨五入する\n\nprintfはCの書式でフォーマットを記述する\n\n```shell\n$ printf '%.2f' 2.222\n2.22\n$ printf '%.2f' 2.225\n2.23\n```\n\n四捨五入なら上記でOK\n\n## pipeで受け取った値をprintfする\n\n```shell\n$ echo -n 2.225 | xargs printf '%.2f'\n2.22\n```\n\nん?.....\n\n```shell\n$ echo 2.2251 | xargs printf '%.2f'\n2.23\n$ echo 2.2250000000 | xargs printf '%.2f'\n2.22\n$ echo 2.22500000001 | xargs printf '%.2f'\n2.23\n```\n\nprintfだと精度の問題があるみたい\n\n小数点第2位で四捨五入するパターンの場合\n\n小数点第3位がちょうど5の場合は期待する値にならない\n\nなので別の方法を検討する必要がある\n\nが、今回はcliで取得できる値を見た感じこの減少にほぼ当たらないだろうと判断してこのままやることにした\n",
+          "timeToRead": 1,
+          "objectID": "c565e3ff-0605-5981-b903-0b0823a76552",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n`AWSのサービスの料金`と同じ値を出す\n\n```shell\nlast_month=2021-08-01\nthis_month=2021-09-01\naws ce",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "September 08, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "AWSの請求書の金額と同じ値を取得するためのワンライナー",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/aws_ce_get_cost_and_usage/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n`AWSのサービスの料金`と同じ値を出す\n\n```shell\nlast_month=2021-08-01\nthis_month=2021-09-01\naws ce get-cost-and-usage --granularity MONTHLY --metrics UnblendedCost --region us-east-1  --time-period Start=${last_month},End=${this_month}| jq -r '.ResultsByTime[0].Total.UnblendedCost.Amount' | xargs printf '%.2f'\n```\n\nで、8月分のAWSサービス料金が取得できる\n\n## get-cost-and-usage\n\nコストエクスプローラで閲覧できる値をCLIからたたける\n\nドキュメントは下記\n\n[get-cost-and-usage — AWS CLI 1.20.36 Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ce/get-cost-and-usage.html)\n\n気を付けるのはregionが`us-east-1`で固定なことくらい\n\n## bashで小数点第2位で四捨五入する\n\nprintfはCの書式でフォーマットを記述する\n\n```shell\n$ printf '%.2f' 2.222\n2.22\n$ printf '%.2f' 2.225\n2.23\n```\n\n四捨五入なら上記でOK\n\n## pipeで受け取った値をprintfする\n\n```shell\n$ echo -n 2.225 | xargs printf '%.2f'\n2.22\n```\n\nん?.....\n\n```shell\n$ echo 2.2251 | xargs printf '%.2f'\n2.23\n$ echo 2.2250000000 | xargs printf '%.2f'\n2.22\n$ echo 2.22500000001 | xargs printf '%.2f'\n2.23\n```\n\nprintfだと精度の問題があるみたい\n\n小数点第2位で四捨五入するパターンの場合\n\n小数点第3位がちょうど5の場合は期待する値にならない\n\nなので別の方法を検討する必要がある\n\nが、今回はcliで取得できる値を見た感じこの減少にほぼ当たらないだろうと判断してこのままやることにした\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "December 21, 2020",
+          "title": "Disallow empty functions (no-empty-function)",
+          "slug": "/entries/eslint_disallow_empty_function/",
+          "rawMarkdownBody": "\nESLintで怒られたときの対応\n\n\n次のような形で何もしない関数をコールバックとして渡していて怒られた\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => {})\n```\n\n\n```\nDisallow empty functions (no-empty-function)\n```\n\n`()`でくくって対応する\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => ({}))\n```\n\n出典どこだったか忘れてしまったのでメモ残しておく",
+          "timeToRead": 1,
+          "objectID": "c560b2b5-0fd4-5cd9-b3c0-0bf190336238",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nESLintで怒られたときの対応\n\n\n次のような形で何もしない関数をコール",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "December 21, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Disallow empty functions (no-empty-function)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/eslint_disallow_empty_function/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nESLintで怒られたときの対応\n\n\n次のような形で何もしない関数をコールバックとして渡していて怒られた\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => {})\n```\n\n\n```\nDisallow empty functions (no-empty-function)\n```\n\n`()`でくくって対応する\n\n```typescript\nfs.writeFile('/tmp/hoge.txt', 'hoge', null, () => ({}))\n```\n\n出典どこだったか忘れてしまったのでメモ残しておく",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "November 07, 2020",
+          "title": "digest-crc gemがインストールできない",
+          "slug": "/entries/install_digest_crc_in_docker_image/",
+          "rawMarkdownBody": "\nCloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろやってみようとインストールして見たら怒られた\n\n- Dockerfile\n\n```dockerfile\nFROM ruby:2.7-slim\n\nWORKDIR /usr/src/app\nCOPY Gemfile Gemfile.lock ./\nENV BUNDLE_FROZEN=true\nRUN gem install bundler && bundle install --without test\n\nCOPY . ./\n\nCMD [\"ruby\", \"./app.rb\"]\n```\n\n- Gemfile\n\n```gemfile\nsource \"https://rubygems.org\"\n\ngem \"google-cloud-storage\"\ngem \"google-cloud-secret_manager\"\ngem \"sinatra\", \"~>2.0\"\n\ngroup :test do\n  gem \"rack-test\"\n  gem \"rest-client\"\n  gem \"rspec\"\n  gem \"rspec_junit_formatter\"\n  gem \"rubysl-securerandom\"\nend\n```\n\n```\nInstalling digest-crc 0.6.1 with native extensions\nGem::Ext::BuildError: ERROR: Failed to build gem native extension.\n\n    current directory: /usr/local/bundle/gems/digest-crc-0.6.1/ext/digest\n/usr/local/bin/ruby -I/usr/local/lib/ruby/2.7.0/rubygems -rrubygems\n/usr/local/lib/ruby/gems/2.7.0/gems/rake-13.0.1/exe/rake\nRUBYARCHDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\nRUBYLIBDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\n/usr/local/bin/ruby -S extconf.rb\nchecking for stdint.h... *** extconf.rb failed ***\nCould not create Makefile due to some reason, probably lack of necessary\nlibraries and/or headers.  Check the mkmf.log file for more details.  You may\nneed configuration options.\n\nProvided configuration options:\n        --with-opt-dir\n        --without-opt-dir\n        --with-opt-include\n        --without-opt-include=${opt-dir}/include\n        --with-opt-lib\n        --without-opt-lib=${opt-dir}/lib\n        --with-make-prog\n        --without-make-prog\n        --srcdir=.\n        --curdir\n        --ruby=/usr/local/bin/$(RUBY_BASE_NAME)\n        --with-stdint-dir\n        --without-stdint-dir\n        --with-stdint-include\n        --without-stdint-include=${stdint-dir}/include\n        --with-stdint-lib\n        --without-stdint-lib=${stdint-dir}/lib\n/usr/local/lib/ruby/2.7.0/mkmf.rb:471:in `try_do': The compiler failed to\ngenerate an executable file. (RuntimeError)\nYou have to install development tools first.\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:613:in `try_cpp'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1124:in `block in have_header'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:971:in `block in checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block (2 levels) in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:357:in `postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:970:in `checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1123:in `have_header'\n        from extconf.rb:3:in `<main>'\nrake aborted!\nCommand failed with status (1): [/usr/local/bin/ruby -S extconf.rb...]\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:32:in `block (3\nlevels) in <top (required)>'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `chdir'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `block (2\nlevels) in <top (required)>'\nTasks: TOP => default => crc15/crc15_ext.so => crc15/Makefile\n(See full trace by running task with --trace)\n\nrake failed, exit code 1\n\nGem files will remain installed in /usr/local/bundle/gems/digest-crc-0.6.1 for\ninspection.\nResults logged to\n/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1/gem_make.out\n\nAn error occurred while installing digest-crc (0.6.1), and Bundler cannot\ncontinue.\nMake sure that `gem install digest-crc -v '0.6.1' --source\n'https://rubygems.org/'` succeeds before bundling.\n\nIn Gemfile:\n  google-cloud-storage was resolved to 1.29.1, which depends on\n    digest-crc\nThe command '/bin/sh -c gem install bundler && bundle install --without test' returned a non-zero code: 5\nERROR\nERROR: build step 0 \"gcr.io/cloud-builders/docker\" failed: step exited with non-zero status: 5\n\n-----------------------------------------------------------------------------------------------------------------------------------------------------\n\nERROR: (gcloud.builds.submit) build 57e77985-ae0b-40b7-b0d7-04ce7bcbd099 completed with status \"FAILURE\"\n```\n\nちょっと調べただけだとわからなかった\n\nruby2.7-slim -> ruby2.7にしたらインストールできたのでいったんそれでも良いかと思ったがよく読んだら\n\n`You have to install development tools first.`ということで次の対応でインストールできるようにした\n\n```diff\n COPY Gemfile Gemfile.lock ./\n ENV BUNDLE_FROZEN=true\n+\n+RUN apt-get update && apt-get install -y \\\n+    build-essential\n```\n\nもっと詳しい中身までは追っていない…\n",
+          "timeToRead": 3,
+          "objectID": "be05a748-ceea-5021-b4c2-917df2ef41c7",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nCloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろや",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "November 07, 2020",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "digest-crc gemがインストールできない",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/install_digest_crc_in_docker_image/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nCloudRun Rubyのチュートリアルを進めた後に`google-cloud`のGemを使っていろいろやってみようとインストールして見たら怒られた\n\n- Dockerfile\n\n```dockerfile\nFROM ruby:2.7-slim\n\nWORKDIR /usr/src/app\nCOPY Gemfile Gemfile.lock ./\nENV BUNDLE_FROZEN=true\nRUN gem install bundler && bundle install --without test\n\nCOPY . ./\n\nCMD [\"ruby\", \"./app.rb\"]\n```\n\n- Gemfile\n\n```gemfile\nsource \"https://rubygems.org\"\n\ngem \"google-cloud-storage\"\ngem \"google-cloud-secret_manager\"\ngem \"sinatra\", \"~>2.0\"\n\ngroup :test do\n  gem \"rack-test\"\n  gem \"rest-client\"\n  gem \"rspec\"\n  gem \"rspec_junit_formatter\"\n  gem \"rubysl-securerandom\"\nend\n```\n\n```\nInstalling digest-crc 0.6.1 with native extensions\nGem::Ext::BuildError: ERROR: Failed to build gem native extension.\n\n    current directory: /usr/local/bundle/gems/digest-crc-0.6.1/ext/digest\n/usr/local/bin/ruby -I/usr/local/lib/ruby/2.7.0/rubygems -rrubygems\n/usr/local/lib/ruby/gems/2.7.0/gems/rake-13.0.1/exe/rake\nRUBYARCHDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\nRUBYLIBDIR\\=/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1\n/usr/local/bin/ruby -S extconf.rb\nchecking for stdint.h... *** extconf.rb failed ***\nCould not create Makefile due to some reason, probably lack of necessary\nlibraries and/or headers.  Check the mkmf.log file for more details.  You may\nneed configuration options.\n\nProvided configuration options:\n        --with-opt-dir\n        --without-opt-dir\n        --with-opt-include\n        --without-opt-include=${opt-dir}/include\n        --with-opt-lib\n        --without-opt-lib=${opt-dir}/lib\n        --with-make-prog\n        --without-make-prog\n        --srcdir=.\n        --curdir\n        --ruby=/usr/local/bin/$(RUBY_BASE_NAME)\n        --with-stdint-dir\n        --without-stdint-dir\n        --with-stdint-include\n        --without-stdint-include=${stdint-dir}/include\n        --with-stdint-lib\n        --without-stdint-lib=${stdint-dir}/lib\n/usr/local/lib/ruby/2.7.0/mkmf.rb:471:in `try_do': The compiler failed to\ngenerate an executable file. (RuntimeError)\nYou have to install development tools first.\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:613:in `try_cpp'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1124:in `block in have_header'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:971:in `block in checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block (2 levels) in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:361:in `block in postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:331:in `open'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:357:in `postpone'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:970:in `checking_for'\n        from /usr/local/lib/ruby/2.7.0/mkmf.rb:1123:in `have_header'\n        from extconf.rb:3:in `<main>'\nrake aborted!\nCommand failed with status (1): [/usr/local/bin/ruby -S extconf.rb...]\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:32:in `block (3\nlevels) in <top (required)>'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `chdir'\n/usr/local/bundle/gems/digest-crc-0.6.1/ext/digest/Rakefile:31:in `block (2\nlevels) in <top (required)>'\nTasks: TOP => default => crc15/crc15_ext.so => crc15/Makefile\n(See full trace by running task with --trace)\n\nrake failed, exit code 1\n\nGem files will remain installed in /usr/local/bundle/gems/digest-crc-0.6.1 for\ninspection.\nResults logged to\n/usr/local/bundle/extensions/x86_64-linux/2.7.0/digest-crc-0.6.1/gem_make.out\n\nAn error occurred while installing digest-crc (0.6.1), and Bundler cannot\ncontinue.\nMake sure that `gem install digest-crc -v '0.6.1' --source\n'https://rubygems.org/'` succeeds before bundling.\n\nIn Gemfile:\n  google-cloud-storage was resolved to 1.29.1, which depends on\n    digest-crc\nThe command '/bin/sh -c gem install bundler && bundle install --without test' returned a non-zero code: 5\nERROR\nERROR: build step 0 \"gcr.io/cloud-builders/docker\" failed: step exited with non-zero status: 5\n\n-----------------------------------------------------------------------------------------------------------------------------------------------------\n\nERROR: (gcloud.builds.submit) build 57e77985-ae0b-40b7-b0d7-04ce7bcbd099 completed with status \"FAILURE\"\n```\n\nちょっと調べただけだとわからなかった\n\nruby2.7-slim -> ruby2.7にしたらインストールできたのでいったんそれでも良いかと思ったがよく読んだら\n\n`You have to install development tools first.`ということで次の対応でインストールできるようにした\n\n```diff\n COPY Gemfile Gemfile.lock ./\n ENV BUNDLE_FROZEN=true\n+\n+RUN apt-get update && apt-get install -y \\\n+    build-essential\n```\n\nもっと詳しい中身までは追っていない…\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "April 30, 2021",
+          "title": "Dataportalで月毎に日平均値を計算する",
+          "slug": "/entries/dataportal_custom_field_count_distinct/",
+          "rawMarkdownBody": "\nこういうのはどうしてもView側で用意しないと計算できないのでメモしておく\n\n- 計算フィールドを用意する\n\n```\nsum(hour)/count_distinct(start_date)\n```\n\n月ごとで1日あたりの時間数を取りたいのでこんな感じになる\n\nSQLと一緒といえば一緒なので割と把握しやすい",
+          "timeToRead": 1,
+          "objectID": "bd76cabf-7748-50b6-8047-880446bc7319",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\nこういうのはどうしてもView側で用意しないと計算できないのでメ",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "April 30, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Dataportalで月毎に日平均値を計算する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/dataportal_custom_field_count_distinct/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\nこういうのはどうしてもView側で用意しないと計算できないのでメモしておく\n\n- 計算フィールドを用意する\n\n```\nsum(hour)/count_distinct(start_date)\n```\n\n月ごとで1日あたりの時間数を取りたいのでこんな感じになる\n\nSQLと一緒といえば一緒なので割と把握しやすい",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "February 08, 2021",
+          "title": "CloudSQLへの接続方法",
+          "slug": "/entries/cloud_sql_proxy/",
+          "rawMarkdownBody": "\n## CloudShellからの接続\n\n- CloudShellから接続する場合は簡単\n- 該当プロジェクトでcloud shellを起動し`gcloud sql connect`で接続するだけ\n\n```\n$ gcloud sql connect mysql-instance --user=root\nAllowlisting your IP for incoming connection for 5 minutes...done.\nConnecting to database with SQL user [root].Enter password:\nWelcome to the MySQL monitor.  Commands end with ; or \\g.\nYour MySQL connection id is 351117\nServer version: 5.7.25-google-log (Google)\nCopyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.\nOracle is a registered trademark of Oracle Corporation and/or its\naffiliates. Other names may be trademarks of their respective\nowners.\nType 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\nmysql> show databases;\n```\n\n`gcloud sql connect ${instance name} --user=root`\n\nこれだけでOK\n\n## ローカルからの接続\n\ncloud_sql_proxyを使ってforwardingする\n\n[Cloud SQL Proxy について  |  Cloud SQL for MySQL  |  Google Cloud](https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja#install)\n\n### インストール\n\nLinux64ビットにしたがってやっていく\n\n```shell\n$ curl -LO https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64\n$ chmod +x ./cloud_sql_proxy\n$ mv ./cloud_sql_proxy /usr/local/bin/\n```\n\n### 実行\n\n```shell\n$ cloud_sql_proxy -instances=sample-project:us-west1:mysql-instance=tcp:13306\n```\n\n- フォーマット\n\n```\n-instances=${project name}:${region}:${instance name}=tcp:${forward port}\n```\n\nローカルの`13306`ポートで接続できるようにした\n\n### 接続\n\n```\nmysql -uroot -h 127.0.0.1  -P 13306 -p\n```\n\nこれだけでOK",
+          "timeToRead": 1,
+          "objectID": "bba9db7a-c748-5246-8981-c2d9c78cc19e",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n## CloudShellからの接続\n\n- CloudShellから接続する場合は簡単\n- 該当プロジェクトでcloud shell",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "February 08, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "CloudSQLへの接続方法",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/cloud_sql_proxy/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n## CloudShellからの接続\n\n- CloudShellから接続する場合は簡単\n- 該当プロジェクトでcloud shellを起動し`gcloud sql connect`で接続するだけ\n\n```\n$ gcloud sql connect mysql-instance --user=root\nAllowlisting your IP for incoming connection for 5 minutes...done.\nConnecting to database with SQL user [root].Enter password:\nWelcome to the MySQL monitor.  Commands end with ; or \\g.\nYour MySQL connection id is 351117\nServer version: 5.7.25-google-log (Google)\nCopyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.\nOracle is a registered trademark of Oracle Corporation and/or its\naffiliates. Other names may be trademarks of their respective\nowners.\nType 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\nmysql> show databases;\n```\n\n`gcloud sql connect ${instance name} --user=root`\n\nこれだけでOK\n\n## ローカルからの接続\n\ncloud_sql_proxyを使ってforwardingする\n\n[Cloud SQL Proxy について  |  Cloud SQL for MySQL  |  Google Cloud](https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja#install)\n\n### インストール\n\nLinux64ビットにしたがってやっていく\n\n```shell\n$ curl -LO https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64\n$ chmod +x ./cloud_sql_proxy\n$ mv ./cloud_sql_proxy /usr/local/bin/\n```\n\n### 実行\n\n```shell\n$ cloud_sql_proxy -instances=sample-project:us-west1:mysql-instance=tcp:13306\n```\n\n- フォーマット\n\n```\n-instances=${project name}:${region}:${instance name}=tcp:${forward port}\n```\n\nローカルの`13306`ポートで接続できるようにした\n\n### 接続\n\n```\nmysql -uroot -h 127.0.0.1  -P 13306 -p\n```\n\nこれだけでOK",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "date": "May 14, 2021",
+          "title": "gcloudのActionsを差し替える",
+          "slug": "/entries/github_actions_replace_setup_gcloud/",
+          "rawMarkdownBody": "\n普段のGitHubActionsでログを見ていたら次のようなメッセージが出ていた\n\n```\nThank you for using setup-gcloud Action. GoogleCloudPlatform/github-actions/setup-gcloud has been deprecated, please switch to google-github-actions/setup-gcloud.\n```\n\nということで、既存の`setup-gcloud`を`google-github-actions/setup-gcloud`に移行する\n\n既存で`uses`している部分を書き換えるだけでOK\n\n- before\n\n```\nGoogleCloudPlatform/github-actions/setup-gcloud@v0.2.1\n```\n\n- after\n\n```\ngoogle-github-actions/setup-gcloud@v0.2.1\n```\n",
+          "timeToRead": 1,
+          "objectID": "bb120c80-d98c-5a50-93a8-7c91293799cb",
+          "_snippetResult": {
+            "rawMarkdownBody": {
+              "value": "\n普段のGitHubActionsでログを見ていたら次のようなメッセージが出ていた\n\n```\nThank",
+              "matchLevel": "none"
+            }
+          },
+          "_highlightResult": {
+            "date": {
+              "value": "May 14, 2021",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "gcloudのActionsを差し替える",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/github_actions_replace_setup_gcloud/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "rawMarkdownBody": {
+              "value": "\n普段のGitHubActionsでログを見ていたら次のようなメッセージが出ていた\n\n```\nThank you for using setup-gcloud Action. GoogleCloudPlatform/github-actions/setup-gcloud has been deprecated, please switch to google-github-actions/setup-gcloud.\n```\n\nということで、既存の`setup-gcloud`を`google-github-actions/setup-gcloud`に移行する\n\n既存で`uses`している部分を書き換えるだけでOK\n\n- before\n\n```\nGoogleCloudPlatform/github-actions/setup-gcloud@v0.2.1\n```\n\n- after\n\n```\ngoogle-github-actions/setup-gcloud@v0.2.1\n```\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        }
+      ],
+      "nbHits": 117,
+      "page": 0,
+      "nbPages": 6,
+      "hitsPerPage": 20,
+      "exhaustiveNbHits": true,
+      "exhaustiveTypo": true,
+      "query": "",
+      "params": "facets=%5B%5D&highlightPostTag=__%2Fais-highlight__&highlightPreTag=__ais-highlight__&query=&tagFilters=",
+      "index": "til",
+      "renderingContent": {},
+      "processingTimeMS": 10
+    }
+  ]
+}

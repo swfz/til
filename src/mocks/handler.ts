@@ -52,8 +52,6 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(empty))
     }
 
-    console.log(wordCountResponseMap[params.query.length - 1])
-
     return res(
       ctx.status(200),
       ctx.json(wordCountResponseMap[params.query.length - 1])

@@ -72,7 +72,7 @@ const BlogPostTemplate: React.FC<
           <ul>
             {relatedPosts?.map(relatedPost => {
               return (
-                <li>
+                <li key={relatedPost?.fields.slug ?? ""}>
                   <Link to={relatedPost?.fields.slug ?? ""}>
                     {relatedPost?.frontmatter.title}
                   </Link>

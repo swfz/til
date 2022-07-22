@@ -25,6 +25,7 @@ jobs:
         run: |
           yarn
           yarn build
+          yarn typecheck
   test:
     runs-on: ubuntu-latest
     steps:

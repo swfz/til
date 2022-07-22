@@ -11,8 +11,12 @@ import {
   useHits,
   Hits,
 } from "react-instantsearch-hooks-web"
-import useClickOutside from "./use-click-outside"
 import type { Hit } from "instantsearch.js"
+import {
+  MultipleQueriesResponse,
+  MultipleQueriesQuery,
+} from "@algolia/client-search"
+import useClickOutside from "./use-click-outside"
 
 type PageHitProps = {
   hit: Hit
@@ -62,7 +66,7 @@ const SearchResult = ({ indices, className, show }: SearchResultProps) => {
     <div className={className} style={{ display: show ? `block` : `none` }}>
       <div>{results?.nbHits} results</div>
       {indices.map(index => (
-        <Index indexName={index.name}>
+        <Index key={index.name} indexName={index.name}>
           <Hits
             classNames={{
               list: "search-result-list",
@@ -110,12 +114,37 @@ const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
 }
 
 const Search = ({ indices }: SearchProps) => {
-  const searchClient = algoliasearch(
+  const algoliaClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID || "",
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   )
 
-  // https://www.algolia.com/doc/guides/building-search-ui/going-further/improve-performance/react-hooks/#disabling-as-you-type
+  const searchClient = {
+    ...algoliaClient,
+    // NOTE: https://www.algolia.com/doc/guides/building-search-ui/going-further/conditional-requests/react-hooks/
+    // クエリ文字列が空の場合はリクエストを送らずダミーのレスポンスを返す実装を挟んでいる
+    search: <SearchResponse,>(requests: Readonly<MultipleQueriesQuery[]>) => {
+      if (requests.every(({ params }) => !params?.query)) {
+        return Promise.resolve<MultipleQueriesResponse<SearchResponse>>({
+          results: requests.map(() => ({
+            hits: [],
+            nbHits: 0,
+            nbPages: 0,
+            page: 0,
+            processingTimeMS: 0,
+            hitsPerPage: 0,
+            exhaustiveNbHits: true,
+            query: "",
+            params: "",
+          })),
+        }) as Readonly<Promise<MultipleQueriesResponse<SearchResponse>>>
+      }
+
+      return algoliaClient.search(requests)
+    },
+  }
+
+  // NOTE: https://www.algolia.com/doc/guides/building-search-ui/going-further/improve-performance/react-hooks/#disabling-as-you-type
   // 入力確定判断まで1秒待つ
   const queryHook: CustomSearchProps["queryHook"] = (query, search) => {
     if (timerId) {

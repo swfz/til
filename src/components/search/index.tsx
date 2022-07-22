@@ -75,6 +75,8 @@ const SearchResult = ({ indices, className, show }: SearchResultProps) => {
   )
 }
 
+let timerId: ReturnType<typeof setTimeout>
+
 const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
   const [hasFocus, setFocus] = useState(false)
@@ -113,23 +115,18 @@ const Search = ({ indices }: SearchProps) => {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   )
 
-  const [timerId, setTimerId] = useState<ReturnType<typeof setTimeout>>()
-
+  // https://www.algolia.com/doc/guides/building-search-ui/going-further/improve-performance/react-hooks/#disabling-as-you-type
+  // 入力確定判断まで1秒待つ
   const queryHook: CustomSearchProps["queryHook"] = (query, search) => {
     if (timerId) {
       clearTimeout(timerId)
     }
 
-    const id = setTimeout(() => search(query), 1000)
-    setTimerId(id)
+    timerId = setTimeout(() => search(query), 1000)
   }
 
   return (
-    <InstantSearch
-      searchClient={searchClient}
-      stalledSearchDelay={1000}
-      indexName={indices[0].name}
-    >
+    <InstantSearch searchClient={searchClient} indexName={indices[0].name}>
       <CustomSearch queryHook={queryHook} indices={indices}></CustomSearch>
     </InstantSearch>
   )

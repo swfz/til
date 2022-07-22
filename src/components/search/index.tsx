@@ -11,7 +11,7 @@ import {
   useHits,
   Hits,
 } from "react-instantsearch-hooks-web"
-import type { Hit } from "instantsearch.js"
+import type { Hit, SearchClient } from "instantsearch.js"
 import {
   MultipleQueriesResponse,
   MultipleQueriesQuery,
@@ -119,7 +119,7 @@ const Search = ({ indices }: SearchProps) => {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
   )
 
-  const searchClient = {
+  const searchClient: SearchClient = {
     ...algoliaClient,
     // NOTE: https://www.algolia.com/doc/guides/building-search-ui/going-further/conditional-requests/react-hooks/
     // クエリ文字列が空の場合はリクエストを送らずダミーのレスポンスを返す実装を挟んでいる

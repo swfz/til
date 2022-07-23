@@ -16,7 +16,7 @@ jobs:
           key: ${{ runner.os }}-node-1-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-1-
-      - name: build and typecheck
+      - name: build
         # dummy ID
         env:
           GOOGLE_ANALYTICS_TRACKING_ID: UA-hoge
@@ -25,7 +25,25 @@ jobs:
         run: |
           yarn
           yarn build
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.2
+      - uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 16.14.0
+      - uses: actions/cache@v3.0.5
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-1-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-1-
+      - name: typecheck
+        run: |
+          yarn
           yarn typecheck
+
   test:
     runs-on: ubuntu-latest
     steps:

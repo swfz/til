@@ -32,7 +32,7 @@ const Pixela = () => {
         }}
       >
         Powered by{" "}
-        <a href="https://pixe.la/" target="_blank">
+        <a href="https://pixe.la/" target="_blank" rel="noreferrer">
           Pixela
         </a>
       </div>

@@ -75,6 +75,7 @@ const Bio: React.FC = () => {
           <a
             href={`https://twitter.com/${social?.twitter || ""}`}
             target="_blank"
+            rel="noreferrer"
           >
             Twitter
           </a>
@@ -83,6 +84,7 @@ const Bio: React.FC = () => {
           <a
             href={`https://github.com/${social?.github || ""}`}
             target="_blank"
+            rel="noreferrer"
           >
             GitHub
           </a>

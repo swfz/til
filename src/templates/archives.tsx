@@ -1,5 +1,6 @@
-import React from "react"
 import { graphql, PageProps } from "gatsby"
+import React from "react"
+
 import Line from "../components/line"
 
 type PageContext = {

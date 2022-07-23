@@ -1,7 +1,7 @@
-import React from "react"
-import kebabCase from "lodash/kebabCase"
-import { Helmet } from "react-helmet"
 import { Link, graphql, PageProps } from "gatsby"
+import kebabCase from "lodash/kebabCase"
+import React from "react"
+import { Helmet } from "react-helmet"
 
 const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   const title = data.site?.siteMetadata?.title || ""

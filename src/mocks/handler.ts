@@ -1,5 +1,5 @@
 import { rest } from "msw"
-import svgImage from "./pixela.svg"
+
 import query0Words from "./algolia-search-response-0-words.json"
 import query1Words from "./algolia-search-response-1-words.json"
 import query2Words from "./algolia-search-response-2-words.json"
@@ -9,6 +9,7 @@ import query5Words from "./algolia-search-response-5-words.json"
 import query6Words from "./algolia-search-response-6-words.json"
 import query7Words from "./algolia-search-response-7-words.json"
 import query8Words from "./algolia-search-response-8-words.json"
+import svgImage from "./pixela.svg"
 
 export const handlers = [
   rest.get(

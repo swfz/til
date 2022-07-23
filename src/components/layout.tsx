@@ -1,7 +1,9 @@
 import React from "react"
+
 import Navigation from "../components/navi"
-import Bio from "./bio"
+
 import Archive from "./archive"
+import Bio from "./bio"
 import Pixela from "./pixela"
 
 const Layout: React.FC = ({ children }) => {

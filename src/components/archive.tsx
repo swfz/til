@@ -1,6 +1,7 @@
-import React from "react"
-import isNil from "lodash/isNil"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import isNil from "lodash/isNil"
+import React from "react"
+
 import { Archives, ArchiveMonth, ArchiveEdges } from "../@types"
 
 type Props = {

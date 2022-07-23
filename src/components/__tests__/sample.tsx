@@ -1,5 +1,5 @@
-import React from "react"
 import { render, screen } from "@testing-library/react"
+import React from "react"
 import "@testing-library/jest-dom/extend-expect"
 
 const Title = () => <h1 data-testid="hero-title">Gatsby is awesome!</h1>

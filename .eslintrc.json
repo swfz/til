@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "google",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier" // ルール適用は後勝ちのため最後に記述、eslintと競合している箇所はprettier優先
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "eqeqeq": "error"
+    // "no-anonymous-exports-page-templates": "error",
+    // "limited-exports-page-templates": "error"
+  },
+  "ignorePatterns": [
+    "lint-staged.config.js",
+    "loadershim.js",
+    "jest.config.js",
+    "jest-preprocess.js",
+    "public/*"
+  ]
+}

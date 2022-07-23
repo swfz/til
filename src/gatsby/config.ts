@@ -1,4 +1,6 @@
 // For gatsby-plugin-algolia
+import path from "path"
+
 import { ElementType } from "../@types"
 type MarkdownNode = {
   node: ElementType<Queries.AllPostAndTagsQuery["postsRemark"]["edges"]>["node"]
@@ -41,9 +43,9 @@ const algoliaQuery = `
   }
 }`
 
-function pageToAlgoliaRecord({
+const pageToAlgoliaRecord = ({
   node: { id, frontmatter, fields, ...rest },
-}: MarkdownNode) {
+}: MarkdownNode) => {
   return {
     objectID: id,
     ...frontmatter,
@@ -137,3 +139,13 @@ export const feedOptions = {
     },
   ],
 }
+
+// For gatsby-plugin-eslint
+export const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  "node_modules",
+  "gatsby",
+  "dist",
+  "utils",
+  "eslint-rules"
+)

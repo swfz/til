@@ -1,6 +1,10 @@
-import { default as React, useState, useRef } from "react"
-import { Link } from "gatsby"
+import {
+  MultipleQueriesResponse,
+  MultipleQueriesQuery,
+} from "@algolia/client-search"
 import algoliasearch from "algoliasearch/lite"
+import { Link } from "gatsby"
+import { default as React, useState, useRef } from "react"
 import {
   InstantSearch,
   SearchBox,
@@ -11,12 +15,10 @@ import {
   useHits,
   Hits,
 } from "react-instantsearch-hooks-web"
-import type { Hit, SearchClient } from "instantsearch.js"
-import {
-  MultipleQueriesResponse,
-  MultipleQueriesQuery,
-} from "@algolia/client-search"
+
 import useClickOutside from "./use-click-outside"
+
+import type { Hit, SearchClient } from "instantsearch.js"
 
 type PageHitProps = {
   hit: Hit

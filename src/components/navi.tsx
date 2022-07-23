@@ -1,5 +1,5 @@
-import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import React from "react"
 
 import Search from "./search"
 

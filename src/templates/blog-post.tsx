@@ -1,10 +1,11 @@
-import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
-import kebabCase from "lodash/kebabCase"
 import isNil from "lodash/isNil"
+import kebabCase from "lodash/kebabCase"
+import React from "react"
+
+import { ElementType } from "../@types"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { ElementType } from "../@types"
 
 type MarkdownNode = ElementType<
   Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]

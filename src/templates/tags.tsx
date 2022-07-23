@@ -1,7 +1,8 @@
-import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
-import SEO from "../components/seo"
+import React from "react"
+
 import Line from "../components/line"
+import SEO from "../components/seo"
 
 type PageContext = {
   tag: string

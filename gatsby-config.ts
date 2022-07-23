@@ -2,6 +2,7 @@ import type { GatsbyConfig } from "gatsby"
 import {
   algoliaQueries,
   feedOptions,
+  gatsbyRequiredRules,
   remarkRelatedPostsOptions,
 } from "./src/gatsby/config"
 
@@ -135,6 +136,19 @@ const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: "gatsby-remark-related-posts",
     options: remarkRelatedPostsOptions,
+  },
+  {
+    resolve: "gatsby-plugin-eslint",
+    options: {
+      // Gatsby required rules directory
+      rulePaths: [gatsbyRequiredRules],
+      // Default settings that may be ommitted or customized
+      stages: ["develop"],
+      extensions: ["js", "jsx", "ts", "tsx"],
+      exclude: ["node_modules", "bower_components", ".cache", "public"],
+      // Any additional eslint-webpack-plugin options below
+      // ...
+    },
   },
 ]
 

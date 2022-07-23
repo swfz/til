@@ -2,18 +2,13 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 import "prismjs/themes/prism-coy.css"
-import "./src/styles.scss"
-
 import { default as React, ReactNode } from "react"
+import "./src/styles.scss"
+import { worker } from "./src/mocks/browser"
 import Layout from "./src/components/layout"
 
 const startWorker = async () => {
-  const { worker } = require("./src/mocks/browser")
-  await worker.start({
-    ServiceWorker: {
-      url: "/pixela-mock",
-    },
-  })
+  await worker.start({})
 }
 
 export const onClientEntry = () => {

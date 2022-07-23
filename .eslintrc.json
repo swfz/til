@@ -1,0 +1,72 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "google",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier" // ルール適用は後勝ちのため最後に記述、eslintと競合している箇所はprettier優先
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "import",
+    "unused-imports"
+  ],
+  "rules": {
+    "eqeqeq": "error",
+    "react/jsx-handler-names": [
+      "error",
+      {
+        "eventHandlerPrefix": "handle",
+        "eventHandlerPropPrefix": "on",
+        "checkInlineFunction": true,
+        "checkLocalVariables": false
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": false }
+      }
+    ],
+    "import/no-unresolved": "off",
+    "react/no-array-index-key": "warn"
+    // "no-anonymous-exports-page-templates": "error",
+    // "limited-exports-page-templates": "error"
+  },
+  "ignorePatterns": [
+    "lint-staged.config.js",
+    "loadershim.js",
+    "jest.config.js",
+    "jest-preprocess.js",
+    "public/*"
+  ]
+}

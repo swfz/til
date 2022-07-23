@@ -1,6 +1,7 @@
-import React from "react"
 import { Link } from "gatsby"
 import kebabCase from "lodash/kebabCase"
+import React from "react"
+
 import { rhythm } from "../utils/typography"
 
 type MarkdownNode = {

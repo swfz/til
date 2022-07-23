@@ -40,6 +40,23 @@
         "checkLocalVariables": false
       }
     ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": false }
+      }
+    ],
     "import/no-unresolved": "off",
     "react/no-array-index-key": "warn"
     // "no-anonymous-exports-page-templates": "error",

@@ -81,8 +81,6 @@ const SearchResult = ({ indices, className, show }: SearchResultProps) => {
   )
 }
 
-let timerId: ReturnType<typeof setTimeout>
-
 const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
   const { query, refine, clear, isSearchStalled } = useSearchBox({})
   const [hasFocus, setFocus] = useState(false)
@@ -116,6 +114,8 @@ const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
 }
 
 const Search = ({ indices }: SearchProps) => {
+  const timerId = useRef<ReturnType<typeof setTimeout>>()
+
   const algoliaClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID || "",
     process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
@@ -149,11 +149,11 @@ const Search = ({ indices }: SearchProps) => {
   // NOTE: https://www.algolia.com/doc/guides/building-search-ui/going-further/improve-performance/react-hooks/#disabling-as-you-type
   // 入力確定判断まで1秒待つ
   const queryHook: CustomSearchProps["queryHook"] = (query, search) => {
-    if (timerId) {
-      clearTimeout(timerId)
+    if (timerId.current) {
+      clearTimeout(timerId.current)
     }
 
-    timerId = setTimeout(() => search(query), 1000)
+    timerId.current = setTimeout(() => search(query), 1000)
   }
 
   return (

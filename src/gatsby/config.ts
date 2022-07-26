@@ -48,6 +48,7 @@ const pageToAlgoliaRecord = ({
 }: MarkdownNode) => {
   return {
     objectID: id,
+    url: `https://til.swfz.io/${fields.slug}`,
     ...frontmatter,
     ...fields,
     ...rest,
@@ -58,13 +59,16 @@ type Data = {
   data: Queries.AllPostAndTagsQuery
 }
 
-export const algoliaQueries = [
+export const queries = [
   {
     query: algoliaQuery,
     transformer: ({ data }: Data) =>
       data.postsRemark.edges.map(pageToAlgoliaRecord),
     indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
-    settings: { attributesToSnippet: [`rawMarkdownBody:30`] },
+    settings: {
+      attributesToSnippet: [`rawMarkdownBody:50`],
+      attributesForFaceting: [`tags`]
+    },
   },
 ]
 

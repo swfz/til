@@ -1,6 +1,6 @@
 import type { GatsbyConfig } from "gatsby"
 import {
-  algoliaQueries,
+  queries,
   feedOptions,
   gatsbyRequiredRules,
   remarkRelatedPostsOptions,
@@ -115,7 +115,7 @@ const plugins: GatsbyConfig["plugins"] = [
       // Tip: use Search API key with GATSBY_ prefix to access the service from within components
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
-      algoliaQueries,
+      queries,
       chunkSize: 10000, // default: 1000
       settings: {
         // optional, any index settings

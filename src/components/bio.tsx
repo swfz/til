@@ -6,7 +6,7 @@
  */
 
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import Img from "gatsby-image"
 import React from "react"
 
 import { rhythm } from "../utils/typography"
@@ -49,7 +49,7 @@ const Bio: React.FC = () => {
   return (
     <>
       <h3>Profile</h3>
-      <Image
+      <Img
         fixed={fixed}
         alt={author?.name || ""}
         style={{
@@ -64,33 +64,39 @@ const Bio: React.FC = () => {
       />
       <strong>{author?.name}</strong>
       <hr />
-      <div>日々学んだことを残していく日記</div>
+      <div>日々学んだことを残していく</div>
+      <div>Today I Learned</div>
       <div>コード片置き場</div>
-      <div>
-        <Link to={`/rss.xml`}>RSS</Link>
-      </div>
       <hr />
-      <h3>Account</h3>
-      <ul>
-        <li>
-          <a
-            href={`https://twitter.com/${social?.twitter || ""}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a
-            href={`https://github.com/${social?.github || ""}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-        </li>
-      </ul>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <div>
+          <h3>Account</h3>
+          <div style={{ display: "flex" }}>
+            <a
+              href={`https://twitter.com/${social?.twitter || ""}`}
+              target="_blank"
+              rel="noreferrer"
+              style={{ padding: "0.1em 0.3em" }}
+            >
+              <img src="/twitter.svg" style={{ width: "2em" }} />
+            </a>
+            <a
+              href={`https://github.com/${social?.github || ""}`}
+              target="_blank"
+              rel="noreferrer"
+              style={{ padding: "0.1em 0.3em" }}
+            >
+              <img src="/github-120.png" style={{ width: "2em" }} />
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3>RSS</h3>
+          <Link to={`/rss.xml`}>
+            <img src="/rss.png" style={{ width: "2em" }} />
+          </Link>
+        </div>
+      </div>
     </>
   )
 }

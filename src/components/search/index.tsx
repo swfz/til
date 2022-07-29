@@ -139,7 +139,7 @@ const Search = ({ indices }: SearchProps) => {
             query: "",
             params: "",
           })),
-        }) as Readonly<Promise<MultipleQueriesResponse<SearchResponse>>>
+        })
       }
 
       return algoliaClient.search(requests)

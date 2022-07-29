@@ -125,7 +125,7 @@ const plugins: GatsbyConfig["plugins"] = [
       matchFields: ["slug", "modified"], // Array<String> default: ['modified']
       concurrentQueries: false, // default: true
       skipIndexing:
-        process.env.BRANCH !== "master" ||
+        process.env.CF_PAGES_BRANCH !== "master" ||
         process.env.CONTENT_CHANGED === "false", // default: false, useful for e.g. preview deploys or local development
       continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
     },

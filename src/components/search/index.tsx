@@ -52,7 +52,7 @@ const PageHit = ({ hit }: PageHitProps) => (
     </Link>
     <br />
     <Snippet
-      attribute="rawMarkdownBody"
+      attribute="text"
       hit={hit}
       classNames={{
         root: "search-result-item-snippet",

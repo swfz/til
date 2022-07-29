@@ -52,7 +52,7 @@ const PageHit = ({ hit }: PageHitProps) => (
     </Link>
     <br />
     <Snippet
-      attribute="rawMarkdownBody"
+      attribute="text"
       hit={hit}
       classNames={{
         root: "search-result-item-snippet",
@@ -139,7 +139,7 @@ const Search = ({ indices }: SearchProps) => {
             query: "",
             params: "",
           })),
-        }) as Readonly<Promise<MultipleQueriesResponse<SearchResponse>>>
+        })
       }
 
       return algoliaClient.search(requests)

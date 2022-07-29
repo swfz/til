@@ -1,9 +1,14 @@
 // For gatsby-plugin-algolia
 import path from "path"
 
-import { ElementType } from "../@types"
-type MarkdownNode = {
-  node: ElementType<Queries.AllPostAndTagsQuery["postsRemark"]["edges"]>["node"]
+type Data = {
+  data: {
+    postsRemark: {
+      edges: {
+        node: Queries.MarkdownRemark
+      }[]
+    }
+  }
 }
 
 const escapeStringRegexp = (str: string): string => {
@@ -44,30 +49,34 @@ const algoliaQuery = `
 }`
 
 const pageToAlgoliaRecord = ({
-  node: { id, frontmatter, fields, ...rest },
-}: MarkdownNode) => {
+  node: { id, frontmatter, fields, rawMarkdownBody, ...rest },
+}: {
+  node: Queries.MarkdownRemark
+}) => {
   return {
     objectID: id,
     url: `https://til.swfz.io/${fields.slug}`,
+    text: rawMarkdownBody,
     ...frontmatter,
     ...fields,
     ...rest,
   }
 }
 
-type Data = {
-  data: Queries.AllPostAndTagsQuery
+const dataTransformer = ({ data }: Data) => {
+  console.log(`markdownRemark: ${data.postsRemark.edges.length} Records`)
+
+  return data.postsRemark.edges.map(pageToAlgoliaRecord)
 }
 
 export const queries = [
   {
     query: algoliaQuery,
-    transformer: ({ data }: Data) =>
-      data.postsRemark.edges.map(pageToAlgoliaRecord),
+    transformer: dataTransformer,
     indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
     settings: {
-      attributesToSnippet: [`rawMarkdownBody:50`],
-      attributesForFaceting: [`tags`]
+      attributesToSnippet: [`text:50`],
+      attributesForFaceting: [`tags`],
     },
   },
 ]

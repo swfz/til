@@ -1,10 +1,11 @@
 #!/bin/bash
 
-echo $CACHED_COMMIT_REF
-echo $COMMIT_REF
+LATEST_DEPLOY_COMMIT_SHA=$(curl -X GET "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/til" \
+  -H "Authorization: Bearer ${CF_API_KEY}" \
+  -H "Content-Type:application/json" | jq -rc '.result.latest_deployment.deployment_trigger.metadata.commit_hash')
 
 # 差分があると終了コード1
-git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF content/blog/entries/
+git diff --quiet $LATEST_DEPLOY_COMMIT_SHA $CF_PAGES_COMMIT_SHA content/blog/entries/
 
 rc=$?
 

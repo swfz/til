@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# さすがに100コミットまとめてデプロイはしないと判断して決め打ち
+git fetch --depth 100
+
 LATEST_DEPLOY_COMMIT_SHA=$(curl -X GET "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/til/deployments" \
   -H "Authorization: Bearer ${CF_API_KEY}" \
   -H "Content-Type:application/json" | jq -rc '.result[1].deployment_trigger.metadata.commit_hash')

@@ -4,6 +4,9 @@ LATEST_DEPLOY_COMMIT_SHA=$(curl -X GET "https://api.cloudflare.com/client/v4/acc
   -H "Authorization: Bearer ${CF_API_KEY}" \
   -H "Content-Type:application/json" | jq -rc '.result.latest_deployment.deployment_trigger.metadata.commit_hash')
 
+echo "latest commit sha: $LATEST_DEPLOY_COMMIT_SHA"
+echo "current commit sha: $CF_PAGES_COMMIT_SHA"
+
 # 差分があると終了コード1
 git diff --quiet $LATEST_DEPLOY_COMMIT_SHA $CF_PAGES_COMMIT_SHA content/blog/entries/
 

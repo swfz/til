@@ -75,7 +75,7 @@ export const queries = [
     transformer: dataTransformer,
     indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
     settings: {
-      attributesToSnippet: [`rawMarkdownBody:50`],
+      attributesToSnippet: [`text:50`],
       attributesForFaceting: [`tags`],
     },
   },

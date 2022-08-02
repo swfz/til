@@ -7,7 +7,18 @@ tags:
   - React
 ---
 
+よく考えずに実装するとこんな感じで怒られる
+
+```
+  Type 'Timeout' is not assignable to type '(prevState: number | undefined) => number | undefined'.
+    Type 'Timeout' provides no match for the signature '(prevState: number | undefined): number | undefined'.
+```
+
+- 参考というか答え
+
 [TypeScript - use correct version of setTimeout (node vs window) - Stack Overflow](https://stackoverflow.com/questions/45802988/typescript-use-correct-version-of-settimeout-node-vs-window)
+
+次のようにして解決する
 
 ```typescript
 const timerId = useRef<ReturnType<typeof setTimeout>>();

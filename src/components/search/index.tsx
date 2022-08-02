@@ -19,6 +19,7 @@ import {
 import useClickOutside from "./use-click-outside"
 
 import type { Hit, SearchClient } from "instantsearch.js"
+import type { UseSearchBoxProps } from "react-instantsearch-hooks-web"
 
 type PageHitProps = {
   hit: Hit
@@ -30,13 +31,12 @@ type SearchProps = {
 
 type Indices = {
   name: string
-  title: string
 }
 
 // NOTE: queryHookはSearchBoxConnectorParamsを持ってきたかったが持ってくる方法がわからなかったのでコピーしている
 type CustomSearchProps = {
   indices: Indices[]
-  queryHook: (query: string, hook: (value: string) => void) => void
+  queryHook: UseSearchBoxProps["queryHook"]
 }
 
 type SearchResultProps = {

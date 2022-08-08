@@ -1,4 +1,4 @@
 #!/bin/bash
 
 yarn
-CONTENT_CHANGED=true BRANCH=master yarn build
+CONTENT_CHANGED=true CF_PAGES_BRANCH=master yarn build

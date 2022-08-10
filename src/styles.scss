@@ -39,6 +39,13 @@ code.language-json, code.language-hcl, code.language-python, code.language-yaml,
     font-size: initial;
   }
 }
+code.language-tsx {
+  .token.tag {
+    margin-right: initial;
+    padding: initial;
+  }
+}
+
 pre[class*="language-"]:before, pre[class*="language-"]:after {
   box-shadow: 0px 0px 0px #979797
 }

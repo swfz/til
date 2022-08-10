@@ -1,10 +1,9 @@
-import React from "react"
 import "@testing-library/jest-dom/extend-expect"
 import { render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { act } from "react-dom/test-utils"
 import { setupServer } from "msw/node"
-import renderer from "react-test-renderer"
+import React from "react"
+import { act } from "react-dom/test-utils"
 
 import { handlers } from "../../mocks/handler"
 import Search from "../search/index"

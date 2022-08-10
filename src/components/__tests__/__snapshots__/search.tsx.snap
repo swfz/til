@@ -1,0 +1,2340 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search 検索UIのテスト 1`] = `
+<div>
+  <div
+    class="search-root"
+  >
+    <div
+      class="ais-SearchBox"
+    >
+      <form
+        action=""
+        class="ais-SearchBox-form search-input close"
+        novalidate=""
+      >
+        <input
+          autocapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          class="ais-SearchBox-input search-input"
+          maxlength="512"
+          placeholder="Search"
+          spellcheck="false"
+          type="search"
+          value=""
+        />
+        <button
+          class="ais-SearchBox-submit search-button"
+          title="Submit the search query."
+          type="submit"
+        >
+          <svg
+            class="ais-SearchBox-submitIcon search-icon"
+            height="10"
+            viewBox="0 0 40 40"
+            width="10"
+          >
+            <path
+              d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"
+            />
+          </svg>
+        </button>
+        <button
+          class="ais-SearchBox-reset reset-button"
+          hidden=""
+          title="Clear the search query."
+          type="reset"
+        >
+          <svg
+            class="ais-SearchBox-resetIcon"
+            height="10"
+            viewBox="0 0 20 20"
+            width="10"
+          >
+            <path
+              d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"
+            />
+          </svg>
+        </button>
+        <span
+          class="ais-SearchBox-loadingIndicator"
+          hidden=""
+        >
+          <svg
+            class="ais-SearchBox-loadingIcon"
+            height="16"
+            stroke="#444"
+            viewBox="0 0 38 38"
+            width="16"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                stroke-width="2"
+                transform="translate(1 1)"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="18"
+                  stroke-opacity=".5"
+                />
+                <path
+                  d="M36 18c0-9.94-8.06-18-18-18"
+                >
+                  <animatetransform
+                    attributeName="transform"
+                    dur="1s"
+                    from="0 18 18"
+                    repeatCount="indefinite"
+                    to="360 18 18"
+                    type="rotate"
+                  />
+                </path>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </form>
+    </div>
+    <div
+      class="popover"
+      data-testid="search-result"
+      style="display: none;"
+    >
+      <div
+        data-testid="search-result-count"
+      >
+        0
+         results
+      </div>
+      <div
+        class="ais-Hits ais-Hits--empty"
+      >
+        <ol
+          class="ais-Hits-list search-result-list"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Search 検索UIのテスト 2`] = `
+<div>
+  <div
+    class="search-root"
+  >
+    <div
+      class="ais-SearchBox"
+    >
+      <form
+        action=""
+        class="ais-SearchBox-form search-input open"
+        novalidate=""
+      >
+        <input
+          autocapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          class="ais-SearchBox-input search-input"
+          maxlength="512"
+          placeholder="Search"
+          spellcheck="false"
+          type="search"
+          value="Bi"
+        />
+        <button
+          class="ais-SearchBox-submit search-button"
+          title="Submit the search query."
+          type="submit"
+        >
+          <svg
+            class="ais-SearchBox-submitIcon search-icon"
+            height="10"
+            viewBox="0 0 40 40"
+            width="10"
+          >
+            <path
+              d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"
+            />
+          </svg>
+        </button>
+        <button
+          class="ais-SearchBox-reset reset-button"
+          title="Clear the search query."
+          type="reset"
+        >
+          <svg
+            class="ais-SearchBox-resetIcon"
+            height="10"
+            viewBox="0 0 20 20"
+            width="10"
+          >
+            <path
+              d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"
+            />
+          </svg>
+        </button>
+        <span
+          class="ais-SearchBox-loadingIndicator"
+          hidden=""
+        >
+          <svg
+            class="ais-SearchBox-loadingIcon"
+            height="16"
+            stroke="#444"
+            viewBox="0 0 38 38"
+            width="16"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                stroke-width="2"
+                transform="translate(1 1)"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="18"
+                  stroke-opacity=".5"
+                />
+                <path
+                  d="M36 18c0-9.94-8.06-18-18-18"
+                >
+                  <animatetransform
+                    attributeName="transform"
+                    dur="1s"
+                    from="0 18 18"
+                    repeatCount="indefinite"
+                    to="360 18 18"
+                    type="rotate"
+                  />
+                </path>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </form>
+    </div>
+    <div
+      class="popover"
+      data-testid="search-result"
+      style="display: block;"
+    >
+      <div
+        data-testid="search-result-count"
+      >
+        34
+         results
+      </div>
+      <div
+        class="ais-Hits"
+      >
+        <ol
+          class="ais-Hits-list search-result-list"
+        >
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_function/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryの日付を扱う際のメモ
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+よく使うと思われるクエリをメモしておく
+
+\`\`\`sql
+SELECT
+DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_cant_use_autodetect/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryのbq load時にautodetectを使えない場合
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+PocketのデータをAPIで取得して
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryに突っ込もうとしたときの話
+
+GCSにJSON
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_sample_data/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryでサンプルデータをサクッと作る
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_timezone/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryで日付を扱うときはTimezoneを意識する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  ータに変換できるのでこれで対応
+
+
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryがDATEでよしなにやってくれた結
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/json_to_csv/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    JSONファイルを
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryに読ませJSON型で扱うためにそのままCSVで保存する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+[Working with JSON data in Standard SQL  |  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQuery  |  Google Cloud](https://cloud.google.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gquery/docs/reference/standard-sql/json-data)
+
+先日
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryでnative JSON型が
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/start_pocket_api/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    PocketのデータをAPI経由で
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryに取り込む
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  てはこの辺
+
+## おまけ
+
+ここで得たJSONを
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryに放り込んでよしなにやろうと
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/workflows_logging_bigquery_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Workflowsで Memory usage limit exeeded
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  たいてそのレスポンスをそのまま
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryに突っ込むみたいなやつ
+
+プライ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/dataportal_experience_date/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    DataPortalで9時区切りの日付カラムを計算フィールドで作成する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+ただのメモ
+
+Togglから
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryにデータを突っ込んでいてそれをDataPortal経由でグ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/tfenv/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    tfenvを使いTerraformのバージョンを切り替える
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  https://github.com/tfutils/tfenv.git ~/.tfenv
+$ mkdir ~/.local/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n
+$ ln -s ~/.tfenv/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/* ~/.local/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n
+\`\`\`
+
+### PATHへの追加
+
+- .bashrc
+
+\`\`\`
+export PATH="$HOME/.tfenv/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n:$PATH
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/ruby_rmagick_install/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    CentOS7系でのrmagickのインストール
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  rmagick-2.15.4/ext/RMagick
+/home/vagrant/.anyenv/envs/rbenv/versions/2.5.7/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/ruby -r ./siteconf20200715-2470-bpwp3n.rb extconf.rb
+checking for gcc... yes
+checking for
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/s3_price_per_bucket/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    S3利用料をバケット毎に詳細に出すための情報
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  ポートのダウンロード](https://console.aws.amazon.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  lling/home#/reports/usage)
+- 次の項目を指定する
+    - サー
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/vscode_terminal_profile/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    VS Codeのターミナルプロファイル設定
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Windows_NT x64 10.0.19041
+\`\`\`
+
+- settings.json
+
+\`\`\`json
+    "terminal.integrated.shell.linux": "/usr/local/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/tmux",
+\`\`\`
+
+上記のようにlinuxの場合はdefaultで
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/lambda_diff/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Lambdaのソースコード差分を取得する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  とで供養がてら残しておく
+
+- lambda-diff
+
+\`\`\`shell
+#!/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/bash
+
+# lambda-diff profile FunctionName1 FunctionName2
+
+get_lambda_zip(){
+  curl -o /tmp/$2.zip
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/ansible_install_awscliv2/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    AnsibleでAWS CLI v2をインストールする
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  tasks/main.yml
+
+\`\`\`yaml
+---
+- name: exist awscli v2
+  command: which aws
+  environment:
+    PATH: "/usr/local/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n:{{ ansible_env.PATH }}"
+  register: exist_awscli
+  changed_when: false
+  ignore_errors: true
+
+- name: get
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/docker_host/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    DOCKER_HOSTを指定してVM外からdockerを操作できるようにする
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  変える
+
+### 設定
+
+- /usr/lib/systemd/system/docker.service
+
+\`\`\`diff
+[Service]
+- ExecStart=/usr/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/dockerd -H unix://
++ ExecStart=/usr/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/dockerd -H tcp://0.0.0.0:2375
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/introduction_jest_and_testing_library_to_gatsby/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Gatsbyのブログにjestとreact-testing-libraryを入れてテスト可能にする
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  tsx\`にして次に進めた
+
+\`\`\`
+ FAIL  src/components/__tests__/header.tsx
+  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  o
+    ✕ renders correctly (2 ms)
+
+  ● 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  o › renders correctly
+                                                                                                                                                                                                    The error below may be
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/wsl_docker_for_windows/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    WSL2でDockerForWindowsのコマンドを叩く
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  で決め打ちにした
+
+- /mnt/c/Program\\ Files/Docker/Docker/resources/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/docker
+
+\`\`\`bash
+#!/usr/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/env sh
+
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  nary=$(basename "$0")
+"$binary.exe" "$@"
+\`\`\`
+
+- 実
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/vscode_wsl_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    VS Code Remote WSLが起動しない
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  already installed: C:\\Windows\\System32\\wsl.exe -d Ubuntu -e sh -c "[ -d ~/.vscode-server/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/69755771804a4f5097277cbbb50dff67 ] && printf found || ([ -f /etc/alpine-release ] && printf alpine-; uname -m)"
+[2021-10-08
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/wsl2_installed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    WSL2に移行した
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  ラットフォーム機能を有効にして、
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  BI
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  OS で仮想化が有効になっているこ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/install_digest_crc_in_docker_image/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    digest-crc gemがインストールできない
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  current directory: /usr/local/bundle/gems/digest-crc-0.6.1/ext/digest
+/usr/local/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/ruby -I/usr/local/lib/ruby/2.7.0/rubygems -rrubygems
+/usr/local/lib
+                </span>
+              </span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Search 検索UIのテスト 3`] = `
+<div>
+  <div
+    class="search-root"
+  >
+    <div
+      class="ais-SearchBox"
+    >
+      <form
+        action=""
+        class="ais-SearchBox-form search-input open"
+        novalidate=""
+      >
+        <input
+          autocapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          class="ais-SearchBox-input search-input"
+          maxlength="512"
+          placeholder="Search"
+          spellcheck="false"
+          type="search"
+          value="Big"
+        />
+        <button
+          class="ais-SearchBox-submit search-button"
+          title="Submit the search query."
+          type="submit"
+        >
+          <svg
+            class="ais-SearchBox-submitIcon search-icon"
+            height="10"
+            viewBox="0 0 40 40"
+            width="10"
+          >
+            <path
+              d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"
+            />
+          </svg>
+        </button>
+        <button
+          class="ais-SearchBox-reset reset-button"
+          title="Clear the search query."
+          type="reset"
+        >
+          <svg
+            class="ais-SearchBox-resetIcon"
+            height="10"
+            viewBox="0 0 20 20"
+            width="10"
+          >
+            <path
+              d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"
+            />
+          </svg>
+        </button>
+        <span
+          class="ais-SearchBox-loadingIndicator"
+          hidden=""
+        >
+          <svg
+            class="ais-SearchBox-loadingIcon"
+            height="16"
+            stroke="#444"
+            viewBox="0 0 38 38"
+            width="16"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                stroke-width="2"
+                transform="translate(1 1)"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="18"
+                  stroke-opacity=".5"
+                />
+                <path
+                  d="M36 18c0-9.94-8.06-18-18-18"
+                >
+                  <animatetransform
+                    attributeName="transform"
+                    dur="1s"
+                    from="0 18 18"
+                    repeatCount="indefinite"
+                    to="360 18 18"
+                    type="rotate"
+                  />
+                </path>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </form>
+    </div>
+    <div
+      class="popover"
+      data-testid="search-result"
+      style="display: block;"
+    >
+      <div
+        data-testid="search-result-count"
+      >
+        8
+         results
+      </div>
+      <div
+        class="ais-Hits"
+      >
+        <ol
+          class="ais-Hits-list search-result-list"
+        >
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_function/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryの日付を扱う際のメモ
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+よく使うと思われるクエリをメモしておく
+
+\`\`\`sql
+SELECT
+DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_cant_use_autodetect/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryのbq load時にautodetectを使えない場合
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+PocketのデータをAPIで取得して
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに突っ込もうとしたときの話
+
+GCSにJSON
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_sample_data/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryでサンプルデータをサクッと作る
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_timezone/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryで日付を扱うときはTimezoneを意識する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  ータに変換できるのでこれで対応
+
+
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  QueryがDATEでよしなにやってくれた結
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/json_to_csv/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    JSONファイルを
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryに読ませJSON型で扱うためにそのままCSVで保存する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+[Working with JSON data in Standard SQL  |  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Query  |  Google Cloud](https://cloud.google.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query/docs/reference/standard-sql/json-data)
+
+先日
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryでnative JSON型が
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/start_pocket_api/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    PocketのデータをAPI経由で
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryに取り込む
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  てはこの辺
+
+## おまけ
+
+ここで得たJSONを
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに放り込んでよしなにやろうと
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/workflows_logging_bigquery_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Workflowsで Memory usage limit exeeded
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  たいてそのレスポンスをそのまま
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに突っ込むみたいなやつ
+
+プライ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/dataportal_experience_date/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    DataPortalで9時区切りの日付カラムを計算フィールドで作成する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+ただのメモ
+
+Togglから
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryにデータを突っ込んでいてそれをDataPortal経由でグ
+                </span>
+              </span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Search 検索UIのテスト 4`] = `
+<div>
+  <div
+    class="search-root"
+  >
+    <div
+      class="ais-SearchBox"
+    >
+      <form
+        action=""
+        class="ais-SearchBox-form search-input close"
+        novalidate=""
+      >
+        <input
+          autocapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          class="ais-SearchBox-input search-input"
+          maxlength="512"
+          placeholder="Search"
+          spellcheck="false"
+          type="search"
+          value="Big"
+        />
+        <button
+          class="ais-SearchBox-submit search-button"
+          title="Submit the search query."
+          type="submit"
+        >
+          <svg
+            class="ais-SearchBox-submitIcon search-icon"
+            height="10"
+            viewBox="0 0 40 40"
+            width="10"
+          >
+            <path
+              d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"
+            />
+          </svg>
+        </button>
+        <button
+          class="ais-SearchBox-reset reset-button"
+          title="Clear the search query."
+          type="reset"
+        >
+          <svg
+            class="ais-SearchBox-resetIcon"
+            height="10"
+            viewBox="0 0 20 20"
+            width="10"
+          >
+            <path
+              d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"
+            />
+          </svg>
+        </button>
+        <span
+          class="ais-SearchBox-loadingIndicator"
+          hidden=""
+        >
+          <svg
+            class="ais-SearchBox-loadingIcon"
+            height="16"
+            stroke="#444"
+            viewBox="0 0 38 38"
+            width="16"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                stroke-width="2"
+                transform="translate(1 1)"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="18"
+                  stroke-opacity=".5"
+                />
+                <path
+                  d="M36 18c0-9.94-8.06-18-18-18"
+                >
+                  <animatetransform
+                    attributeName="transform"
+                    dur="1s"
+                    from="0 18 18"
+                    repeatCount="indefinite"
+                    to="360 18 18"
+                    type="rotate"
+                  />
+                </path>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </form>
+    </div>
+    <div
+      class="popover"
+      data-testid="search-result"
+      style="display: none;"
+    >
+      <div
+        data-testid="search-result-count"
+      >
+        8
+         results
+      </div>
+      <div
+        class="ais-Hits"
+      >
+        <ol
+          class="ais-Hits-list search-result-list"
+        >
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_function/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryの日付を扱う際のメモ
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+よく使うと思われるクエリをメモしておく
+
+\`\`\`sql
+SELECT
+DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_cant_use_autodetect/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryのbq load時にautodetectを使えない場合
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+PocketのデータをAPIで取得して
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに突っ込もうとしたときの話
+
+GCSにJSON
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_sample_data/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryでサンプルデータをサクッと作る
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_timezone/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryで日付を扱うときはTimezoneを意識する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  ータに変換できるのでこれで対応
+
+
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  QueryがDATEでよしなにやってくれた結
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/json_to_csv/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    JSONファイルを
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryに読ませJSON型で扱うためにそのままCSVで保存する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+[Working with JSON data in Standard SQL  |  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Query  |  Google Cloud](https://cloud.google.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query/docs/reference/standard-sql/json-data)
+
+先日
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryでnative JSON型が
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/start_pocket_api/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    PocketのデータをAPI経由で
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryに取り込む
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  てはこの辺
+
+## おまけ
+
+ここで得たJSONを
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに放り込んでよしなにやろうと
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/workflows_logging_bigquery_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Workflowsで Memory usage limit exeeded
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  たいてそのレスポンスをそのまま
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに突っ込むみたいなやつ
+
+プライ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/dataportal_experience_date/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    DataPortalで9時区切りの日付カラムを計算フィールドで作成する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+ただのメモ
+
+Togglから
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryにデータを突っ込んでいてそれをDataPortal経由でグ
+                </span>
+              </span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+`;

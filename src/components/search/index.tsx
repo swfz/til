@@ -46,7 +46,7 @@ type SearchResultProps = {
 }
 
 const PageHit = ({ hit }: PageHitProps) => (
-  <div className="search-result-item">
+  <div className="search-result-item" data-testid="search-result-item">
     <Link to={hit.slug}>
       <Highlight attribute="title" hit={hit} />
     </Link>
@@ -65,8 +65,12 @@ const SearchResult = ({ indices, className, show }: SearchResultProps) => {
   const { hits, results, sendEvent } = useHits({})
 
   return (
-    <div className={className} style={{ display: show ? `block` : `none` }}>
-      <div>{results?.nbHits} results</div>
+    <div
+      data-testid="search-result"
+      className={className}
+      style={{ display: show ? `block` : `none` }}
+    >
+      <div data-testid="search-result-count">{results?.nbHits} results</div>
       {indices.map(index => (
         <Index key={index.name} indexName={index.name}>
           <Hits

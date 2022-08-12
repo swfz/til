@@ -12,15 +12,17 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
       <Helmet title={title} />
       <div>
         <h1 className="subtitle">Tags</h1>
-        <ul>
+        <span className="tags">
           {group.map(tag => (
-            <li key={tag.fieldValue}>
-              <Link to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}>
-                {tag.fieldValue} ({tag.totalCount})
-              </Link>
-            </li>
+            <Link
+              key={tag.fieldValue}
+              className="tag is-link is-light"
+              to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}
+            >
+              {tag.fieldValue} ({tag.totalCount})
+            </Link>
           ))}
-        </ul>
+        </span>
       </div>
     </div>
   )

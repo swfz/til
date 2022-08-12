@@ -24,6 +24,7 @@ export const handlers = [
     const empty = query0Words // First Request: 初回読み込み時に空のクエリでリクエストが走る
 
     const wordCountResponseMap = [
+      empty, // 空
       query1Words, // B
       query2Words, // Bi
       query3Words, // Big
@@ -55,7 +56,7 @@ export const handlers = [
 
     return res(
       ctx.status(200),
-      ctx.json(wordCountResponseMap[params.query.length - 1])
+      ctx.json(wordCountResponseMap[params.query.length])
     )
   }),
 ]

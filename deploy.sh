@@ -10,7 +10,7 @@ LATEST_DEPLOY_COMMIT_SHA=$(echo ${res} | jq '.result[]|select(.deployment_trigge
 
 echo "latest commit sha: $LATEST_DEPLOY_COMMIT_SHA"
 echo "current commit sha: $CF_PAGES_COMMIT_SHA"
-echo "echo ${res} | jq '.result[]|.deployment_trigger'"
+echo ${res} | jq '.result[]|.deployment_trigger'
 
 # 差分があると終了コード1
 git diff --quiet $LATEST_DEPLOY_COMMIT_SHA $CF_PAGES_COMMIT_SHA content/blog/entries/

@@ -3,12 +3,14 @@
 # さすがに100コミットまとめてデプロイはしないと判断して決め打ち
 git fetch --depth 100
 
-LATEST_DEPLOY_COMMIT_SHA=$(curl -X GET "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/til/deployments" \
+res=$(curl -X GET "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/til/deployments" \
   -H "Authorization: Bearer ${CF_API_KEY}" \
-  -H "Content-Type:application/json" | jq '.result[]|select(.deployment_trigger.metadata.branch=="master")' | jq -scr '.[1]|.deployment_trigger.metadata.commit_hash')
+  -H "Content-Type:application/json")
+LATEST_DEPLOY_COMMIT_SHA=$(echo ${res} | jq '.result[]|select(.deployment_trigger.metadata.branch=="master")' | jq -scr '.[1]|.deployment_trigger.metadata.commit_hash')
 
 echo "latest commit sha: $LATEST_DEPLOY_COMMIT_SHA"
 echo "current commit sha: $CF_PAGES_COMMIT_SHA"
+echo "echo ${res} | jq '.result[]|.deployment_trigger'"
 
 # 差分があると終了コード1
 git diff --quiet $LATEST_DEPLOY_COMMIT_SHA $CF_PAGES_COMMIT_SHA content/blog/entries/

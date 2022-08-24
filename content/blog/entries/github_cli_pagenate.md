@@ -1,7 +1,7 @@
 ---
 title: "GitHub CLIのAPIでpagenationした結果を表示する"
 date: "2022-08-04"
-description: "--pagenate"
+description: "--paginate"
 tags:
   - GitHub
   - GitHub CLI
@@ -16,7 +16,7 @@ tags:
 In --paginate mode, all pages of results will sequentially be requested until there are no more pages of results. For GraphQL requests, this requires that the original query accepts an $endCursor: String variable and that it fetches the pageInfo{ hasNextPage, endCursor } set of fields from a collection.
 ```
 
-`gh api` では、レスポンスの量が多い場合は`--pagenate`オプションを渡すことでページングして全件取得した結果を返してくれる
+`gh api` では、レスポンスの量が多い場合は`--paginate`オプションを渡すことでページングして全件取得した結果を返してくれる
 
 ## GraphQLの場合
 
@@ -27,7 +27,7 @@ In --paginate mode, all pages of results will sequentially be requested until th
 - `after: $endCursor`とcursor指定をする
 - `pageInfo.endCursor`,`pageInfo.hasNextPage`を取得する
 
-そして`--pagenate`オプションを渡すと自動で全件取得してくれる…すごい
+そして`--paginate`オプションを渡すと自動で全件取得してくれる…すごい
 
 もともとできたのかー!!!って感じだった
 

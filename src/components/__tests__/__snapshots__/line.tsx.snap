@@ -15,7 +15,7 @@ exports[`Line snapshot 1`] = `
     <h2
       className="subtitle"
       style={
-        Object {
+        {
           "marginBottom": "0.3625rem",
         }
       }
@@ -23,7 +23,7 @@ exports[`Line snapshot 1`] = `
       <a
         href="/sample_hoge/fuga"
         style={
-          Object {
+          {
             "boxShadow": "none",
           }
         }

@@ -18,4 +18,5 @@ module.exports = {
   testEnvironmentOptions: {
     url: `http://localhost`,
   },
+  reporters: ["default", "summary"],
 }

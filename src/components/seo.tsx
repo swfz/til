@@ -38,6 +38,9 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
 
+  const decodedTitle = decodeURI(title || "")
+  const ogpImage = `https://res.cloudinary.com/dss6ly6hy/image/upload/s--CZpmof8E--/c_limit,h_600,w_1200/co_rgb:C800D4,l_text:arial_30_bold_normal_left:${decodedTitle}/fl_layer_apply,g_center/til/til-ogp_xsuuux.jpg`
+
   return (
     <Helmet
       htmlAttributes={{
@@ -60,15 +63,23 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: `article`,
+        },
+        {
+          property: `og:image`,
+          content: ogpImage,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
           content: site.siteMetadata.social.twitter,
+        },
+        {
+          name: `twitter:image`,
+          content: ogpImage,
         },
         {
           name: `twitter:title`,

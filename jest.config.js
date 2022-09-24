@@ -18,5 +18,5 @@ module.exports = {
   testEnvironmentOptions: {
     url: `http://localhost`,
   },
-  reporters: ["default", "summary"],
+  reporters: ["default", "github-actions"],
 }

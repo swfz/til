@@ -9716,10 +9716,10 @@ gatsby-remark-prismjs@6.24.0:
     parse-numeric-range "^1.2.0"
     unist-util-visit "^2.0.3"
 
-gatsby-remark-related-posts@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-related-posts/-/gatsby-remark-related-posts-2.0.1.tgz#4d0c9a036f08e29a32c5f92bfae103314f951e22"
-  integrity sha512-oFnA4UJLHm1dc2R7tosU0uzHPoNnJPMDrkw5OLRwz5ok/1lgWxyrUWxuokXnIikaZnCNwHUrlZqtx6KOQEnBwQ==
+gatsby-remark-related-posts@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-related-posts/-/gatsby-remark-related-posts-2.0.2.tgz#a5d3bd82e13ecf98c69e679188fdb747693f5ebf"
+  integrity sha512-WvYhklMfBLfadr6wPojaOmDpsizArCstMEsXqBNsRi5ZxFCsxhorZDt7x++qH61f4gFXAbxEs9mZuKLYjhpK9Q==
   dependencies:
     compute-cosine-similarity "^1.0.0"
     kuromoji "^0.1.2"

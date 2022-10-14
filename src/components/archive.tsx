@@ -70,7 +70,7 @@ export const Archive = (props: Props) => {
               <Link aria-label={"year-link"} to={`/archives/${year}`}>
                 {year}(
                 {Object.entries(items).reduce(
-                  (acc, [_, v]) => acc + v.length,
+                  (acc, [, v]) => acc + v.length,
                   0
                 )}
                 )

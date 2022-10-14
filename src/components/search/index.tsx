@@ -62,7 +62,7 @@ const PageHit = ({ hit }: PageHitProps) => (
 )
 
 const SearchResult = ({ indices, className, show }: SearchResultProps) => {
-  const { hits, results, sendEvent } = useHits({})
+  const { results } = useHits({})
 
   return (
     <div
@@ -86,7 +86,7 @@ const SearchResult = ({ indices, className, show }: SearchResultProps) => {
 }
 
 const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
-  const { query, refine, clear, isSearchStalled } = useSearchBox({})
+  const { query } = useSearchBox({})
   const [hasFocus, setFocus] = useState(false)
 
   const searchRootRef = useRef<HTMLDivElement>(null)

@@ -1,10 +1,11 @@
-import type { GatsbyConfig } from "gatsby"
 import {
   queries,
   feedOptions,
   gatsbyRequiredRules,
   remarkRelatedPostsOptions,
 } from "./src/gatsby/config"
+
+import type { GatsbyConfig } from "gatsby"
 
 const plugins: GatsbyConfig["plugins"] = [
   {

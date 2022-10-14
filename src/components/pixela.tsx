@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react"
 import { tippy } from "@tippyjs/react"
-import "tippy.js/dist/tippy.css"
 import DOMPurify from "dompurify"
+import React, { useState, useEffect } from "react"
+import "tippy.js/dist/tippy.css"
 
 const Pixela = () => {
   const [pixelaSvg, setPixelaSvg] = useState("")

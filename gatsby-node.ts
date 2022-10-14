@@ -1,9 +1,11 @@
-import { GatsbyNode } from "gatsby"
 import path from "path"
-import moment from "moment"
-import kebabCase from "lodash/kebabCase"
-import isNil from "lodash/isNil"
+
+import { GatsbyNode } from "gatsby"
 import { createFilePath } from "gatsby-source-filesystem"
+import isNil from "lodash/isNil"
+import kebabCase from "lodash/kebabCase"
+import moment from "moment"
+
 import { Archives } from "./src/@types"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =

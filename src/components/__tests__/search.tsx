@@ -29,7 +29,7 @@ describe("Search", () => {
       getByTitle,
       getByPlaceholderText,
     } = render(<Search indices={[{ name: "til" }]}></Search>)
-    const searchButton = getByTitle("Submit the search query.")
+    const searchButton = getByTitle("Submit the search query")
 
     expect(container).toMatchSnapshot()
     expect(searchButton).toBeVisible()

@@ -26,7 +26,7 @@ exports[`Search 検索UIのテスト 1`] = `
         />
         <button
           class="ais-SearchBox-submit search-button"
-          title="Submit the search query."
+          title="Submit the search query"
           type="submit"
         >
           <svg
@@ -43,7 +43,7 @@ exports[`Search 検索UIのテスト 1`] = `
         <button
           class="ais-SearchBox-reset reset-button"
           hidden=""
-          title="Clear the search query."
+          title="Clear the search query"
           type="reset"
         >
           <svg
@@ -149,7 +149,7 @@ exports[`Search 検索UIのテスト 2`] = `
         />
         <button
           class="ais-SearchBox-submit search-button"
-          title="Submit the search query."
+          title="Submit the search query"
           type="submit"
         >
           <svg
@@ -165,7 +165,7 @@ exports[`Search 検索UIのテスト 2`] = `
         </button>
         <button
           class="ais-SearchBox-reset reset-button"
-          title="Clear the search query."
+          title="Clear the search query"
           type="reset"
         >
           <svg
@@ -230,7 +230,7 @@ exports[`Search 検索UIのテスト 2`] = `
       <div
         data-testid="search-result-count"
       >
-        34
+        41
          results
       </div>
       <div
@@ -247,7 +247,7 @@ exports[`Search 検索UIのテスト 2`] = `
               data-testid="search-result-item"
             >
               <a
-                href="/entries/bigquery_date_function/"
+                href="/entries/bigquery_sa_permission_from_cli/"
               >
                 <span
                   class="ais-Highlight"
@@ -260,7 +260,7 @@ exports[`Search 検索UIのテスト 2`] = `
                   <span
                     class="ais-Highlight-nonHighlighted"
                   >
-                    gQueryの日付を扱う際のメモ
+                    gQueryで特定データセットに権限を付与する
                   </span>
                 </span>
               </a>
@@ -272,11 +272,75 @@ exports[`Search 検索UIのテスト 2`] = `
                   class="ais-Snippet-nonHighlighted"
                 >
                   
-よく使うと思われるクエリをメモしておく
+特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える
+
+\`bq show\`で対象データセットの設定を出力、中身
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_empty_string_array/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryでStringの空配列を生成する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+[配列関数  |  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQuery  |  Google Cloud](https://cloud.google.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gquery/docs/reference/standard-sql/array_functions?hl=ja)
+
+GENERATE_ARRAYで作るとINT64の空配列になってしまう
 
 \`\`\`sql
-SELECT
-DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day
+SELECT GENERATE_ARRAY(1,0,1) AS tags
+\`\`\`
+
+UNIONな
                 </span>
               </span>
             </div>
@@ -326,7 +390,51 @@ PocketのデータをAPIで取得して
                 >
                   gQueryに突っ込もうとしたときの話
 
-GCSにJSON
+GCSにJSONを置いてCLIから\`bq load --autodetect\`でデータをloadしようと
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_function/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Bi
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    gQueryの日付を扱う際のメモ
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+よく使うと思われるクエリをメモしておく
+
+\`\`\`sql
+SELECT
+DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初
+LAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末
+DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
                 </span>
               </span>
             </div>
@@ -364,7 +472,9 @@ GCSにJSON
                   class="ais-Snippet-nonHighlighted"
                 >
                   
-簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ
+簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる
+
+\`\`\`sql
                 </span>
               </span>
             </div>
@@ -401,7 +511,7 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  ータに変換できるのでこれで対応
+                  ムゾーン指定の日付データに変換できるのでこれで対応
 
 
                 </span>
@@ -413,7 +523,52 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  gQueryがDATEでよしなにやってくれた結
+                  gQueryがDATEでよしなにやってくれた結果UTCで解釈すると\`2021-03
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/workflows_logging_bigquery_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Workflowsで Memory usage limit exeeded
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+はてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのまま
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  gQueryに突っ込むみたいなやつ
+
+プライベート
                 </span>
               </span>
             </div>
@@ -488,107 +643,9 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  gQueryでnative JSON型が
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/start_pocket_api/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    PocketのデータをAPI経由で
-                  </span>
-                  <mark
-                    class="ais-Highlight-highlighted"
-                  >
-                    Bi
-                  </mark>
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    gQueryに取り込む
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  てはこの辺
+                  gQueryでnative JSON型がプレビューでサポートされた
 
-## おまけ
-
-ここで得たJSONを
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  Bi
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  gQueryに放り込んでよしなにやろうと
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/workflows_logging_bigquery_failed/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    Workflowsで Memory usage limit exeeded
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  たいてそのレスポンスをそのまま
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  Bi
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  gQueryに突っ込むみたいなやつ
-
-プライ
+執筆時点ではload
                 </span>
               </span>
             </div>
@@ -633,7 +690,123 @@ Togglから
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  gQueryにデータを突っ込んでいてそれをDataPortal経由でグ
+                  gQueryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している
+
+\`start: 2020-12-25 21:52:30 UTC\`（実際計測し
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/zx_arguments/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    zx使用時のコマンドライン引数のリスト
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+\`\`\`shell
+zx query.mjs hoge
+[
+  '/home/user/.anyenv/envs/nodenv/versions/16.13.0/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/node',
+  '/home/user/.anyenv/envs/nodenv/versions/16.13.0/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/zx',
+  'query.mjs',
+  'hoge'
+]
+\`\`\`
+
+普通のnodeスクリプトだと\`process.argv.slice(2)\`でコマン
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/svg2png_with_sharp/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Nodeのsharpでsvgをpngへ変換する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+SVG出力されたレスポンスをPNGに変換する
+
+\`\`\`javascript
+#!/usr/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/env zx
+
+const sharp = require('sharp');
+
+const svgText = await fetch('https://localhost:8081/sample.svg').then(res =&gt; res.text())
+sharp(Buffer.from(svgText, 'utf-8')).toFile('sample.png
                 </span>
               </span>
             </div>
@@ -665,7 +838,12 @@ Togglから
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  https://github.com/tfutils/tfenv.git ~/.tfenv
+                  めのツール
+
+### インストール
+
+\`\`\`shell
+$ git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 $ mkdir ~/.local/
                 </span>
                 <mark
@@ -715,52 +893,10 @@ export PATH="$HOME/.tfenv/
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  n:$PATH
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/ruby_rmagick_install/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    CentOS7系でのrmagickのインストール
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  rmagick-2.15.4/ext/RMagick
-/home/vagrant/.anyenv/envs/rbenv/versions/2.5.7/
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  bi
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  n/ruby -r ./siteconf20200715-2470-bpwp3n.rb extconf.rb
-checking for gcc... yes
-checking for
+                  n:$PATH"
+\`\`\`
+
+当たり前だ
                 </span>
               </span>
             </div>
@@ -792,7 +928,8 @@ checking for
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  ポートのダウンロード](https://console.aws.amazon.com/
+                  トをDLする
+- [使用状況レポートのダウンロード](https://console.aws.amazon.com/
                 </span>
                 <mark
                   class="ais-Snippet-highlighted"
@@ -804,7 +941,56 @@ checking for
                 >
                   lling/home#/reports/usage)
 - 次の項目を指定する
-    - サー
+    - サービス
+    - 使用タイプ
+    - オペレ
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/ruby_rmagick_install/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    CentOS7系でのrmagickのインストール
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  2.5.7/lib/ruby/gems/2.5.0/gems/rmagick-2.15.4/ext/RMagick
+/home/vagrant/.anyenv/envs/rbenv/versions/2.5.7/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n/ruby -r ./siteconf20200715-2470-bpwp3n.rb extconf.rb
+checking for gcc... yes
+checking for Magick-config... no
+checking for pkg-config... yes
+Package MagickCore
                 </span>
               </span>
             </div>
@@ -836,7 +1022,9 @@ checking for
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  Windows_NT x64 10.0.19041
+                  16.0
+V8: 9.1.269.39-electron.0
+OS: Windows_NT x64 10.0.19041
 \`\`\`
 
 - settings.json
@@ -855,7 +1043,7 @@ checking for
                   n/tmux",
 \`\`\`
 
-上記のようにlinuxの場合はdefaultで
+上記のようにlinuxの場合はdefaultでtmuxを起動させたかった
                 </span>
               </span>
             </div>
@@ -887,7 +1075,7 @@ checking for
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  とで供養がてら残しておく
+                  のも書いたなと言うことで供養がてら残しておく
 
 - lambda-diff
 
@@ -907,61 +1095,7 @@ checking for
 # lambda-diff profile FunctionName1 FunctionName2
 
 get_lambda_zip(){
-  curl -o /tmp/$2.zip
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/ansible_install_awscliv2/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    AnsibleでAWS CLI v2をインストールする
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  tasks/main.yml
-
-\`\`\`yaml
----
-- name: exist awscli v2
-  command: which aws
-  environment:
-    PATH: "/usr/local/
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  bi
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  n:{{ ansible_env.PATH }}"
-  register: exist_awscli
-  changed_when: false
-  ignore_errors: true
-
-- name: get
+  curl -o /tmp/$2.zip \`aws --profile=$1 lambda get-function --function-name $2 | jq
                 </span>
               </span>
             </div>
@@ -993,7 +1127,7 @@ get_lambda_zip(){
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  変える
+                  serviceの起動オプションを変える
 
 ### 設定
 
@@ -1023,6 +1157,72 @@ get_lambda_zip(){
                   class="ais-Snippet-nonHighlighted"
                 >
                   n/dockerd -H tcp://0.0.0.0:2375
+\`\`\`
+
+- リロード
+
+\`\`\`shell
+systemctl daemon-reload
+service docker
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/ansible_install_awscliv2/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    AnsibleでAWS CLI v2をインストールする
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  awscli_version }}.zip
+  zip: awscli-{{ awscli_version }}.zip
+\`\`\`
+
+- roles/awscli/tasks/main.yml
+
+\`\`\`yaml
+---
+- name: exist awscli v2
+  command: which aws
+  environment:
+    PATH: "/usr/local/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  bi
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  n:{{ ansible_env.PATH }}"
+  register: exist_awscli
+  changed_when: false
+  ignore_errors: true
+
+- name: get awscli version
+  shell: "aws --version 2&gt;&1 | grep -oP '(?&lt;=aws
                 </span>
               </span>
             </div>
@@ -1054,7 +1254,9 @@ get_lambda_zip(){
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  tsx\`にして次に進めた
+                  感じだった
+
+拡張子を\`ts\` -&gt; \`tsx\`にして次に進めた
 
 \`\`\`
  FAIL  src/components/__tests__/header.tsx
@@ -1082,7 +1284,7 @@ get_lambda_zip(){
                   class="ais-Snippet-nonHighlighted"
                 >
                   o › renders correctly
-                                                                                                                                                                                                    The error below may be
+                                                                                                                                                                                                    The error below may be caused by using the wrong test environment, see https://jestjs
                 </span>
               </span>
             </div>
@@ -1114,7 +1316,7 @@ get_lambda_zip(){
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  で決め打ちにした
+                  くても良いので決め打ちにした
 
 - /mnt/c/Program\\ Files/Docker/Docker/resources/
                 </span>
@@ -1154,39 +1356,10 @@ get_lambda_zip(){
 "$binary.exe" "$@"
 \`\`\`
 
-- 実
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/vscode_wsl_failed/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    VS Code Remote WSLが起動しない
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  already installed: C:\\Windows\\System32\\wsl.exe -d Ubuntu -e sh -c "[ -d ~/.vscode-server/
+- 実行してみる
+
+\`\`\`
+$ /mnt/c/Program\\ Files/Docker/Docker/resources/
                 </span>
                 <mark
                   class="ais-Snippet-highlighted"
@@ -1196,94 +1369,7 @@ get_lambda_zip(){
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  n/69755771804a4f5097277cbbb50dff67 ] && printf found || ([ -f /etc/alpine-release ] && printf alpine-; uname -m)"
-[2021-10-08
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/wsl2_installed/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    WSL2に移行した
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  ラットフォーム機能を有効にして、
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  BI
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  OS で仮想化が有効になっているこ
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/install_digest_crc_in_docker_image/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    digest-crc gemがインストールできない
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  current directory: /usr/local/bundle/gems/digest-crc-0.6.1/ext/digest
-/usr/local/
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  bi
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  n/ruby -I/usr/local/lib/ruby/2.7.0/rubygems -rrubygems
-/usr/local/lib
+                  n
                 </span>
               </span>
             </div>
@@ -1321,7 +1407,7 @@ exports[`Search 検索UIのテスト 3`] = `
         />
         <button
           class="ais-SearchBox-submit search-button"
-          title="Submit the search query."
+          title="Submit the search query"
           type="submit"
         >
           <svg
@@ -1337,7 +1423,7 @@ exports[`Search 検索UIのテスト 3`] = `
         </button>
         <button
           class="ais-SearchBox-reset reset-button"
-          title="Clear the search query."
+          title="Clear the search query"
           type="reset"
         >
           <svg
@@ -1402,7 +1488,7 @@ exports[`Search 検索UIのテスト 3`] = `
       <div
         data-testid="search-result-count"
       >
-        8
+        12
          results
       </div>
       <div
@@ -1419,7 +1505,7 @@ exports[`Search 検索UIのテスト 3`] = `
               data-testid="search-result-item"
             >
               <a
-                href="/entries/bigquery_date_function/"
+                href="/entries/bigquery_sa_permission_from_cli/"
               >
                 <span
                   class="ais-Highlight"
@@ -1432,7 +1518,7 @@ exports[`Search 検索UIのテスト 3`] = `
                   <span
                     class="ais-Highlight-nonHighlighted"
                   >
-                    Queryの日付を扱う際のメモ
+                    Queryで特定データセットに権限を付与する
                   </span>
                 </span>
               </a>
@@ -1444,11 +1530,75 @@ exports[`Search 検索UIのテスト 3`] = `
                   class="ais-Snippet-nonHighlighted"
                 >
                   
-よく使うと思われるクエリをメモしておく
+特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える
+
+\`bq show\`で対象データセットの設定を出力、中身
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_empty_string_array/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    QueryでStringの空配列を生成する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+[配列関数  |  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Query  |  Google Cloud](https://cloud.google.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query/docs/reference/standard-sql/array_functions?hl=ja)
+
+GENERATE_ARRAYで作るとINT64の空配列になってしまう
 
 \`\`\`sql
-SELECT
-DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day
+SELECT GENERATE_ARRAY(1,0,1) AS tags
+\`\`\`
+
+UNIONな
                 </span>
               </span>
             </div>
@@ -1498,7 +1648,51 @@ PocketのデータをAPIで取得して
                 >
                   Queryに突っ込もうとしたときの話
 
-GCSにJSON
+GCSにJSONを置いてCLIから\`bq load --autodetect\`でデータをloadしようと
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_function/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryの日付を扱う際のメモ
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+よく使うと思われるクエリをメモしておく
+
+\`\`\`sql
+SELECT
+DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初
+LAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末
+DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
                 </span>
               </span>
             </div>
@@ -1536,7 +1730,9 @@ GCSにJSON
                   class="ais-Snippet-nonHighlighted"
                 >
                   
-簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ
+簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる
+
+\`\`\`sql
                 </span>
               </span>
             </div>
@@ -1573,7 +1769,7 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  ータに変換できるのでこれで対応
+                  ムゾーン指定の日付データに変換できるのでこれで対応
 
 
                 </span>
@@ -1585,7 +1781,52 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  QueryがDATEでよしなにやってくれた結
+                  QueryがDATEでよしなにやってくれた結果UTCで解釈すると\`2021-03
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/workflows_logging_bigquery_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Workflowsで Memory usage limit exeeded
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+はてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのまま
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに突っ込むみたいなやつ
+
+プライベート
                 </span>
               </span>
             </div>
@@ -1660,107 +1901,9 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  Queryでnative JSON型が
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/start_pocket_api/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    PocketのデータをAPI経由で
-                  </span>
-                  <mark
-                    class="ais-Highlight-highlighted"
-                  >
-                    Big
-                  </mark>
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    Queryに取り込む
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  てはこの辺
+                  Queryでnative JSON型がプレビューでサポートされた
 
-## おまけ
-
-ここで得たJSONを
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  Big
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  Queryに放り込んでよしなにやろうと
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/workflows_logging_bigquery_failed/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    Workflowsで Memory usage limit exeeded
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  たいてそのレスポンスをそのまま
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  Big
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  Queryに突っ込むみたいなやつ
-
-プライ
+執筆時点ではload
                 </span>
               </span>
             </div>
@@ -1805,7 +1948,253 @@ Togglから
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  Queryにデータを突っ込んでいてそれをDataPortal経由でグ
+                  Queryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している
+
+\`start: 2020-12-25 21:52:30 UTC\`（実際計測し
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/algolia_mock_with_msw/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Algoliaのレスポンスをmswでモックして開発ではダミーレスポンスを扱う
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  const handlers = [
+  rest.post("https://*.algolia.net/1/indexes/*/queries", (req, res, ctx) =&gt; {
+    const empty = query0Words
+
+    const wordCountResponseMap = [
+      empty,       // 空
+      query1Words, // B
+      query2Words, // Bi
+      query3Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+      query4Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Q
+      query5Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Qu
+      query6Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Que
+      query7Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Quer
+      query8Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Query
+    ]
+
+    const bodyString = req.body as string
+
+    if (bodyString.length === 0) {
+      return res(ctx.status
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bq_load_with_hive_partition/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Hiveパーティショニングモードでbq load
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  27655304",
+  "numLongTermBytes": "0",
+  "numLongTermLogicalBytes": "0",
+  "numRows": "471",
+  "numTotalLogicalBytes": "27655304",
+  "schema": {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "response",
+        "type": "JSON"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "dt",
+        "type": "DATE"
+      }
+    ]
+  },
+  "selfLink": "https://
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query.googleapis.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items",
+  "tableReference": {
+    "datasetId": "sample_datalake",
+    "projectId": "sample-project",
+    "tableId": "test_raw
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/start_pocket_api/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    PocketのデータをAPI経由で
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryに取り込む
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  retrieve)
+
+retrieveのAPIの仕様についてはこの辺
+
+## おまけ
+
+ここで得たJSONを
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに放り込んでよしなにやろうとしたが一筋縄では行か
                 </span>
               </span>
             </div>
@@ -1843,7 +2232,7 @@ exports[`Search 検索UIのテスト 4`] = `
         />
         <button
           class="ais-SearchBox-submit search-button"
-          title="Submit the search query."
+          title="Submit the search query"
           type="submit"
         >
           <svg
@@ -1859,7 +2248,7 @@ exports[`Search 検索UIのテスト 4`] = `
         </button>
         <button
           class="ais-SearchBox-reset reset-button"
-          title="Clear the search query."
+          title="Clear the search query"
           type="reset"
         >
           <svg
@@ -1924,7 +2313,7 @@ exports[`Search 検索UIのテスト 4`] = `
       <div
         data-testid="search-result-count"
       >
-        8
+        12
          results
       </div>
       <div
@@ -1941,7 +2330,7 @@ exports[`Search 検索UIのテスト 4`] = `
               data-testid="search-result-item"
             >
               <a
-                href="/entries/bigquery_date_function/"
+                href="/entries/bigquery_sa_permission_from_cli/"
               >
                 <span
                   class="ais-Highlight"
@@ -1954,7 +2343,7 @@ exports[`Search 検索UIのテスト 4`] = `
                   <span
                     class="ais-Highlight-nonHighlighted"
                   >
-                    Queryの日付を扱う際のメモ
+                    Queryで特定データセットに権限を付与する
                   </span>
                 </span>
               </a>
@@ -1966,11 +2355,75 @@ exports[`Search 検索UIのテスト 4`] = `
                   class="ais-Snippet-nonHighlighted"
                 >
                   
-よく使うと思われるクエリをメモしておく
+特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える
+
+\`bq show\`で対象データセットの設定を出力、中身
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_empty_string_array/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    QueryでStringの空配列を生成する
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+[配列関数  |  
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Query  |  Google Cloud](https://cloud.google.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query/docs/reference/standard-sql/array_functions?hl=ja)
+
+GENERATE_ARRAYで作るとINT64の空配列になってしまう
 
 \`\`\`sql
-SELECT
-DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day
+SELECT GENERATE_ARRAY(1,0,1) AS tags
+\`\`\`
+
+UNIONな
                 </span>
               </span>
             </div>
@@ -2020,7 +2473,51 @@ PocketのデータをAPIで取得して
                 >
                   Queryに突っ込もうとしたときの話
 
-GCSにJSON
+GCSにJSONを置いてCLIから\`bq load --autodetect\`でデータをloadしようと
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bigquery_date_function/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryの日付を扱う際のメモ
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+よく使うと思われるクエリをメモしておく
+
+\`\`\`sql
+SELECT
+DATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初
+LAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末
+DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
                 </span>
               </span>
             </div>
@@ -2058,7 +2555,9 @@ GCSにJSON
                   class="ais-Snippet-nonHighlighted"
                 >
                   
-簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ
+簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる
+
+\`\`\`sql
                 </span>
               </span>
             </div>
@@ -2095,7 +2594,7 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  ータに変換できるのでこれで対応
+                  ムゾーン指定の日付データに変換できるのでこれで対応
 
 
                 </span>
@@ -2107,7 +2606,52 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  QueryがDATEでよしなにやってくれた結
+                  QueryがDATEでよしなにやってくれた結果UTCで解釈すると\`2021-03
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/workflows_logging_bigquery_failed/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Workflowsで Memory usage limit exeeded
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+はてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのまま
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに突っ込むみたいなやつ
+
+プライベート
                 </span>
               </span>
             </div>
@@ -2182,107 +2726,9 @@ GCSにJSON
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  Queryでnative JSON型が
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/start_pocket_api/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    PocketのデータをAPI経由で
-                  </span>
-                  <mark
-                    class="ais-Highlight-highlighted"
-                  >
-                    Big
-                  </mark>
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    Queryに取り込む
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  てはこの辺
+                  Queryでnative JSON型がプレビューでサポートされた
 
-## おまけ
-
-ここで得たJSONを
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  Big
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  Queryに放り込んでよしなにやろうと
-                </span>
-              </span>
-            </div>
-          </li>
-          <li
-            class="ais-Hits-item"
-          >
-            <div
-              class="search-result-item"
-              data-testid="search-result-item"
-            >
-              <a
-                href="/entries/workflows_logging_bigquery_failed/"
-              >
-                <span
-                  class="ais-Highlight"
-                >
-                  <span
-                    class="ais-Highlight-nonHighlighted"
-                  >
-                    Workflowsで Memory usage limit exeeded
-                  </span>
-                </span>
-              </a>
-              <br />
-              <span
-                class="ais-Snippet search-result-item-snippet"
-              >
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  たいてそのレスポンスをそのまま
-                </span>
-                <mark
-                  class="ais-Snippet-highlighted"
-                >
-                  Big
-                </mark>
-                <span
-                  class="ais-Snippet-nonHighlighted"
-                >
-                  Queryに突っ込むみたいなやつ
-
-プライ
+執筆時点ではload
                 </span>
               </span>
             </div>
@@ -2327,7 +2773,253 @@ Togglから
                 <span
                   class="ais-Snippet-nonHighlighted"
                 >
-                  Queryにデータを突っ込んでいてそれをDataPortal経由でグ
+                  Queryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している
+
+\`start: 2020-12-25 21:52:30 UTC\`（実際計測し
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/algolia_mock_with_msw/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Algoliaのレスポンスをmswでモックして開発ではダミーレスポンスを扱う
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  const handlers = [
+  rest.post("https://*.algolia.net/1/indexes/*/queries", (req, res, ctx) =&gt; {
+    const empty = query0Words
+
+    const wordCountResponseMap = [
+      empty,       // 空
+      query1Words, // B
+      query2Words, // Bi
+      query3Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  
+      query4Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Q
+      query5Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Qu
+      query6Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Que
+      query7Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Quer
+      query8Words, // 
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Query
+    ]
+
+    const bodyString = req.body as string
+
+    if (bodyString.length === 0) {
+      return res(ctx.status
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/bq_load_with_hive_partition/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Hiveパーティショニングモードでbq load
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  27655304",
+  "numLongTermBytes": "0",
+  "numLongTermLogicalBytes": "0",
+  "numRows": "471",
+  "numTotalLogicalBytes": "27655304",
+  "schema": {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "response",
+        "type": "JSON"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "dt",
+        "type": "DATE"
+      }
+    ]
+  },
+  "selfLink": "https://
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query.googleapis.com/
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  query/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items",
+  "tableReference": {
+    "datasetId": "sample_datalake",
+    "projectId": "sample-project",
+    "tableId": "test_raw
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ais-Hits-item"
+          >
+            <div
+              class="search-result-item"
+              data-testid="search-result-item"
+            >
+              <a
+                href="/entries/start_pocket_api/"
+              >
+                <span
+                  class="ais-Highlight"
+                >
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    PocketのデータをAPI経由で
+                  </span>
+                  <mark
+                    class="ais-Highlight-highlighted"
+                  >
+                    Big
+                  </mark>
+                  <span
+                    class="ais-Highlight-nonHighlighted"
+                  >
+                    Queryに取り込む
+                  </span>
+                </span>
+              </a>
+              <br />
+              <span
+                class="ais-Snippet search-result-item-snippet"
+              >
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  retrieve)
+
+retrieveのAPIの仕様についてはこの辺
+
+## おまけ
+
+ここで得たJSONを
+                </span>
+                <mark
+                  class="ais-Snippet-highlighted"
+                >
+                  Big
+                </mark>
+                <span
+                  class="ais-Snippet-nonHighlighted"
+                >
+                  Queryに放り込んでよしなにやろうとしたが一筋縄では行か
                 </span>
               </span>
             </div>

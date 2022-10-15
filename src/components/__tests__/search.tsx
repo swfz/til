@@ -29,7 +29,7 @@ describe("Search", () => {
       getByTitle,
       getByPlaceholderText,
     } = render(<Search indices={[{ name: "til" }]}></Search>)
-    const searchButton = getByTitle("Submit the search query.")
+    const searchButton = getByTitle("Submit the search query")
 
     expect(container).toMatchSnapshot()
     expect(searchButton).toBeVisible()
@@ -46,21 +46,21 @@ describe("Search", () => {
     await act(async () => {
       await new Promise(r => setTimeout(r, 2000))
     })
-    expect(getByTestId("search-result-count")).toHaveTextContent("34 results")
+    expect(getByTestId("search-result-count")).toHaveTextContent("41 results")
     expect(getAllByTestId("search-result-item").length).toEqual(20)
     expect(container).toMatchSnapshot()
 
     // Query内容が変わったとき、すぐにはリクエストが送信されないため変更なし
     user.type(searchInput, "g")
-    expect(getByTestId("search-result-count")).toHaveTextContent("34 results")
+    expect(getByTestId("search-result-count")).toHaveTextContent("41 results")
     expect(getAllByTestId("search-result-item").length).toEqual(20)
 
     // 入力が終わったと判断され、新たにリクエスト送信。検索結果にも反映されているかの確認
     await act(async () => {
       await new Promise(r => setTimeout(r, 2000))
     })
-    expect(getByTestId("search-result-count")).toHaveTextContent("8 results")
-    expect(getAllByTestId("search-result-item").length).toEqual(8)
+    expect(getByTestId("search-result-count")).toHaveTextContent("12 results")
+    expect(getAllByTestId("search-result-item").length).toEqual(12)
     expect(container).toMatchSnapshot()
 
     // 外側をクリックで検索結果が非表示になる

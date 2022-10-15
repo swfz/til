@@ -3,40 +3,67 @@
     {
       "hits": [
         {
-          "date": "March 25, 2022",
-          "title": "BigQueryの日付を扱う際のメモ",
-          "slug": "/entries/bigquery_date_function/",
-          "text": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
+          "url": "https://til.swfz.io//entries/bigquery_sa_permission_from_cli/",
+          "text": "\n特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える\n\n`bq show`で対象データセットの設定を出力、中身の`access`に対象サービスアカウントのメールアドレスをと権限を追加して`bq update`\n\n```shell\nbq show --format=prettyjson memo-111111:sample  > sample.json\n```\n\n- sample.json\n\n```json\n\"access\": [\n  ...\n  ...\n  ...\n    {\n      \"role\": \"READER\",\n      \"userByEmail\": \"github-actions-sample-nokey@memo-111111.iam.gserviceaccount.com\"\n    }\n]\n```\n\n```shell\nbq update --source sample.json sample\n```\n\n## 確認\n\n対象サービスアカウントで実行した\n\n- bq ls\n\n```txt\n  datasetId  \n ----------- \n  sample     \n```\n\n- クエリ\n\n```shell\nbq query --nouse_legacy_sql 'select * from sample.summary'\n```\n\n```\n+------+-------+----+\n| view | title | id |\n+------+-------+----+\n|    3 | fuga  |  2 |\n|    3 | foo   |  4 |\n|    4 | piyo  |  3 |\n|    5 | hoge  |  1 |\n|    5 | bar   |  5 |\n+------+-------+----+\n```\n\nできた\n\n最近GitHubActionsのOIDC認証でCI用のサービスアカウントに対してクエリできるようにする + データセット単位で権限を絞るところまで行ったのでメモ\n\n個人使用ならこれで問題ないかなーという感じ",
+          "date": "2022-10-12",
+          "title": "BigQueryで特定データセットに権限を付与する",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "bq show + bq update",
+          "slug": "/entries/bigquery_sa_permission_from_cli/",
           "timeToRead": 1,
-          "objectID": "68f46908-591f-5bb4-82bd-f2fc099406d2",
+          "objectID": "dafae263-fb55-5d08-bf9f-17c62c276690",
           "_snippetResult": {
             "text": {
-              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day",
+              "value": "\n特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える\n\n`bq show`で対象データセットの設定を出力、中身",
               "matchLevel": "none"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "March 25, 2022",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__の日付を扱う際のメモ",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_function/",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___sa_permission_from_cli/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
             "text": {
-              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
+              "value": "\n特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える\n\n`bq show`で対象データセットの設定を出力、中身の`access`に対象サービスアカウントのメールアドレスをと権限を追加して`bq update`\n\n```shell\nbq show --format=prettyjson memo-111111:sample  > sample.json\n```\n\n- sample.json\n\n```json\n\"access\": [\n  ...\n  ...\n  ...\n    {\n      \"role\": \"READER\",\n      \"userByEmail\": \"github-actions-sample-nokey@memo-111111.iam.gserviceaccount.com\"\n    }\n]\n```\n\n```shell\nbq update --source sample.json sample\n```\n\n## 確認\n\n対象サービスアカウントで実行した\n\n- bq ls\n\n```txt\n  datasetId  \n ----------- \n  sample     \n```\n\n- クエリ\n\n```shell\nbq query --nouse_legacy_sql 'select * from sample.summary'\n```\n\n```\n+------+-------+----+\n| view | title | id |\n+------+-------+----+\n|    3 | fuga  |  2 |\n|    3 | foo   |  4 |\n|    4 | piyo  |  3 |\n|    5 | hoge  |  1 |\n|    5 | bar   |  5 |\n+------+-------+----+\n```\n\nできた\n\n最近GitHubActionsのOIDC認証でCI用のサービスアカウントに対してクエリできるようにする + データセット単位で権限を絞るところまで行ったのでメモ\n\n個人使用ならこれで問題ないかなーという感じ",
               "matchLevel": "none",
               "matchedWords": []
+            },
+            "date": {
+              "value": "2022-10-12",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__で特定データセットに権限を付与する",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "bq show + bq update",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___sa_permission_from_cli/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
             },
             "timeToRead": {
               "value": "1",
@@ -46,32 +73,95 @@
           }
         },
         {
-          "date": "May 08, 2021",
-          "title": "BigQueryのbq load時にautodetectを使えない場合",
-          "slug": "/entries/bigquery_cant_use_autodetect/",
-          "text": "\nPocketのデータをAPIで取得してBigQueryに突っ込もうとしたときの話\n\nGCSにJSONを置いてCLIから`bq load --autodetect`でデータをloadしようとしたらエラーで怒られた\n\n```\nBigQuery error in load operation: Error processing job\n'project-111111:bqjob_r70118be7bda78ce4_000001793f9c2946_1': Error while reading\ndata, error message: JSON table encountered too many errors, giving up. Rows: 1;\nerrors: 1. Please look into the errors[] collection for more details.\nFailure details:\n- Error while reading data, error message: JSON processing\nencountered too many errors, giving up. Rows: 1; errors: 1; max\nbad: 0; error percent: 0\n- gs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json: Error\nwhile reading data, error message: JSON parsing error in row\nstarting at position 0: JSON object specified for non-record field:\nlist.videos\n```\n\n## 前提\n\n現状あるデータは次の3つ（bucket名はサンプル）\n\n```\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-03.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-05.json\n```\n\n## 原因の切り分け\n\n- raw-03.json\n- raw-04.json\n\nのときは問題なくloadできている\n\n`raw-05.json`\n\nが追加されてから上記エラーになってしまった\n\n05と03,04のJSONの中身を比べてみたところ05には`list.videos`がすべて`[]`になっていた\n\n03,04に関してはどこかのレコードでオブジェクトが入っていたので`RECORD`と判断された模様\n\nこのことから`--autodetect`は最初のファイルをautodetectで読み込んで順番にその他ファイルも読み込んでいると考えられる\n\n[スキーマの自動検出](https://cloud.google.com/bigquery/docs/schema-detect?hl=ja#auto-detect)\n\nここに説明が書いてあった\n\n> 自動検出を有効にすると、BigQuery はデータソース内でランダムにファイルを選択します。ファイルの最大 100 行をスキャンして代表的なサンプルとして使用し、推定プロセスを開始します。BigQuery は、各フィールドを検証し、そのサンプル内の値に基づいてそのフィールドにデータ型を割り当てようとします。\n\nランダムでファイルを読み込むとあるので全パターンを網羅したデータがあるファイルじゃないファイルがサンプルに選定されてしまった場合にこういうことが起きる\n\nそうなると`autodetect`は使えないのでテーブル作成→loadの手順を踏む必要がある\n\n- schemaの取り出し\n\nうまく行ったパターンで生成したテーブルのスキーマを取得する\n\n```\nbq show --schema --format=prettyjson pocket.rawdata > pocket-rawdata.json\n```\n\n- テーブル作成\n\n別のテーブルを用意して試してみる\n\n```\nbq mk --table --time_partitioning_field month --time_partitioning_type MONTH sample.pocket_rawdata pocket-rawdata.json\n```\n\n- load\n\n```\nbq load --source_format=NEWLINE_DELIMITED_JSON --replace sample.pocket_rawdata 'gs://sample-bucket/preprocessed_rawdata/*'\n```\n\n今のところこんな感じでなんとかなっている\n\n## まとめ\n\n取り込み対象のデータにばらつきがある（あるデータではRECORD、あるデータでは`[]`のようなとき）とサンプリング次第で取り込めない場合がある\n\nさらに`--autodetect`+`--replace`を用いると毎回ロード時に自動検出するので失敗する可能性がある\n\nそのためスキーマを定義してテーブルの作成+`bq load`と手順を踏む必要がある\n\n## 所感\n\n本来だったら`autodetect`で生成したスキーマからさらに精査して本当に`NULLABLE`?みたいな話も考えたほうが良いが今回は趣味プロジェクトなので…\n\nautodetectは便利だけどこういうパターンに対応できないのでやはりPOCやお試しのときくらいしか使えないよなーとあらためて感じた\n\nまぁでも気軽に試せるのはとても良いことなので使い分けが大事",
-          "timeToRead": 3,
-          "objectID": "511a0a9b-6cec-55d0-a965-148667fcf789",
+          "url": "https://til.swfz.io//entries/bigquery_empty_string_array/",
+          "text": "\n[配列関数  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/array_functions?hl=ja)\n\nGENERATE_ARRAYで作るとINT64の空配列になってしまう\n\n```sql\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\nUNIONなどで文字列の配列と結合させようとすると型が合わなくなってしまう\n\n## 例\n\n```sql\nSELECT ['a','b'] AS tags\nUNION ALL\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\n- 結果\n\n```\n Column 1 in UNION ALL has incompatible types: ARRAY<STRING>, ARRAY<INT64> at [3:1] \n```\n\n[Create empty string array BigQuery - Stack Overflow](https://stackoverflow.com/questions/58504188/create-empty-string-array-bigquery)\n\nこまったときのstackoverflow、答えが書いてありました\n\n```sql\nSELECT ARRAY<STRING>[] AS tags\n```\n\nでSTRINGの空配列を生成できる\n\n解決！\n",
+          "date": "2022-07-22",
+          "title": "BigQueryでStringの空配列を生成する",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "ARRAY",
+          "slug": "/entries/bigquery_empty_string_array/",
+          "timeToRead": 1,
+          "objectID": "94f95f4a-5e85-5917-a74f-84500c7a5783",
           "_snippetResult": {
             "text": {
-              "value": "\nPocketのデータをAPIで取得して__ais-highlight__BigQuery__/ais-highlight__に突っ込もうとしたときの話\n\nGCSにJSON",
+              "value": "\n[配列関数  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/array_functions?hl=ja)\n\nGENERATE_ARRAYで作るとINT64の空配列になってしまう\n\n```sql\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\nUNIONな",
               "matchLevel": "full"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "May 08, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__のbq load時にautodetectを使えない場合",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___empty_string_array/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
+            "text": {
+              "value": "\n[配列関数  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/array_functions?hl=ja)\n\nGENERATE_ARRAYで作るとINT64の空配列になってしまう\n\n```sql\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\nUNIONなどで文字列の配列と結合させようとすると型が合わなくなってしまう\n\n## 例\n\n```sql\nSELECT ['a','b'] AS tags\nUNION ALL\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\n- 結果\n\n```\n Column 1 in UNION ALL has incompatible types: ARRAY<STRING>, ARRAY<INT64> at [3:1] \n```\n\n[Create empty string array __ais-highlight__BigQuery__/ais-highlight__ - Stack Overflow](https://stackoverflow.com/questions/58504188/create-empty-string-array-__ais-highlight__bigquery__/ais-highlight__)\n\nこまったときのstackoverflow、答えが書いてありました\n\n```sql\nSELECT ARRAY<STRING>[] AS tags\n```\n\nでSTRINGの空配列を生成できる\n\n解決！\n",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-07-22",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__でStringの空配列を生成する",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "ARRAY",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
             "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___cant_use_autodetect/",
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___empty_string_array/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/bigquery_cant_use_autodetect/",
+          "text": "\nPocketのデータをAPIで取得してBigQueryに突っ込もうとしたときの話\n\nGCSにJSONを置いてCLIから`bq load --autodetect`でデータをloadしようとしたらエラーで怒られた\n\n```\nBigQuery error in load operation: Error processing job\n'project-111111:bqjob_r70118be7bda78ce4_000001793f9c2946_1': Error while reading\ndata, error message: JSON table encountered too many errors, giving up. Rows: 1;\nerrors: 1. Please look into the errors[] collection for more details.\nFailure details:\n- Error while reading data, error message: JSON processing\nencountered too many errors, giving up. Rows: 1; errors: 1; max\nbad: 0; error percent: 0\n- gs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json: Error\nwhile reading data, error message: JSON parsing error in row\nstarting at position 0: JSON object specified for non-record field:\nlist.videos\n```\n\n## 前提\n\n現状あるデータは次の3つ（bucket名はサンプル）\n\n```\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-03.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-05.json\n```\n\n## 原因の切り分け\n\n- raw-03.json\n- raw-04.json\n\nのときは問題なくloadできている\n\n`raw-05.json`\n\nが追加されてから上記エラーになってしまった\n\n05と03,04のJSONの中身を比べてみたところ05には`list.videos`がすべて`[]`になっていた\n\n03,04に関してはどこかのレコードでオブジェクトが入っていたので`RECORD`と判断された模様\n\nこのことから`--autodetect`は最初のファイルをautodetectで読み込んで順番にその他ファイルも読み込んでいると考えられる\n\n[スキーマの自動検出](https://cloud.google.com/bigquery/docs/schema-detect?hl=ja#auto-detect)\n\nここに説明が書いてあった\n\n> 自動検出を有効にすると、BigQuery はデータソース内でランダムにファイルを選択します。ファイルの最大 100 行をスキャンして代表的なサンプルとして使用し、推定プロセスを開始します。BigQuery は、各フィールドを検証し、そのサンプル内の値に基づいてそのフィールドにデータ型を割り当てようとします。\n\nランダムでファイルを読み込むとあるので全パターンを網羅したデータがあるファイルじゃないファイルがサンプルに選定されてしまった場合にこういうことが起きる\n\nそうなると`autodetect`は使えないのでテーブル作成→loadの手順を踏む必要がある\n\n- schemaの取り出し\n\nうまく行ったパターンで生成したテーブルのスキーマを取得する\n\n```\nbq show --schema --format=prettyjson pocket.rawdata > pocket-rawdata.json\n```\n\n- テーブル作成\n\n別のテーブルを用意して試してみる\n\n```\nbq mk --table --time_partitioning_field month --time_partitioning_type MONTH sample.pocket_rawdata pocket-rawdata.json\n```\n\n- load\n\n```\nbq load --source_format=NEWLINE_DELIMITED_JSON --replace sample.pocket_rawdata 'gs://sample-bucket/preprocessed_rawdata/*'\n```\n\n今のところこんな感じでなんとかなっている\n\n## まとめ\n\n取り込み対象のデータにばらつきがある（あるデータではRECORD、あるデータでは`[]`のようなとき）とサンプリング次第で取り込めない場合がある\n\nさらに`--autodetect`+`--replace`を用いると毎回ロード時に自動検出するので失敗する可能性がある\n\nそのためスキーマを定義してテーブルの作成+`bq load`と手順を踏む必要がある\n\n## 所感\n\n本来だったら`autodetect`で生成したスキーマからさらに精査して本当に`NULLABLE`?みたいな話も考えたほうが良いが今回は趣味プロジェクトなので…\n\nautodetectは便利だけどこういうパターンに対応できないのでやはりPOCやお試しのときくらいしか使えないよなーとあらためて感じた\n\nまぁでも気軽に試せるのはとても良いことなので使い分けが大事",
+          "date": "2021-05-08",
+          "title": "BigQueryのbq load時にautodetectを使えない場合",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "データにばらつきがありautodetectが使えないパターン",
+          "slug": "/entries/bigquery_cant_use_autodetect/",
+          "timeToRead": 3,
+          "objectID": "6c49c87d-a92d-51b8-863d-7251544ccc40",
+          "_snippetResult": {
+            "text": {
+              "value": "\nPocketのデータをAPIで取得して__ais-highlight__BigQuery__/ais-highlight__に突っ込もうとしたときの話\n\nGCSにJSONを置いてCLIから`bq load --autodetect`でデータをloadしようと",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___cant_use_autodetect/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -82,6 +172,41 @@
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
+            "date": {
+              "value": "2021-05-08",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__のbq load時にautodetectを使えない場合",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "データにばらつきがありautodetectが使えないパターン",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___cant_use_autodetect/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
             "timeToRead": {
               "value": "3",
               "matchLevel": "none",
@@ -90,40 +215,68 @@
           }
         },
         {
-          "date": "December 09, 2020",
-          "title": "BigQueryでサンプルデータをサクッと作る",
-          "slug": "/entries/bigquery_sample_data/",
-          "text": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+          "url": "https://til.swfz.io//entries/bigquery_date_function/",
+          "text": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
+          "date": "2022-03-25",
+          "title": "BigQueryの日付を扱う際のメモ",
+          "tags": ["BigQuery", "GoogleCloudPlatform", "SQL"],
+          "description": "スニペット的なやつ",
+          "slug": "/entries/bigquery_date_function/",
           "timeToRead": 1,
-          "objectID": "28192504-51b0-5f94-9f12-c62f278c23cc",
+          "objectID": "6539d73b-40f3-50ab-8340-44ae50b6b75b",
           "_snippetResult": {
             "text": {
-              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ",
+              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1",
               "matchLevel": "none"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "December 09, 2020",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__でサンプルデータをサクッと作る",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___sample_data/",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___date_function/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
             "text": {
-              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
               "matchLevel": "none",
               "matchedWords": []
+            },
+            "date": {
+              "value": "2022-03-25",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__の日付を扱う際のメモ",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              { "value": "SQL", "matchLevel": "none", "matchedWords": [] }
+            ],
+            "description": {
+              "value": "スニペット的なやつ",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_function/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
             },
             "timeToRead": {
               "value": "1",
@@ -133,32 +286,90 @@
           }
         },
         {
-          "date": "April 21, 2021",
-          "title": "BigQueryで日付を扱うときはTimezoneを意識する",
-          "slug": "/entries/bigquery_date_timezone/",
-          "text": "\ndataformでsourceテーブルから中間テーブルを生成してassertionを書いていた\n\n検算したら件数が合わないなーということで調べた\n\n次のようなSQLで`from`,`to`を指定して単月分のレコードのみ抜き出すというパターン\n\n```sql\nSELECT\n  *,\n  'private' AS workspace\nFROM\n  `sample.rawdata-private`,\n  UNNEST(data) AS d\nWHERE\n  DATE(start) BETWEEN ${target_date.from}\n  AND ${target_date.to}\n```\n\n<!-- textlint-disable prh -->\nSQLXなので`target_date.to`と`target_date.from`はその時々によって変化する\n<!-- textlint-enable prh -->\n\n今回は`2021-04-01` ～ `2021-04-30`をという感じ\n\n`rawdata-private`はAPIのレスポンスをそのまま保存していて1行に`total_count`と`data`列に実際のレコードがあるので`UNNEST`してレコード数と比較することで確認している\n\n`rawdata-private`のレコードを追ってみると\n\n```json\n\"start\": \"2021-04-01T04:57:39+09:00\",\n```\n\nのデータが`DATE(start)`を通すことで`2021-03-31`になっていた\n\nなるほどUTC\n\n`DATE(start, 'Asia/Tokyo'),`でタイムゾーン指定の日付データに変換できるのでこれで対応\n\nBigQueryがDATEでよしなにやってくれた結果UTCで解釈すると`2021-03-31`となってしまうためフィルタ対象から外れてしまい、件数が合わない状態になっていた\n\n正直assertion書いてなかったら気付かなかったのでassertion大事w",
+          "url": "https://til.swfz.io//entries/bigquery_sample_data/",
+          "text": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+          "date": "2020-12-09",
+          "title": "BigQueryでサンプルデータをサクッと作る",
+          "tags": ["BigQuery", "SQL"],
+          "description": "WITH,UNNEST,ARRAY,STRUCTでやる",
+          "slug": "/entries/bigquery_sample_data/",
           "timeToRead": 1,
-          "objectID": "1d531f2a-2c16-5859-96ce-a8cf37a230b8",
+          "objectID": "095f8841-166b-5319-8f30-c135a7d6b56b",
           "_snippetResult": {
             "text": {
-              "value": "ータに変換できるのでこれで対応\n\n__ais-highlight__BigQuery__/ais-highlight__がDATEでよしなにやってくれた結",
-              "matchLevel": "full"
+              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql",
+              "matchLevel": "none"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "April 21, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__で日付を扱うときはTimezoneを意識する",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___sample_data/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
+            "text": {
+              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "date": {
+              "value": "2020-12-09",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__でサンプルデータをサクッと作る",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              { "value": "SQL", "matchLevel": "none", "matchedWords": [] }
+            ],
+            "description": {
+              "value": "WITH,UNNEST,ARRAY,STRUCTでやる",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
             "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_timezone/",
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___sample_data/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/bigquery_date_timezone/",
+          "text": "\ndataformでsourceテーブルから中間テーブルを生成してassertionを書いていた\n\n検算したら件数が合わないなーということで調べた\n\n次のようなSQLで`from`,`to`を指定して単月分のレコードのみ抜き出すというパターン\n\n```sql\nSELECT\n  *,\n  'private' AS workspace\nFROM\n  `sample.rawdata-private`,\n  UNNEST(data) AS d\nWHERE\n  DATE(start) BETWEEN ${target_date.from}\n  AND ${target_date.to}\n```\n\n<!-- textlint-disable prh -->\nSQLXなので`target_date.to`と`target_date.from`はその時々によって変化する\n<!-- textlint-enable prh -->\n\n今回は`2021-04-01` ～ `2021-04-30`をという感じ\n\n`rawdata-private`はAPIのレスポンスをそのまま保存していて1行に`total_count`と`data`列に実際のレコードがあるので`UNNEST`してレコード数と比較することで確認している\n\n`rawdata-private`のレコードを追ってみると\n\n```json\n\"start\": \"2021-04-01T04:57:39+09:00\",\n```\n\nのデータが`DATE(start)`を通すことで`2021-03-31`になっていた\n\nなるほどUTC\n\n`DATE(start, 'Asia/Tokyo'),`でタイムゾーン指定の日付データに変換できるのでこれで対応\n\nBigQueryがDATEでよしなにやってくれた結果UTCで解釈すると`2021-03-31`となってしまうためフィルタ対象から外れてしまい、件数が合わない状態になっていた\n\n正直assertion書いてなかったら気付かなかったのでassertion大事w",
+          "date": "2021-04-21",
+          "title": "BigQueryで日付を扱うときはTimezoneを意識する",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "基本はUTCですねという話",
+          "slug": "/entries/bigquery_date_timezone/",
+          "timeToRead": 1,
+          "objectID": "02883dc4-e742-5435-892c-a78e335fdde5",
+          "_snippetResult": {
+            "text": {
+              "value": "ムゾーン指定の日付データに変換できるのでこれで対応\n\n__ais-highlight__BigQuery__/ais-highlight__がDATEでよしなにやってくれた結果UTCで解釈すると`2021-03",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___date_timezone/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -169,45 +380,37 @@
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
-            "timeToRead": {
-              "value": "1",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          }
-        },
-        {
-          "date": "February 28, 2022",
-          "title": "JSONファイルをBigQueryに読ませJSON型で扱うためにそのままCSVで保存する",
-          "slug": "/entries/json_to_csv/",
-          "text": "\n[Working with JSON data in Standard SQL  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/json-data)\n\n先日BigQueryでnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
-          "timeToRead": 1,
-          "objectID": "6ed6b22c-63cc-5fb2-99d6-eeada5709406",
-          "_snippetResult": {
-            "text": {
-              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型が",
-              "matchLevel": "full"
-            }
-          },
-          "_highlightResult": {
             "date": {
-              "value": "February 28, 2022",
+              "value": "2021-04-21",
               "matchLevel": "none",
               "matchedWords": []
             },
             "title": {
-              "value": "JSONファイルを__ais-highlight__BigQuery__/ais-highlight__に読ませJSON型で扱うためにそのままCSVで保存する",
+              "value": "__ais-highlight__BigQuery__/ais-highlight__で日付を扱うときはTimezoneを意識する",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
-            "slug": {
-              "value": "/entries/json_to_csv/",
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "基本はUTCですねという話",
               "matchLevel": "none",
               "matchedWords": []
             },
-            "text": {
-              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_timezone/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -220,74 +423,24 @@
           }
         },
         {
-          "date": "May 07, 2021",
-          "title": "PocketのデータをAPI経由でBigQueryに取り込む",
-          "slug": "/entries/start_pocket_api/",
-          "text": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONをBigQueryに放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### BigQueryに入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
-          "timeToRead": 3,
-          "objectID": "196c4775-45c9-57b9-a004-cefc6bc4752e",
-          "_snippetResult": {
-            "text": {
-              "value": "てはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうと",
-              "matchLevel": "full"
-            }
-          },
-          "_highlightResult": {
-            "date": {
-              "value": "May 07, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "PocketのデータをAPI経由で__ais-highlight__BigQuery__/ais-highlight__に取り込む",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "slug": {
-              "value": "/entries/start_pocket_api/",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "text": {
-              "value": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### __ais-highlight__BigQuery__/ais-highlight__に入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "timeToRead": {
-              "value": "3",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          }
-        },
-        {
-          "date": "July 13, 2021",
-          "title": "Workflowsで Memory usage limit exeeded",
-          "slug": "/entries/workflows_logging_bigquery_failed/",
+          "url": "https://til.swfz.io//entries/workflows_logging_bigquery_failed/",
           "text": "\nはてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのままBigQueryに突っ込むみたいなやつ\n\nプライベートなのと規模感が小さいのでちょっと冒険的な感じでやってみようと次のような構成で試みた\n\n- Workflowsではてなブックマークの公開APIをたたく\n- WorkflowsのログにAPIのレスポンスをそのまま流す\n- Logging→集約シンクでBigQueryにレコードを追加する\n\nFunctionsを新たに作らなくても良いしとりあえずの生データも保存できるしわりと省力で実現できるかと考えた\n\nある程度動作確認して問題なかったので自分のブログの全URLで実行したら次のようなエラーが出てしまった\n\n```shell\nExecution failed or cancelled.\nin step \"call_workflow_api\", routine \"call_workflow\", line: 88\nin step \"collect_hatena_bookmark_workflow\", routine \"main\", line: 35\n{\n  \"message\": \"Execution failed or cancelled.\",\n  \"operation\": {\n    \"argument\": \"{\\\"target_url\\\":\\\"https://swfz.hatenablog.com/entry/2018/12/22/080733\\\"}\",\n    \"endTime\": \"2021-07-10T12:01:03.749667278Z\",\n    \"error\": {\n      \"payload\": \"{\\\"message\\\":\\\"ResourceLimitError: Memory usage limit exceeded\\\",\\\"tags\\\":[\\\"ResourceLimitError\\\"]}\",\n      \"stackTrace\": {}\n    },\n    \"name\": \"projects/1111111111111/locations/us-central1/workflows/collect_hatena_bookmark_metrics/executions/c4a686eb-4d92-4e95-94f6-4257438131e0\",\n    \"startTime\": \"2021-07-10T12:01:02.693637032Z\",\n    \"state\": \"FAILED\",\n    \"workflowRevisionId\": \"000001-331\"\n  },\n  \"tags\": [\n    \"OperationError\"\n  ]\n}\n```\n\nバズって300前後のブックマークが付いたURLのレスポンスで発生した\n\n[割り当てと上限  |  ワークフロー  |  Google Cloud](https://cloud.google.com/workflows/quotas)\n\n変数のメモリ割り当てにも上限があり64KBまでらしい\n\nなのでAPIのレスポンスが64KB以上ある場合はエラーになってしまう…\n\nFunctionsは経由するがFunctionsからLoggingへ直接流すようにするか?と思ったが\n\n[割り当てと上限  |  Cloud Logging  |  Google Cloud](https://cloud.google.com/logging/quotas?hl=ja)\n\n同じようにLoggingにも割り当て上限があるのでこの辺も考慮できていないといけない\n\nこの辺まで調べて面倒になってきてしまいこの手法は諦めた\n\nメモリリミットに達してしまったため回避方法はなさそう…APIのレスポンスをそのままWorkflows上でよしなにやるパターンは厳しいという結論になりました\n\nWorkflowsはあくまで各処理のオーケストレーションなのでWorkflows内にあまり処理を持ち込むべきではないっていう考え方なのかなと推測\n\n結局こういうパターンはFunctionsでGCSにデータ置く+BigQueryへloadってパターンがベターなのかな",
+          "date": "2021-07-13",
+          "title": "Workflowsで Memory usage limit exeeded",
+          "tags": ["Workflows", "GoogleCloudPlatform"],
+          "description": "失敗記録",
+          "slug": "/entries/workflows_logging_bigquery_failed/",
           "timeToRead": 2,
-          "objectID": "18e04e5f-00f2-50a2-a8d7-b7ac41718457",
+          "objectID": "ac419206-6eea-559a-82a6-992344e0e64d",
           "_snippetResult": {
             "text": {
-              "value": "たいてそのレスポンスをそのまま__ais-highlight__BigQuery__/ais-highlight__に突っ込むみたいなやつ\n\nプライ",
+              "value": "\nはてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのまま__ais-highlight__BigQuery__/ais-highlight__に突っ込むみたいなやつ\n\nプライベート",
               "matchLevel": "full"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "July 13, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "Workflowsで Memory usage limit exeeded",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "slug": {
-              "value": "/entries/workflows_logging___ais-highlight__bigquery__/ais-highlight___failed/",
+            "url": {
+              "value": "https://til.swfz.io//entries/workflows_logging___ais-highlight__bigquery__/ais-highlight___failed/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -298,44 +451,35 @@
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
-            "timeToRead": {
-              "value": "2",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          }
-        },
-        {
-          "date": "April 10, 2021",
-          "title": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
-          "slug": "/entries/dataportal_experience_date/",
-          "text": "\nただのメモ\n\nTogglからBigQueryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
-          "timeToRead": 2,
-          "objectID": "17cb94a3-6fe4-5894-bec2-e090afbbdb8d",
-          "_snippetResult": {
-            "text": {
-              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグ",
-              "matchLevel": "full"
-            }
-          },
-          "_highlightResult": {
             "date": {
-              "value": "April 10, 2021",
+              "value": "2021-07-13",
               "matchLevel": "none",
               "matchedWords": []
             },
             "title": {
-              "value": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
+              "value": "Workflowsで Memory usage limit exeeded",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              {
+                "value": "Workflows",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "失敗記録",
               "matchLevel": "none",
               "matchedWords": []
             },
             "slug": {
-              "value": "/entries/dataportal_experience_date/",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "text": {
-              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
+              "value": "/entries/workflows_logging___ais-highlight__bigquery__/ais-highlight___failed/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -346,57 +490,435 @@
               "matchedWords": []
             }
           }
+        },
+        {
+          "url": "https://til.swfz.io//entries/json_to_csv/",
+          "text": "\n[Working with JSON data in Standard SQL  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/json-data)\n\n先日BigQueryでnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
+          "date": "2022-02-28",
+          "title": "JSONファイルをBigQueryに読ませJSON型で扱うためにそのままCSVで保存する",
+          "tags": ["jq", "BigQuery", "GoogleCloudPlatform"],
+          "description": "jq",
+          "slug": "/entries/json_to_csv/",
+          "timeToRead": 1,
+          "objectID": "2e780a6a-d216-545c-8eb0-c5db3e4301ef",
+          "_snippetResult": {
+            "text": {
+              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型がプレビューでサポートされた\n\n執筆時点ではload",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/json_to_csv/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-02-28",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "JSONファイルを__ais-highlight__BigQuery__/ais-highlight__に読ませJSON型で扱うためにそのままCSVで保存する",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              { "value": "jq", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "jq",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/json_to_csv/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/dataportal_experience_date/",
+          "text": "\nただのメモ\n\nTogglからBigQueryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
+          "date": "2021-04-10",
+          "title": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
+          "tags": ["GoogleCloudPlatform", "DataPortal"],
+          "description": "if + parse_datetime + format_datetime",
+          "slug": "/entries/dataportal_experience_date/",
+          "timeToRead": 2,
+          "objectID": "12505894-0414-5e44-8176-e3373bf7591f",
+          "_snippetResult": {
+            "text": {
+              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測し",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/dataportal_experience_date/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2021-04-10",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              {
+                "value": "DataPortal",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "if + parse_datetime + format_datetime",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/dataportal_experience_date/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "2",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/algolia_mock_with_msw/",
+          "text": "\nAlgoliaの検索リクエストをmswでモックした\n\n開発時は検索用のAPIキーを登録せずにインデックスへのアクセスもしないようにすれば良くない？\n\n空レスポンスを返すようにしておけば良くない？\n\nみたいな話はあるものの、検索にかかるUI部分を開発するならある程度実際にリクエストした時のレスポンスが欲しくなる\n\nかと言ってAlgoliaに毎度リクエストさせてしまうと無料枠がどんどん減っていく…\n\nということで、mswで解決した\n\n## やっていること\n- 実際のレスポンスデータをdev toolsのNetworkからレスポンス内容を取得してきてJSONに保存\n    - 特定文字列(`BigQuery`)を順次入力した場合のレスポンスを逐次取得\n        - `B`と入力した際のレスポンス\n        - `Bi`と入力した際のレスポンス\n        - `Big`と入力した際のレスポンス\n        - `BigQ`と入力した際のレスポンス\n        - `BigQu`と入力した際のレスポンス\n        - `BigQue`と入力した際のレスポンス\n        - `BigQuer`と入力した際のレスポンス\n        - `BigQuery`と入力した際のレスポンス\n- 先工程で保存したJSONをmswを用いて返すように設定する\n\n「検索文字列の変化によっって返ってくる件数や内容が変わる」というのを再現したかったので固定値ではあるが検索文字列が変化した場合は文字数にあったレスポンスがmsw経由で返るようにした\n\n実際のコードは下記\n\n- handler.ts\n\n```typescript\nimport { rest } from \"msw\"\nimport query0Words from \"./algolia-search-response-0-words.json\"\nimport query1Words from \"./algolia-search-response-1-words.json\"\nimport query2Words from \"./algolia-search-response-2-words.json\"\nimport query3Words from \"./algolia-search-response-3-words.json\"\nimport query4Words from \"./algolia-search-response-4-words.json\"\nimport query5Words from \"./algolia-search-response-5-words.json\"\nimport query6Words from \"./algolia-search-response-6-words.json\"\nimport query7Words from \"./algolia-search-response-7-words.json\"\nimport query8Words from \"./algolia-search-response-8-words.json\"\n\nexport const handlers = [\n  rest.post(\"https://*.algolia.net/1/indexes/*/queries\", (req, res, ctx) => {\n    const empty = query0Words\n\n    const wordCountResponseMap = [\n      empty,       // 空\n      query1Words, // B\n      query2Words, // Bi\n      query3Words, // Big\n      query4Words, // BigQ\n      query5Words, // BigQu\n      query6Words, // BigQue\n      query7Words, // BigQuer\n      query8Words, // BigQuery\n    ]\n\n    const bodyString = req.body as string\n\n    if (bodyString.length === 0) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    const body = JSON.parse(bodyString)\n    const params = [\n      ...new URLSearchParams(body.requests[0].params).entries(),\n    ].reduce((obj, e) => ({ ...obj, [e[0]]: e[1] }), {} as { query: string })\n\n    if (\n      !params.query ||\n      params.query.length === 0 ||\n      params.query.length > wordCountResponseMap.length\n    ) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    return res(\n      ctx.status(200),\n      ctx.json(wordCountResponseMap[params.query.length])\n    )\n  }),\n]\n```\n\n`import`している実際のレスポンスを保存したJSONはAlgoliaでの設定などにより変わるのでここでは割愛する\n\nAlgoliaのレスポンスを完全再現はできないので次のような挙動にしている\n\n<!-- textlint-disable prh -->\n- どの文字列を入力したとしても開発時は`BigQuery`と入力した場合のレスポンスを返す\n- 検索文字列の入力文字数によってモック用のレスポンスを返す\n    - 1文字入力時は`B`が入力された時のモック用レスポンスを返す\n    - 2文字入力時は`Bi`が入力された時のモック用レスポンスを返す\n    - 3文字入力時は`Big`が入力された時のモック用レスポンスを返す\n    - 8文字まで同様\n- 検索文字列が用意している文字列以上入力された場合は何も文字を入力していない場合のレスポンスを返す(`query0Words`)\n<!-- textlint-enable prh -->\n\nこれで検索UIの開発はかなり捗ったのでメモとして残しておく\n",
+          "date": "2022-08-12",
+          "title": "Algoliaのレスポンスをmswでモックして開発ではダミーレスポンスを扱う",
+          "tags": ["Algolia", "msw", "TypeScript"],
+          "description": "実際のJSONを用意する",
+          "slug": "/entries/algolia_mock_with_msw/",
+          "timeToRead": 3,
+          "objectID": "e90e0141-342a-5721-a7e2-6ac4d84c034c",
+          "_snippetResult": {
+            "text": {
+              "value": "からレスポンス内容を取得してきてJSONに保存\n    - 特定文字列(`__ais-highlight__BigQuery__/ais-highlight__`)を順次入力した場合のレスポンスを逐次取得\n        - `B`と入力",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/algolia_mock_with_msw/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nAlgoliaの検索リクエストをmswでモックした\n\n開発時は検索用のAPIキーを登録せずにインデックスへのアクセスもしないようにすれば良くない？\n\n空レスポンスを返すようにしておけば良くない？\n\nみたいな話はあるものの、検索にかかるUI部分を開発するならある程度実際にリクエストした時のレスポンスが欲しくなる\n\nかと言ってAlgoliaに毎度リクエストさせてしまうと無料枠がどんどん減っていく…\n\nということで、mswで解決した\n\n## やっていること\n- 実際のレスポンスデータをdev toolsのNetworkからレスポンス内容を取得してきてJSONに保存\n    - 特定文字列(`__ais-highlight__BigQuery__/ais-highlight__`)を順次入力した場合のレスポンスを逐次取得\n        - `B`と入力した際のレスポンス\n        - `Bi`と入力した際のレスポンス\n        - `Big`と入力した際のレスポンス\n        - `BigQ`と入力した際のレスポンス\n        - `BigQu`と入力した際のレスポンス\n        - `BigQue`と入力した際のレスポンス\n        - `BigQuer`と入力した際のレスポンス\n        - `__ais-highlight__BigQuery__/ais-highlight__`と入力した際のレスポンス\n- 先工程で保存したJSONをmswを用いて返すように設定する\n\n「検索文字列の変化によっって返ってくる件数や内容が変わる」というのを再現したかったので固定値ではあるが検索文字列が変化した場合は文字数にあったレスポンスがmsw経由で返るようにした\n\n実際のコードは下記\n\n- handler.ts\n\n```typescript\nimport { rest } from \"msw\"\nimport query0Words from \"./algolia-search-response-0-words.json\"\nimport query1Words from \"./algolia-search-response-1-words.json\"\nimport query2Words from \"./algolia-search-response-2-words.json\"\nimport query3Words from \"./algolia-search-response-3-words.json\"\nimport query4Words from \"./algolia-search-response-4-words.json\"\nimport query5Words from \"./algolia-search-response-5-words.json\"\nimport query6Words from \"./algolia-search-response-6-words.json\"\nimport query7Words from \"./algolia-search-response-7-words.json\"\nimport query8Words from \"./algolia-search-response-8-words.json\"\n\nexport const handlers = [\n  rest.post(\"https://*.algolia.net/1/indexes/*/queries\", (req, res, ctx) => {\n    const empty = query0Words\n\n    const wordCountResponseMap = [\n      empty,       // 空\n      query1Words, // B\n      query2Words, // Bi\n      query3Words, // Big\n      query4Words, // BigQ\n      query5Words, // BigQu\n      query6Words, // BigQue\n      query7Words, // BigQuer\n      query8Words, // __ais-highlight__BigQuery__/ais-highlight__\n    ]\n\n    const bodyString = req.body as string\n\n    if (bodyString.length === 0) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    const body = JSON.parse(bodyString)\n    const params = [\n      ...new URLSearchParams(body.requests[0].params).entries(),\n    ].reduce((obj, e) => ({ ...obj, [e[0]]: e[1] }), {} as { query: string })\n\n    if (\n      !params.query ||\n      params.query.length === 0 ||\n      params.query.length > wordCountResponseMap.length\n    ) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    return res(\n      ctx.status(200),\n      ctx.json(wordCountResponseMap[params.query.length])\n    )\n  }),\n]\n```\n\n`import`している実際のレスポンスを保存したJSONはAlgoliaでの設定などにより変わるのでここでは割愛する\n\nAlgoliaのレスポンスを完全再現はできないので次のような挙動にしている\n\n<!-- textlint-disable prh -->\n- どの文字列を入力したとしても開発時は`__ais-highlight__BigQuery__/ais-highlight__`と入力した場合のレスポンスを返す\n- 検索文字列の入力文字数によってモック用のレスポンスを返す\n    - 1文字入力時は`B`が入力された時のモック用レスポンスを返す\n    - 2文字入力時は`Bi`が入力された時のモック用レスポンスを返す\n    - 3文字入力時は`Big`が入力された時のモック用レスポンスを返す\n    - 8文字まで同様\n- 検索文字列が用意している文字列以上入力された場合は何も文字を入力していない場合のレスポンスを返す(`query0Words`)\n<!-- textlint-enable prh -->\n\nこれで検索UIの開発はかなり捗ったのでメモとして残しておく\n",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-08-12",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Algoliaのレスポンスをmswでモックして開発ではダミーレスポンスを扱う",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              { "value": "Algolia", "matchLevel": "none", "matchedWords": [] },
+              { "value": "msw", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "TypeScript",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "実際のJSONを用意する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/algolia_mock_with_msw/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/bq_load_with_hive_partition/",
+          "text": "\nLakeにデータを置いた日付をBQ上でカラムとして扱いたかったのでHiveパーティショニングモードでbq loadした時のメモ\n\n`${BUCKET_NAME}`, `${GOOGLE_PROJECT}`は適宜読み替える\n\n最初に環境変数へ入れておいたりしておくとよいかも\n\n```shell\nexport BUCKET_NAME=hoge\nexport GOOGLE_PROJECT=sample-project\n```\n\n- GCS側のディレクトリ構造\n\n```shell\n$ gsutil ls gs://${BUCKET_NAME}/items/\ngs://${BUCKET_NAME}/items/dt=2022-02-15/\ngs://${BUCKET_NAME}/items/dt=2022-02-25/\ngs://${BUCKET_NAME}/items/dt=2022-02-26/\ngs://${BUCKET_NAME}/items/dt=2022-02-27/\ngs://${BUCKET_NAME}/items/dt=2022-03-04/\ngs://${BUCKET_NAME}/items/dt=2022-04-01/\n```\n\n`xx=yy`という形式でオブジェクトを配置することでよしなにパーティショニングしてくれる\n\n各ディレクトリにはCSVが置いてある\n\n今回の例ではresponseというカラムにAPIのレスポンスがすべて入っているという感じ（JSON型を使ってみたかった）\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"response\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n- load\n\n```shell\nbq load --replace --source_format=CSV \\\n  --hive_partitioning_mode=AUTO \\\n  --hive_partitioning_source_uri_prefix=gs://${BUCKET_NAME}/items/ \\\n  ${GOOGLE_PROJECT}:sample_datalake.test_raw_items \"gs://${BUCKET_NAME}/items/*.csv\" ./schema.json\n```\n\n\n- 結果\n\n```shell\n$ bq show --format=prettyjson sample_datalake.test_raw_items\n{\n  \"creationTime\": \"1661458822114\",\n  \"etag\": \"hODI6PUMYlQYOpdjjEYedQ==\",\n  \"id\": \"sample-project:sample_datalake.test_raw_items\",\n  \"kind\": \"bigquery#table\",\n  \"lastModifiedTime\": \"1661458822114\",\n  \"location\": \"asia-northeast1\",\n  \"numActiveLogicalBytes\": \"27655304\",\n  \"numBytes\": \"27655304\",\n  \"numLongTermBytes\": \"0\",\n  \"numLongTermLogicalBytes\": \"0\",\n  \"numRows\": \"471\",\n  \"numTotalLogicalBytes\": \"27655304\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"response\",\n        \"type\": \"JSON\"\n      },\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"dt\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  \"selfLink\": \"https://bigquery.googleapis.com/bigquery/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items\",\n  \"tableReference\": {\n    \"datasetId\": \"sample_datalake\",\n    \"projectId\": \"sample-project\",\n    \"tableId\": \"test_raw_items\"\n  },\n  \"type\": \"TABLE\"\n}\n```\n\nこれでOK\n\n`dt`を日付としてクエリできるようになった\n\n### 参考\n\n[外部パーティション分割データの読み込み  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/hive-partitioned-loads-gcs?hl=ja#bq)\n",
+          "date": "2022-08-31",
+          "title": "Hiveパーティショニングモードでbq load",
+          "tags": ["BigQuery", "Hive", "GoogleCloudPlatform"],
+          "description": "メモ",
+          "slug": "/entries/bq_load_with_hive_partition/",
+          "timeToRead": 2,
+          "objectID": "9e5019bb-8515-53fd-8b93-60b420100d66",
+          "_snippetResult": {
+            "text": {
+              "value": "27655304\",\n  \"numLongTermBytes\": \"0\",\n  \"numLongTermLogicalBytes\": \"0\",\n  \"numRows\": \"471\",\n  \"numTotalLogicalBytes\": \"27655304\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"response\",\n        \"type\": \"JSON\"\n      },\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"dt\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  \"selfLink\": \"https://__ais-highlight__bigquery__/ais-highlight__.googleapis.com/__ais-highlight__bigquery__/ais-highlight__/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items\",\n  \"tableReference\": {\n    \"datasetId\": \"sample_datalake\",\n    \"projectId\": \"sample-project\",\n    \"tableId\": \"test_raw",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/bq_load_with_hive_partition/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nLakeにデータを置いた日付をBQ上でカラムとして扱いたかったのでHiveパーティショニングモードでbq loadした時のメモ\n\n`${BUCKET_NAME}`, `${GOOGLE_PROJECT}`は適宜読み替える\n\n最初に環境変数へ入れておいたりしておくとよいかも\n\n```shell\nexport BUCKET_NAME=hoge\nexport GOOGLE_PROJECT=sample-project\n```\n\n- GCS側のディレクトリ構造\n\n```shell\n$ gsutil ls gs://${BUCKET_NAME}/items/\ngs://${BUCKET_NAME}/items/dt=2022-02-15/\ngs://${BUCKET_NAME}/items/dt=2022-02-25/\ngs://${BUCKET_NAME}/items/dt=2022-02-26/\ngs://${BUCKET_NAME}/items/dt=2022-02-27/\ngs://${BUCKET_NAME}/items/dt=2022-03-04/\ngs://${BUCKET_NAME}/items/dt=2022-04-01/\n```\n\n`xx=yy`という形式でオブジェクトを配置することでよしなにパーティショニングしてくれる\n\n各ディレクトリにはCSVが置いてある\n\n今回の例ではresponseというカラムにAPIのレスポンスがすべて入っているという感じ（JSON型を使ってみたかった）\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"response\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n- load\n\n```shell\nbq load --replace --source_format=CSV \\\n  --hive_partitioning_mode=AUTO \\\n  --hive_partitioning_source_uri_prefix=gs://${BUCKET_NAME}/items/ \\\n  ${GOOGLE_PROJECT}:sample_datalake.test_raw_items \"gs://${BUCKET_NAME}/items/*.csv\" ./schema.json\n```\n\n\n- 結果\n\n```shell\n$ bq show --format=prettyjson sample_datalake.test_raw_items\n{\n  \"creationTime\": \"1661458822114\",\n  \"etag\": \"hODI6PUMYlQYOpdjjEYedQ==\",\n  \"id\": \"sample-project:sample_datalake.test_raw_items\",\n  \"kind\": \"__ais-highlight__bigquery__/ais-highlight__#table\",\n  \"lastModifiedTime\": \"1661458822114\",\n  \"location\": \"asia-northeast1\",\n  \"numActiveLogicalBytes\": \"27655304\",\n  \"numBytes\": \"27655304\",\n  \"numLongTermBytes\": \"0\",\n  \"numLongTermLogicalBytes\": \"0\",\n  \"numRows\": \"471\",\n  \"numTotalLogicalBytes\": \"27655304\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"response\",\n        \"type\": \"JSON\"\n      },\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"dt\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  \"selfLink\": \"https://__ais-highlight__bigquery__/ais-highlight__.googleapis.com/__ais-highlight__bigquery__/ais-highlight__/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items\",\n  \"tableReference\": {\n    \"datasetId\": \"sample_datalake\",\n    \"projectId\": \"sample-project\",\n    \"tableId\": \"test_raw_items\"\n  },\n  \"type\": \"TABLE\"\n}\n```\n\nこれでOK\n\n`dt`を日付としてクエリできるようになった\n\n### 参考\n\n[外部パーティション分割データの読み込み  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/hive-partitioned-loads-gcs?hl=ja#bq)\n",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-08-31",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Hiveパーティショニングモードでbq load",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              { "value": "Hive", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "メモ",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/bq_load_with_hive_partition/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "2",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/start_pocket_api/",
+          "text": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONをBigQueryに放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### BigQueryに入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
+          "date": "2021-05-07",
+          "title": "PocketのデータをAPI経由でBigQueryに取り込む",
+          "tags": ["Pocket", "BigQuery", "GoogleCloudPlatform", "jq"],
+          "description": "ACCESS KEYの発行とRetrieveエンドポイントを叩くまで、おまけでBigQueryにいれてみた",
+          "slug": "/entries/start_pocket_api/",
+          "timeToRead": 3,
+          "objectID": "11f5c428-72ad-52d4-837f-0b869304f87b",
+          "_snippetResult": {
+            "text": {
+              "value": "retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうとしたが一筋縄では行か",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/start_pocket_api/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### __ais-highlight__BigQuery__/ais-highlight__に入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2021-05-07",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "PocketのデータをAPI経由で__ais-highlight__BigQuery__/ais-highlight__に取り込む",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              { "value": "Pocket", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              { "value": "jq", "matchLevel": "none", "matchedWords": [] }
+            ],
+            "description": {
+              "value": "ACCESS KEYの発行とRetrieveエンドポイントを叩くまで、おまけで__ais-highlight__BigQuery__/ais-highlight__にいれてみた",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "slug": {
+              "value": "/entries/start_pocket_api/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
         }
       ],
-      "nbHits": 8,
+      "nbHits": 12,
       "page": 0,
       "nbPages": 1,
       "hitsPerPage": 20,
       "exhaustiveNbHits": true,
       "exhaustiveTypo": true,
+      "exhaustive": { "nbHits": true, "typo": true },
       "query": "BigQuery",
       "params": "facets=%5B%5D&highlightPostTag=__%2Fais-highlight__&highlightPreTag=__ais-highlight__&query=BigQuery&tagFilters=",
       "index": "til",
       "renderingContent": {},
-      "processingTimeMS": 4
+      "processingTimeMS": 5,
+      "processingTimingsMS": {
+        "afterFetch": {
+          "format": { "highlighting": 1, "snippeting": 1, "total": 3 },
+          "total": 3
+        },
+        "fetch": { "total": 1 },
+        "total": 5
+      }
     },
     {
       "hits": [
         {
-          "date": "March 25, 2022",
-          "title": "BigQueryの日付を扱う際のメモ",
-          "slug": "/entries/bigquery_date_function/",
-          "text": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
+          "url": "https://til.swfz.io//entries/bigquery_sa_permission_from_cli/",
+          "text": "\n特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える\n\n`bq show`で対象データセットの設定を出力、中身の`access`に対象サービスアカウントのメールアドレスをと権限を追加して`bq update`\n\n```shell\nbq show --format=prettyjson memo-111111:sample  > sample.json\n```\n\n- sample.json\n\n```json\n\"access\": [\n  ...\n  ...\n  ...\n    {\n      \"role\": \"READER\",\n      \"userByEmail\": \"github-actions-sample-nokey@memo-111111.iam.gserviceaccount.com\"\n    }\n]\n```\n\n```shell\nbq update --source sample.json sample\n```\n\n## 確認\n\n対象サービスアカウントで実行した\n\n- bq ls\n\n```txt\n  datasetId  \n ----------- \n  sample     \n```\n\n- クエリ\n\n```shell\nbq query --nouse_legacy_sql 'select * from sample.summary'\n```\n\n```\n+------+-------+----+\n| view | title | id |\n+------+-------+----+\n|    3 | fuga  |  2 |\n|    3 | foo   |  4 |\n|    4 | piyo  |  3 |\n|    5 | hoge  |  1 |\n|    5 | bar   |  5 |\n+------+-------+----+\n```\n\nできた\n\n最近GitHubActionsのOIDC認証でCI用のサービスアカウントに対してクエリできるようにする + データセット単位で権限を絞るところまで行ったのでメモ\n\n個人使用ならこれで問題ないかなーという感じ",
+          "date": "2022-10-12",
+          "title": "BigQueryで特定データセットに権限を付与する",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "bq show + bq update",
+          "slug": "/entries/bigquery_sa_permission_from_cli/",
           "timeToRead": 1,
-          "objectID": "68f46908-591f-5bb4-82bd-f2fc099406d2",
+          "objectID": "dafae263-fb55-5d08-bf9f-17c62c276690",
           "_snippetResult": {
             "text": {
-              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day",
+              "value": "\n特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える\n\n`bq show`で対象データセットの設定を出力、中身",
               "matchLevel": "none"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "March 25, 2022",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__の日付を扱う際のメモ",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_function/",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___sa_permission_from_cli/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
             "text": {
-              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
+              "value": "\n特定のデータセット、特定サービスアカウントにREADやWRITE権限を与える\n\n`bq show`で対象データセットの設定を出力、中身の`access`に対象サービスアカウントのメールアドレスをと権限を追加して`bq update`\n\n```shell\nbq show --format=prettyjson memo-111111:sample  > sample.json\n```\n\n- sample.json\n\n```json\n\"access\": [\n  ...\n  ...\n  ...\n    {\n      \"role\": \"READER\",\n      \"userByEmail\": \"github-actions-sample-nokey@memo-111111.iam.gserviceaccount.com\"\n    }\n]\n```\n\n```shell\nbq update --source sample.json sample\n```\n\n## 確認\n\n対象サービスアカウントで実行した\n\n- bq ls\n\n```txt\n  datasetId  \n ----------- \n  sample     \n```\n\n- クエリ\n\n```shell\nbq query --nouse_legacy_sql 'select * from sample.summary'\n```\n\n```\n+------+-------+----+\n| view | title | id |\n+------+-------+----+\n|    3 | fuga  |  2 |\n|    3 | foo   |  4 |\n|    4 | piyo  |  3 |\n|    5 | hoge  |  1 |\n|    5 | bar   |  5 |\n+------+-------+----+\n```\n\nできた\n\n最近GitHubActionsのOIDC認証でCI用のサービスアカウントに対してクエリできるようにする + データセット単位で権限を絞るところまで行ったのでメモ\n\n個人使用ならこれで問題ないかなーという感じ",
               "matchLevel": "none",
               "matchedWords": []
+            },
+            "date": {
+              "value": "2022-10-12",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__で特定データセットに権限を付与する",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "bq show + bq update",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___sa_permission_from_cli/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
             },
             "timeToRead": {
               "value": "1",
@@ -406,32 +928,95 @@
           }
         },
         {
-          "date": "May 08, 2021",
-          "title": "BigQueryのbq load時にautodetectを使えない場合",
-          "slug": "/entries/bigquery_cant_use_autodetect/",
-          "text": "\nPocketのデータをAPIで取得してBigQueryに突っ込もうとしたときの話\n\nGCSにJSONを置いてCLIから`bq load --autodetect`でデータをloadしようとしたらエラーで怒られた\n\n```\nBigQuery error in load operation: Error processing job\n'project-111111:bqjob_r70118be7bda78ce4_000001793f9c2946_1': Error while reading\ndata, error message: JSON table encountered too many errors, giving up. Rows: 1;\nerrors: 1. Please look into the errors[] collection for more details.\nFailure details:\n- Error while reading data, error message: JSON processing\nencountered too many errors, giving up. Rows: 1; errors: 1; max\nbad: 0; error percent: 0\n- gs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json: Error\nwhile reading data, error message: JSON parsing error in row\nstarting at position 0: JSON object specified for non-record field:\nlist.videos\n```\n\n## 前提\n\n現状あるデータは次の3つ（bucket名はサンプル）\n\n```\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-03.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-05.json\n```\n\n## 原因の切り分け\n\n- raw-03.json\n- raw-04.json\n\nのときは問題なくloadできている\n\n`raw-05.json`\n\nが追加されてから上記エラーになってしまった\n\n05と03,04のJSONの中身を比べてみたところ05には`list.videos`がすべて`[]`になっていた\n\n03,04に関してはどこかのレコードでオブジェクトが入っていたので`RECORD`と判断された模様\n\nこのことから`--autodetect`は最初のファイルをautodetectで読み込んで順番にその他ファイルも読み込んでいると考えられる\n\n[スキーマの自動検出](https://cloud.google.com/bigquery/docs/schema-detect?hl=ja#auto-detect)\n\nここに説明が書いてあった\n\n> 自動検出を有効にすると、BigQuery はデータソース内でランダムにファイルを選択します。ファイルの最大 100 行をスキャンして代表的なサンプルとして使用し、推定プロセスを開始します。BigQuery は、各フィールドを検証し、そのサンプル内の値に基づいてそのフィールドにデータ型を割り当てようとします。\n\nランダムでファイルを読み込むとあるので全パターンを網羅したデータがあるファイルじゃないファイルがサンプルに選定されてしまった場合にこういうことが起きる\n\nそうなると`autodetect`は使えないのでテーブル作成→loadの手順を踏む必要がある\n\n- schemaの取り出し\n\nうまく行ったパターンで生成したテーブルのスキーマを取得する\n\n```\nbq show --schema --format=prettyjson pocket.rawdata > pocket-rawdata.json\n```\n\n- テーブル作成\n\n別のテーブルを用意して試してみる\n\n```\nbq mk --table --time_partitioning_field month --time_partitioning_type MONTH sample.pocket_rawdata pocket-rawdata.json\n```\n\n- load\n\n```\nbq load --source_format=NEWLINE_DELIMITED_JSON --replace sample.pocket_rawdata 'gs://sample-bucket/preprocessed_rawdata/*'\n```\n\n今のところこんな感じでなんとかなっている\n\n## まとめ\n\n取り込み対象のデータにばらつきがある（あるデータではRECORD、あるデータでは`[]`のようなとき）とサンプリング次第で取り込めない場合がある\n\nさらに`--autodetect`+`--replace`を用いると毎回ロード時に自動検出するので失敗する可能性がある\n\nそのためスキーマを定義してテーブルの作成+`bq load`と手順を踏む必要がある\n\n## 所感\n\n本来だったら`autodetect`で生成したスキーマからさらに精査して本当に`NULLABLE`?みたいな話も考えたほうが良いが今回は趣味プロジェクトなので…\n\nautodetectは便利だけどこういうパターンに対応できないのでやはりPOCやお試しのときくらいしか使えないよなーとあらためて感じた\n\nまぁでも気軽に試せるのはとても良いことなので使い分けが大事",
-          "timeToRead": 3,
-          "objectID": "511a0a9b-6cec-55d0-a965-148667fcf789",
+          "url": "https://til.swfz.io//entries/bigquery_empty_string_array/",
+          "text": "\n[配列関数  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/array_functions?hl=ja)\n\nGENERATE_ARRAYで作るとINT64の空配列になってしまう\n\n```sql\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\nUNIONなどで文字列の配列と結合させようとすると型が合わなくなってしまう\n\n## 例\n\n```sql\nSELECT ['a','b'] AS tags\nUNION ALL\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\n- 結果\n\n```\n Column 1 in UNION ALL has incompatible types: ARRAY<STRING>, ARRAY<INT64> at [3:1] \n```\n\n[Create empty string array BigQuery - Stack Overflow](https://stackoverflow.com/questions/58504188/create-empty-string-array-bigquery)\n\nこまったときのstackoverflow、答えが書いてありました\n\n```sql\nSELECT ARRAY<STRING>[] AS tags\n```\n\nでSTRINGの空配列を生成できる\n\n解決！\n",
+          "date": "2022-07-22",
+          "title": "BigQueryでStringの空配列を生成する",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "ARRAY",
+          "slug": "/entries/bigquery_empty_string_array/",
+          "timeToRead": 1,
+          "objectID": "94f95f4a-5e85-5917-a74f-84500c7a5783",
           "_snippetResult": {
             "text": {
-              "value": "\nPocketのデータをAPIで取得して__ais-highlight__BigQuery__/ais-highlight__に突っ込もうとしたときの話\n\nGCSにJSON",
+              "value": "\n[配列関数  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/array_functions?hl=ja)\n\nGENERATE_ARRAYで作るとINT64の空配列になってしまう\n\n```sql\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\nUNIONな",
               "matchLevel": "full"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "May 08, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__のbq load時にautodetectを使えない場合",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___empty_string_array/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
+            "text": {
+              "value": "\n[配列関数  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/array_functions?hl=ja)\n\nGENERATE_ARRAYで作るとINT64の空配列になってしまう\n\n```sql\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\nUNIONなどで文字列の配列と結合させようとすると型が合わなくなってしまう\n\n## 例\n\n```sql\nSELECT ['a','b'] AS tags\nUNION ALL\nSELECT GENERATE_ARRAY(1,0,1) AS tags\n```\n\n- 結果\n\n```\n Column 1 in UNION ALL has incompatible types: ARRAY<STRING>, ARRAY<INT64> at [3:1] \n```\n\n[Create empty string array __ais-highlight__BigQuery__/ais-highlight__ - Stack Overflow](https://stackoverflow.com/questions/58504188/create-empty-string-array-__ais-highlight__bigquery__/ais-highlight__)\n\nこまったときのstackoverflow、答えが書いてありました\n\n```sql\nSELECT ARRAY<STRING>[] AS tags\n```\n\nでSTRINGの空配列を生成できる\n\n解決！\n",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-07-22",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__でStringの空配列を生成する",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "ARRAY",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
             "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___cant_use_autodetect/",
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___empty_string_array/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/bigquery_cant_use_autodetect/",
+          "text": "\nPocketのデータをAPIで取得してBigQueryに突っ込もうとしたときの話\n\nGCSにJSONを置いてCLIから`bq load --autodetect`でデータをloadしようとしたらエラーで怒られた\n\n```\nBigQuery error in load operation: Error processing job\n'project-111111:bqjob_r70118be7bda78ce4_000001793f9c2946_1': Error while reading\ndata, error message: JSON table encountered too many errors, giving up. Rows: 1;\nerrors: 1. Please look into the errors[] collection for more details.\nFailure details:\n- Error while reading data, error message: JSON processing\nencountered too many errors, giving up. Rows: 1; errors: 1; max\nbad: 0; error percent: 0\n- gs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json: Error\nwhile reading data, error message: JSON parsing error in row\nstarting at position 0: JSON object specified for non-record field:\nlist.videos\n```\n\n## 前提\n\n現状あるデータは次の3つ（bucket名はサンプル）\n\n```\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-03.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-04.json\ngs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-05.json\n```\n\n## 原因の切り分け\n\n- raw-03.json\n- raw-04.json\n\nのときは問題なくloadできている\n\n`raw-05.json`\n\nが追加されてから上記エラーになってしまった\n\n05と03,04のJSONの中身を比べてみたところ05には`list.videos`がすべて`[]`になっていた\n\n03,04に関してはどこかのレコードでオブジェクトが入っていたので`RECORD`と判断された模様\n\nこのことから`--autodetect`は最初のファイルをautodetectで読み込んで順番にその他ファイルも読み込んでいると考えられる\n\n[スキーマの自動検出](https://cloud.google.com/bigquery/docs/schema-detect?hl=ja#auto-detect)\n\nここに説明が書いてあった\n\n> 自動検出を有効にすると、BigQuery はデータソース内でランダムにファイルを選択します。ファイルの最大 100 行をスキャンして代表的なサンプルとして使用し、推定プロセスを開始します。BigQuery は、各フィールドを検証し、そのサンプル内の値に基づいてそのフィールドにデータ型を割り当てようとします。\n\nランダムでファイルを読み込むとあるので全パターンを網羅したデータがあるファイルじゃないファイルがサンプルに選定されてしまった場合にこういうことが起きる\n\nそうなると`autodetect`は使えないのでテーブル作成→loadの手順を踏む必要がある\n\n- schemaの取り出し\n\nうまく行ったパターンで生成したテーブルのスキーマを取得する\n\n```\nbq show --schema --format=prettyjson pocket.rawdata > pocket-rawdata.json\n```\n\n- テーブル作成\n\n別のテーブルを用意して試してみる\n\n```\nbq mk --table --time_partitioning_field month --time_partitioning_type MONTH sample.pocket_rawdata pocket-rawdata.json\n```\n\n- load\n\n```\nbq load --source_format=NEWLINE_DELIMITED_JSON --replace sample.pocket_rawdata 'gs://sample-bucket/preprocessed_rawdata/*'\n```\n\n今のところこんな感じでなんとかなっている\n\n## まとめ\n\n取り込み対象のデータにばらつきがある（あるデータではRECORD、あるデータでは`[]`のようなとき）とサンプリング次第で取り込めない場合がある\n\nさらに`--autodetect`+`--replace`を用いると毎回ロード時に自動検出するので失敗する可能性がある\n\nそのためスキーマを定義してテーブルの作成+`bq load`と手順を踏む必要がある\n\n## 所感\n\n本来だったら`autodetect`で生成したスキーマからさらに精査して本当に`NULLABLE`?みたいな話も考えたほうが良いが今回は趣味プロジェクトなので…\n\nautodetectは便利だけどこういうパターンに対応できないのでやはりPOCやお試しのときくらいしか使えないよなーとあらためて感じた\n\nまぁでも気軽に試せるのはとても良いことなので使い分けが大事",
+          "date": "2021-05-08",
+          "title": "BigQueryのbq load時にautodetectを使えない場合",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "データにばらつきがありautodetectが使えないパターン",
+          "slug": "/entries/bigquery_cant_use_autodetect/",
+          "timeToRead": 3,
+          "objectID": "6c49c87d-a92d-51b8-863d-7251544ccc40",
+          "_snippetResult": {
+            "text": {
+              "value": "\nPocketのデータをAPIで取得して__ais-highlight__BigQuery__/ais-highlight__に突っ込もうとしたときの話\n\nGCSにJSONを置いてCLIから`bq load --autodetect`でデータをloadしようと",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___cant_use_autodetect/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -442,6 +1027,41 @@
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
+            "date": {
+              "value": "2021-05-08",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__のbq load時にautodetectを使えない場合",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "データにばらつきがありautodetectが使えないパターン",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___cant_use_autodetect/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
             "timeToRead": {
               "value": "3",
               "matchLevel": "none",
@@ -450,40 +1070,68 @@
           }
         },
         {
-          "date": "December 09, 2020",
-          "title": "BigQueryでサンプルデータをサクッと作る",
-          "slug": "/entries/bigquery_sample_data/",
-          "text": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+          "url": "https://til.swfz.io//entries/bigquery_date_function/",
+          "text": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
+          "date": "2022-03-25",
+          "title": "BigQueryの日付を扱う際のメモ",
+          "tags": ["BigQuery", "GoogleCloudPlatform", "SQL"],
+          "description": "スニペット的なやつ",
+          "slug": "/entries/bigquery_date_function/",
           "timeToRead": 1,
-          "objectID": "28192504-51b0-5f94-9f12-c62f278c23cc",
+          "objectID": "6539d73b-40f3-50ab-8340-44ae50b6b75b",
           "_snippetResult": {
             "text": {
-              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ",
+              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1",
               "matchLevel": "none"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "December 09, 2020",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__でサンプルデータをサクッと作る",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___sample_data/",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___date_function/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
             "text": {
-              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+              "value": "\nよく使うと思われるクエリをメモしておく\n\n```sql\nSELECT\nDATE_TRUNC(CURRENT_DATE(), MONTH) AS first_day, # 月初\nLAST_DAY(CURRENT_DATE(), MONTH) AS last_day, # 月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS first_day_of_yesterday, # 前日起算の月初\nLAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY), MONTH) AS last_day_of_yesterday, # 前日起算の月末\nDATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), MONTH) AS first_day_of_last_three_month # 3ヶ月前の月初\n```\n\nDATE_TRUNC, LAST_DAYが便利",
               "matchLevel": "none",
               "matchedWords": []
+            },
+            "date": {
+              "value": "2022-03-25",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__の日付を扱う際のメモ",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              { "value": "SQL", "matchLevel": "none", "matchedWords": [] }
+            ],
+            "description": {
+              "value": "スニペット的なやつ",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_function/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
             },
             "timeToRead": {
               "value": "1",
@@ -493,32 +1141,90 @@
           }
         },
         {
-          "date": "April 21, 2021",
-          "title": "BigQueryで日付を扱うときはTimezoneを意識する",
-          "slug": "/entries/bigquery_date_timezone/",
-          "text": "\ndataformでsourceテーブルから中間テーブルを生成してassertionを書いていた\n\n検算したら件数が合わないなーということで調べた\n\n次のようなSQLで`from`,`to`を指定して単月分のレコードのみ抜き出すというパターン\n\n```sql\nSELECT\n  *,\n  'private' AS workspace\nFROM\n  `sample.rawdata-private`,\n  UNNEST(data) AS d\nWHERE\n  DATE(start) BETWEEN ${target_date.from}\n  AND ${target_date.to}\n```\n\n<!-- textlint-disable prh -->\nSQLXなので`target_date.to`と`target_date.from`はその時々によって変化する\n<!-- textlint-enable prh -->\n\n今回は`2021-04-01` ～ `2021-04-30`をという感じ\n\n`rawdata-private`はAPIのレスポンスをそのまま保存していて1行に`total_count`と`data`列に実際のレコードがあるので`UNNEST`してレコード数と比較することで確認している\n\n`rawdata-private`のレコードを追ってみると\n\n```json\n\"start\": \"2021-04-01T04:57:39+09:00\",\n```\n\nのデータが`DATE(start)`を通すことで`2021-03-31`になっていた\n\nなるほどUTC\n\n`DATE(start, 'Asia/Tokyo'),`でタイムゾーン指定の日付データに変換できるのでこれで対応\n\nBigQueryがDATEでよしなにやってくれた結果UTCで解釈すると`2021-03-31`となってしまうためフィルタ対象から外れてしまい、件数が合わない状態になっていた\n\n正直assertion書いてなかったら気付かなかったのでassertion大事w",
+          "url": "https://til.swfz.io//entries/bigquery_sample_data/",
+          "text": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+          "date": "2020-12-09",
+          "title": "BigQueryでサンプルデータをサクッと作る",
+          "tags": ["BigQuery", "SQL"],
+          "description": "WITH,UNNEST,ARRAY,STRUCTでやる",
+          "slug": "/entries/bigquery_sample_data/",
           "timeToRead": 1,
-          "objectID": "1d531f2a-2c16-5859-96ce-a8cf37a230b8",
+          "objectID": "095f8841-166b-5319-8f30-c135a7d6b56b",
           "_snippetResult": {
             "text": {
-              "value": "ータに変換できるのでこれで対応\n\n__ais-highlight__BigQuery__/ais-highlight__がDATEでよしなにやってくれた結",
-              "matchLevel": "full"
+              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql",
+              "matchLevel": "none"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "April 21, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "__ais-highlight__BigQuery__/ais-highlight__で日付を扱うときはTimezoneを意識する",
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___sample_data/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
+            "text": {
+              "value": "\n簡易的にでもサンプルデータが欲しい場合、わざわざデータを入れ込まなくてもサンプルデータを生成できる\n\n```sql\nWITH sample AS(\n  SELECT * FROM UNNEST(ARRAY<STRUCT<start_date DATE, end_date DATE, item STRING, sales INT64>>\n    [\n      (\"2020-08-01\", \"2020-11-30\", \"hoge\", 100),\n      (\"2020-10-01\", \"2020-10-31\", \"fuga\", 200)\n    ]\n  )\n)\nSELECT * FROM sample\n```\n\n- 結果\n\n|start_date|end_date|item|sales|\n|---|---|---|---|\n|2020-08-01|2020-11-30|hoge|100|\n|2020-10-01|2020-10-31|fuga|200|\n\n\n記事書くときや説明とかに使える\n",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "date": {
+              "value": "2020-12-09",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "__ais-highlight__BigQuery__/ais-highlight__でサンプルデータをサクッと作る",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              { "value": "SQL", "matchLevel": "none", "matchedWords": [] }
+            ],
+            "description": {
+              "value": "WITH,UNNEST,ARRAY,STRUCTでやる",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
             "slug": {
-              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_timezone/",
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___sample_data/",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/bigquery_date_timezone/",
+          "text": "\ndataformでsourceテーブルから中間テーブルを生成してassertionを書いていた\n\n検算したら件数が合わないなーということで調べた\n\n次のようなSQLで`from`,`to`を指定して単月分のレコードのみ抜き出すというパターン\n\n```sql\nSELECT\n  *,\n  'private' AS workspace\nFROM\n  `sample.rawdata-private`,\n  UNNEST(data) AS d\nWHERE\n  DATE(start) BETWEEN ${target_date.from}\n  AND ${target_date.to}\n```\n\n<!-- textlint-disable prh -->\nSQLXなので`target_date.to`と`target_date.from`はその時々によって変化する\n<!-- textlint-enable prh -->\n\n今回は`2021-04-01` ～ `2021-04-30`をという感じ\n\n`rawdata-private`はAPIのレスポンスをそのまま保存していて1行に`total_count`と`data`列に実際のレコードがあるので`UNNEST`してレコード数と比較することで確認している\n\n`rawdata-private`のレコードを追ってみると\n\n```json\n\"start\": \"2021-04-01T04:57:39+09:00\",\n```\n\nのデータが`DATE(start)`を通すことで`2021-03-31`になっていた\n\nなるほどUTC\n\n`DATE(start, 'Asia/Tokyo'),`でタイムゾーン指定の日付データに変換できるのでこれで対応\n\nBigQueryがDATEでよしなにやってくれた結果UTCで解釈すると`2021-03-31`となってしまうためフィルタ対象から外れてしまい、件数が合わない状態になっていた\n\n正直assertion書いてなかったら気付かなかったのでassertion大事w",
+          "date": "2021-04-21",
+          "title": "BigQueryで日付を扱うときはTimezoneを意識する",
+          "tags": ["BigQuery", "GoogleCloudPlatform"],
+          "description": "基本はUTCですねという話",
+          "slug": "/entries/bigquery_date_timezone/",
+          "timeToRead": 1,
+          "objectID": "02883dc4-e742-5435-892c-a78e335fdde5",
+          "_snippetResult": {
+            "text": {
+              "value": "ムゾーン指定の日付データに変換できるのでこれで対応\n\n__ais-highlight__BigQuery__/ais-highlight__がDATEでよしなにやってくれた結果UTCで解釈すると`2021-03",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/__ais-highlight__bigquery__/ais-highlight___date_timezone/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -529,45 +1235,37 @@
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
-            "timeToRead": {
-              "value": "1",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          }
-        },
-        {
-          "date": "February 28, 2022",
-          "title": "JSONファイルをBigQueryに読ませJSON型で扱うためにそのままCSVで保存する",
-          "slug": "/entries/json_to_csv/",
-          "text": "\n[Working with JSON data in Standard SQL  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/json-data)\n\n先日BigQueryでnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
-          "timeToRead": 1,
-          "objectID": "6ed6b22c-63cc-5fb2-99d6-eeada5709406",
-          "_snippetResult": {
-            "text": {
-              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型が",
-              "matchLevel": "full"
-            }
-          },
-          "_highlightResult": {
             "date": {
-              "value": "February 28, 2022",
+              "value": "2021-04-21",
               "matchLevel": "none",
               "matchedWords": []
             },
             "title": {
-              "value": "JSONファイルを__ais-highlight__BigQuery__/ais-highlight__に読ませJSON型で扱うためにそのままCSVで保存する",
+              "value": "__ais-highlight__BigQuery__/ais-highlight__で日付を扱うときはTimezoneを意識する",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
-            "slug": {
-              "value": "/entries/json_to_csv/",
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "基本はUTCですねという話",
               "matchLevel": "none",
               "matchedWords": []
             },
-            "text": {
-              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
+            "slug": {
+              "value": "/entries/__ais-highlight__bigquery__/ais-highlight___date_timezone/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -580,74 +1278,24 @@
           }
         },
         {
-          "date": "May 07, 2021",
-          "title": "PocketのデータをAPI経由でBigQueryに取り込む",
-          "slug": "/entries/start_pocket_api/",
-          "text": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONをBigQueryに放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### BigQueryに入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
-          "timeToRead": 3,
-          "objectID": "196c4775-45c9-57b9-a004-cefc6bc4752e",
-          "_snippetResult": {
-            "text": {
-              "value": "てはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうと",
-              "matchLevel": "full"
-            }
-          },
-          "_highlightResult": {
-            "date": {
-              "value": "May 07, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "PocketのデータをAPI経由で__ais-highlight__BigQuery__/ais-highlight__に取り込む",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "slug": {
-              "value": "/entries/start_pocket_api/",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "text": {
-              "value": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### __ais-highlight__BigQuery__/ais-highlight__に入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
-              "matchLevel": "full",
-              "fullyHighlighted": false,
-              "matchedWords": ["bigquery"]
-            },
-            "timeToRead": {
-              "value": "3",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          }
-        },
-        {
-          "date": "July 13, 2021",
-          "title": "Workflowsで Memory usage limit exeeded",
-          "slug": "/entries/workflows_logging_bigquery_failed/",
+          "url": "https://til.swfz.io//entries/workflows_logging_bigquery_failed/",
           "text": "\nはてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのままBigQueryに突っ込むみたいなやつ\n\nプライベートなのと規模感が小さいのでちょっと冒険的な感じでやってみようと次のような構成で試みた\n\n- Workflowsではてなブックマークの公開APIをたたく\n- WorkflowsのログにAPIのレスポンスをそのまま流す\n- Logging→集約シンクでBigQueryにレコードを追加する\n\nFunctionsを新たに作らなくても良いしとりあえずの生データも保存できるしわりと省力で実現できるかと考えた\n\nある程度動作確認して問題なかったので自分のブログの全URLで実行したら次のようなエラーが出てしまった\n\n```shell\nExecution failed or cancelled.\nin step \"call_workflow_api\", routine \"call_workflow\", line: 88\nin step \"collect_hatena_bookmark_workflow\", routine \"main\", line: 35\n{\n  \"message\": \"Execution failed or cancelled.\",\n  \"operation\": {\n    \"argument\": \"{\\\"target_url\\\":\\\"https://swfz.hatenablog.com/entry/2018/12/22/080733\\\"}\",\n    \"endTime\": \"2021-07-10T12:01:03.749667278Z\",\n    \"error\": {\n      \"payload\": \"{\\\"message\\\":\\\"ResourceLimitError: Memory usage limit exceeded\\\",\\\"tags\\\":[\\\"ResourceLimitError\\\"]}\",\n      \"stackTrace\": {}\n    },\n    \"name\": \"projects/1111111111111/locations/us-central1/workflows/collect_hatena_bookmark_metrics/executions/c4a686eb-4d92-4e95-94f6-4257438131e0\",\n    \"startTime\": \"2021-07-10T12:01:02.693637032Z\",\n    \"state\": \"FAILED\",\n    \"workflowRevisionId\": \"000001-331\"\n  },\n  \"tags\": [\n    \"OperationError\"\n  ]\n}\n```\n\nバズって300前後のブックマークが付いたURLのレスポンスで発生した\n\n[割り当てと上限  |  ワークフロー  |  Google Cloud](https://cloud.google.com/workflows/quotas)\n\n変数のメモリ割り当てにも上限があり64KBまでらしい\n\nなのでAPIのレスポンスが64KB以上ある場合はエラーになってしまう…\n\nFunctionsは経由するがFunctionsからLoggingへ直接流すようにするか?と思ったが\n\n[割り当てと上限  |  Cloud Logging  |  Google Cloud](https://cloud.google.com/logging/quotas?hl=ja)\n\n同じようにLoggingにも割り当て上限があるのでこの辺も考慮できていないといけない\n\nこの辺まで調べて面倒になってきてしまいこの手法は諦めた\n\nメモリリミットに達してしまったため回避方法はなさそう…APIのレスポンスをそのままWorkflows上でよしなにやるパターンは厳しいという結論になりました\n\nWorkflowsはあくまで各処理のオーケストレーションなのでWorkflows内にあまり処理を持ち込むべきではないっていう考え方なのかなと推測\n\n結局こういうパターンはFunctionsでGCSにデータ置く+BigQueryへloadってパターンがベターなのかな",
+          "date": "2021-07-13",
+          "title": "Workflowsで Memory usage limit exeeded",
+          "tags": ["Workflows", "GoogleCloudPlatform"],
+          "description": "失敗記録",
+          "slug": "/entries/workflows_logging_bigquery_failed/",
           "timeToRead": 2,
-          "objectID": "18e04e5f-00f2-50a2-a8d7-b7ac41718457",
+          "objectID": "ac419206-6eea-559a-82a6-992344e0e64d",
           "_snippetResult": {
             "text": {
-              "value": "たいてそのレスポンスをそのまま__ais-highlight__BigQuery__/ais-highlight__に突っ込むみたいなやつ\n\nプライ",
+              "value": "\nはてなブログのAPIなど公開のAPIをたたいてそのレスポンスをそのまま__ais-highlight__BigQuery__/ais-highlight__に突っ込むみたいなやつ\n\nプライベート",
               "matchLevel": "full"
             }
           },
           "_highlightResult": {
-            "date": {
-              "value": "July 13, 2021",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "title": {
-              "value": "Workflowsで Memory usage limit exeeded",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "slug": {
-              "value": "/entries/workflows_logging___ais-highlight__bigquery__/ais-highlight___failed/",
+            "url": {
+              "value": "https://til.swfz.io//entries/workflows_logging___ais-highlight__bigquery__/ais-highlight___failed/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -658,44 +1306,35 @@
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
             },
-            "timeToRead": {
-              "value": "2",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          }
-        },
-        {
-          "date": "April 10, 2021",
-          "title": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
-          "slug": "/entries/dataportal_experience_date/",
-          "text": "\nただのメモ\n\nTogglからBigQueryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
-          "timeToRead": 2,
-          "objectID": "17cb94a3-6fe4-5894-bec2-e090afbbdb8d",
-          "_snippetResult": {
-            "text": {
-              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグ",
-              "matchLevel": "full"
-            }
-          },
-          "_highlightResult": {
             "date": {
-              "value": "April 10, 2021",
+              "value": "2021-07-13",
               "matchLevel": "none",
               "matchedWords": []
             },
             "title": {
-              "value": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
+              "value": "Workflowsで Memory usage limit exeeded",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              {
+                "value": "Workflows",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "失敗記録",
               "matchLevel": "none",
               "matchedWords": []
             },
             "slug": {
-              "value": "/entries/dataportal_experience_date/",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            "text": {
-              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
+              "value": "/entries/workflows_logging___ais-highlight__bigquery__/ais-highlight___failed/",
               "matchLevel": "full",
               "fullyHighlighted": false,
               "matchedWords": ["bigquery"]
@@ -706,19 +1345,369 @@
               "matchedWords": []
             }
           }
+        },
+        {
+          "url": "https://til.swfz.io//entries/json_to_csv/",
+          "text": "\n[Working with JSON data in Standard SQL  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/json-data)\n\n先日BigQueryでnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
+          "date": "2022-02-28",
+          "title": "JSONファイルをBigQueryに読ませJSON型で扱うためにそのままCSVで保存する",
+          "tags": ["jq", "BigQuery", "GoogleCloudPlatform"],
+          "description": "jq",
+          "slug": "/entries/json_to_csv/",
+          "timeToRead": 1,
+          "objectID": "2e780a6a-d216-545c-8eb0-c5db3e4301ef",
+          "_snippetResult": {
+            "text": {
+              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型がプレビューでサポートされた\n\n執筆時点ではload",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/json_to_csv/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\n[Working with JSON data in Standard SQL  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/reference/standard-sql/json-data)\n\n先日__ais-highlight__BigQuery__/ais-highlight__でnative JSON型がプレビューでサポートされた\n\n執筆時点ではloadはCSVしか対応していないようだったのでJSONのファイルはCSVに変換する必要がある\n\nとりあえず使ってみるためにJSONを返すAPIのレスポンスをまるまるCSVにして突っ込んでみることにした\n\n```\ncat hoge.json| jq -r '[.|tostring]|@csv' > hoge.csv\n```\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"data\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n### load\n\n```\nbq load --replace --source_format=CSV ${GOOGLE_PROJECT}:sample.content_text hoge.csv ./schema.json\n```\n\nこれでJSON型を使えるようになった\n\n1ファイル1レコードという力技だが扱う容量が多くなければこの方法でもいける\n\n何度かSQLたたいてみたけどSTRUCTやREPEATEDなど今まで型でサポートしてくれていた部分を考慮してあげないといけない\n\nなのでいったん特定のカラムを抜き出す工程みたいなのが必要\n\n配列も`JSON_QUERY_ARRAY`を挟んであげる必要があるなどまぁそうだよなという感じ\n\nload対象がJSONファイルで特定のキー以下をJSON型として扱うということができるようになってほしいと感じた\n\n現状だと上記のようにひと手間かけないといけないのでデータレイク的なところから一次整形処理を挟む必要が出てくるのでまだちょっと使いづらいなーという感じ",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-02-28",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "JSONファイルを__ais-highlight__BigQuery__/ais-highlight__に読ませJSON型で扱うためにそのままCSVで保存する",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              { "value": "jq", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "jq",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/json_to_csv/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "1",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/dataportal_experience_date/",
+          "text": "\nただのメモ\n\nTogglからBigQueryにデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
+          "date": "2021-04-10",
+          "title": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
+          "tags": ["GoogleCloudPlatform", "DataPortal"],
+          "description": "if + parse_datetime + format_datetime",
+          "slug": "/entries/dataportal_experience_date/",
+          "timeToRead": 2,
+          "objectID": "12505894-0414-5e44-8176-e3373bf7591f",
+          "_snippetResult": {
+            "text": {
+              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測し",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/dataportal_experience_date/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nただのメモ\n\nTogglから__ais-highlight__BigQuery__/ais-highlight__にデータを突っ込んでいてそれをDataPortal経由でグラフ化している\n\n`start: 2020-12-25 21:52:30 UTC`（実際計測している時刻UTCではなくAsia/TokyoだがToggl側のAPIが返す値は時刻+UTCという値が返ってきている）\n\n上記のようなフォーマットのカラムを午前9時を堺にグルーピングしたいという要件が出てきた\n\n## 経緯\n\n単にグラフ化した場合`start`を基準にして日付単位でグループ化すると\n\n睡眠時間によっては日の合計時間が24時間を超えてしまうためグラフを眺めていて違和感がある\n\nそのため現在は0時をまたいで睡眠をとった場合は0時を境に分割して記録している\n\n```\n睡眠: 2021-04-09 22:00:00 ～ 2021-04-10 07:00:00\nToggl上での記録: \n- 2021-04-09 22:00:00 ～ 2021-04-10 00:00:00\n- 2021-04-10 00:00:00 ～ 2021-04-10 07:00:00\n```\n\nそうすると正確な日付としては分割して結果を閲覧できるが自分の体感としての日の睡眠時間がずれてグラフ化されてしまう\n\nそこで、冒頭のように午前9時開始を堺に日付を分割して0-9時のデータは前日分としてグラフ上では扱えるようにする\n\nそのための計算フィールドの計算式が下記\n\n```sql\nif(\n  parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT%H\",start)\n  ) < parse_datetime(\n    \"%Y-%m-%dT%H\",\n    format_datetime(\"%Y-%m-%dT09\",start)\n  ),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", datetime_sub(start, INTERVAL 1 DAY))),\n  parse_date(\"%Y-%m-%d\" ,format_datetime(\"%Y-%m-%d\", start))\n)\n```\n\n## つまずきポイント\n- DataPortalで日付カラムとして扱う場合はDate型かDateTime型になっている必要があるので結果に`parse_date`などパース処理が必要\n- `start`自体も日付・時刻カラムだったのでまず`format_datetime`でフォーマットしてからさらに`parse_datetime`で比較させて上げる必要があった\n- よく考えれば分かるはずだったがDataPortal上のテーブルで可視化すると別のフォーマットで出力されてしまい若干混乱した\n\nこんな感じで午前9時を境に日付を変更できた\n\n![alt](dataportal_experience_date01.png)",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2021-04-10",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "DataPortalで9時区切りの日付カラムを計算フィールドで作成する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              {
+                "value": "DataPortal",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "if + parse_datetime + format_datetime",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/dataportal_experience_date/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "2",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/algolia_mock_with_msw/",
+          "text": "\nAlgoliaの検索リクエストをmswでモックした\n\n開発時は検索用のAPIキーを登録せずにインデックスへのアクセスもしないようにすれば良くない？\n\n空レスポンスを返すようにしておけば良くない？\n\nみたいな話はあるものの、検索にかかるUI部分を開発するならある程度実際にリクエストした時のレスポンスが欲しくなる\n\nかと言ってAlgoliaに毎度リクエストさせてしまうと無料枠がどんどん減っていく…\n\nということで、mswで解決した\n\n## やっていること\n- 実際のレスポンスデータをdev toolsのNetworkからレスポンス内容を取得してきてJSONに保存\n    - 特定文字列(`BigQuery`)を順次入力した場合のレスポンスを逐次取得\n        - `B`と入力した際のレスポンス\n        - `Bi`と入力した際のレスポンス\n        - `Big`と入力した際のレスポンス\n        - `BigQ`と入力した際のレスポンス\n        - `BigQu`と入力した際のレスポンス\n        - `BigQue`と入力した際のレスポンス\n        - `BigQuer`と入力した際のレスポンス\n        - `BigQuery`と入力した際のレスポンス\n- 先工程で保存したJSONをmswを用いて返すように設定する\n\n「検索文字列の変化によっって返ってくる件数や内容が変わる」というのを再現したかったので固定値ではあるが検索文字列が変化した場合は文字数にあったレスポンスがmsw経由で返るようにした\n\n実際のコードは下記\n\n- handler.ts\n\n```typescript\nimport { rest } from \"msw\"\nimport query0Words from \"./algolia-search-response-0-words.json\"\nimport query1Words from \"./algolia-search-response-1-words.json\"\nimport query2Words from \"./algolia-search-response-2-words.json\"\nimport query3Words from \"./algolia-search-response-3-words.json\"\nimport query4Words from \"./algolia-search-response-4-words.json\"\nimport query5Words from \"./algolia-search-response-5-words.json\"\nimport query6Words from \"./algolia-search-response-6-words.json\"\nimport query7Words from \"./algolia-search-response-7-words.json\"\nimport query8Words from \"./algolia-search-response-8-words.json\"\n\nexport const handlers = [\n  rest.post(\"https://*.algolia.net/1/indexes/*/queries\", (req, res, ctx) => {\n    const empty = query0Words\n\n    const wordCountResponseMap = [\n      empty,       // 空\n      query1Words, // B\n      query2Words, // Bi\n      query3Words, // Big\n      query4Words, // BigQ\n      query5Words, // BigQu\n      query6Words, // BigQue\n      query7Words, // BigQuer\n      query8Words, // BigQuery\n    ]\n\n    const bodyString = req.body as string\n\n    if (bodyString.length === 0) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    const body = JSON.parse(bodyString)\n    const params = [\n      ...new URLSearchParams(body.requests[0].params).entries(),\n    ].reduce((obj, e) => ({ ...obj, [e[0]]: e[1] }), {} as { query: string })\n\n    if (\n      !params.query ||\n      params.query.length === 0 ||\n      params.query.length > wordCountResponseMap.length\n    ) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    return res(\n      ctx.status(200),\n      ctx.json(wordCountResponseMap[params.query.length])\n    )\n  }),\n]\n```\n\n`import`している実際のレスポンスを保存したJSONはAlgoliaでの設定などにより変わるのでここでは割愛する\n\nAlgoliaのレスポンスを完全再現はできないので次のような挙動にしている\n\n<!-- textlint-disable prh -->\n- どの文字列を入力したとしても開発時は`BigQuery`と入力した場合のレスポンスを返す\n- 検索文字列の入力文字数によってモック用のレスポンスを返す\n    - 1文字入力時は`B`が入力された時のモック用レスポンスを返す\n    - 2文字入力時は`Bi`が入力された時のモック用レスポンスを返す\n    - 3文字入力時は`Big`が入力された時のモック用レスポンスを返す\n    - 8文字まで同様\n- 検索文字列が用意している文字列以上入力された場合は何も文字を入力していない場合のレスポンスを返す(`query0Words`)\n<!-- textlint-enable prh -->\n\nこれで検索UIの開発はかなり捗ったのでメモとして残しておく\n",
+          "date": "2022-08-12",
+          "title": "Algoliaのレスポンスをmswでモックして開発ではダミーレスポンスを扱う",
+          "tags": ["Algolia", "msw", "TypeScript"],
+          "description": "実際のJSONを用意する",
+          "slug": "/entries/algolia_mock_with_msw/",
+          "timeToRead": 3,
+          "objectID": "e90e0141-342a-5721-a7e2-6ac4d84c034c",
+          "_snippetResult": {
+            "text": {
+              "value": "からレスポンス内容を取得してきてJSONに保存\n    - 特定文字列(`__ais-highlight__BigQuery__/ais-highlight__`)を順次入力した場合のレスポンスを逐次取得\n        - `B`と入力",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/algolia_mock_with_msw/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nAlgoliaの検索リクエストをmswでモックした\n\n開発時は検索用のAPIキーを登録せずにインデックスへのアクセスもしないようにすれば良くない？\n\n空レスポンスを返すようにしておけば良くない？\n\nみたいな話はあるものの、検索にかかるUI部分を開発するならある程度実際にリクエストした時のレスポンスが欲しくなる\n\nかと言ってAlgoliaに毎度リクエストさせてしまうと無料枠がどんどん減っていく…\n\nということで、mswで解決した\n\n## やっていること\n- 実際のレスポンスデータをdev toolsのNetworkからレスポンス内容を取得してきてJSONに保存\n    - 特定文字列(`__ais-highlight__BigQuery__/ais-highlight__`)を順次入力した場合のレスポンスを逐次取得\n        - `B`と入力した際のレスポンス\n        - `Bi`と入力した際のレスポンス\n        - `Big`と入力した際のレスポンス\n        - `BigQ`と入力した際のレスポンス\n        - `BigQu`と入力した際のレスポンス\n        - `BigQue`と入力した際のレスポンス\n        - `BigQuer`と入力した際のレスポンス\n        - `__ais-highlight__BigQuery__/ais-highlight__`と入力した際のレスポンス\n- 先工程で保存したJSONをmswを用いて返すように設定する\n\n「検索文字列の変化によっって返ってくる件数や内容が変わる」というのを再現したかったので固定値ではあるが検索文字列が変化した場合は文字数にあったレスポンスがmsw経由で返るようにした\n\n実際のコードは下記\n\n- handler.ts\n\n```typescript\nimport { rest } from \"msw\"\nimport query0Words from \"./algolia-search-response-0-words.json\"\nimport query1Words from \"./algolia-search-response-1-words.json\"\nimport query2Words from \"./algolia-search-response-2-words.json\"\nimport query3Words from \"./algolia-search-response-3-words.json\"\nimport query4Words from \"./algolia-search-response-4-words.json\"\nimport query5Words from \"./algolia-search-response-5-words.json\"\nimport query6Words from \"./algolia-search-response-6-words.json\"\nimport query7Words from \"./algolia-search-response-7-words.json\"\nimport query8Words from \"./algolia-search-response-8-words.json\"\n\nexport const handlers = [\n  rest.post(\"https://*.algolia.net/1/indexes/*/queries\", (req, res, ctx) => {\n    const empty = query0Words\n\n    const wordCountResponseMap = [\n      empty,       // 空\n      query1Words, // B\n      query2Words, // Bi\n      query3Words, // Big\n      query4Words, // BigQ\n      query5Words, // BigQu\n      query6Words, // BigQue\n      query7Words, // BigQuer\n      query8Words, // __ais-highlight__BigQuery__/ais-highlight__\n    ]\n\n    const bodyString = req.body as string\n\n    if (bodyString.length === 0) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    const body = JSON.parse(bodyString)\n    const params = [\n      ...new URLSearchParams(body.requests[0].params).entries(),\n    ].reduce((obj, e) => ({ ...obj, [e[0]]: e[1] }), {} as { query: string })\n\n    if (\n      !params.query ||\n      params.query.length === 0 ||\n      params.query.length > wordCountResponseMap.length\n    ) {\n      return res(ctx.status(200), ctx.json(empty))\n    }\n\n    return res(\n      ctx.status(200),\n      ctx.json(wordCountResponseMap[params.query.length])\n    )\n  }),\n]\n```\n\n`import`している実際のレスポンスを保存したJSONはAlgoliaでの設定などにより変わるのでここでは割愛する\n\nAlgoliaのレスポンスを完全再現はできないので次のような挙動にしている\n\n<!-- textlint-disable prh -->\n- どの文字列を入力したとしても開発時は`__ais-highlight__BigQuery__/ais-highlight__`と入力した場合のレスポンスを返す\n- 検索文字列の入力文字数によってモック用のレスポンスを返す\n    - 1文字入力時は`B`が入力された時のモック用レスポンスを返す\n    - 2文字入力時は`Bi`が入力された時のモック用レスポンスを返す\n    - 3文字入力時は`Big`が入力された時のモック用レスポンスを返す\n    - 8文字まで同様\n- 検索文字列が用意している文字列以上入力された場合は何も文字を入力していない場合のレスポンスを返す(`query0Words`)\n<!-- textlint-enable prh -->\n\nこれで検索UIの開発はかなり捗ったのでメモとして残しておく\n",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-08-12",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Algoliaのレスポンスをmswでモックして開発ではダミーレスポンスを扱う",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              { "value": "Algolia", "matchLevel": "none", "matchedWords": [] },
+              { "value": "msw", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "TypeScript",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "実際のJSONを用意する",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/algolia_mock_with_msw/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/bq_load_with_hive_partition/",
+          "text": "\nLakeにデータを置いた日付をBQ上でカラムとして扱いたかったのでHiveパーティショニングモードでbq loadした時のメモ\n\n`${BUCKET_NAME}`, `${GOOGLE_PROJECT}`は適宜読み替える\n\n最初に環境変数へ入れておいたりしておくとよいかも\n\n```shell\nexport BUCKET_NAME=hoge\nexport GOOGLE_PROJECT=sample-project\n```\n\n- GCS側のディレクトリ構造\n\n```shell\n$ gsutil ls gs://${BUCKET_NAME}/items/\ngs://${BUCKET_NAME}/items/dt=2022-02-15/\ngs://${BUCKET_NAME}/items/dt=2022-02-25/\ngs://${BUCKET_NAME}/items/dt=2022-02-26/\ngs://${BUCKET_NAME}/items/dt=2022-02-27/\ngs://${BUCKET_NAME}/items/dt=2022-03-04/\ngs://${BUCKET_NAME}/items/dt=2022-04-01/\n```\n\n`xx=yy`という形式でオブジェクトを配置することでよしなにパーティショニングしてくれる\n\n各ディレクトリにはCSVが置いてある\n\n今回の例ではresponseというカラムにAPIのレスポンスがすべて入っているという感じ（JSON型を使ってみたかった）\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"response\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n- load\n\n```shell\nbq load --replace --source_format=CSV \\\n  --hive_partitioning_mode=AUTO \\\n  --hive_partitioning_source_uri_prefix=gs://${BUCKET_NAME}/items/ \\\n  ${GOOGLE_PROJECT}:sample_datalake.test_raw_items \"gs://${BUCKET_NAME}/items/*.csv\" ./schema.json\n```\n\n\n- 結果\n\n```shell\n$ bq show --format=prettyjson sample_datalake.test_raw_items\n{\n  \"creationTime\": \"1661458822114\",\n  \"etag\": \"hODI6PUMYlQYOpdjjEYedQ==\",\n  \"id\": \"sample-project:sample_datalake.test_raw_items\",\n  \"kind\": \"bigquery#table\",\n  \"lastModifiedTime\": \"1661458822114\",\n  \"location\": \"asia-northeast1\",\n  \"numActiveLogicalBytes\": \"27655304\",\n  \"numBytes\": \"27655304\",\n  \"numLongTermBytes\": \"0\",\n  \"numLongTermLogicalBytes\": \"0\",\n  \"numRows\": \"471\",\n  \"numTotalLogicalBytes\": \"27655304\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"response\",\n        \"type\": \"JSON\"\n      },\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"dt\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  \"selfLink\": \"https://bigquery.googleapis.com/bigquery/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items\",\n  \"tableReference\": {\n    \"datasetId\": \"sample_datalake\",\n    \"projectId\": \"sample-project\",\n    \"tableId\": \"test_raw_items\"\n  },\n  \"type\": \"TABLE\"\n}\n```\n\nこれでOK\n\n`dt`を日付としてクエリできるようになった\n\n### 参考\n\n[外部パーティション分割データの読み込み  |  BigQuery  |  Google Cloud](https://cloud.google.com/bigquery/docs/hive-partitioned-loads-gcs?hl=ja#bq)\n",
+          "date": "2022-08-31",
+          "title": "Hiveパーティショニングモードでbq load",
+          "tags": ["BigQuery", "Hive", "GoogleCloudPlatform"],
+          "description": "メモ",
+          "slug": "/entries/bq_load_with_hive_partition/",
+          "timeToRead": 2,
+          "objectID": "9e5019bb-8515-53fd-8b93-60b420100d66",
+          "_snippetResult": {
+            "text": {
+              "value": "27655304\",\n  \"numLongTermBytes\": \"0\",\n  \"numLongTermLogicalBytes\": \"0\",\n  \"numRows\": \"471\",\n  \"numTotalLogicalBytes\": \"27655304\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"response\",\n        \"type\": \"JSON\"\n      },\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"dt\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  \"selfLink\": \"https://__ais-highlight__bigquery__/ais-highlight__.googleapis.com/__ais-highlight__bigquery__/ais-highlight__/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items\",\n  \"tableReference\": {\n    \"datasetId\": \"sample_datalake\",\n    \"projectId\": \"sample-project\",\n    \"tableId\": \"test_raw",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/bq_load_with_hive_partition/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nLakeにデータを置いた日付をBQ上でカラムとして扱いたかったのでHiveパーティショニングモードでbq loadした時のメモ\n\n`${BUCKET_NAME}`, `${GOOGLE_PROJECT}`は適宜読み替える\n\n最初に環境変数へ入れておいたりしておくとよいかも\n\n```shell\nexport BUCKET_NAME=hoge\nexport GOOGLE_PROJECT=sample-project\n```\n\n- GCS側のディレクトリ構造\n\n```shell\n$ gsutil ls gs://${BUCKET_NAME}/items/\ngs://${BUCKET_NAME}/items/dt=2022-02-15/\ngs://${BUCKET_NAME}/items/dt=2022-02-25/\ngs://${BUCKET_NAME}/items/dt=2022-02-26/\ngs://${BUCKET_NAME}/items/dt=2022-02-27/\ngs://${BUCKET_NAME}/items/dt=2022-03-04/\ngs://${BUCKET_NAME}/items/dt=2022-04-01/\n```\n\n`xx=yy`という形式でオブジェクトを配置することでよしなにパーティショニングしてくれる\n\n各ディレクトリにはCSVが置いてある\n\n今回の例ではresponseというカラムにAPIのレスポンスがすべて入っているという感じ（JSON型を使ってみたかった）\n\n- schema.json\n\n```json\n[\n  {\n    \"mode\": \"NULLABLE\",\n    \"name\": \"response\",\n    \"type\": \"JSON\"\n  }\n]\n```\n\n- load\n\n```shell\nbq load --replace --source_format=CSV \\\n  --hive_partitioning_mode=AUTO \\\n  --hive_partitioning_source_uri_prefix=gs://${BUCKET_NAME}/items/ \\\n  ${GOOGLE_PROJECT}:sample_datalake.test_raw_items \"gs://${BUCKET_NAME}/items/*.csv\" ./schema.json\n```\n\n\n- 結果\n\n```shell\n$ bq show --format=prettyjson sample_datalake.test_raw_items\n{\n  \"creationTime\": \"1661458822114\",\n  \"etag\": \"hODI6PUMYlQYOpdjjEYedQ==\",\n  \"id\": \"sample-project:sample_datalake.test_raw_items\",\n  \"kind\": \"__ais-highlight__bigquery__/ais-highlight__#table\",\n  \"lastModifiedTime\": \"1661458822114\",\n  \"location\": \"asia-northeast1\",\n  \"numActiveLogicalBytes\": \"27655304\",\n  \"numBytes\": \"27655304\",\n  \"numLongTermBytes\": \"0\",\n  \"numLongTermLogicalBytes\": \"0\",\n  \"numRows\": \"471\",\n  \"numTotalLogicalBytes\": \"27655304\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"response\",\n        \"type\": \"JSON\"\n      },\n      {\n        \"mode\": \"NULLABLE\",\n        \"name\": \"dt\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  \"selfLink\": \"https://__ais-highlight__bigquery__/ais-highlight__.googleapis.com/__ais-highlight__bigquery__/ais-highlight__/v2/projects/sample-project/datasets/sample_datalake/tables/test_raw_items\",\n  \"tableReference\": {\n    \"datasetId\": \"sample_datalake\",\n    \"projectId\": \"sample-project\",\n    \"tableId\": \"test_raw_items\"\n  },\n  \"type\": \"TABLE\"\n}\n```\n\nこれでOK\n\n`dt`を日付としてクエリできるようになった\n\n### 参考\n\n[外部パーティション分割データの読み込み  |  __ais-highlight__BigQuery__/ais-highlight__  |  Google Cloud](https://cloud.google.com/__ais-highlight__bigquery__/ais-highlight__/docs/hive-partitioned-loads-gcs?hl=ja#bq)\n",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2022-08-31",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "Hiveパーティショニングモードでbq load",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "tags": [
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              { "value": "Hive", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              }
+            ],
+            "description": {
+              "value": "メモ",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "slug": {
+              "value": "/entries/bq_load_with_hive_partition/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "2",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "url": "https://til.swfz.io//entries/start_pocket_api/",
+          "text": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONをBigQueryに放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### BigQueryに入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
+          "date": "2021-05-07",
+          "title": "PocketのデータをAPI経由でBigQueryに取り込む",
+          "tags": ["Pocket", "BigQuery", "GoogleCloudPlatform", "jq"],
+          "description": "ACCESS KEYの発行とRetrieveエンドポイントを叩くまで、おまけでBigQueryにいれてみた",
+          "slug": "/entries/start_pocket_api/",
+          "timeToRead": 3,
+          "objectID": "11f5c428-72ad-52d4-837f-0b869304f87b",
+          "_snippetResult": {
+            "text": {
+              "value": "retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうとしたが一筋縄では行か",
+              "matchLevel": "full"
+            }
+          },
+          "_highlightResult": {
+            "url": {
+              "value": "https://til.swfz.io//entries/start_pocket_api/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "text": {
+              "value": "\nまず`My Applications`から`CREATE APP`でアプリケーションを作成して`consumer key`を取得する\n\n取得した`consumer key`を環境変数に入れておく\n\n```shell\n$ export CONSUMER_KEY=xxxxx\n```\n\n## request tokenの発行\n\n適当なリダイレクト先を指定してrequest tokenを生成する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\n   https://getpocket.com/v3/oauth/request \\\n   -d @-<<EOS\n{\n  \"consumer_key\" : \"${CONSUMER_KEY}\",\n  \"redirect_uri\":\"http://localhost:8001/\"\n}\nEOS\ncode=xxxxx\n```\n\n結果を環境変数に入れておく\n\n```shell\n$ export REQUEST_TOKEN=xxxxx\n```\n\n## ブラウザへ遷移してアプリケーションのアクセス許可を行う\n\nリダイレクト先は適当に\n\n```shell\nopen \"https://getpocket.com/auth/authorize?request_token=${REQUEST_TOKEN}&redirect_uri=http://localhost:8001/\"\n```\n\n## access tokenの発行\n\n先の手順で得たrequest tokenを用いてaccess tokenの発行する\n\n```shell\n$ curl -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/oauth/authorize \\\n-d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"code\":\"${REQUEST_TOKEN}\"\n}\nEOS\naccess_token=xxxxx&username=hoge\n```\n\n`access_token=`の部分を環境変数に入れておく\n\n```shell\n$ export ACCESS_TOKEN=xxxxx\n```\n\nこれで準備が完了した\n\n## 何かしら問い合わせてみる\n\n記事データを取得してみる\n\n```shell\ncurl -o res.json -H \"Content-Type: application/json; charset=UTF-8\" -X POST \\\nhttps://getpocket.com/v3/get -d @-<<EOS\n{\n  \"consumer_key\":\"${CONSUMER_KEY}\",\n  \"access_token\":\"${ACCESS_TOKEN}\",\n  \"state\":\"unread\",\n  \"detailType\":\"complete\",\n  \"count\":3\n}\nEOS\n```\n\n[Pocket API: Retrieving a User's Pocket Data](https://getpocket.com/developer/docs/v3/retrieve)\n\nretrieveのAPIの仕様についてはこの辺\n\n## おまけ\n\nここで得たJSONを__ais-highlight__BigQuery__/ais-highlight__に放り込んでよしなにやろうとしたが一筋縄では行かなかった\n\n次のエラーはレスポンスのJSONファイルをそのままGCSにあげて`bq load`しようとした結果\n\n```\nError in query string: Error processing job 'project-111111:bqjob_r75b06933ac2f4481_0000017942c36b05_1': Invalid field name \"3292257344\". Fields must contain only letters, numbers, and\nunderscores, start with a letter or underscore, and be at most 300 characters long. Table: sample_8bb5a901_3d95_41f4_9512_e7f4fad8a737_source\n```\n\nエラー文言自体は`文字またはアンダースコアで始まり`の部分に違反しているのでエラーがでているがそもそもこのキーがIDなので記事によって可変であるためスキーマ定義ができない\n\njson形式が微妙すぎるのでどうしてもフォーマットしてあげないとダメそう\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": {\n    \"3324677936\": {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    \"3324677937\": {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n```\n\nこんな感じで数値キーのハッシュとして出力されている\n\n配列で表現してほしかった…\n\nということで数値キーになっている要素を数値キーを削除した形で保持させる\n\n```json\n{\n  \"status\": 1,\n  \"complete\": 0,\n  \"list\": [\n    {\n      \"item_id\": \"3324677936\",\n      \"resolved_id\": \"3324677936\",\n      .....\n    },\n    {\n      \"item_id\": \"3324677937\",\n      \"resolved_id\": \"3324677937\",\n      .....\n    },\n    .....\n  ]\n```\n\nこんな感じ\n\n中身を見た感じ`.list`以外にも同様の形式だったのでそちらも同様に配列に変更する必要がある\n\n### ハッシュ→配列にする必要がある要素\n\n執筆時点で把握しているのは下記\n\n- .list\n- .list.images\n- .list.videos\n- .list.authors\n\n### jqでよしなにやる\n\n```\ncat res.json| jq  -cr '.list=(.list|to_entries|map(.value)|map(.images=if has(\"images\") then .images|to_entries|map(.value) else [] end)|map(.videos=if has(\"videos\") then .videos|to_entries|map(.value) else [] end)|map(.authors=if has(\"authors\") then .authors|to_entries|map(.value) else [] end))' > list.json\n```\n\nキー自体がそもそもない場合もあったのでその場合は空配列にする\n\n### __ais-highlight__BigQuery__/ais-highlight__に入れ込む\n\n```\nbq load --replace --autodetect --source_format=NEWLINE_DELIMITED_JSON sample_dataset.sample list.json\n```\n\nこれでOK",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "date": {
+              "value": "2021-05-07",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title": {
+              "value": "PocketのデータをAPI経由で__ais-highlight__BigQuery__/ais-highlight__に取り込む",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "tags": [
+              { "value": "Pocket", "matchLevel": "none", "matchedWords": [] },
+              {
+                "value": "__ais-highlight__BigQuery__/ais-highlight__",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["bigquery"]
+              },
+              {
+                "value": "GoogleCloudPlatform",
+                "matchLevel": "none",
+                "matchedWords": []
+              },
+              { "value": "jq", "matchLevel": "none", "matchedWords": [] }
+            ],
+            "description": {
+              "value": "ACCESS KEYの発行とRetrieveエンドポイントを叩くまで、おまけで__ais-highlight__BigQuery__/ais-highlight__にいれてみた",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["bigquery"]
+            },
+            "slug": {
+              "value": "/entries/start_pocket_api/",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "timeToRead": {
+              "value": "3",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
         }
       ],
-      "nbHits": 8,
+      "nbHits": 12,
       "page": 0,
       "nbPages": 1,
       "hitsPerPage": 20,
       "exhaustiveNbHits": true,
       "exhaustiveTypo": true,
+      "exhaustive": { "nbHits": true, "typo": true },
       "query": "BigQuery",
       "params": "facets=%5B%5D&highlightPostTag=__%2Fais-highlight__&highlightPreTag=__ais-highlight__&query=BigQuery&tagFilters=",
       "index": "til",
       "renderingContent": {},
-      "processingTimeMS": 4
+      "processingTimeMS": 3,
+      "processingTimingsMS": {
+        "afterFetch": {
+          "format": { "highlighting": 1, "snippeting": 1, "total": 3 },
+          "total": 3
+        },
+        "total": 3
+      }
     }
   ]
 }

@@ -8,6 +8,12 @@
 yarn dev
 ```
 
+### Algolia APIのモックデータ
+
+開発では基本的にAlgoliaにリクエストが飛ばないようになっている
+
+APIの内容が変わった場合は本番レスポンスを取得して各種JSONを更新する
+
 ## Environment
 
 | env | value | 備考 |

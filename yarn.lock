@@ -15313,19 +15313,19 @@ react-helmet@6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-instantsearch-hooks-web@6.37.0:
-  version "6.37.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks-web/-/react-instantsearch-hooks-web-6.37.0.tgz#26efb94fb65829d1ae231167121fb5f9175cd7f1"
-  integrity sha512-11CSrY6Tv65l8EzLYc8oxVDl//ukzNJXn2hvxYVq2q8AxywQ4h5mAOdzvHwKIqXAvbqFsFvrEcjfL60VeFczKQ==
+react-instantsearch-hooks-web@6.38.0:
+  version "6.38.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks-web/-/react-instantsearch-hooks-web-6.38.0.tgz#6713b8f5ca55a326c0e4d8119fddc44dbe1d889b"
+  integrity sha512-gNMv+Ep4q5DL/TDP+nWZrCRRDnamme5rdLuNjK1w0eZkzXBjoD7ngsEzJoFKs7SmmBFpOXNCgUNvAucbNLOM9w==
   dependencies:
     "@babel/runtime" "^7.1.2"
     instantsearch.js "^4.47.0"
-    react-instantsearch-hooks "6.37.0"
+    react-instantsearch-hooks "6.38.0"
 
-react-instantsearch-hooks@6.37.0:
-  version "6.37.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks/-/react-instantsearch-hooks-6.37.0.tgz#02c386734ffff1e6beea99bbdfbeaacd74c6274d"
-  integrity sha512-v26GKbCeoDc7sBpiG7MHBPOwV2IXLcYXE2hh8iaPTASJTWOwiUuQ2TF8zns677rGHU5ZwvEHQpqRkjNPaubmpA==
+react-instantsearch-hooks@6.38.0:
+  version "6.38.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks/-/react-instantsearch-hooks-6.38.0.tgz#203a200e1ae9cd0fdb10fcd30187d39c03d97d6d"
+  integrity sha512-P/SX99udPeaL4up4U4aKaBsiYS7kgOJo5UxG/oTqJXnGpKPqnxZAqIDG3vs8qhXeRAv3PU2H3WMj4og54L5tAg==
   dependencies:
     "@babel/runtime" "^7.1.2"
     algoliasearch-helper "^3.11.1"

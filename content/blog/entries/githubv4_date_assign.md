@@ -106,9 +106,9 @@ type NamedDateValue struct {
 }
 
 func main() {
-	projectId := ""
-	itemId := ""
-	fieldId := ""
+	projectId := "適当なIDを入れる"
+	itemId := "適当なIDを入れる"
+	fieldId := "適当なIDを入れる"
 
 	gqlclient, err := gh.GQLClient(nil)
 	if err != nil {

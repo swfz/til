@@ -11,7 +11,7 @@ beforeAll(() => {
   const mockDate = new Date(1615388400000)
   jest
     .spyOn(global, "Date")
-    .mockImplementation(() => mockDate as unknown as string)
+    .mockImplementation(() => mockDate)
 })
 
 describe("Archive", () => {

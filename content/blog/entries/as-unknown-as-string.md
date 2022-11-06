@@ -58,3 +58,15 @@ jest.spyOn(global, "Date").mockImplementation(() => (mockDate as unknown) as str
 そもそもキャスト自体もあまり推奨されるやり方じゃないと思っていたが今回のケースではやむを得ず…
 
 `// @ts-ignore`で握りつぶすよりかは良いか…という感じ
+
+## 2022-11-06追記
+
+"@types/jest": "29.2.2",からこのハックは必要なくなった
+
+使い続けていると怒られる
+
+```
+Argument of type '() => string' is not assignable to parameter of type '(value: string | number | Date) => Date'.
+```
+
+Dateを直接渡せるようになったみたい

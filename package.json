@@ -8,7 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@sentry/gatsby": "7.17.4",
+    "@sentry/gatsby": "7.18.0",
     "@styled-icons/fa-solid": "10.46.0",
     "@tippyjs/react": "4.2.6",
     "@types/dompurify": "2.3.4",

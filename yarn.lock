@@ -9727,14 +9727,14 @@ gatsby-remark-prismjs@6.24.0:
     parse-numeric-range "^1.2.0"
     unist-util-visit "^2.0.3"
 
-gatsby-remark-related-posts@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-related-posts/-/gatsby-remark-related-posts-2.0.2.tgz#a5d3bd82e13ecf98c69e679188fdb747693f5ebf"
-  integrity sha512-WvYhklMfBLfadr6wPojaOmDpsizArCstMEsXqBNsRi5ZxFCsxhorZDt7x++qH61f4gFXAbxEs9mZuKLYjhpK9Q==
+gatsby-remark-related-posts@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-related-posts/-/gatsby-remark-related-posts-2.0.3.tgz#9753e9a8ed8b9f119bf8b87e3c049ec6de20a84b"
+  integrity sha512-srdVlwgGrUXwQouR9pqrpVql5zRkhIHv7vn+CGf2XfRgsf5ev9ijLW6gF+tWivHGjjcaj8rC2ecBcj9t3ZyZ7g==
   dependencies:
     compute-cosine-similarity "^1.0.0"
     kuromoji "^0.1.2"
-    natural "^5.1.11"
+    natural "^5.2.3"
 
 gatsby-remark-responsive-iframe@5.24.0:
   version "5.24.0"
@@ -13602,10 +13602,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-natural@^5.1.11:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/natural/-/natural-5.2.2.tgz#97ab2521ff9cd679bdbfd34bc03223b4b8d25f6f"
-  integrity sha512-X2o4i/f0CeOyTTXKIsUw6lBLLlz6xSBbOxzS7nMacjmNYXlQw/M9MXOrWlRsRMuXyoiDc+rO6bnk1ZzSCaI6Fw==
+natural@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/natural/-/natural-5.2.3.tgz#bfd9b9710139313edf6ec3172435e48998884535"
+  integrity sha512-fsGGpbU15YBc2oQCEsi0t7ZeF3VmKyxDhgWucQTPk4zaDFzeZtquRbZt4xlznN2ZUlH88215HcThMYaDHFM48Q==
   dependencies:
     afinn-165 "^1.0.2"
     apparatus "^0.0.10"

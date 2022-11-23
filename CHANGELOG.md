@@ -1,5 +1,47 @@
 # Changelog
 
+## [v1.0.2](https://github.com/swfz/til/compare/v1.0.1...v1.0.2) - 2022-11-23
+- chore(deps): update typescript-eslint monorepo to v5.42.0 by @renovate in https://github.com/swfz/til/pull/1125
+- fix(deps): update dependency gatsby to v4.24.6 by @renovate in https://github.com/swfz/til/pull/1126
+- chore(deps): update dependency @types/jest to v29.2.1 by @renovate in https://github.com/swfz/til/pull/1128
+- fix(deps): update dependency @sentry/gatsby to v7.17.4 by @renovate in https://github.com/swfz/til/pull/1129
+- fix(deps): update dependency gatsby to v4.24.7 by @renovate in https://github.com/swfz/til/pull/1130
+- fix(deps): update dependency sass to v1.56.0 by @renovate in https://github.com/swfz/til/pull/1131
+- chore(deps): update node.js to v16.18.1 by @renovate in https://github.com/swfz/til/pull/1133
+- article: json unmarshal pattern in array or map by @swfz in https://github.com/swfz/til/pull/1134
+- chore(deps): update dependency eslint to v8.27.0 by @renovate in https://github.com/swfz/til/pull/1135
+- chore(deps): update dependency @types/jest to v29.2.2 by @renovate in https://github.com/swfz/til/pull/1132
+- chore(deps): update jest monorepo to v29.3.0 by @renovate in https://github.com/swfz/til/pull/1137
+- chore(deps): update typescript-eslint monorepo to v5.42.1 by @renovate in https://github.com/swfz/til/pull/1136
+- chore(deps): update dependency husky to v8.0.2 by @renovate in https://github.com/swfz/til/pull/1138
+- fix(deps): update dependency @sentry/gatsby to v7.18.0 by @renovate in https://github.com/swfz/til/pull/1139
+- chore(deps): update dependency msw to v0.48.0 by @renovate in https://github.com/swfz/til/pull/1141
+- chore(deps): update jest monorepo to v29.3.1 by @renovate in https://github.com/swfz/til/pull/1142
+- fix(deps): update dependency sass to v1.56.1 by @renovate in https://github.com/swfz/til/pull/1143
+- fix(deps): update dependency gatsby to v4.24.8 by @renovate in https://github.com/swfz/til/pull/1144
+- chore(deps): update dependency msw to v0.48.1 by @renovate in https://github.com/swfz/til/pull/1146
+- chore(deps): bump socket.io-parser from 4.0.4 to 4.0.5 by @dependabot in https://github.com/swfz/til/pull/1145
+- chore(deps): update dependency textlint to v12.2.3 by @renovate in https://github.com/swfz/til/pull/1147
+- fix(deps): update dependency dompurify to v2.4.1 by @renovate in https://github.com/swfz/til/pull/1148
+- fix(deps): update dependency @sentry/gatsby to v7.19.0 by @renovate in https://github.com/swfz/til/pull/1149
+- fix(deps): update dependency @types/dompurify to v2.4.0 by @renovate in https://github.com/swfz/til/pull/1150
+- fix(deps): update dependency gatsby-remark-related-posts to v2.0.3 by @renovate in https://github.com/swfz/til/pull/1151
+- chore(deps): update dependency msw to v0.48.2 by @renovate in https://github.com/swfz/til/pull/1152
+- chore(deps): update dependency gatsby-plugin-eslint to v4.0.3 by @renovate in https://github.com/swfz/til/pull/1153
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.38.1 by @renovate in https://github.com/swfz/til/pull/1154
+- chore(deps): update dependency @types/jest to v29.2.3 by @renovate in https://github.com/swfz/til/pull/1155
+- chore(deps): update typescript-eslint monorepo to v5.43.0 by @renovate in https://github.com/swfz/til/pull/1156
+- chore(deps): update dependency typescript to v4.9.3 by @renovate in https://github.com/swfz/til/pull/1157
+- chore(deps): update dependency msw to v0.48.3 by @renovate in https://github.com/swfz/til/pull/1158
+- fix(deps): update dependency @sentry/gatsby to v7.20.0 by @renovate in https://github.com/swfz/til/pull/1159
+- chore(deps): update dependency eslint-plugin-react to v7.31.11 by @renovate in https://github.com/swfz/til/pull/1160
+- chore(deps): update dependency eslint to v8.28.0 by @renovate in https://github.com/swfz/til/pull/1161
+- chore(deps): update dependency msw to v0.49.0 by @renovate in https://github.com/swfz/til/pull/1162
+- TypeScriptで連想配列のValueのUnion型を取り出す by @swfz in https://github.com/swfz/til/pull/1164
+- fix(deps): update dependency @sentry/gatsby to v7.20.1 by @renovate in https://github.com/swfz/til/pull/1163
+- chore(deps): update typescript-eslint monorepo to v5.44.0 by @renovate in https://github.com/swfz/til/pull/1165
+- fix(deps): update dependency @sentry/gatsby to v7.21.0 by @renovate in https://github.com/swfz/til/pull/1166
+
 ## [v1.0.1](https://github.com/swfz/til/compare/v1.0.0...v1.0.1) - 2022-10-31
 - chore(deps): update typescript-eslint monorepo to v5.40.1 by @renovate in https://github.com/swfz/til/pull/1107
 - chore(deps): update dependency @types/jest to v29.2.0 by @renovate in https://github.com/swfz/til/pull/1109

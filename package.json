@@ -41,7 +41,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
-    "react-instantsearch-hooks-web": "6.38.1",
+    "react-instantsearch-hooks-web": "6.38.2",
     "react-typography": "0.16.23",
     "sass": "1.57.1",
     "styled-components": "5.3.6",

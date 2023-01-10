@@ -6083,10 +6083,10 @@ boxen@^5.1.2:
     widest-line "^3.1.0"
     wrap-ansi "^7.0.0"
 
-boxen@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/boxen/-/boxen-7.0.0.tgz#9e5f8c26e716793fc96edcf7cf754cdf5e3fbf32"
-  integrity sha512-j//dBVuyacJbvW+tvZ9HuH03fZ46QcaKvvhZickZqtB271DxJ7SNRSNxrV/dZX0085m7hISRZWbzWlJvx/rHSg==
+boxen@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/boxen/-/boxen-7.0.1.tgz#cd84db4364a8bae65f1f016ce94a21ec2c832c16"
+  integrity sha512-8k2eH6SRAK00NDl1iX5q17RJ8rfl53TajdYxE3ssMLehbg487dEVgsad4pIsZb/QqBgYWIl6JOauMTLGX2Kpkw==
   dependencies:
     ansi-align "^3.0.1"
     camelcase "^7.0.0"
@@ -8431,12 +8431,12 @@ eslint-import-resolver-node@^0.3.6:
     debug "^3.2.7"
     resolve "^1.20.0"
 
-eslint-interactive@10.3.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-interactive/-/eslint-interactive-10.3.0.tgz#78305964be48e6ecce56d0a5af601d3441feb8ae"
-  integrity sha512-Edx8X1SnCPw0EQq4JIOUEo7GL3nQyfMNjF2UU0Pyd1C/bEZvadV7n/9Jmb5eyTjSvz/Drzl5//d4wvgI2epXog==
+eslint-interactive@10.4.0:
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-interactive/-/eslint-interactive-10.4.0.tgz#3ddec1941b7480347857ac8dca612f5f28a937aa"
+  integrity sha512-nEhO6o61KtXF6TVQOcc+gkQHDoMRpo0v7i9QfE7Jw5X85eQaCdidVjNmiturVUqmRpjTQ9TUZgAnknnbIPKw+Q==
   dependencies:
-    boxen "^7.0.0"
+    boxen "^7.0.1"
     cachedir "^2.3.0"
     chalk "^5.0.1"
     comlink "^4.3.1"

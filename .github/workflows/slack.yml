@@ -12,7 +12,7 @@ jobs:
     name: main
     runs-on: ubuntu-latest
     steps:
-      - uses: swfz/slack-workflow-status@feature/follow-workflow-run
+      - uses: swfz/slack-workflow-status@feature/follow-workflow-run-trigger
         with:
           workflow_run: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}

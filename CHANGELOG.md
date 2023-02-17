@@ -1,5 +1,63 @@
 # Changelog
 
+## [v1.0.4](https://github.com/swfz/til/compare/v1.0.3...v1.0.4) - 2023-02-17
+- chore(deps): update dependency textlint-rule-preset-ja-spacing to v2.3.0 by @renovate in https://github.com/swfz/til/pull/1253
+- Obsidianのdataviewプラグインで特定ヘッダー以下のタスクリストを取得する by @swfz in https://github.com/swfz/til/pull/1256
+- chore(deps): update typescript-eslint monorepo to v5.49.0 by @renovate in https://github.com/swfz/til/pull/1257
+- fix(deps): update dependency @sentry/gatsby to v7.32.1 by @renovate in https://github.com/swfz/til/pull/1254
+- chore(deps): update jest monorepo to v29.4.0 by @renovate in https://github.com/swfz/til/pull/1258
+- fix(deps): update dependency @sentry/gatsby to v7.33.0 by @renovate in https://github.com/swfz/til/pull/1259
+- chore(deps): update dependency @types/jest to v29.4.0 by @renovate in https://github.com/swfz/til/pull/1262
+- chore(deps): update dependency textlint to v12.6.1 by @renovate in https://github.com/swfz/til/pull/1264
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.39.0 by @renovate in https://github.com/swfz/til/pull/1263
+- chore(deps): update jest monorepo to v29.4.1 by @renovate in https://github.com/swfz/til/pull/1265
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.39.1 by @renovate in https://github.com/swfz/til/pull/1266
+- chore(deps): bump ua-parser-js from 0.7.31 to 0.7.33 by @dependabot in https://github.com/swfz/til/pull/1260
+- chore(deps): update dependency msw to v1 by @renovate in https://github.com/swfz/til/pull/1261
+- fix(deps): update dependency @sentry/gatsby to v7.34.0 by @renovate in https://github.com/swfz/til/pull/1267
+- chore(deps): update dependency textlint to v13 by @renovate in https://github.com/swfz/til/pull/1268
+- chore(deps): update dependency textlint to v13.0.2 by @renovate in https://github.com/swfz/til/pull/1269
+- chore(deps): update dependency textlint to v13.0.4 by @renovate in https://github.com/swfz/til/pull/1270
+- chore(deps): update dependency eslint to v8.33.0 by @renovate in https://github.com/swfz/til/pull/1271
+- chore(deps): update dependency eslint-plugin-react to v7.32.2 by @renovate in https://github.com/swfz/til/pull/1272
+- chore(deps): update dependency textlint to v13.0.5 by @renovate in https://github.com/swfz/til/pull/1273
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.39.2 by @renovate in https://github.com/swfz/til/pull/1274
+- chore(deps): update dependency typescript to v4.9.5 by @renovate in https://github.com/swfz/til/pull/1275
+- chore(deps): update dependency textlint to v13.1.0 by @renovate in https://github.com/swfz/til/pull/1276
+- chore(deps): update typescript-eslint monorepo to v5.50.0 by @renovate in https://github.com/swfz/til/pull/1277
+- fix(deps): update dependency sass to v1.58.0 by @renovate in https://github.com/swfz/til/pull/1278
+- chore(deps): update dependency textlint-rule-ja-hiragana-hojodoushi to v1.1.0 by @renovate in https://github.com/swfz/til/pull/1279
+- chore(deps): update dependency textlint to v13.1.1 by @renovate in https://github.com/swfz/til/pull/1281
+- fix(deps): update dependency @sentry/gatsby to v7.35.0 by @renovate in https://github.com/swfz/til/pull/1280
+- chore(deps): update dependency textlint to v13.1.3 by @renovate in https://github.com/swfz/til/pull/1283
+- chore(deps): update dependency eslint-webpack-plugin to v4 by @renovate in https://github.com/swfz/til/pull/1285
+- chore(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 by @dependabot in https://github.com/swfz/til/pull/1282
+- chore(deps): update dependency textlint to v13.1.4 by @renovate in https://github.com/swfz/til/pull/1286
+- chore(deps): update dependency eslint-interactive to v10.5.0 by @renovate in https://github.com/swfz/til/pull/1287
+- fix(deps): update dependency @sentry/gatsby to v7.36.0 by @renovate in https://github.com/swfz/til/pull/1284
+- 特定文字列でファイルを分割する by @swfz in https://github.com/swfz/til/pull/1288
+- chore(deps): update typescript-eslint monorepo to v5.51.0 by @renovate in https://github.com/swfz/til/pull/1289
+- chore(deps): update dependency lint-staged to v13.1.1 by @renovate in https://github.com/swfz/til/pull/1290
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.39.3 by @renovate in https://github.com/swfz/til/pull/1291
+- chore(deps): update jest monorepo to v29.4.2 by @renovate in https://github.com/swfz/til/pull/1292
+- chore(deps): update dependency textlint to v13.2.0 by @renovate in https://github.com/swfz/til/pull/1293
+- chore(deps): update dependency prettier to v2.8.4 by @renovate in https://github.com/swfz/til/pull/1294
+- fix(deps): update dependency @sentry/gatsby to v7.37.0 by @renovate in https://github.com/swfz/til/pull/1295
+- chore(deps): update dependency msw to v1.0.1 by @renovate in https://github.com/swfz/til/pull/1296
+- fix(deps): update dependency @sentry/gatsby to v7.37.1 by @renovate in https://github.com/swfz/til/pull/1297
+- chore(deps): update dependency eslint to v8.34.0 by @renovate in https://github.com/swfz/til/pull/1298
+- chore(deps): update dependency textlint to v13.3.0 by @renovate in https://github.com/swfz/til/pull/1299
+- chore(deps): update dependency lint-staged to v13.1.2 by @renovate in https://github.com/swfz/til/pull/1300
+- fix(deps): update dependency @sentry/gatsby to v7.37.2 by @renovate in https://github.com/swfz/til/pull/1301
+- fix(deps): update dependency dompurify to v2.4.4 by @renovate in https://github.com/swfz/til/pull/1302
+- fix(deps): update dependency sass to v1.58.1 by @renovate in https://github.com/swfz/til/pull/1303
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.40.0 by @renovate in https://github.com/swfz/til/pull/1306
+- chore(deps): update typescript-eslint monorepo to v5.52.0 by @renovate in https://github.com/swfz/til/pull/1304
+- fix(deps): update dependency dompurify to v3 by @renovate in https://github.com/swfz/til/pull/1305
+- MUIのInputPropsとinputPropsの違い by @swfz in https://github.com/swfz/til/pull/1308
+- chore(deps): update jest monorepo to v29.4.3 by @renovate in https://github.com/swfz/til/pull/1307
+- chore(deps): update node.js to v16.19.1 by @renovate in https://github.com/swfz/til/pull/1309
+
 ## [v1.0.3](https://github.com/swfz/til/compare/v1.0.2...v1.0.3) - 2023-01-22
 - chore(deps): update dependency prettier to v2.8.0 by @renovate in https://github.com/swfz/til/pull/1167
 - fix(deps): update dependency @sentry/gatsby to v7.21.1 by @renovate in https://github.com/swfz/til/pull/1169

@@ -120,8 +120,8 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "NODE_ENV=development gatsby develop",
-    "textlint": "textlint content/blog",
-    "eslint": "eslint -c ./.eslintrc.json 'src/**/*.{js,ts,tsx}' '*.{ts,js,tsx}' ",
+    "lint:md": "textlint content/blog",
+    "lint:es": "eslint -c ./.eslintrc.json 'src/**/*.{js,ts,tsx}' '*.{ts,js,tsx}' ",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

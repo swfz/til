@@ -8464,10 +8464,10 @@ eslint-import-resolver-node@^0.3.7:
     is-core-module "^2.11.0"
     resolve "^1.22.1"
 
-eslint-interactive@10.5.0:
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-interactive/-/eslint-interactive-10.5.0.tgz#8d2b7ab3736e5acd99e33ca09d07db07093ee316"
-  integrity sha512-nV8WOUteXIyl5lOxHXlMOxGw8ZmnnWJByR+fqk4shw7cOkEMv8mzIwlpbhcoF98Fj9Yf3ssS9PMUMJMTXpia8g==
+eslint-interactive@10.6.0:
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-interactive/-/eslint-interactive-10.6.0.tgz#155f24b605bd74cb7fda7ba75794e5e85bf8aa1c"
+  integrity sha512-N7oiLer1D97Z3ucjSsNqyf+KT743UAvg1sIcxNc0ghwevCak+nM8avF+cNyMINZhD9tH3V0S8rZmO5/El/KTXA==
   dependencies:
     boxen "^7.0.1"
     chalk "^5.0.1"

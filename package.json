@@ -75,7 +75,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-unused-imports": "2.0.0",
     "eslint-webpack-plugin": "4.0.0",
-    "gatsby-plugin-eslint": "4.0.3",
+    "gatsby-plugin-eslint": "4.0.4",
     "gatsby-plugin-sass": "5.25.0",
     "gatsby-plugin-sitemap": "5.25.0",
     "gatsby-remark-bulma": "1.0.1",

@@ -25,7 +25,7 @@ const wrapElement = ({
   element: ReactNode
   props: object
 }) => {
-  return <Layout {...props}>{element}</Layout>
+  return <Layout>{element}</Layout>
 }
 
 export { wrapElement as wrapPageElement }

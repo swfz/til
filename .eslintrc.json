@@ -45,6 +45,7 @@
         "checkLocalVariables": false
       }
     ],
+    "react/prop-types": "off",
     "import/order": [
       "warn",
       {

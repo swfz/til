@@ -1,15 +1,14 @@
-import { Link, graphql, PageProps } from "gatsby"
+import { Link, graphql, PageProps, HeadFC } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import React from "react"
-import { Helmet } from "react-helmet"
+
+import SEO from "../components/seo"
 
 const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
-  const title = data.site?.siteMetadata?.title || ""
   const group = data.allMarkdownRemark.group
 
   return (
     <div>
-      <Helmet title={title} />
       <div>
         <h1 className="subtitle">Tags</h1>
         <span className="tags">
@@ -45,3 +44,8 @@ export const pageQuery = graphql`
 `
 
 export default TagsPage
+
+export const Head: HeadFC<Queries.TagsQuery> = props => {
+  const title = props.data.site?.siteMetadata?.title || ""
+  return <SEO title={title} />
+}

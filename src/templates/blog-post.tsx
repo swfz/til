@@ -1,4 +1,4 @@
-import { Link, graphql, PageProps } from "gatsby"
+import { Link, graphql, PageProps, HeadFC } from "gatsby"
 import isNil from "lodash/isNil"
 import kebabCase from "lodash/kebabCase"
 import React from "react"
@@ -35,10 +35,6 @@ const BlogPostTemplate: React.FC<
   if (!isNil(post) && !isNil(post.html)) {
     return (
       <>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt || ""}
-        />
         <article>
           <header>
             <h1 className="title">{post.frontmatter.title}</h1>
@@ -149,3 +145,13 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head: HeadFC<Queries.BlogPostBySlugQuery> = props => {
+  const post = props.data.markdownRemark
+  return (
+    <SEO
+      title={post?.frontmatter.title}
+      description={post?.frontmatter.description || post?.excerpt || ""}
+    />
+  )
+}

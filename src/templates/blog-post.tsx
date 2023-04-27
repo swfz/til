@@ -1,4 +1,4 @@
-import { Link, graphql, PageProps, HeadFC, HeadProps } from "gatsby"
+import { Link, graphql, PageProps, HeadFC } from "gatsby"
 import isNil from "lodash/isNil"
 import kebabCase from "lodash/kebabCase"
 import React from "react"

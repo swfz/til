@@ -1,4 +1,4 @@
-import React from "react"
+import { default as React, ReactNode } from "react"
 
 import Navigation from "../components/navi"
 
@@ -6,7 +6,11 @@ import Archive from "./archive"
 import Bio from "./bio"
 import Pixela from "./pixela"
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode
+}
+
+const Layout = (props: LayoutProps) => {
   return (
     <>
       <Navigation></Navigation>
@@ -23,7 +27,7 @@ const Layout: React.FC = ({ children }) => {
             background: `#FFFFFF`,
           }}
         >
-          <main>{children}</main>
+          <main>{props.children}</main>
         </div>
         <div
           className="column is-2"

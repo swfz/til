@@ -7,19 +7,18 @@
 
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
-import { Helmet } from "react-helmet"
 
 type Props = {
   description?: string
-  lang?: string
   meta?: React.DetailedHTMLProps<
     React.MetaHTMLAttributes<HTMLMetaElement>,
     HTMLMetaElement
   >[]
   title?: string
+  children?: React.ReactNode
 }
 
-const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<Props> = ({ description, meta, title, children }) => {
   const { site } = useStaticQuery(
     graphql`
       query Site {
@@ -42,13 +41,11 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
   const ogpImage = `https://res.cloudinary.com/dss6ly6hy/image/upload/s--CZpmof8E--/c_limit,h_600,w_1200/co_rgb:C800D4,l_text:arial_30_bold_normal_left:${decodedTitle}/fl_layer_apply,g_center/til/til-ogp_xsuuux.jpg`
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
+    <>
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
+      meta=
+      {[
         {
           name: `description`,
           content: metaDescription,
@@ -91,7 +88,8 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         },
         ...(meta || []),
       ]}
-    />
+      {children}
+    </>
   )
 }
 

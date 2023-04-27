@@ -19,6 +19,7 @@ jobs:
           GATSBY_CPU_COUNT: logical_cores
         run: |
           yarn config set nodeLinker node-modules
+          yarn config set yarnPath .yarn/releases/yarn-3.5.0.cjs
           yarn
           yarn build
 

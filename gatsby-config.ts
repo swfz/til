@@ -91,7 +91,6 @@ const plugins: GatsbyConfig["plugins"] = [
       icon: `content/assets/gatsby-icon.png`,
     },
   },
-  `gatsby-plugin-react-helmet`,
   {
     resolve: `gatsby-plugin-typography`,
     options: {

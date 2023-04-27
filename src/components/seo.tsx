@@ -39,7 +39,7 @@ const SEO: React.FC<Props> = ({ description, title, children }) => {
 
   const decodedTitle = decodeURI(title || "")
   const ogpImage = `https://res.cloudinary.com/dss6ly6hy/image/upload/s--CZpmof8E--/c_limit,h_600,w_1200/co_rgb:C800D4,l_text:arial_30_bold_normal_left:${decodedTitle}/fl_layer_apply,g_center/til/til-ogp_xsuuux.jpg`
-  const titleTemplate = `%s | ${site.siteMetadata.title}`
+  const titleTemplate = `${title} | ${site.siteMetadata.title}`
 
   return (
     <>

@@ -6387,10 +6387,10 @@ eslint-import-resolver-node@^0.3.7:
     is-core-module "^2.11.0"
     resolve "^1.22.1"
 
-eslint-interactive@10.7.0:
-  version "10.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-interactive/-/eslint-interactive-10.7.0.tgz#fe2e8261e3fc791cf4f47a3ea5a69fafc2d4566f"
-  integrity sha512-jnjTLr/0iU+70n6WQxzeYOtHqrJzvZ37nhF1bzixh+K6+2HAN0qW24JaDYfdeQXYi1ILviIymnZCDQ9i68NI8g==
+eslint-interactive@10.8.0:
+  version "10.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-interactive/-/eslint-interactive-10.8.0.tgz#c0558e2359e71c45cda2b343edbd687e3846d524"
+  integrity sha512-bsMSr0NVyxoSbKbA3Rn8so5+A9q+Zu8xExiIM18umPjrqfBAN8WcJfsWvfc9Myfiqn2WwLDM9mRglbx+Hp+z3Q==
   dependencies:
     boxen "^7.0.2"
     chalk "^5.0.1"

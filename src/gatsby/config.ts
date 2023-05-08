@@ -41,6 +41,9 @@ const algoliaQuery = `
         fields {
           slug
         }
+        internal {
+          contentDigest
+        }
         rawMarkdownBody
         timeToRead
       }

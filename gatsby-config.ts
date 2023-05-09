@@ -122,7 +122,7 @@ const plugins: GatsbyConfig["plugins"] = [
         // Note: by supplying settings, you will overwrite all existing settings on the index
       },
       concurrentQueries: false, // default: true
-      dryRun:
+      skipIndexing:
         process.env.CF_PAGES_BRANCH !== "master" ||
         process.env.CONTENT_CHANGED === "false", // default: false, useful for e.g. preview deploys or local development
       continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails

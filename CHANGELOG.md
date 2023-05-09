@@ -1,5 +1,25 @@
 # Changelog
 
+## [v1.0.6](https://github.com/swfz/til/compare/v1.0.5...v1.0.6) - 2023-05-09
+- fix(deps): update dependency @sentry/gatsby to v7.50.0 by @renovate in https://github.com/swfz/til/pull/1409
+- feature/migrate helmet to head by @swfz in https://github.com/swfz/til/pull/1411
+- feature/chore by @swfz in https://github.com/swfz/til/pull/1412
+- chore(deps): update typescript-eslint monorepo to v5.59.2 by @renovate in https://github.com/swfz/til/pull/1413
+- Gatsbyのバージョンを4から5に上げた by @swfz in https://github.com/swfz/til/pull/1415
+- Denoでインストールしたモジュールのバージョンを更新する by @swfz in https://github.com/swfz/til/pull/1416
+- chore(deps): update dependency @babel/eslint-parser to v7.21.8 by @renovate in https://github.com/swfz/til/pull/1414
+- fix(deps): update dependency @sentry/gatsby to v7.51.0 by @renovate in https://github.com/swfz/til/pull/1417
+- chore(deps): update dependency eslint to v8.40.0 by @renovate in https://github.com/swfz/til/pull/1418
+- chore(deps): update dependency eslint-interactive to v10.8.0 by @renovate in https://github.com/swfz/til/pull/1419
+- fix(deps): update dependency dompurify to v3.0.3 by @renovate in https://github.com/swfz/til/pull/1420
+- go-ghでCurrentRepositoryが返す値を差し替える by @swfz in https://github.com/swfz/til/pull/1421
+- chore(deps): update typescript-eslint monorepo to v5.59.5 by @renovate in https://github.com/swfz/til/pull/1423
+- fix(deps): update dependency gatsby to v5.9.1 by @renovate in https://github.com/swfz/til/pull/1424
+- fix(deps): update dependency @sentry/gatsby to v7.51.2 by @renovate in https://github.com/swfz/til/pull/1422
+- Renovate/patched gatsby plugin algolia 1.x by @swfz in https://github.com/swfz/til/pull/1425
+- fix(deps): update dependency gatsby-plugin-algolia to v1 by @renovate in https://github.com/swfz/til/pull/1173
+- fix(deps): update dependency react-instantsearch-hooks-web to v6.43.0 by @renovate in https://github.com/swfz/til/pull/1363
+
 ## [v1.0.5](https://github.com/swfz/til/compare/v1.0.4...v1.0.5) - 2023-04-27
 - chore(deps): update dependency @testing-library/react to v14 by @renovate in https://github.com/swfz/til/pull/1310
 - fix(deps): update dependency sass to v1.58.2 by @renovate in https://github.com/swfz/til/pull/1311

@@ -121,8 +121,6 @@ const plugins: GatsbyConfig["plugins"] = [
         // optional, any index settings
         // Note: by supplying settings, you will overwrite all existing settings on the index
       },
-      enablePartialUpdates: false, // default: false
-      matchFields: ["slug", "modified"], // Array<String> default: ['modified']
       concurrentQueries: false, // default: true
       skipIndexing:
         process.env.CF_PAGES_BRANCH !== "master" ||

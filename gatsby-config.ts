@@ -58,6 +58,7 @@ const plugins: GatsbyConfig["plugins"] = [
       ],
     },
   },
+  `gatsby-plugin-image`,
   `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
   {

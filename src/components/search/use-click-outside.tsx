@@ -10,7 +10,7 @@ const ClickOutside = (
   const isOutside = (element: HTMLElement) =>
     !ref.current || !ref.current.contains(element)
 
-  const onClick: EventListener = (event): any => {
+  const onClick: EventListener = (event): void => {
     const target = event.target as HTMLElement
 
     if (isOutside(target)) {

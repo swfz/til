@@ -20,10 +20,8 @@ export const onClientEntry = () => {
 
 const wrapElement = ({
   element,
-  props,
 }: {
   element: ReactNode
-  props: object
 }) => {
   return <Layout>{element}</Layout>
 }

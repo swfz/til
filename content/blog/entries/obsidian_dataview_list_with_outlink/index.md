@@ -71,7 +71,7 @@ dv.taskList(dv.pages("[[blog]]").sort(p => dv.date(p.file.ctime), 'desc').file.t
 
 こんな感じのクエリを書くと
 
-```dataview
+```sql
 TABLE
 file.tasks
 FROM [[blog]]

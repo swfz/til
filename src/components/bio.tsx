@@ -39,6 +39,7 @@ const Bio: React.FC = () => {
     }
   `)
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { author, social } = data!.site!.siteMetadata!
   const image =
     data.avatar?.childImageSharp?.gatsbyImageData || ({} as IGatsbyImageData) // FIXME: not good

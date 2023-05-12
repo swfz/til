@@ -26,7 +26,7 @@ CMD ["ruby", "./app.rb"]
 
 - Gemfile
 
-```gemfile
+```ruby
 source "https://rubygems.org"
 
 gem "google-cloud-storage"

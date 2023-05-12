@@ -12,7 +12,7 @@ tags:
 
 - backend.tf
 
-```terraform
+```hcl
 terraform {
   backend "gcs" {
   }
@@ -23,7 +23,7 @@ terraform {
 
 - backend-config.tfvars
 
-```tfvars
+```hcl
 bucket = "hoge-tfstate"
 prefix = "prefix-hoge"
 ```

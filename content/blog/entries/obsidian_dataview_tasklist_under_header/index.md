@@ -20,7 +20,7 @@ tags:
 
 ## taskリスト
 
-```dataview
+```sql
 TASK
 FROM "daily_note"
 WHERE contains(meta(section).subpath, "Podcast")

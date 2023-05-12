@@ -8,7 +8,7 @@ type Props = {
   data: Queries.ArchiveQueryQuery
 }
 
-const ArchiveList = () => {
+const Archive = () => {
   const data: Queries.ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
       allMarkdownRemark(limit: 2000) {
@@ -22,10 +22,10 @@ const ArchiveList = () => {
       }
     }
   `)
-  return <Archive data={data}></Archive>
+  return <ArchiveList data={data}></ArchiveList>
 }
 
-export const Archive = (props: Props) => {
+export const ArchiveList = (props: Props) => {
   const archives = props.data.allMarkdownRemark.edges.reduce((acc, cur) => {
     if (isNil(cur) || isNil(cur.node)) {
       return acc
@@ -95,4 +95,4 @@ export const Archive = (props: Props) => {
   )
 }
 
-export default ArchiveList
+export default Archive

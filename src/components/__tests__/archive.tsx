@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import React from "react"
 import renderer from "react-test-renderer"
 
-import { Archive } from "../archive"
+import { ArchiveList } from "../archive"
 
 beforeAll(() => {
   // 2021-03-10T15:00:00.000Z
@@ -29,7 +29,7 @@ describe("Archive", () => {
   }
   it("renders correctly", async () => {
     const { getAllByText, getAllByLabelText } = render(
-      <Archive data={data}></Archive>
+      <ArchiveList data={data}></ArchiveList>
     )
 
     // 記事件数と順番があっているか
@@ -69,7 +69,7 @@ describe("Archive", () => {
     expect(monthLInkList[2]).toBeVisible()
   })
   it("snapshot", () => {
-    const tree = renderer.create(<Archive data={data}></Archive>).toJSON()
+    const tree = renderer.create(<ArchiveList data={data}></ArchiveList>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

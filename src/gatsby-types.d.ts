@@ -711,25 +711,6 @@ type GatsbyImageDataQueryOperatorInput = {
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
-type GatsbyImageFormat =
-  | 'auto'
-  | 'avif'
-  | 'jpg'
-  | ''
-  | 'png'
-  | 'webp';
-
-type GatsbyImageLayout =
-  | 'constrained'
-  | 'fixed'
-  | 'fullWidth';
-
-type GatsbyImagePlaceholder =
-  | 'blurred'
-  | 'dominantColor'
-  | 'none'
-  | 'tracedSVG';
-
 type ImageCropFocus =
   | 17
   | 0
@@ -2896,7 +2877,7 @@ type ArchivesByDateRangeQuery = { readonly site: { readonly siteMetadata: { read
 type BioQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BioQuery = { readonly avatar: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly site: { readonly siteMetadata: { readonly author: { readonly name: string | null, readonly summary: string | null } | null, readonly social: { readonly twitter: string | null, readonly github: string | null } | null } | null } | null };
+type BioQuery = { readonly avatar: { readonly childImageSharp: { readonly fixed: { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string } | null } | null } | null, readonly site: { readonly siteMetadata: { readonly author: { readonly name: string | null, readonly summary: string | null } | null, readonly social: { readonly twitter: string | null, readonly github: string | null } | null } | null } | null };
 
 type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];

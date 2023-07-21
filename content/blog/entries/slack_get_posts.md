@@ -20,11 +20,6 @@ Boltを使うわけじゃないが、Botトークンとユーザートークン�
 
 Botアクセストークンを使うのが通常っぽい
 
-### 参考
-
-[Slack APIでチャンネルのメッセージを取り出してみる - Qiita](https://qiita.com/sampo-cure/items/6b57d8503e37a0d2d1f6)
-
-[Retrieving messages | Slack](https://api.slack.com/messaging/retrieving)
 
 
 ## 必要権限
@@ -35,9 +30,7 @@ Botアクセストークンを使うのが通常っぽい
 
 の権限を入れた
 
-![[files/Pasted image 20230709181408.png]]
-
-ここから権限を追加
+`Features > OAuth & Permissions`の画面で権限を追加する
 
 ## テスター
 
@@ -136,3 +129,8 @@ const timeStr = time.format('YYYY-MM-DD HH:mm:ss');
 ```
 2023-07-09 18:10:46
 ```
+
+
+## 他参考
+
+[Slack APIでチャンネルのメッセージを取り出してみる - Qiita](https://qiita.com/sampo-cure/items/6b57d8503e37a0d2d1f6)

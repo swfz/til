@@ -151,6 +151,7 @@ export const Head: HeadFC<Queries.BlogPostBySlugQuery> = props => {
   return (
     <SEO
       title={post?.frontmatter.title}
+      tags={post?.frontmatter.tags}
       description={post?.frontmatter.description || post?.excerpt || ""}
     />
   )

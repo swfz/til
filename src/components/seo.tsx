@@ -40,7 +40,7 @@ const SEO: React.FC<Props> = ({ description, title, tags, children }) => {
   const titleTemplate = `${title} | ${site.siteMetadata.title}`
 
   const decodedTitle = decodeURI(title || "")
-  const imageUrl = new URL("https://til-ogp.deno.dev/")
+  const imageUrl = new URL("https://terminal-image.deno.dev/")
   imageUrl.searchParams.append("title", decodedTitle)
   if (tags) {
     imageUrl.searchParams.append("tags", tags.join(","))

@@ -43,7 +43,7 @@ const SEO: React.FC<Props> = ({ description, title, tags, children }) => {
   const imageUrl = new URL("https://terminal-image.deno.dev/")
   imageUrl.searchParams.append("title", decodedTitle)
   if (tags) {
-    imageUrl.searchParams.append("tags", tags.join(","))
+    imageUrl.searchParams.append("bottom_line_texts", tags.join(","))
   }
   const ogpImage = imageUrl.toString()
 

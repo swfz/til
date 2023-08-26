@@ -1,4 +1,4 @@
-import "@testing-library/jest-dom/extend-expect"
+import "@testing-library/jest-dom"
 import { render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import React from "react"
@@ -29,7 +29,7 @@ describe("Archive", () => {
   }
   it("renders correctly", async () => {
     const { getAllByText, getAllByLabelText } = render(
-      <ArchiveList data={data}></ArchiveList>
+      <ArchiveList data={data}></ArchiveList>,
     )
 
     // 記事件数と順番があっているか
@@ -69,7 +69,9 @@ describe("Archive", () => {
     expect(monthLInkList[2]).toBeVisible()
   })
   it("snapshot", () => {
-    const tree = renderer.create(<ArchiveList data={data}></ArchiveList>).toJSON()
+    const tree = renderer
+      .create(<ArchiveList data={data}></ArchiveList>)
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

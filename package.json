@@ -58,7 +58,7 @@
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/jest": "29.5.4",
     "@types/react-helmet": "6.1.6",
-    "@types/react-test-renderer": "18.0.0",
+    "@types/react-test-renderer": "18.0.1",
     "@types/styled-components": "5.1.26",
     "@types/typography": "0.16.4",
     "@typescript-eslint/eslint-plugin": "6.5.0",

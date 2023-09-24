@@ -28,9 +28,7 @@ describe("Archive", () => {
     },
   }
   it("renders correctly", async () => {
-    const { getAllByText, getAllByLabelText } = render(
-      <ArchiveList data={data}></ArchiveList>,
-    )
+    const { getAllByText, getAllByLabelText } = render(<ArchiveList data={data}></ArchiveList>)
 
     // 記事件数と順番があっているか
     const yearLinkList = getAllByLabelText("year-link")
@@ -69,9 +67,7 @@ describe("Archive", () => {
     expect(monthLInkList[2]).toBeVisible()
   })
   it("snapshot", () => {
-    const tree = renderer
-      .create(<ArchiveList data={data}></ArchiveList>)
-      .toJSON()
+    const tree = renderer.create(<ArchiveList data={data}></ArchiveList>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

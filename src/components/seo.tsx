@@ -10,31 +10,26 @@ import React from "react"
 
 type Props = {
   description?: string
-  meta?: React.DetailedHTMLProps<
-    React.MetaHTMLAttributes<HTMLMetaElement>,
-    HTMLMetaElement
-  >[]
+  meta?: React.DetailedHTMLProps<React.MetaHTMLAttributes<HTMLMetaElement>, HTMLMetaElement>[]
   title?: string
-  tags?: readonly (string|null)[]|undefined
+  tags?: readonly (string | null)[] | undefined
   children?: React.ReactNode
 }
 
 const SEO: React.FC<Props> = ({ description, title, tags, children }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query Site {
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              twitter
-            }
+  const { site } = useStaticQuery(graphql`
+    query Site {
+      site {
+        siteMetadata {
+          title
+          description
+          social {
+            twitter
           }
         }
       }
-    `
-  )
+    }
+  `)
 
   const metaDescription = description || site.siteMetadata.description
   const titleTemplate = `${title} | ${site.siteMetadata.title}`

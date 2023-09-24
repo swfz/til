@@ -789,9 +789,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "Terraform", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "Terraform", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "tfenv",
               "matchLevel": "none",
@@ -969,9 +967,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "VS Code", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "VS Code", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "profile",
               "matchLevel": "none",
@@ -2099,9 +2095,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "Terraform", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "Terraform", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "tfenv",
               "matchLevel": "none",
@@ -2279,9 +2273,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "VS Code", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "VS Code", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "profile",
               "matchLevel": "none",

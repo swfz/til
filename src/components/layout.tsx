@@ -51,9 +51,7 @@ const Layout = (props: LayoutProps) => {
           bottom: 0,
         }}
       >
-        <div className="content has-text-centered">
-          © {new Date().getFullYear()}. swfz
-        </div>
+        <div className="content has-text-centered">© {new Date().getFullYear()}. swfz</div>
       </footer>
     </>
   )

@@ -8,10 +8,9 @@ import moment from "moment"
 
 import { Archives } from "./src/@types"
 
-export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
-  ({ actions }) => {
-    // Frontmatterは必ず全て入力している前提
-    actions.createTypes(`
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
+  // Frontmatterは必ず全て入力している前提
+  actions.createTypes(`
     type MarkdownRemark implements Node {
       fields: MarkdownRemarkFields!
       frontmatter: MarkdownRemarkFrontmatter!
@@ -26,46 +25,38 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       description: String!
     }
   `)
-  }
+}
 
-export const createPages: GatsbyNode["createPages"] = async ({
-  graphql,
-  actions,
-}) => {
+export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
   const archiveTemplate = path.resolve(`./src/templates/archives.tsx`)
-  const result = await graphql<Queries.AllPostAndTagsQuery>(
-    `
-      query AllPostAndTags {
-        postsRemark: allMarkdownRemark(
-          sort: { frontmatter: { date: DESC } }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                date
-                title
-                tags
-              }
+  const result = await graphql<Queries.AllPostAndTagsQuery>(`
+    query AllPostAndTags {
+      postsRemark: allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              date
+              title
+              tags
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
-          group(field: { frontmatter: { tags: SELECT } }) {
-            fieldValue
-          }
+      }
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
         }
       }
-    `
-  )
+    }
+  `)
 
   if (result.errors) {
     throw result.errors
@@ -117,9 +108,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     })
     Object.entries(items).forEach(([month, nodes]) => {
       const startDate = moment(`${year}-${month}-01`).format("YYYY-MM-DD")
-      const endDate = moment(`${year}-${month}-01`)
-        .add(1, "months")
-        .format("YYYY-MM-DD")
+      const endDate = moment(`${year}-${month}-01`).add(1, "months").format("YYYY-MM-DD")
       createPage({
         path: `/archives/${year}/${month}`,
         component: archiveTemplate,
@@ -146,11 +135,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })
 }
 
-export const onCreateNode: GatsbyNode["onCreateNode"] = ({
-  node,
-  actions,
-  getNode,
-}) => {
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {

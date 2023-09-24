@@ -16,12 +16,7 @@ const Bio: React.FC = () => {
     query Bio {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
-          gatsbyImageData(
-            width: 50
-            height: 50
-            placeholder: BLURRED
-            layout: FIXED
-          )
+          gatsbyImageData(width: 50, height: 50, placeholder: BLURRED, layout: FIXED)
         }
       }
       site {
@@ -41,8 +36,7 @@ const Bio: React.FC = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { author, social } = data!.site!.siteMetadata!
-  const image =
-    data.avatar?.childImageSharp?.gatsbyImageData || ({} as IGatsbyImageData) // FIXME: not good
+  const image = data.avatar?.childImageSharp?.gatsbyImageData || ({} as IGatsbyImageData) // FIXME: not good
 
   return (
     <>

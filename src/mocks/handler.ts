@@ -12,14 +12,11 @@ import query8Words from "./algolia-search-response-8-words.json"
 import svgImage from "./pixela.svg"
 
 export const handlers = [
-  rest.get(
-    "https://pixe.la/v1/users/swfz/graphs/til-pageviews",
-    async (req, res, ctx) => {
-      const svgBuffer = await fetch(svgImage).then(res => res.arrayBuffer())
+  rest.get("https://pixe.la/v1/users/swfz/graphs/til-pageviews", async (req, res, ctx) => {
+    const svgBuffer = await fetch(svgImage).then(res => res.arrayBuffer())
 
-      return res(ctx.status(200), ctx.body(svgBuffer))
-    }
-  ),
+    return res(ctx.status(200), ctx.body(svgBuffer))
+  }),
   rest.post("https://*.algolia.net/1/indexes/*/queries", (req, res, ctx) => {
     const empty = query0Words // First Request: 初回読み込み時に空のクエリでリクエストが走る
 
@@ -42,21 +39,15 @@ export const handlers = [
     }
 
     const body = JSON.parse(bodyString)
-    const params = [
-      ...new URLSearchParams(body.requests[0].params).entries(),
-    ].reduce((obj, e) => ({ ...obj, [e[0]]: e[1] }), {} as { query: string })
+    const params = [...new URLSearchParams(body.requests[0].params).entries()].reduce(
+      (obj, e) => ({ ...obj, [e[0]]: e[1] }),
+      {} as { query: string }
+    )
 
-    if (
-      !params.query ||
-      params.query.length === 0 ||
-      params.query.length > wordCountResponseMap.length
-    ) {
+    if (!params.query || params.query.length === 0 || params.query.length > wordCountResponseMap.length) {
       return res(ctx.status(200), ctx.json(empty))
     }
 
-    return res(
-      ctx.status(200),
-      ctx.json(wordCountResponseMap[params.query.length])
-    )
+    return res(ctx.status(200), ctx.json(wordCountResponseMap[params.query.length]))
   }),
 ]

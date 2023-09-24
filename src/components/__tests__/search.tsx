@@ -21,14 +21,9 @@ describe("Search", () => {
   })
 
   it("検索UIのテスト", async () => {
-    const {
-      baseElement,
-      container,
-      getByTestId,
-      getAllByTestId,
-      getByTitle,
-      getByPlaceholderText,
-    } = render(<Search indices={[{ name: "til" }]}></Search>)
+    const { baseElement, container, getByTestId, getAllByTestId, getByTitle, getByPlaceholderText } = render(
+      <Search indices={[{ name: "til" }]}></Search>
+    )
     const searchButton = getByTitle("Submit the search query")
 
     expect(container).toMatchSnapshot()

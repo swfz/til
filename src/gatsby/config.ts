@@ -118,9 +118,7 @@ export const feedOptions = {
   `,
   feeds: [
     {
-      serialize: ({
-        query: { site, allMarkdownRemark },
-      }: FeedSerializeProps) => {
+      serialize: ({ query: { site, allMarkdownRemark } }: FeedSerializeProps) => {
         return allMarkdownRemark.edges.map(edge => {
           return Object.assign({}, edge.node.frontmatter, {
             description: edge.node.excerpt,
@@ -155,11 +153,4 @@ export const feedOptions = {
 }
 
 // For gatsby-plugin-eslint
-export const gatsbyRequiredRules = path.join(
-  process.cwd(),
-  "node_modules",
-  "gatsby",
-  "dist",
-  "utils",
-  "eslint-rules"
-)
+export const gatsbyRequiredRules = path.join(process.cwd(), "node_modules", "gatsby", "dist", "utils", "eslint-rules")

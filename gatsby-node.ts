@@ -106,7 +106,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
         endDate: endDate,
       },
     })
-    Object.entries(items).forEach(([month, nodes]) => {
+    Object.entries(items).forEach(([month]) => {
       const startDate = moment(`${year}-${month}-01`).format("YYYY-MM-DD")
       const endDate = moment(`${year}-${month}-01`).add(1, "months").format("YYYY-MM-DD")
       createPage({

@@ -41,10 +41,7 @@ export const ArchiveList = (props: Props) => {
     return { ...acc, [year]: updateValue }
   }, {} as Archives)
 
-  const descFn = (
-    a: [string, ArchiveMonth | ArchiveEdges],
-    b: [string, ArchiveMonth | ArchiveEdges]
-  ) => {
+  const descFn = (a: [string, ArchiveMonth | ArchiveEdges], b: [string, ArchiveMonth | ArchiveEdges]) => {
     if (a[0] > b[0]) {
       return -1
     } else {
@@ -68,12 +65,7 @@ export const ArchiveList = (props: Props) => {
             <summary>
               +
               <Link aria-label={"year-link"} to={`/archives/${year}`}>
-                {year}(
-                {Object.entries(items).reduce(
-                  (acc, [, v]) => acc + v.length,
-                  0
-                )}
-                )
+                {year}({Object.entries(items).reduce((acc, [, v]) => acc + v.length, 0)})
               </Link>
             </summary>
             <ul>

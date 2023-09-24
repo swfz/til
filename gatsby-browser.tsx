@@ -18,11 +18,7 @@ export const onClientEntry = () => {
   }
 }
 
-const wrapElement = ({
-  element,
-}: {
-  element: ReactNode
-}) => {
+const wrapElement = ({ element }: { element: ReactNode }) => {
   return <Layout>{element}</Layout>
 }
 

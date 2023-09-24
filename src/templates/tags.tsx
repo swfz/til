@@ -8,15 +8,11 @@ type PageContext = {
   tag: string
 }
 
-const Tags: React.FC<
-  PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>
-> = ({ data, pageContext }) => {
+const Tags: React.FC<PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>> = ({ data, pageContext }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
 
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`
 
   return (
     <>

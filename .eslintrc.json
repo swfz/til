@@ -27,13 +27,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "import",
-    "unused-imports"
-  ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "unused-imports"],
   "rules": {
     "eqeqeq": "error",
     "react/jsx-handler-names": [
@@ -49,16 +43,7 @@
     "import/order": [
       "warn",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "object",
-          "type"
-        ],
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
         "newlines-between": "always",
         "alphabetize": { "order": "asc", "caseInsensitive": false }
       }
@@ -68,11 +53,5 @@
     // "no-anonymous-exports-page-templates": "error",
     // "limited-exports-page-templates": "error"
   },
-  "ignorePatterns": [
-    "lint-staged.config.js",
-    "loadershim.js",
-    "jest.config.js",
-    "jest-preprocess.js",
-    "public/*"
-  ]
+  "ignorePatterns": ["lint-staged.config.js", "loadershim.js", "jest.config.js", "jest-preprocess.js", "public/*"]
 }

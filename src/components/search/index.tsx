@@ -1,7 +1,4 @@
-import {
-  MultipleQueriesResponse,
-  MultipleQueriesQuery,
-} from "@algolia/client-search"
+import { MultipleQueriesResponse, MultipleQueriesQuery } from "@algolia/client-search"
 import algoliasearch from "algoliasearch/lite"
 import { Link } from "gatsby"
 import { default as React, useState, useRef } from "react"
@@ -65,11 +62,7 @@ const SearchResult = ({ indices, className, show }: SearchResultProps) => {
   const { results } = useHits({})
 
   return (
-    <div
-      data-testid="search-result"
-      className={className}
-      style={{ display: show ? `block` : `none` }}
-    >
+    <div data-testid="search-result" className={className} style={{ display: show ? `block` : `none` }}>
       <div data-testid="search-result-count">{results?.nbHits} results</div>
       {indices.map(index => (
         <Index key={index.name} indexName={index.name}>
@@ -108,11 +101,7 @@ const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
           submitIcon: "search-icon",
         }}
       ></SearchBox>
-      <SearchResult
-        show={query && query.length > 0 && hasFocus}
-        className="popover"
-        indices={indices}
-      ></SearchResult>
+      <SearchResult show={query && query.length > 0 && hasFocus} className="popover" indices={indices}></SearchResult>
     </div>
   )
 }

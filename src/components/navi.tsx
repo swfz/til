@@ -6,24 +6,18 @@ import Search from "./search"
 const Navigation: React.FC = () => {
   const searchIndices = [{ name: `til`, title: `Pages` }]
 
-  const { site } = useStaticQuery(
-    graphql`
-      query Layout {
-        site {
-          siteMetadata {
-            title
-          }
+  const { site } = useStaticQuery(graphql`
+    query Layout {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `
-  )
+    }
+  `)
 
   return (
-    <div
-      className="navbar has-background-info-dark"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <div className="navbar has-background-info-dark" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item has-text-grey-lighter" href="/">
           <span

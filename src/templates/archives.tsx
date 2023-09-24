@@ -8,9 +8,10 @@ type PageContext = {
   month: string
 }
 
-const ArchivesTemplate: React.FC<
-  PageProps<Queries.ArchivesByDateRangeQuery, PageContext>
-> = ({ data, pageContext }) => {
+const ArchivesTemplate: React.FC<PageProps<Queries.ArchivesByDateRangeQuery, PageContext>> = ({
+  data,
+  pageContext,
+}) => {
   const { edges, totalCount } = data.allMarkdownRemark
 
   return (

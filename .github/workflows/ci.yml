@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.0.0
       - uses: actions/setup-node@v3.8.1
         with:
           node-version-file: .node-version
@@ -24,7 +24,7 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.0.0
       - uses: actions/setup-node@v3.8.1
         with:
           node-version-file: .node-version
@@ -37,7 +37,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.0.0
       - uses: actions/setup-node@v3.8.1
         with:
           node-version-file: .node-version
@@ -50,3 +50,31 @@ jobs:
         run: |
           yarn
           yarn test
+
+  eslint:
+    runs-on: ubuntu-latest
+    name: run eslint
+    steps:
+      - uses: actions/checkout@v4.0.0
+      - uses: actions/setup-node@v3.8.1
+        with:
+          node-version-file: .node-version
+          cache: yarn
+      - name: lint check eslint
+        run: |
+          yarn
+          yarn lint:es
+
+  prettier:
+    runs-on: ubuntu-latest
+    name: run prettier check
+    steps:
+      - uses: actions/checkout@v4.0.0
+      - uses: actions/setup-node@v3.8.1
+        with:
+          node-version-file: .node-version
+          cache: yarn
+      - name: lint check eslint
+        run: |
+          yarn
+          yarn lint:format

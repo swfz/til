@@ -1076,9 +1076,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "Ruby", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "Ruby", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "print + \r つかう",
               "matchLevel": "none",
@@ -1259,9 +1257,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "Next", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "Next", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "SSG",
               "matchLevel": "none",
@@ -2437,9 +2433,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "Ruby", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "Ruby", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "print + \r つかう",
               "matchLevel": "none",
@@ -2620,9 +2614,7 @@
               "matchLevel": "none",
               "matchedWords": []
             },
-            "tags": [
-              { "value": "Next", "matchLevel": "none", "matchedWords": [] }
-            ],
+            "tags": [{ "value": "Next", "matchLevel": "none", "matchedWords": [] }],
             "description": {
               "value": "SSG",
               "matchLevel": "none",

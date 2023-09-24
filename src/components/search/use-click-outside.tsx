@@ -3,12 +3,8 @@ import { useEffect, RefObject } from "react"
 type EventMap = keyof DocumentEventMap
 const events: EventMap[] = [`mousedown`, `touchstart`]
 
-const ClickOutside = (
-  ref: RefObject<HTMLElement>,
-  onClickOutsideFn: () => void
-) => {
-  const isOutside = (element: HTMLElement) =>
-    !ref.current || !ref.current.contains(element)
+const ClickOutside = (ref: RefObject<HTMLElement>, onClickOutsideFn: () => void) => {
+  const isOutside = (element: HTMLElement) => !ref.current || !ref.current.contains(element)
 
   const onClick: EventListener = (event): void => {
     const target = event.target as HTMLElement

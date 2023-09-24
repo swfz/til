@@ -7,9 +7,7 @@ import { ElementType } from "../@types"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
-type MarkdownNode = ElementType<
-  Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]
->["node"]
+type MarkdownNode = ElementType<Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
 type PageContext = {
   previous: MarkdownNode
   next: MarkdownNode
@@ -25,9 +23,7 @@ const Divider = () => {
   )
 }
 
-const BlogPostTemplate: React.FC<
-  PageProps<Queries.BlogPostBySlugQuery, PageContext>
-> = ({ data, pageContext }) => {
+const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageContext>> = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const relatedPosts = data.relatedMarkdownRemarks?.posts?.slice(0, 3)
   const { previous, next } = pageContext
@@ -48,11 +44,7 @@ const BlogPostTemplate: React.FC<
               {post.frontmatter.date}
               <span className="tags">
                 {post.frontmatter.tags.map(tag => (
-                  <Link
-                    className="tag is-link is-light"
-                    key={tag}
-                    to={`/tags/${kebabCase(tag || "")}`}
-                  >
+                  <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
                     {tag}
                   </Link>
                 ))}
@@ -70,9 +62,7 @@ const BlogPostTemplate: React.FC<
             {relatedPosts?.map(relatedPost => {
               return (
                 <li key={relatedPost?.fields.slug ?? ""}>
-                  <Link to={relatedPost?.fields.slug ?? ""}>
-                    {relatedPost?.frontmatter.title}
-                  </Link>
+                  <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
                 </li>
               )
             })}

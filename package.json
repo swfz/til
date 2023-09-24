@@ -122,6 +122,7 @@
     "dev": "NODE_ENV=development gatsby develop",
     "lint:md": "textlint content/blog",
     "lint:es": "eslint -c ./.eslintrc.json 'src/**/*.{js,ts,tsx}' '*.{ts,js,tsx}' ",
+    "lint:format": "prettier --check \"**/*.{js,ts,jsx,tsx,json}\"",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

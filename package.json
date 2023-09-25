@@ -59,7 +59,7 @@
     "@types/jest": "29.5.5",
     "@types/react-helmet": "6.1.6",
     "@types/react-test-renderer": "18.0.2",
-    "@types/styled-components": "5.1.27",
+    "@types/styled-components": "5.1.28",
     "@types/typography": "0.16.5",
     "@typescript-eslint/eslint-plugin": "6.7.2",
     "@typescript-eslint/parser": "6.7.2",

@@ -1,5 +1,5 @@
 ---
-title: "管理化のリポジトリリストからRenovateのPRを集計する"
+title: "管理下のリポジトリリストからRenovateのPRを集計する"
 date: "2023-09-20"
 description: "app/renovate"
 tags:

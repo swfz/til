@@ -12,7 +12,7 @@ dotfilesのAnsibleでansible-lintを走らせているがいつの間にか失�
 
 以前はID(`301`や`201`など)指定で除外していたがlintを実行しても結果にIDが見つからないのでソースを調べに行った
 
-```
+```yaml
 - name: "hoeg" # noqa 301
 ```
 

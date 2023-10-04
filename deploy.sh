@@ -6,7 +6,7 @@ curl -o $HOME/.local/bin/jq -L https://github.com/jqlang/jq/releases/download/jq
 # さすがに100コミットまとめてデプロイはしないと判断して決め打ち
 git fetch --depth 100
 
-if [ "$BUILD" = "production"]; then
+if [ "$BUILD" = "production" ]; then
   res=$(curl -X GET "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/til/deployments" \
     -H "Authorization: Bearer ${CF_API_KEY}" \
     -H "Content-Type:application/json")

@@ -3,8 +3,9 @@
 # install jq
 
 echo $PATH
+echo $HOME
 
-sudo curl -o /usr/local/bin/jq -L https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux64 && sudo chmod +x /usr/local/bin/jq
+curl -o $HOME/.local/bin/jq -L https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux64 && chmod +x $HOME/.local/bin/jq
 
 # さすがに100コミットまとめてデプロイはしないと判断して決め打ち
 git fetch --depth 100

@@ -67,7 +67,7 @@ gs://sample-bucket/preprocessed_rawdata/month=2021-05-01/raw-05.json
 
 うまく行ったパターンで生成したテーブルのスキーマを取得する
 
-```
+```shell
 bq show --schema --format=prettyjson pocket.rawdata > pocket-rawdata.json
 ```
 
@@ -75,13 +75,13 @@ bq show --schema --format=prettyjson pocket.rawdata > pocket-rawdata.json
 
 別のテーブルを用意して試してみる
 
-```
+```shell
 bq mk --table --time_partitioning_field month --time_partitioning_type MONTH sample.pocket_rawdata pocket-rawdata.json
 ```
 
 - load
 
-```
+```shell
 bq load --source_format=NEWLINE_DELIMITED_JSON --replace sample.pocket_rawdata 'gs://sample-bucket/preprocessed_rawdata/*'
 ```
 

@@ -25,3 +25,4 @@ APIの内容が変わった場合は本番レスポンスを取得して各種JS
 | ALGOLIA_INDEX_NAME| Algoliaのインデックス名 | gatsby-algoliaで使用 |
 | GATSBY_ALGOLIA_SEARCH_KEY | Algoliaの検索用APIキー | gatsby-algoliaで使用 |
 | GATSBY_ALGOLIA_APP_ID | AlgoliaのAppID | ビルド時に使用 |
+| BUILD | ビルド種別 | ビルド時に使用、Cloudflare側で設定[production, preview] |

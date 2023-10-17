@@ -15,7 +15,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "dompurify": "3.0.6",
     "dotenv": "16.3.1",
-    "gatsby": "5.12.6",
+    "gatsby": "5.12.7",
     "gatsby-plugin-algolia": "1.0.3",
     "gatsby-plugin-feed": "5.12.1",
     "gatsby-plugin-google-analytics": "5.12.0",

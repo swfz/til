@@ -5,6 +5,7 @@ import React from "react"
 
 import { ElementType } from "../@types"
 import SEO from "../components/seo"
+import Like from "../components/like"
 import { rhythm, scale } from "../utils/typography"
 
 type MarkdownNode = ElementType<Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
@@ -34,22 +35,25 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
         <article>
           <header>
             <h1 className="title">{post.frontmatter.title}</h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-              <span className="tags">
-                {post.frontmatter.tags.map(tag => (
-                  <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
-                    {tag}
-                  </Link>
-                ))}
-              </span>
-            </p>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <Like slug={post.fields.slug} />
+              <p
+                style={{
+                  ...scale(-1 / 5),
+                  display: `block`,
+                  marginBottom: rhythm(1),
+                }}
+              >
+                {post.frontmatter.date}
+                <span className="tags">
+                  {post.frontmatter.tags.map(tag => (
+                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
+                      {tag}
+                    </Link>
+                  ))}
+                </span>
+              </p>
+            </div>
           </header>
           <Divider />
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -121,6 +125,9 @@ export const pageQuery = graphql`
         date
         description
         tags
+      }
+      fields {
+        slug
       }
     }
     relatedMarkdownRemarks(parent: { id: { eq: $id } }) {

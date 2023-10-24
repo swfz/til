@@ -3547,10 +3547,10 @@
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.3.tgz#a136f83b0758698df454e328759dbd3d44555311"
   integrity sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==
 
-"@types/typography@0.16.5":
-  version "0.16.5"
-  resolved "https://registry.yarnpkg.com/@types/typography/-/typography-0.16.5.tgz#eef7d5e0ae0b8585dbc8cf8f94c0adf3ba73c363"
-  integrity sha512-myIk+qB2wN+5gkuX7vNnmipWc2u8F/HFvPHt+u2xUMF6nyUALq9PaU39QGhu5ROxVCOF+VFn2/vRTcoPR01WKQ==
+"@types/typography@0.16.6":
+  version "0.16.6"
+  resolved "https://registry.yarnpkg.com/@types/typography/-/typography-0.16.6.tgz#dad6851aacaca7563799ea4f7a261e7180aed5ea"
+  integrity sha512-OzwXoYLe9ysosUF7bcTvGLL4C07MWvA3Y1o/2R/RFtM9rROJZ+Apf+cU+fWBY+ER4dUw9HZuXbdUit8DEHKZVw==
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.6"

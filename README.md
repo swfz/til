@@ -8,6 +8,27 @@
 yarn dev
 ```
 
+- with Cloudflare function d1
+
+```
+npx wrangler pages dev --d1=DB --proxy=8000 -- yarn dev
+```
+
+- 初期
+
+pages + functionだと`wrangler d1 --local`で作ったDBをバインドする方法がなさそう?（2023-10-24時点では見つけられなかったので次のように処理する）
+
+一度`--d1=DB`というようにバインドして起動するとSQLiteのファイルが作成される
+
+`.wrangler/state/v3/d1/miniflare-D1DatabaseObject/${hogehoge}.sqlite`にバインド時使用するSQLiteファイルがある
+
+特定してそこに`schema.sql`を流し込む
+
+```
+sqlite3 .wrangler/state/v3/d1/miniflare-D1DatabaseObject/hogefugapiyo.sqlite < schema.sql
+```
+
+
 ### Algolia APIのモックデータ
 
 開発では基本的にAlgoliaにリクエストが飛ばないようになっている
@@ -26,3 +47,4 @@ APIの内容が変わった場合は本番レスポンスを取得して各種JS
 | GATSBY_ALGOLIA_SEARCH_KEY | Algoliaの検索用APIキー | gatsby-algoliaで使用 |
 | GATSBY_ALGOLIA_APP_ID | AlgoliaのAppID | ビルド時に使用 |
 | BUILD | ビルド種別 | ビルド時に使用、Cloudflare側で設定[production, preview] |
+

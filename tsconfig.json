@@ -1,6 +1,6 @@
 {
   "include": ["./src/**/*", "gatsby-node.ts", "gatsby-config.ts", "gatsby-browser.tsx"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "functions/**/*"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "commonjs",

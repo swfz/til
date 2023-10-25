@@ -9,7 +9,6 @@ exports[`Archive snapshot 1`] = `
     open={true}
   >
     <summary>
-      +
       <a
         aria-label="year-link"
         href="/archives/2021"
@@ -44,7 +43,6 @@ exports[`Archive snapshot 1`] = `
     open={false}
   >
     <summary>
-      +
       <a
         aria-label="year-link"
         href="/archives/2020"

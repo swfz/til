@@ -4,8 +4,8 @@ import kebabCase from "lodash/kebabCase"
 import React from "react"
 
 import { ElementType } from "../@types"
-import SEO from "../components/seo"
 import Like from "../components/like"
+import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 type MarkdownNode = ElementType<Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]

@@ -28,7 +28,7 @@ describe("Archive", () => {
     },
   }
   it("renders correctly", async () => {
-    const { getAllByText, getAllByLabelText } = render(<ArchiveList data={data}></ArchiveList>)
+    const { getAllByLabelText, getAllByTestId } = render(<ArchiveList data={data}></ArchiveList>)
 
     // 記事件数と順番があっているか
     const yearLinkList = getAllByLabelText("year-link")
@@ -51,7 +51,7 @@ describe("Archive", () => {
     expect(monthLInkList[2]).not.toBeVisible()
 
     // +ボタンクリック後にリストが閉じた状態になっているか
-    const plusText2021 = getAllByText(/\+/i)[0]
+    const plusText2021 = getAllByTestId("year")[0]
     await user.click(plusText2021)
 
     expect(monthLInkList[0]).not.toBeVisible()
@@ -59,7 +59,7 @@ describe("Archive", () => {
     expect(monthLInkList[2]).not.toBeVisible()
 
     // 2020年のリストクリック時に展開された状態になっているか
-    const plusText2020 = getAllByText(/\+/i)[1]
+    const plusText2020 = getAllByTestId("year")[1]
     await user.click(plusText2020)
 
     expect(monthLInkList[0]).not.toBeVisible()

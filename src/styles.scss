@@ -140,3 +140,7 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
   color: #979797;
   font-size: 0.7em;
 }
+
+summary {
+  display: list-item;
+}

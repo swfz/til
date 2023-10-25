@@ -63,7 +63,6 @@ export const ArchiveList = (props: Props) => {
         .map(([year, items]) => (
           <details open={isOpen(parseInt(year))} key={year}>
             <summary>
-              +
               <Link aria-label={"year-link"} to={`/archives/${year}`}>
                 {year}({Object.entries(items).reduce((acc, [, v]) => acc + v.length, 0)})
               </Link>

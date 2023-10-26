@@ -43,7 +43,7 @@
     "react-dom": "18.2.0",
     "react-instantsearch": "^7.2.0",
     "react-typography": "0.16.23",
-    "sass": "1.69.4",
+    "sass": "1.69.5",
     "styled-components": "6.1.0",
     "typeface-merriweather": "1.1.13",
     "typeface-montserrat": "1.1.13",

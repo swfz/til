@@ -1,0 +1,155 @@
+[
+  {
+    "name": "Cloud",
+    "tags": [
+      "AWS",
+      "GoogleCloudPlatform",
+      "GoogleCloud",
+      "Cloudflare",
+      "BigQuery",
+      "CloudFront",
+      "CloudFunctions",
+      "CloudScheduler",
+      "CloudWatchLogs",
+      "CloudWorkflows",
+      "Workflows",
+      "Cloudflare Pages",
+      "Lambda",
+      "S3",
+      "SecretManager",
+      "GCS"
+    ]
+  },
+  {
+    "name": "サービス",
+    "tags": [
+      "Netlify",
+      "Sentry",
+      "Confluence",
+      "Notion",
+      "Algolia",
+      "はてなブログ",
+      "Slack",
+      "Renovate",
+      "Pixela",
+      "GitHub",
+      "Gist",
+      "Pocket",
+      "DataPortal",
+      "GoogleColab",
+      "GoogleSlide",
+      "GitHub Projects",
+      "GoogleAnalytics4",
+      "Spreadsheet",
+      "Codespace",
+      "GoogleAppsScript"
+    ]
+  },
+  {
+    "name": "フレームワーク",
+    "tags": ["Gatsby", "Nextjs", "Next", "Rails"]
+  },
+  {
+    "name": "言語/ランタイム",
+    "tags": [
+      "Go",
+      "Ruby",
+      "Node",
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "ShellScript",
+      "CSS",
+      "Deno",
+      "Markdown",
+      "ES2015"
+    ]
+  },
+  {
+    "name": "ライブラリ",
+    "tags": [
+      "MUI",
+      "TestingLibrary",
+      "Testing Library",
+      "React Testing Library",
+      "React",
+      "TinySegmenter",
+      "Tailwindcss",
+      "Resque",
+      "textlint",
+      "node-fetch",
+      "QuerySelector",
+      "dayjs",
+      "rollup plugin",
+      "Jest",
+      "Storybook",
+      "MaterialUI",
+      "Matplotlib",
+      "msw",
+      "Puppeteer",
+      "Pandas",
+      "markdownlint",
+      "Obsidian Plugin"
+    ]
+  },
+  {
+    "name": "ツール/コマンド",
+    "tags": [
+      "jq",
+      "Command",
+      "zx",
+      "pnpm",
+      "yarn",
+      "Yarn",
+      "npm",
+      "pip",
+      "yq",
+      "sed",
+      "tmux",
+      "grep",
+      "sed",
+      "vite",
+      "Gem",
+      "X",
+      "curl",
+      "GitHub CLI",
+      "Git",
+      "csplit",
+      "ImageMagick",
+      "LocalStack",
+      "gsutil",
+      "ワンライナー",
+      "Windows Terminal",
+      "Chrome拡張",
+      "Bookmarklet"
+    ]
+  },
+  {
+    "name": "データストア",
+    "tags": ["MySQL", "SQL", "Redis", "Hive"]
+  },
+  {
+    "name": "エディタ",
+    "tags": ["IntelliJ", "VS Code", "Vim", "Obsidian"]
+  },
+  {
+    "name": "セキュリティ",
+    "tags": ["BasicAuth", "ssh", "OpenSSL"]
+  },
+  {
+    "name": "インフラ/DevOps/開発環境",
+    "tags": [
+      "Docker",
+      "Ansible",
+      "Terraform",
+      "GitHubActions",
+      "Vagrant",
+      "VirtualBox",
+      "CentOS7",
+      "WSL",
+      "WSL2",
+      "Windows",
+      "docker-compose"
+    ]
+  }
+]

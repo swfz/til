@@ -3,6 +3,7 @@ import { queries, feedOptions, gatsbyRequiredRules, remarkRelatedPostsOptions } 
 import type { GatsbyConfig } from "gatsby"
 
 const plugins: GatsbyConfig["plugins"] = [
+  `gatsby-transformer-json`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {
@@ -15,6 +16,13 @@ const plugins: GatsbyConfig["plugins"] = [
     options: {
       path: `${__dirname}/content/assets`,
       name: `assets`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/content/definitions`,
+      name: `definitions`,
     },
   },
   {

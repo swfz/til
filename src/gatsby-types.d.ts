@@ -48,6 +48,132 @@ type BooleanQueryOperatorInput = {
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']>>>;
 };
 
+type CategoriesJson = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+};
+
+type CategoriesJsonConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<CategoriesJsonEdge>;
+  readonly group: ReadonlyArray<CategoriesJsonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<CategoriesJson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type CategoriesJsonConnection_distinctArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+
+type CategoriesJsonConnection_groupArgs = {
+  field: CategoriesJsonFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type CategoriesJsonConnection_maxArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+
+type CategoriesJsonConnection_minArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+
+type CategoriesJsonConnection_sumArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+type CategoriesJsonEdge = {
+  readonly next: Maybe<CategoriesJson>;
+  readonly node: CategoriesJson;
+  readonly previous: Maybe<CategoriesJson>;
+};
+
+type CategoriesJsonFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
+};
+
+type CategoriesJsonFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
+};
+
+type CategoriesJsonFilterListInput = {
+  readonly elemMatch: InputMaybe<CategoriesJsonFilterInput>;
+};
+
+type CategoriesJsonGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<CategoriesJsonEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<CategoriesJsonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<CategoriesJson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type CategoriesJsonGroupConnection_distinctArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+
+type CategoriesJsonGroupConnection_groupArgs = {
+  field: CategoriesJsonFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type CategoriesJsonGroupConnection_maxArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+
+type CategoriesJsonGroupConnection_minArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+
+type CategoriesJsonGroupConnection_sumArgs = {
+  field: CategoriesJsonFieldSelector;
+};
+
+type CategoriesJsonSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly tags: InputMaybe<SortOrderEnum>;
+};
+
 type DateQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['Date']>;
   readonly gt: InputMaybe<Scalars['Date']>;
@@ -378,11 +504,15 @@ type File = Node & {
   readonly blksize: Maybe<Scalars['Int']>;
   readonly blocks: Maybe<Scalars['Int']>;
   readonly changeTime: Scalars['Date'];
+  /** Returns the first child node of type CategoriesJson or null if there are no children of given type on this node */
+  readonly childCategoriesJson: Maybe<CategoriesJson>;
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   readonly childImageSharp: Maybe<ImageSharp>;
   /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
   readonly childMarkdownRemark: Maybe<MarkdownRemark>;
   readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type CategoriesJson */
+  readonly childrenCategoriesJson: Maybe<ReadonlyArray<Maybe<CategoriesJson>>>;
   /** Returns all children nodes filtered by type ImageSharp */
   readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
   /** Returns all children nodes filtered by type MarkdownRemark */
@@ -529,9 +659,11 @@ type FileFieldSelector = {
   readonly blksize: InputMaybe<FieldSelectorEnum>;
   readonly blocks: InputMaybe<FieldSelectorEnum>;
   readonly changeTime: InputMaybe<FieldSelectorEnum>;
+  readonly childCategoriesJson: InputMaybe<CategoriesJsonFieldSelector>;
   readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenCategoriesJson: InputMaybe<CategoriesJsonFieldSelector>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
   readonly ctime: InputMaybe<FieldSelectorEnum>;
@@ -574,9 +706,11 @@ type FileFilterInput = {
   readonly blksize: InputMaybe<IntQueryOperatorInput>;
   readonly blocks: InputMaybe<IntQueryOperatorInput>;
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly childCategoriesJson: InputMaybe<CategoriesJsonFilterInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenCategoriesJson: InputMaybe<CategoriesJsonFilterListInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
   readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
@@ -660,9 +794,11 @@ type FileSortInput = {
   readonly blksize: InputMaybe<SortOrderEnum>;
   readonly blocks: InputMaybe<SortOrderEnum>;
   readonly changeTime: InputMaybe<SortOrderEnum>;
+  readonly childCategoriesJson: InputMaybe<CategoriesJsonSortInput>;
   readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenCategoriesJson: InputMaybe<CategoriesJsonSortInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
   readonly ctime: InputMaybe<SortOrderEnum>;
@@ -1615,6 +1751,7 @@ type PotraceTurnPolicy =
   | 'white';
 
 type Query = {
+  readonly allCategoriesJson: CategoriesJsonConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -1625,6 +1762,7 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
+  readonly categoriesJson: Maybe<CategoriesJson>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1635,6 +1773,14 @@ type Query = {
   readonly siteFunction: Maybe<SiteFunction>;
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
+};
+
+
+type Query_allCategoriesJsonArgs = {
+  filter: InputMaybe<CategoriesJsonFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<CategoriesJsonSortInput>>>;
 };
 
 
@@ -1718,6 +1864,16 @@ type Query_allSitePluginArgs = {
 };
 
 
+type Query_categoriesJsonArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  tags: InputMaybe<StringQueryOperatorInput>;
+};
+
+
 type Query_directoryArgs = {
   absolutePath: InputMaybe<StringQueryOperatorInput>;
   accessTime: InputMaybe<DateQueryOperatorInput>;
@@ -1769,9 +1925,11 @@ type Query_fileArgs = {
   blksize: InputMaybe<IntQueryOperatorInput>;
   blocks: InputMaybe<IntQueryOperatorInput>;
   changeTime: InputMaybe<DateQueryOperatorInput>;
+  childCategoriesJson: InputMaybe<CategoriesJsonFilterInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
   childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
+  childrenCategoriesJson: InputMaybe<CategoriesJsonFilterListInput>;
   childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
   childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
@@ -2951,7 +3109,7 @@ type SiteQuery = { readonly site: { readonly siteMetadata: { readonly title: str
 type TagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type TagsQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly allMarkdownRemark: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> } };
+type TagsQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly allMarkdownRemark: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allCategoriesJson: { readonly edges: ReadonlyArray<{ readonly node: { readonly name: string | null, readonly tags: ReadonlyArray<string | null> | null } }> } };
 
 type TitleQueryVariables = Exact<{ [key: string]: never; }>;
 

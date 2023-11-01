@@ -61,7 +61,7 @@ const plugins: GatsbyConfig["plugins"] = [
           options: {
             showLineNumbers: true,
             noInlineHighlight: false,
-          }
+          },
         },
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`,

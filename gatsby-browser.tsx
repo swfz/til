@@ -2,9 +2,11 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 import "prismjs/themes/prism-coy.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+import "./src/styles.scss"
+
 import { default as React, ReactNode } from "react"
 
-import "./src/styles.scss"
 import Layout from "./src/components/layout"
 import { worker } from "./src/mocks/browser"
 

@@ -56,7 +56,13 @@ const plugins: GatsbyConfig["plugins"] = [
           resolve: "gatsby-remark-embed-gist",
           options: {},
         },
-        `gatsby-remark-prismjs`,
+        {
+          resolve: "gatsby-remark-prismjs",
+          options: {
+            showLineNumbers: true,
+            noInlineHighlight: false,
+          }
+        },
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`,
       ],

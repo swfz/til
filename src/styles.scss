@@ -27,9 +27,10 @@ p, a, div, h1, h2, h3, h4 {
   font-size: 1.2rem;
 }
 
-// prismjs
-code.language-json, code.language-hcl, code.language-python, code.language-yaml, code.language-sql, code.language-javascript, code.language-typescript, code.language-ruby, code.language-shell, code.language-graphql {
- .token.number {
+// ----- prismjs -----
+// 各種言語の数字
+code[class*="language-"] {
+  .token.number {
     margin-right: initial;
     min-width: initial;
     padding: initial;
@@ -39,6 +40,8 @@ code.language-json, code.language-hcl, code.language-python, code.language-yaml,
     font-size: initial;
   }
 }
+
+// tsx内のHTMLタグ
 code.language-tsx {
   .token.tag {
     margin-right: initial;
@@ -46,8 +49,74 @@ code.language-tsx {
   }
 }
 
-pre[class*="language-"]:before, pre[class*="language-"]:after {
-  box-shadow: 0px 0px 0px #979797
+// Markdown内のタイトル
+code.language-markdown {
+  .token.title {
+    font-size: 1em;
+  }
+}
+
+// デフォルトだと影が濃かったので打ち消すための設定
+pre[class*="language-"]::before, pre[class*="language-"]::after {
+  box-shadow: 0px 0px 0px #979797;
+}
+
+// code[class*="language-"] > span:not(.line-numbers-rows) {
+//   margin-left: 1em;
+// }
+
+
+// 基本的に行番号は表示
+pre[class*="language-"] > code {
+  background-color: initial;
+  padding: 0;
+}
+.line-numbers-rows {
+  background-color: #efefef;
+}
+
+// 行数表示箇所
+.line-numbers-rows > span::before {
+  width: 2em;
+  margin-left: 0.4em;
+  padding-right: 0.4em;
+  margin-right: 0;
+}
+
+.line-numbers .line-numbers-rows {
+  border-right: 0.3em solid #e6e6e6;
+}
+
+pre[class*="language-"].line-numbers.line-numbers code {
+  padding-left: 2.2em;
+}
+
+// text, shellの場合のみ行番号は表示させない
+pre.language-shell.line-numbers.line-numbers code, pre.language-text.line-numbers.line-numbers code {
+  padding-left: 0.1em;
+}
+pre.language-shell.line-numbers .line-numbers-rows, pre.language-text.line-numbers .line-numbers-rows {
+  display: none;
+}
+
+// highlight
+.gatsby-highlight-code-line {
+  background-color: #ff1df024;
+  display: block;
+}
+
+// -なのはハイライトしてない部分との縦線の位置を合わせるため
+span.gatsby-highlight-code-line::before {
+  position: relative;
+  left: -4px;
+  border: 0.17em solid #c1006d;
+  content: "";
+}
+
+// -なのはハイライトしてない部分とのコード位置を合わせるため
+span.gatsby-highlight-code-line {
+  position: relative;
+  left: -0.17em;
 }
 
 .popover {
@@ -143,4 +212,39 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 
 summary {
   display: list-item;
+}
+
+table {
+  border: 1px solid #cccccc;
+}
+
+th {
+  background-color: #efefef;
+  font-weight: bold;
+  border: 1px solid #cccccc;
+}
+
+tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f8fb;
+}
+
+td, th {
+  border: 1px solid #cccccc;
+}
+
+td[align="left"], th[align="left"] {
+  padding: 0.1em 0.5em;
+  text-align: left;
+}
+td[align="right"], th[align="right"] {
+  padding: 0.1em 0.5em;
+  text-align: right;
+}
+td[align="center"], th[align="center"] {
+  padding: 0.1em 0.5em;
+  text-align: center;
 }

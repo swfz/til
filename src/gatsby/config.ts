@@ -130,7 +130,7 @@ export const feedOptions = {
         })
       },
       query: `{
-  allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+  allMarkdownRemark(sort: {frontmatter: {date: DESC}} filter: { fields: {collection: {eq: "blog"}}}) {
     edges {
       node {
         excerpt

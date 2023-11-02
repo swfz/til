@@ -1532,18 +1532,22 @@ type MarkdownRemarkFieldSelector = {
 };
 
 type MarkdownRemarkFields = {
+  readonly collection: Scalars['String'];
   readonly slug: Scalars['String'];
 };
 
 type MarkdownRemarkFieldsFieldSelector = {
+  readonly collection: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
 };
 
 type MarkdownRemarkFieldsFilterInput = {
+  readonly collection: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkFieldsSortInput = {
+  readonly collection: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
 };
 

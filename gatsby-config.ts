@@ -14,6 +14,13 @@ const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
+      path: `${__dirname}/content/sample`,
+      name: `sample`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
       path: `${__dirname}/content/assets`,
       name: `assets`,
     },
@@ -56,7 +63,13 @@ const plugins: GatsbyConfig["plugins"] = [
           resolve: "gatsby-remark-embed-gist",
           options: {},
         },
-        `gatsby-remark-prismjs`,
+        {
+          resolve: "gatsby-remark-prismjs",
+          options: {
+            showLineNumbers: true,
+            noInlineHighlight: false,
+          },
+        },
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`,
       ],

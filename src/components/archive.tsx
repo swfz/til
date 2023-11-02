@@ -11,7 +11,7 @@ type Props = {
 const Archive = () => {
   const data: Queries.ArchiveQueryQuery = useStaticQuery(graphql`
     query ArchiveQuery {
-      allMarkdownRemark(limit: 2000) {
+      allMarkdownRemark(limit: 2000, filter: { fields: { collection: { eq: "blog" } } }) {
         edges {
           node {
             frontmatter {

@@ -4,20 +4,18 @@ import React from "react"
 import Line from "../components/line"
 import SEO from "../components/seo"
 
-const BlogIndex: React.FC<PageProps<Queries.AllMarkdownQuery>> = ({ data }) => {
+const SamplesPage: React.FC<PageProps<Queries.AllMarkdownQuery>> = ({ data }) => {
   const posts = data.allMarkdownRemark?.edges
 
   return (
     <>
-      <SEO title="All posts" />
+      <SEO title="All samples" />
       {posts.map(({ node }) => {
         return <Line key={node?.fields?.slug} node={node}></Line>
       })}
     </>
   )
 }
-
-export default BlogIndex
 
 export const pageQuery = graphql`
   query AllMarkdown {
@@ -26,7 +24,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, filter: { fields: { collection: { eq: "blog" } } }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, filter: { fields: { collection: { eq: "sample" } } }) {
       edges {
         node {
           excerpt
@@ -44,3 +42,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default SamplesPage

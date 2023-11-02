@@ -89,7 +89,8 @@
       "Puppeteer",
       "Pandas",
       "markdownlint",
-      "Obsidian Plugin"
+      "Obsidian Plugin",
+      "prismjs"
     ]
   },
   {

@@ -61,11 +61,6 @@ pre[class*="language-"]::before, pre[class*="language-"]::after {
   box-shadow: 0px 0px 0px #979797;
 }
 
-// code[class*="language-"] > span:not(.line-numbers-rows) {
-//   margin-left: 1em;
-// }
-
-
 // 基本的に行番号は表示
 pre[class*="language-"] > code {
   background-color: initial;

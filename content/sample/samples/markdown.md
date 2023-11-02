@@ -1,9 +1,10 @@
 ---
-title: "Sample"
+title: "Markdownのサンプル"
 date: "2023-11-01"
 description: "desc"
 tags:
   - Sample
+  - Markdown
 ---
 
 # sample

@@ -1,6 +1,6 @@
 ---
 title: "prismjs用のサンプル"
-date: "2023-11-01"
+date: "2023-11-02"
 description: "desc"
 tags:
   - prismjs

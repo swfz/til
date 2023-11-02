@@ -42,7 +42,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { date: { gte: $startDate, lt: $endDate } } }
+      filter: { frontmatter: { date: { gte: $startDate, lt: $endDate } }, fields: { collection: { eq: "blog" } } }
     ) {
       totalCount
       edges {

@@ -26,7 +26,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, filter: { fields: { collection: { eq: "blog" } } }) {
       edges {
         node {
           excerpt

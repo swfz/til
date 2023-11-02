@@ -14,6 +14,13 @@ const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
+      path: `${__dirname}/content/sample`,
+      name: `sample`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
       path: `${__dirname}/content/assets`,
       name: `assets`,
     },

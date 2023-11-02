@@ -17,6 +17,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     }
     type MarkdownRemarkFields {
       slug: String!
+      collection: String!
     }
     type MarkdownRemarkFrontmatter {
       title: String!
@@ -138,12 +139,19 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+  if (node.internal.type === `MarkdownRemark` && node.parent) {
+    const slug = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
+    })
+
+    const parent = getNode(node.parent)
+    createNodeField({
+      name: "collection",
+      node,
+      value: parent?.sourceInstanceName,
     })
   }
 }

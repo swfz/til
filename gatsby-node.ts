@@ -28,7 +28,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
   `)
 }
 
-export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
@@ -54,6 +54,14 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
       tagsGroup: allMarkdownRemark(limit: 2000) {
         group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
+        }
+      }
+      categories: allCategoriesJson(limit: 1000) {
+        edges {
+          node {
+            name
+            tags
+          }
         }
       }
     }
@@ -134,6 +142,15 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
       },
     })
   })
+
+  // check for unmapped categories
+  const OTHER_CATEGORY_TAGS = 7
+  const categories = result?.data?.categories.edges || []
+  const otherCategoryTags = tags.filter(tag => !categories.find(c => c.node.tags?.includes(tag.fieldValue)))
+
+  if (otherCategoryTags.length > OTHER_CATEGORY_TAGS) {
+    reporter.warn(`${otherCategoryTags.map(c => c.fieldValue).join(", ")} are not mapped to any category`)
+  }
 }
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {

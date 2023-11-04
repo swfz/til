@@ -174,7 +174,7 @@ const config: GatsbyConfig = {
       summary: `Software Programmer`,
     },
     description: `Today I Learned`,
-    siteUrl: `https://til.swfz.io/`,
+    siteUrl: `https://til.swfz.io`,
     social: {
       twitter: `swfz`,
       github: `swfz`,

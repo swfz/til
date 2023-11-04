@@ -4,7 +4,7 @@ import kebabCase from "lodash/kebabCase"
 import React from "react"
 
 import { ElementType } from "../@types"
-import Like from "../components/like"
+import Reaction from "../components/reaction"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
@@ -29,14 +29,23 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
   const relatedPosts = data.relatedMarkdownRemarks?.posts?.slice(0, 3)
   const { previous, next } = pageContext
 
-  if (!isNil(post) && !isNil(post.html)) {
-    return (
-      <>
+  if (isNil(post) || isNil(post.html)) {
+    return <></>
+  }
+
+  return (
+    <div
+      className="columns"
+      style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}
+    >
+      <div className="column is-1" style={{ background: "#EFEFEF" }}>
+        <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
+      </div>
+      <main className="column is-11">
         <article>
           <header>
             <h1 className="title">{post.frontmatter.title}</h1>
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <Like slug={post.fields.slug} />
               <p
                 style={{
                   ...scale(-1 / 5),
@@ -61,7 +70,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
         </article>
 
         <div>
-          <h2>関連記事</h2>
+          <h3 className="title is-3">関連記事</h3>
           <ul>
             {relatedPosts?.map(relatedPost => {
               return (
@@ -75,15 +84,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
         </div>
 
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+          <ul className="before-after-navi">
             <li>
               {previous && (
                 <Link to={previous.fields.slug || ""} rel="prev">
@@ -100,11 +101,9 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
             </li>
           </ul>
         </nav>
-      </>
-    )
-  } else {
-    return <></>
-  }
+      </main>
+    </div>
+  )
 }
 
 export default BlogPostTemplate
@@ -114,6 +113,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

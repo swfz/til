@@ -1,4 +1,4 @@
-import { default as React, ReactNode } from "react"
+import { default as React } from "react"
 
 import Navigation from "../components/navi"
 
@@ -6,11 +6,11 @@ import Archive from "./archive"
 import Bio from "./bio"
 import Pixela from "./pixela"
 
-interface LayoutProps {
-  children: ReactNode
+type LayoutProps = {
+  children: React.ReactNode
 }
 
-const Layout = (props: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   return (
     <>
       <Navigation></Navigation>
@@ -21,20 +21,10 @@ const Layout = (props: LayoutProps) => {
           paddingTop: `0.5rem`,
         }}
       >
-        <div
-          className="column is-6 is-offset-one-fifth"
-          style={{
-            background: `#FFFFFF`,
-          }}
-        >
-          <main>{props.children}</main>
+        <div className="column is-6 is-offset-one-fifth" style={{ padding: 0, background: "#FFFFFF" }}>
+          {props.children}
         </div>
-        <div
-          className="column is-2"
-          style={{
-            background: `#F9F9F9`,
-          }}
-        >
+        <div className="column is-2 sidebar">
           <Bio></Bio>
           <hr />
           <Archive></Archive>

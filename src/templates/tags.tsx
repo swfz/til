@@ -15,7 +15,7 @@ const Tags: React.FC<PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>> =
   const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`
 
   return (
-    <>
+    <main style={{ padding: "0.75rem" }}>
       <SEO title="All posts" />
       <div>
         <h1 className="subtitle">{tagHeader}</h1>
@@ -27,7 +27,7 @@ const Tags: React.FC<PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>> =
         </ul>
         <Link to="/tags">All tags</Link>
       </div>
-    </>
+    </main>
   )
 }
 

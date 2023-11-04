@@ -15,7 +15,7 @@ const ArchivesTemplate: React.FC<PageProps<Queries.ArchivesByDateRangeQuery, Pag
   const { edges, totalCount } = data.allMarkdownRemark
 
   return (
-    <div>
+    <main style={{ padding: "0.75rem" }}>
       <div>
         <h1 className="subtitle">
           {pageContext.year}
@@ -28,7 +28,7 @@ const ArchivesTemplate: React.FC<PageProps<Queries.ArchivesByDateRangeQuery, Pag
           })}
         </ul>
       </div>
-    </div>
+    </main>
   )
 }
 

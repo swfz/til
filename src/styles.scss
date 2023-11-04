@@ -27,6 +27,28 @@ p, a, div, h1, h2, h3, h4 {
   font-size: 1.2rem;
 }
 
+.reaction {
+  position: sticky;
+  top: 1em;
+}
+
+.share-count {
+  font-size: 0.7em;
+  padding-bottom: 0.5em;
+}
+
+.sidebar {
+  background-color: #F9F9F9;
+}
+
+.before-after-navi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+
 // ----- prismjs -----
 // 各種言語の数字
 code[class*="language-"] {

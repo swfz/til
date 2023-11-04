@@ -25,34 +25,32 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   }, {} as SummarizedTag)
 
   return (
-    <div>
-      <div>
-        <h1 className="subtitle">Tags</h1>
-        {Object.entries(categories)
-          .sort((a, b) => (a[0] === "Other" ? 1 : b[1].count - a[1].count))
-          .map(([category, row]) => (
-            <>
-              <hr />
-              <details key={category} open>
-                <summary key={category}>
-                  {category} ({row?.count})
-                </summary>
-                <span className="tags">
-                  {row?.tags.map(tag => (
-                    <Link
-                      key={tag.fieldValue}
-                      className="tag is-link is-light"
-                      to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}
-                    >
-                      {tag.fieldValue} ({tag.totalCount})
-                    </Link>
-                  ))}
-                </span>
-              </details>
-            </>
-          ))}
-      </div>
-    </div>
+    <main style={{ padding: "0.75rem" }}>
+      <h1 className="subtitle">Tags</h1>
+      {Object.entries(categories)
+        .sort((a, b) => (a[0] === "Other" ? 1 : b[1].count - a[1].count))
+        .map(([category, row]) => (
+          <>
+            <hr />
+            <details key={category} open>
+              <summary key={category}>
+                {category} ({row?.count})
+              </summary>
+              <span className="tags">
+                {row?.tags.map(tag => (
+                  <Link
+                    key={tag.fieldValue}
+                    className="tag is-link is-light"
+                    to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}
+                  >
+                    {tag.fieldValue} ({tag.totalCount})
+                  </Link>
+                ))}
+              </span>
+            </details>
+          </>
+        ))}
+    </main>
   )
 }
 

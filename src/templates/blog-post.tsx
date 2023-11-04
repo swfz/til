@@ -5,6 +5,7 @@ import React from "react"
 
 import { ElementType } from "../@types"
 import Like from "../components/like"
+import Reaction from "../components/reaction"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
@@ -34,76 +35,73 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
   }
 
   return (
-    <>
-      <article>
-        <header>
-          <h1 className="title">{post.frontmatter.title}</h1>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <Like slug={post.fields.slug} />
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-              <span className="tags">
-                {post.frontmatter.tags.map(tag => (
-                  <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
-                    {tag}
-                  </Link>
-                ))}
-              </span>
-            </p>
-          </div>
-        </header>
-        <Divider />
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <Divider />
-      </article>
-
-      <div>
-        <h2>関連記事</h2>
-        <ul>
-          {relatedPosts?.map(relatedPost => {
-            return (
-              <li key={relatedPost?.fields.slug ?? ""}>
-                <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
-              </li>
-            )
-          })}
-        </ul>
-        <Divider />
+    <div className="columns" style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}>
+      <div className="column is-1" style={{ background: "#EFEFEF" }}>
+        <Reaction slug={post.fields.slug}></Reaction>
       </div>
+      <main className="column is-11">
+        <article>
+          <header>
+            <h1 className="title">{post.frontmatter.title}</h1>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <Like slug={post.fields.slug} />
+              <p
+                style={{
+                  ...scale(-1 / 5),
+                  display: `block`,
+                  marginBottom: rhythm(1),
+                }}
+              >
+                {post.frontmatter.date}
+                <span className="tags">
+                  {post.frontmatter.tags.map(tag => (
+                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
+                      {tag}
+                    </Link>
+                  ))}
+                </span>
+              </p>
+            </div>
+          </header>
+          <Divider />
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Divider />
+        </article>
 
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug || ""} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug || ""} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </>
+        <div>
+          <h3 className="title is-3">関連記事</h3>
+          <ul>
+            {relatedPosts?.map(relatedPost => {
+              return (
+                <li key={relatedPost?.fields.slug ?? ""}>
+                  <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+          <Divider />
+        </div>
+
+        <nav>
+          <ul className="before-after-navi">
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug || ""} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug || ""} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </main>
+    </div>
   )
 }
 

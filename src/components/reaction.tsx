@@ -14,6 +14,8 @@ import {
   FacebookIcon,
 } from "react-share"
 
+import Like from "../components/like"
+
 // FIXME: ShareCountの型情報を合わせられなかったのでやむなくany+disableにした
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const renderShareCount: any = (shareCount: number) => <div className="share-count">{shareCount}</div>
@@ -22,6 +24,7 @@ const Reaction: React.FC<{ slug: string }> = ({ slug }) => {
   const url = `https://til.swfz.io${slug}`
   return (
     <div className="reaction">
+      <Like slug={slug} />
       <HatenaShareButton url={url}>
         <HatenaIcon size={32} round={true} />
         <HatenaShareCount url={url}>{renderShareCount}</HatenaShareCount>
@@ -36,7 +39,7 @@ const Reaction: React.FC<{ slug: string }> = ({ slug }) => {
         <LineIcon size={32} round={true} />
       </LineShareButton>
       <FacebookShareButton url={url}>
-        <FacebookIcon size={32} round={false} />
+        <FacebookIcon size={32} round={true} />
         <FacebookShareCount url={url}>{renderShareCount}</FacebookShareCount>
       </FacebookShareButton>
     </div>

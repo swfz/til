@@ -4,7 +4,6 @@ import kebabCase from "lodash/kebabCase"
 import React from "react"
 
 import { ElementType } from "../@types"
-import Like from "../components/like"
 import Reaction from "../components/reaction"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
@@ -35,7 +34,10 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
   }
 
   return (
-    <div className="columns" style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}>
+    <div
+      className="columns"
+      style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}
+    >
       <div className="column is-1" style={{ background: "#EFEFEF" }}>
         <Reaction slug={post.fields.slug}></Reaction>
       </div>
@@ -44,7 +46,6 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
           <header>
             <h1 className="title">{post.frontmatter.title}</h1>
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <Like slug={post.fields.slug} />
               <p
                 style={{
                   ...scale(-1 / 5),

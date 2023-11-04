@@ -20,8 +20,8 @@ import Like from "../components/like"
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const renderShareCount: any = (shareCount: number) => <div className="share-count">{shareCount}</div>
 
-const Reaction: React.FC<{ slug: string }> = ({ slug }) => {
-  const url = `https://til.swfz.io${slug}`
+const Reaction: React.FC<{ siteUrl: string; slug: string }> = ({ siteUrl, slug }) => {
+  const url = `${siteUrl}${slug}`
   return (
     <div className="reaction">
       <Like slug={slug} />

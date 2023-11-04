@@ -39,7 +39,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
       style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}
     >
       <div className="column is-1" style={{ background: "#EFEFEF" }}>
-        <Reaction slug={post.fields.slug}></Reaction>
+        <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
       </div>
       <main className="column is-11">
         <article>
@@ -113,6 +113,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

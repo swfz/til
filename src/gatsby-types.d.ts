@@ -3065,7 +3065,7 @@ type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-type BlogPostBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string, readonly date: string, readonly description: string, readonly tags: ReadonlyArray<string | null> }, readonly fields: { readonly slug: string } } | null, readonly relatedMarkdownRemarks: { readonly posts: ReadonlyArray<{ readonly frontmatter: { readonly title: string }, readonly fields: { readonly slug: string } } | null> | null } | null };
+type BlogPostBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly siteUrl: string | null } | null } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string, readonly date: string, readonly description: string, readonly tags: ReadonlyArray<string | null> }, readonly fields: { readonly slug: string } } | null, readonly relatedMarkdownRemarks: { readonly posts: ReadonlyArray<{ readonly frontmatter: { readonly title: string }, readonly fields: { readonly slug: string } } | null> | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 

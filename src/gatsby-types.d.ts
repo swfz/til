@@ -3123,7 +3123,7 @@ type TitleQuery = { readonly site: { readonly siteMetadata: { readonly title: st
 type AllPostAndTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AllPostAndTagsQuery = { readonly postsRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly date: string, readonly title: string, readonly tags: ReadonlyArray<string | null> } } }> }, readonly tagsGroup: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null }> } };
+type AllPostAndTagsQuery = { readonly postsRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly date: string, readonly title: string, readonly tags: ReadonlyArray<string | null> } } }> }, readonly tagsGroup: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null }> }, readonly categories: { readonly edges: ReadonlyArray<{ readonly node: { readonly name: string | null, readonly tags: ReadonlyArray<string | null> | null } }> } };
 
 
 }

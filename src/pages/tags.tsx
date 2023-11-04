@@ -29,7 +29,7 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
       <div>
         <h1 className="subtitle">Tags</h1>
         {Object.entries(categories)
-          .sort((a, b) => b[1].count - a[1].count)
+          .sort((a, b) => (a[0] === "Other" ? 1 : b[1].count - a[1].count))
           .map(([category, row]) => (
             <>
               <hr />

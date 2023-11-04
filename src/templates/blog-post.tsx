@@ -29,82 +29,82 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
   const relatedPosts = data.relatedMarkdownRemarks?.posts?.slice(0, 3)
   const { previous, next } = pageContext
 
-  if (!isNil(post) && !isNil(post.html)) {
-    return (
-      <>
-        <article>
-          <header>
-            <h1 className="title">{post.frontmatter.title}</h1>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <Like slug={post.fields.slug} />
-              <p
-                style={{
-                  ...scale(-1 / 5),
-                  display: `block`,
-                  marginBottom: rhythm(1),
-                }}
-              >
-                {post.frontmatter.date}
-                <span className="tags">
-                  {post.frontmatter.tags.map(tag => (
-                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
-                      {tag}
-                    </Link>
-                  ))}
-                </span>
-              </p>
-            </div>
-          </header>
-          <Divider />
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <Divider />
-        </article>
-
-        <div>
-          <h2>関連記事</h2>
-          <ul>
-            {relatedPosts?.map(relatedPost => {
-              return (
-                <li key={relatedPost?.fields.slug ?? ""}>
-                  <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
-                </li>
-              )
-            })}
-          </ul>
-          <Divider />
-        </div>
-
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug || ""} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug || ""} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
-      </>
-    )
-  } else {
+  if (isNil(post) || isNil(post.html)) {
     return <></>
   }
+
+  return (
+    <>
+      <article>
+        <header>
+          <h1 className="title">{post.frontmatter.title}</h1>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Like slug={post.fields.slug} />
+            <p
+              style={{
+                ...scale(-1 / 5),
+                display: `block`,
+                marginBottom: rhythm(1),
+              }}
+            >
+              {post.frontmatter.date}
+              <span className="tags">
+                {post.frontmatter.tags.map(tag => (
+                  <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
+                    {tag}
+                  </Link>
+                ))}
+              </span>
+            </p>
+          </div>
+        </header>
+        <Divider />
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Divider />
+      </article>
+
+      <div>
+        <h2>関連記事</h2>
+        <ul>
+          {relatedPosts?.map(relatedPost => {
+            return (
+              <li key={relatedPost?.fields.slug ?? ""}>
+                <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+        <Divider />
+      </div>
+
+      <nav>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <Link to={previous.fields.slug || ""} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.fields.slug || ""} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </nav>
+    </>
+  )
 }
 
 export default BlogPostTemplate

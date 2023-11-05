@@ -1,4 +1,4 @@
-exports.onRenderBody = ({ setHtmlAttributes }) => {
+export const onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: "ja" })
 }
 

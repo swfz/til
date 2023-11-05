@@ -117,7 +117,6 @@ const plugins: GatsbyConfig["plugins"] = [
   },
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-sass`,
-  `gatsby-plugin-styled-components`,
   {
     resolve: `@sentry/gatsby`,
     options: {

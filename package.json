@@ -9,10 +9,7 @@
   },
   "dependencies": {
     "@sentry/gatsby": "7.77.0",
-    "@styled-icons/fa-solid": "10.47.0",
     "@tippyjs/react": "4.2.6",
-    "@types/dompurify": "3.0.4",
-    "babel-plugin-styled-components": "^2.1.4",
     "dompurify": "3.0.6",
     "dotenv": "16.3.1",
     "gatsby": "5.12.9",
@@ -24,7 +21,6 @@
     "gatsby-plugin-manifest": "5.12.3",
     "gatsby-plugin-offline": "6.12.3",
     "gatsby-plugin-sharp": "^5.9.0",
-    "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-plugin-typography": "5.12.0",
     "gatsby-remark-copy-linked-files": "6.12.0",
     "gatsby-remark-embed-gist": "1.2.1",
@@ -37,7 +33,6 @@
     "gatsby-transformer-json": "^5.12.0",
     "gatsby-transformer-remark": "6.12.3",
     "gatsby-transformer-sharp": "^5.9.0",
-    "md5-file": "5.0.0",
     "patch-package": "^8.0.0",
     "prismjs": "1.29.0",
     "react": "18.2.0",
@@ -48,8 +43,7 @@
     "sass": "1.69.5",
     "typeface-merriweather": "1.1.13",
     "typeface-montserrat": "1.1.13",
-    "typography": "0.16.24",
-    "typography-theme-wordpress-2016": "0.16.19"
+    "typography": "0.16.24"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.22.15",
@@ -58,10 +52,10 @@
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.5.1",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
+    "@types/dompurify": "^3.0.4",
     "@types/jest": "29.5.7",
     "@types/react-helmet": "6.1.8",
     "@types/react-test-renderer": "18.0.5",
-    "@types/styled-components": "5.1.29",
     "@types/typography": "0.16.6",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",

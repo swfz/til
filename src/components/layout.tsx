@@ -10,6 +10,14 @@ type LayoutProps = {
   children: React.ReactNode
 }
 
+const Footer = () => {
+  return (
+    <footer className="flex h-10 items-center justify-center bg-blue-muted text-gray-200">
+      <div>© {new Date().getFullYear()}. swfz</div>
+    </footer>
+  )
+}
+
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   return (
     <>
@@ -32,10 +40,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
           <Pixela></Pixela>
         </div>
       </div>
-
-      <footer className="flex h-10 items-center justify-center bg-blue-muted text-gray-200">
-        <div>© {new Date().getFullYear()}. swfz</div>
-      </footer>
+      <Footer></Footer>
     </>
   )
 }

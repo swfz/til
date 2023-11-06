@@ -22,23 +22,19 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   return (
     <>
       <Navigation></Navigation>
-      <div
-        className="columns"
-        style={{
-          marginBottom: 0,
-          paddingTop: `0.5rem`,
-        }}
-      >
-        <div className="column is-6 is-offset-one-fifth" style={{ padding: 0, background: "#FFFFFF" }}>
+      <div className="flex flex-col md:flex-row">
+        <div className="basis-0 md:basis-3/12"></div>
+        <div className="basis-6/12" style={{ padding: 0, background: "#FFFFFF" }}>
           {props.children}
         </div>
-        <div className="column is-2 sidebar">
+        <div className="basis-2/12">
           <Bio></Bio>
           <hr />
           <Archive></Archive>
           <hr />
           <Pixela></Pixela>
         </div>
+        <div className="grow"></div>
       </div>
       <Footer></Footer>
     </>

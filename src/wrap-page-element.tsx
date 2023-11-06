@@ -9,12 +9,10 @@ import { default as React } from "react"
 
 import Layout from "./components/layout"
 
-import type { GatsbyBrowser, GatsbySSR } from "gatsby"
+import type { GatsbyBrowser, GatsbySSR, WrapPageElementNodeArgs } from "gatsby"
 
 type WrapPageElement = GatsbyBrowser["wrapPageElement"] | GatsbySSR["wrapPageElement"]
 
-// FIXME: any
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const wrapPageElement: WrapPageElement = ({ element, props }: any) => {
+export const wrapPageElement: WrapPageElement = ({ element, props }: WrapPageElementNodeArgs) => {
   return <Layout {...props}>{element}</Layout>
 }

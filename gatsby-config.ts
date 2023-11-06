@@ -163,6 +163,7 @@ const plugins: GatsbyConfig["plugins"] = [
       // ...
     },
   },
+  "gatsby-plugin-postcss",
 ]
 
 const config: GatsbyConfig = {

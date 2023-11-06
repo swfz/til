@@ -4,6 +4,7 @@ import "typeface-merriweather"
 import "prismjs/themes/prism-coy.css"
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import "./styles.scss"
+import "./styles/global.css"
 
 import { default as React } from "react"
 

@@ -1,8 +1,7 @@
 import { Link } from "gatsby"
-import kebabCase from "lodash/kebabCase"
 import React from "react"
 
-import { rhythm } from "../utils/typography"
+import { Tags } from "./tags"
 
 type MarkdownNode = {
   frontmatter: Queries.MarkdownRemarkFrontmatter
@@ -16,26 +15,15 @@ type Props = {
 
 const Line: React.VFC<Props> = ({ node }) => {
   return (
-    <article className="card">
-      <header className="card-content">
+    <article className="rounded border border-gray-100 p-6 shadow">
+      <header className="text-xl">
         <small>[{node.frontmatter.date}]</small>
-        <h2
-          className="subtitle"
-          style={{
-            marginBottom: rhythm(1 / 4),
-          }}
-        >
-          <Link style={{ boxShadow: `none` }} to={node.fields.slug || ""}>
+        <h2 className="text-2xl">
+          <Link className="text-blue-muted-600" to={node.fields.slug || ""}>
             {node.frontmatter.title}
           </Link>
         </h2>
-        <span className="tags">
-          {node.frontmatter.tags.map(tag => (
-            <Link className="tag is-link is-light" aria-label={"tag"} key={tag} to={`/tags/${kebabCase(tag || "")}`}>
-              {tag}
-            </Link>
-          ))}
-        </span>
+        <Tags tags={node.frontmatter.tags} />
       </header>
     </article>
   )

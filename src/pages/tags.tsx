@@ -1,35 +1,15 @@
-import { Link, graphql, PageProps, HeadFC } from "gatsby"
-import kebabCase from "lodash/kebabCase"
+import { graphql, PageProps, HeadFC } from "gatsby"
 import React from "react"
 
+import Divider from "../components/divider"
 import SEO from "../components/seo"
+import { TagsWithCount } from "../components/tags"
 
 type SummarizedTag = {
   [key: string]: {
     count: number
     tags: { fieldValue: string | null; totalCount: number }[]
   }
-}
-
-const Divider = () => {
-  return <hr className="my-4 h-0.5 border-t border-gray-100" />
-}
-
-type Tag = {
-  fieldValue: string | null
-  totalCount: number
-}
-
-const Tags = ({ tags }: { tags: Tag[] }) => {
-  return (
-    <span className="flex flex-row flex-wrap gap-1">
-      {tags.map(tag => (
-        <Link key={tag.fieldValue} className="tag" to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}>
-          {tag.fieldValue} ({tag.totalCount})
-        </Link>
-      ))}
-    </span>
-  )
 }
 
 const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
@@ -57,7 +37,7 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
               <summary key={category}>
                 {category} ({row?.count})
               </summary>
-              <Tags tags={row?.tags} />
+              <TagsWithCount tags={row?.tags} />
             </details>
           </>
         ))}

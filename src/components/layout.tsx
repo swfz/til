@@ -4,18 +4,11 @@ import Navigation from "../components/navi"
 
 import Archive from "./archive"
 import Bio from "./bio"
+import Footer from "./footer"
 import Pixela from "./pixela"
 
 type LayoutProps = {
   children: React.ReactNode
-}
-
-const Footer = () => {
-  return (
-    <footer className="flex h-10 items-center justify-center bg-blue-muted text-gray-200">
-      <div>© {new Date().getFullYear()}. swfz</div>
-    </footer>
-  )
 }
 
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {

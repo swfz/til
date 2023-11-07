@@ -11,6 +11,10 @@ type SummarizedTag = {
   }
 }
 
+const Divider = () => {
+  return <hr className="my-4 h-0.5 border-t border-gray-100" />
+}
+
 const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   const group = data.allMarkdownRemark.group
 
@@ -25,24 +29,20 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   }, {} as SummarizedTag)
 
   return (
-    <main style={{ padding: "0.75rem" }}>
-      <h1 className="subtitle">Tags</h1>
+    <main className="h-full bg-white p-4">
+      <h1 className="text-2xl">Tags</h1>
       {Object.entries(categories)
         .sort((a, b) => (a[0] === "Other" ? 1 : b[1].count - a[1].count))
         .map(([category, row]) => (
           <>
-            <hr />
+            <Divider />
             <details key={category} open>
               <summary key={category}>
                 {category} ({row?.count})
               </summary>
-              <span className="tags">
+              <span className="flex flex-row flex-wrap gap-1">
                 {row?.tags.map(tag => (
-                  <Link
-                    key={tag.fieldValue}
-                    className="tag is-link is-light"
-                    to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}
-                  >
+                  <Link key={tag.fieldValue} className="tag" to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}>
                     {tag.fieldValue} ({tag.totalCount})
                   </Link>
                 ))}

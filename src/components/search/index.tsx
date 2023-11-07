@@ -35,7 +35,7 @@ type SearchResultProps = {
 
 const PageHit = ({ hit }: PageHitProps) => (
   <div className="search-result-item" data-testid="search-result-item">
-    <Link to={hit.slug}>
+    <Link className="link" to={hit.slug}>
       <Highlight attribute="title" hit={hit} />
     </Link>
     <br />

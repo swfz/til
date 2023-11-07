@@ -1,27 +1,17 @@
 import { Link, graphql, PageProps, HeadFC } from "gatsby"
 import isNil from "lodash/isNil"
-import kebabCase from "lodash/kebabCase"
 import React from "react"
 
 import { ElementType } from "../@types"
+import Divider from "../components/divider"
 import Reaction from "../components/reaction"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { Tags } from "../components/tags"
 
 type MarkdownNode = ElementType<Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
 type PageContext = {
   previous: MarkdownNode
   next: MarkdownNode
-}
-
-const Divider = () => {
-  return (
-    <hr
-      style={{
-        marginTop: rhythm(1),
-      }}
-    />
-  )
 }
 
 const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageContext>> = ({ data, pageContext }) => {
@@ -34,34 +24,17 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
   }
 
   return (
-    <div
-      className="columns"
-      style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}
-    >
-      <div className="column is-1" style={{ background: "#EFEFEF" }}>
+    <div className="flex h-full flex-col md:flex-row">
+      <div className="basis-1/12">
         <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
       </div>
-      <main className="column is-11">
+      <main className="grow basis-11/12 bg-white p-4">
         <article>
-          <header>
-            <h1 className="title">{post.frontmatter.title}</h1>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <p
-                style={{
-                  ...scale(-1 / 5),
-                  display: `block`,
-                  marginBottom: rhythm(1),
-                }}
-              >
-                {post.frontmatter.date}
-                <span className="tags">
-                  {post.frontmatter.tags.map(tag => (
-                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
-                      {tag}
-                    </Link>
-                  ))}
-                </span>
-              </p>
+          <header className="">
+            <div className="mb-4 text-2xl font-bold">{post.frontmatter.title}</div>
+            <div className="p-1">{post.frontmatter.date}</div>
+            <div className="p-1">
+              <Tags tags={post.frontmatter.tags}></Tags>
             </div>
           </header>
           <Divider />
@@ -70,12 +43,14 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
         </article>
 
         <div>
-          <h3 className="title is-3">関連記事</h3>
+          <h3 className="text-xl">関連記事</h3>
           <ul>
             {relatedPosts?.map(relatedPost => {
               return (
                 <li key={relatedPost?.fields.slug ?? ""}>
-                  <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
+                  <Link className="link" to={relatedPost?.fields.slug ?? ""}>
+                    {relatedPost?.frontmatter.title}
+                  </Link>
                 </li>
               )
             })}
@@ -84,17 +59,18 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
         </div>
 
         <nav>
-          <ul className="before-after-navi">
+          <ul className="flex justify-between">
             <li>
               {previous && (
-                <Link to={previous.fields.slug || ""} rel="prev">
+                <Link className="link" to={previous.fields.slug || ""} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
+            <li className="grow"></li>
             <li>
               {next && (
-                <Link to={next.fields.slug || ""} rel="next">
+                <Link className="link" to={next.fields.slug || ""} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               )}

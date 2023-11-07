@@ -25,7 +25,9 @@ const Tags: React.FC<PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>> =
             return <Line key={slug} node={node}></Line>
           })}
         </ul>
-        <Link className="link" to="/tags">All tags</Link>
+        <Link className="link" to="/tags">
+          All tags
+        </Link>
       </div>
     </main>
   )

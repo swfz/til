@@ -3,7 +3,6 @@ import isNil from "lodash/isNil"
 import React from "react"
 
 import { ElementType } from "../@types"
-import Divider from "../components/divider"
 import Reaction from "../components/reaction"
 import SEO from "../components/seo"
 import { Tags } from "../components/tags"
@@ -28,22 +27,20 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
       <div className="basis-1/12">
         <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
       </div>
-      <main className="grow basis-11/12 bg-white p-4">
-        <article>
-          <header className="">
+      <main className="grow basis-11/12 divide-y divide-zinc-100 bg-white p-4">
+        <article className="divide-y divide-zinc-100 pb-4">
+          <header className="py-4">
             <div className="mb-4 text-2xl font-bold">{post.frontmatter.title}</div>
             <div className="p-1">{post.frontmatter.date}</div>
             <div className="p-1">
               <Tags tags={post.frontmatter.tags}></Tags>
             </div>
           </header>
-          <Divider />
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <Divider />
+          <section className="py-4" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
-        <div>
-          <h3 className="text-xl">関連記事</h3>
+        <div className="py-4">
+          <h3 className="text-xl font-bold">関連記事</h3>
           <ul>
             {relatedPosts?.map(relatedPost => {
               return (
@@ -55,10 +52,9 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
               )
             })}
           </ul>
-          <Divider />
         </div>
 
-        <nav>
+        <nav className="py-4">
           <ul className="flex justify-between">
             <li>
               {previous && (

@@ -1,7 +1,6 @@
 import { graphql, PageProps, HeadFC } from "gatsby"
 import React from "react"
 
-import Divider from "../components/divider"
 import SEO from "../components/seo"
 import { TagsWithCount } from "../components/tags"
 
@@ -26,20 +25,19 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   }, {} as SummarizedTag)
 
   return (
-    <main className="h-full bg-white p-4">
-      <h1 className="text-2xl">Tags</h1>
+    <main className="h-full divide-y divide-zinc-100 bg-white p-4">
+      <h1 className="pb-4 text-2xl">Tags</h1>
       {Object.entries(categories)
         .sort((a, b) => (a[0] === "Other" ? 1 : b[1].count - a[1].count))
         .map(([category, row]) => (
-          <>
-            <Divider />
-            <details key={category} open>
+          <div key={category} className="py-4">
+            <details open>
               <summary key={category}>
                 {category} ({row?.count})
               </summary>
               <TagsWithCount tags={row?.tags} />
             </details>
-          </>
+          </div>
         ))}
     </main>
   )

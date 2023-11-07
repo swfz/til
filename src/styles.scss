@@ -18,7 +18,7 @@ p, a, div, h1, h2, h3, h4 {
   font-family: "Noto Sans JP", Helvetica , "游ゴシック", sans-serif;
 }
 
-@import "~bulma/bulma.sass";
+// @import "~bulma/bulma.sass";
 
 .title.is-2 {
   font-size: 1.5rem;
@@ -27,18 +27,9 @@ p, a, div, h1, h2, h3, h4 {
   font-size: 1.2rem;
 }
 
-.reaction {
-  position: sticky;
-  top: 1em;
-}
-
+// react-shareで生成されるクラスに充てる用
 .share-count {
   font-size: 0.7em;
-  padding-bottom: 0.5em;
-}
-
-.sidebar {
-  background-color: #F9F9F9;
 }
 
 .before-after-navi {
@@ -225,10 +216,6 @@ span.gatsby-highlight-code-line {
   padding-right: 1em;
   color: #979797;
   font-size: 0.7em;
-}
-
-summary {
-  display: list-item;
 }
 
 table {

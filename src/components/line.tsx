@@ -19,7 +19,7 @@ const Line: React.VFC<Props> = ({ node }) => {
       <header className="text-xl">
         <small>[{node.frontmatter.date}]</small>
         <h2 className="text-2xl">
-          <Link className="text-blue-muted-600" to={node.fields.slug || ""}>
+          <Link className="link" to={node.fields.slug || ""}>
             {node.frontmatter.title}
           </Link>
         </h2>

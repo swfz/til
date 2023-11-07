@@ -17,7 +17,7 @@ const Navigation: React.FC = () => {
   `)
 
   return (
-    <nav className="flex h-14 justify-center bg-blue-muted text-gray-200" aria-label="main navigation">
+    <nav className="flex h-14 justify-center bg-blue-muted-600 text-gray-200" aria-label="main navigation">
       <a className="h-full hover:text-gray-200" href="/">
         <div className="p-4 font-bold">{site.siteMetadata.title}</div>
       </a>

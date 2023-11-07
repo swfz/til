@@ -18,12 +18,12 @@ import Like from "../components/like"
 
 // FIXME: ShareCountの型情報を合わせられなかったのでやむなくany+disableにした
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const renderShareCount: any = (shareCount: number) => <div className="share-count">{shareCount}</div>
+const renderShareCount: any = (shareCount: number) => <div className="text-xs">{shareCount}</div>
 
 const Reaction: React.FC<{ siteUrl: string; slug: string }> = ({ siteUrl, slug }) => {
   const url = `${siteUrl}${slug}`
   return (
-    <div className="sticky top-1 flex flex-row items-start gap-2 p-1 md:flex-col">
+    <div className="sticky top-1 flex flex-row items-start justify-center gap-2 p-1 md:flex-col">
       <Like slug={slug} />
       <HatenaShareButton url={url}>
         <HatenaIcon size={32} round={true} />

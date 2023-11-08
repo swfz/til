@@ -11,9 +11,11 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   return (
-    <>
-      <Navigation></Navigation>
-      <div className="flex flex-col md:flex-row">
+    <div className="flex min-h-screen flex-col justify-between">
+      <div>
+        <Navigation></Navigation>
+      </div>
+      <div className="flex flex-1 flex-col md:flex-row">
         <div className="basis-0 md:basis-3/12"></div>
 
         <div className="basis-6/12">{props.children}</div>
@@ -25,8 +27,10 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
 
         <div className="grow"></div>
       </div>
-      <Footer></Footer>
-    </>
+      <div className="">
+        <Footer></Footer>
+      </div>
+    </div>
   )
 }
 

@@ -1,7 +1,4 @@
 @charset "utf-8";
-// If need, change your variables before importing Bulma
-$title-color: #333333;
-$title-size: 1.8rem;
 
 #gatsby-focus-wrapper {
   width: 100%;
@@ -16,23 +13,6 @@ $title-size: 1.8rem;
 
 p, a, div, h1, h2, h3, h4 {
   font-family: "Noto Sans JP", Helvetica , "游ゴシック", sans-serif;
-}
-
-// @import "~bulma/bulma.sass";
-
-.title.is-2 {
-  font-size: 1.5rem;
-}
-.title.is-3 {
-  font-size: 1.2rem;
-}
-
-.before-after-navi {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
 }
 
 // ----- prismjs -----
@@ -121,7 +101,9 @@ span.gatsby-highlight-code-line {
   position: relative;
   left: -0.17em;
 }
+// ----- prismjs -----
 
+// ----- AlgoliaSearch -----
 .popover {
   max-height: 100vh;
   overflow: scroll;
@@ -212,6 +194,8 @@ span.gatsby-highlight-code-line {
   color: #979797;
   font-size: 0.7em;
 }
+
+// ----- AlgoliaSearch -----
 
 table {
   border: 1px solid #cccccc;

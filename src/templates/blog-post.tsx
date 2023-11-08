@@ -36,8 +36,12 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
               <Tags tags={post.frontmatter.tags}></Tags>
             </div>
           </header>
-          <section className="py-4" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="prose py-4" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
+
+        <div className="py-4 md:hidden">
+          <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
+        </div>
 
         <div className="py-4">
           <h3 className="text-xl font-bold">関連記事</h3>

@@ -15,7 +15,7 @@ export const TagsWithCount = ({ tags }: TagsWithCountProps) => {
   return (
     <span className="flex flex-row flex-wrap gap-1">
       {tags.map(tag => (
-        <Link key={tag.fieldValue} className="tag" to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}>
+        <Link key={tag.fieldValue} aria-label="tag" className="tag" to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}>
           {tag.fieldValue} ({tag.totalCount})
         </Link>
       ))}
@@ -32,7 +32,7 @@ export const Tags = (props: TagsProps) => {
   return (
     <span className="flex flex-row flex-wrap gap-1">
       {props.tags.map(tag => (
-        <Link key={tag} className="tag" to={`/tags/${kebabCase(tag || "")}/`}>
+        <Link key={tag} aria-label="tag" className="tag" to={`/tags/${kebabCase(tag || "")}/`}>
           {tag}
         </Link>
       ))}

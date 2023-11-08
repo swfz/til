@@ -253,6 +253,7 @@ exports[`Search 検索UIのテスト 2`] = `
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_sa_permission_from_cli/"
               >
                 <span
@@ -293,6 +294,7 @@ exports[`Search 検索UIのテスト 2`] = `
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_empty_string_array/"
               >
                 <span
@@ -359,6 +361,7 @@ UNIONな
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_cant_use_autodetect/"
               >
                 <span
@@ -409,6 +412,7 @@ GCSにJSONを置いてCLIから\`bq load --autodetect\`でデータをloadしよ
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_date_function/"
               >
                 <span
@@ -453,6 +457,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_sample_data/"
               >
                 <span
@@ -493,6 +498,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_date_timezone/"
               >
                 <span
@@ -542,6 +548,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/workflows_logging_bigquery_failed/"
               >
                 <span
@@ -587,6 +594,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/json_to_csv/"
               >
                 <span
@@ -664,6 +672,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/dataportal_experience_date/"
               >
                 <span
@@ -711,6 +720,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/zx_arguments/"
               >
                 <span
@@ -774,6 +784,7 @@ zx query.mjs hoge
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/svg2png_with_sharp/"
               >
                 <span
@@ -825,6 +836,7 @@ sharp(Buffer.from(svgText, 'utf-8')).toFile('sample.png
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/tfenv/"
               >
                 <span
@@ -915,6 +927,7 @@ export PATH="$HOME/.tfenv/
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/s3_price_per_bucket/"
               >
                 <span
@@ -962,6 +975,7 @@ export PATH="$HOME/.tfenv/
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/ruby_rmagick_install/"
               >
                 <span
@@ -1009,6 +1023,7 @@ Package MagickCore
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/vscode_terminal_profile/"
               >
                 <span
@@ -1062,6 +1077,7 @@ OS: Windows_NT x64 10.0.19041
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/lambda_diff/"
               >
                 <span
@@ -1114,6 +1130,7 @@ get_lambda_zip(){
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/docker_host/"
               >
                 <span
@@ -1182,6 +1199,7 @@ service docker
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/ansible_install_awscliv2/"
               >
                 <span
@@ -1241,6 +1259,7 @@ service docker
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/introduction_jest_and_testing_library_to_gatsby/"
               >
                 <span
@@ -1303,6 +1322,7 @@ service docker
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/wsl_docker_for_windows/"
               >
                 <span
@@ -1514,6 +1534,7 @@ exports[`Search 検索UIのテスト 3`] = `
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_sa_permission_from_cli/"
               >
                 <span
@@ -1554,6 +1575,7 @@ exports[`Search 検索UIのテスト 3`] = `
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_empty_string_array/"
               >
                 <span
@@ -1620,6 +1642,7 @@ UNIONな
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_cant_use_autodetect/"
               >
                 <span
@@ -1670,6 +1693,7 @@ GCSにJSONを置いてCLIから\`bq load --autodetect\`でデータをloadしよ
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_date_function/"
               >
                 <span
@@ -1714,6 +1738,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_sample_data/"
               >
                 <span
@@ -1754,6 +1779,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_date_timezone/"
               >
                 <span
@@ -1803,6 +1829,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/workflows_logging_bigquery_failed/"
               >
                 <span
@@ -1848,6 +1875,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/json_to_csv/"
               >
                 <span
@@ -1925,6 +1953,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/dataportal_experience_date/"
               >
                 <span
@@ -1972,6 +2001,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/algolia_mock_with_msw/"
               >
                 <span
@@ -2083,6 +2113,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bq_load_with_hive_partition/"
               >
                 <span
@@ -2158,6 +2189,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/start_pocket_api/"
               >
                 <span
@@ -2342,6 +2374,7 @@ exports[`Search 検索UIのテスト 4`] = `
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_sa_permission_from_cli/"
               >
                 <span
@@ -2382,6 +2415,7 @@ exports[`Search 検索UIのテスト 4`] = `
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_empty_string_array/"
               >
                 <span
@@ -2448,6 +2482,7 @@ UNIONな
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_cant_use_autodetect/"
               >
                 <span
@@ -2498,6 +2533,7 @@ GCSにJSONを置いてCLIから\`bq load --autodetect\`でデータをloadしよ
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_date_function/"
               >
                 <span
@@ -2542,6 +2578,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_sample_data/"
               >
                 <span
@@ -2582,6 +2619,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bigquery_date_timezone/"
               >
                 <span
@@ -2631,6 +2669,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/workflows_logging_bigquery_failed/"
               >
                 <span
@@ -2676,6 +2715,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/json_to_csv/"
               >
                 <span
@@ -2753,6 +2793,7 @@ DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/dataportal_experience_date/"
               >
                 <span
@@ -2800,6 +2841,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/algolia_mock_with_msw/"
               >
                 <span
@@ -2911,6 +2953,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/bq_load_with_hive_partition/"
               >
                 <span
@@ -2986,6 +3029,7 @@ Togglから
               data-testid="search-result-item"
             >
               <a
+                class="link"
                 href="/entries/start_pocket_api/"
               >
                 <span

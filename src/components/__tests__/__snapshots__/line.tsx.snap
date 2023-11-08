@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Line snapshot 1`] = `
-<article
-  className="card"
+<div
+  className="rounded border border-gray-100 p-6 shadow"
 >
-  <header
-    className="card-content"
+  <div
+    className="text-xl"
   >
     <small>
       [
@@ -13,42 +13,33 @@ exports[`Line snapshot 1`] = `
       ]
     </small>
     <h2
-      className="subtitle"
-      style={
-        {
-          "marginBottom": "0.3625rem",
-        }
-      }
+      className="pb-2 text-xl"
     >
       <a
+        className="link"
         href="/sample_hoge/fuga"
-        style={
-          {
-            "boxShadow": "none",
-          }
-        }
       >
         hoge
       </a>
     </h2>
     <span
-      className="tags"
+      className="flex flex-row flex-wrap gap-1"
     >
       <a
         aria-label="tag"
-        className="tag is-link is-light"
-        href="/tags/a"
+        className="tag"
+        href="/tags/a/"
       >
         A
       </a>
       <a
         aria-label="tag"
-        className="tag is-link is-light"
-        href="/tags/b"
+        className="tag"
+        href="/tags/b/"
       >
         B
       </a>
     </span>
-  </header>
-</article>
+  </div>
+</div>
 `;

@@ -1,7 +1,4 @@
 @charset "utf-8";
-// If need, change your variables before importing Bulma
-$title-color: #333333;
-$title-size: 1.8rem;
 
 #gatsby-focus-wrapper {
   width: 100%;
@@ -18,124 +15,98 @@ p, a, div, h1, h2, h3, h4 {
   font-family: "Noto Sans JP", Helvetica , "游ゴシック", sans-serif;
 }
 
-@import "~bulma/bulma.sass";
-
-.title.is-2 {
-  font-size: 1.5rem;
-}
-.title.is-3 {
-  font-size: 1.2rem;
-}
-
-.reaction {
-  position: sticky;
-  top: 1em;
-}
-
-.share-count {
-  font-size: 0.7em;
-  padding-bottom: 0.5em;
-}
-
-.sidebar {
-  background-color: #F9F9F9;
-}
-
-.before-after-navi {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-}
-
 // ----- prismjs -----
-// 各種言語の数字
-code[class*="language-"] {
-  .token.number {
-    margin-right: initial;
-    min-width: initial;
-    padding: initial;
+// tailwindcss/typographyを使っているのでproseクラス以下のコードハイライトという前提
+.prose {
+  // 各種言語の数字
+  code[class*="language-"] {
+    .token.number {
+      margin-right: initial;
+      min-width: initial;
+      padding: initial;
+      background-color: initial;
+      border-radius: initial;
+      display: initial;
+      font-size: initial;
+    }
+  }
+
+  // tsx内のHTMLタグ
+  code.language-tsx {
+    .token.tag {
+      margin-right: initial;
+      padding: initial;
+    }
+  }
+
+  // Markdown内のタイトル
+  code.language-markdown {
+    .token.title {
+      font-size: 1em;
+    }
+  }
+
+  // デフォルトだと影が濃かったので打ち消すための設定
+  pre[class*="language-"]::before, pre[class*="language-"]::after {
+    box-shadow: 0px 0px 0px #979797;
+  }
+
+  // 基本的に行番号は表示
+  pre[class*="language-"] > code {
     background-color: initial;
-    border-radius: initial;
-    display: initial;
-    font-size: initial;
+    padding: 0;
+  }
+  .line-numbers-rows {
+    background-color: #efefef;
+  }
+
+  // 行数表示箇所
+  .line-numbers-rows > span::before {
+    width: 2em;
+    margin-left: 0.4em;
+    padding-right: 0.4em;
+    margin-right: 0;
+  }
+
+  .line-numbers .line-numbers-rows {
+    border-right: 0.3em solid #e6e6e6;
+  }
+
+  pre[class*="language-"].line-numbers.line-numbers code {
+    padding-left: 2.2em;
+  }
+
+  // text, shellの場合のみ行番号は表示させない
+  pre.language-shell.line-numbers.line-numbers code, pre.language-text.line-numbers.line-numbers code {
+    padding-left: 0.1em;
+  }
+  pre.language-shell.line-numbers .line-numbers-rows, pre.language-text.line-numbers .line-numbers-rows {
+    display: none;
+  }
+
+  // highlight
+  .gatsby-highlight-code-line {
+    background-color: #ff1df024;
+    display: block;
+  }
+
+  // -なのはハイライトしてない部分との縦線の位置を合わせるため
+  span.gatsby-highlight-code-line::before {
+    position: relative;
+    left: -4px;
+    border: 0.17em solid #c1006d;
+    content: "";
+  }
+
+  // -なのはハイライトしてない部分とのコード位置を合わせるため
+  span.gatsby-highlight-code-line {
+    position: relative;
+    left: -0.17em;
   }
 }
+// ----- prismjs -----
 
-// tsx内のHTMLタグ
-code.language-tsx {
-  .token.tag {
-    margin-right: initial;
-    padding: initial;
-  }
-}
-
-// Markdown内のタイトル
-code.language-markdown {
-  .token.title {
-    font-size: 1em;
-  }
-}
-
-// デフォルトだと影が濃かったので打ち消すための設定
-pre[class*="language-"]::before, pre[class*="language-"]::after {
-  box-shadow: 0px 0px 0px #979797;
-}
-
-// 基本的に行番号は表示
-pre[class*="language-"] > code {
-  background-color: initial;
-  padding: 0;
-}
-.line-numbers-rows {
-  background-color: #efefef;
-}
-
-// 行数表示箇所
-.line-numbers-rows > span::before {
-  width: 2em;
-  margin-left: 0.4em;
-  padding-right: 0.4em;
-  margin-right: 0;
-}
-
-.line-numbers .line-numbers-rows {
-  border-right: 0.3em solid #e6e6e6;
-}
-
-pre[class*="language-"].line-numbers.line-numbers code {
-  padding-left: 2.2em;
-}
-
-// text, shellの場合のみ行番号は表示させない
-pre.language-shell.line-numbers.line-numbers code, pre.language-text.line-numbers.line-numbers code {
-  padding-left: 0.1em;
-}
-pre.language-shell.line-numbers .line-numbers-rows, pre.language-text.line-numbers .line-numbers-rows {
-  display: none;
-}
-
-// highlight
-.gatsby-highlight-code-line {
-  background-color: #ff1df024;
-  display: block;
-}
-
-// -なのはハイライトしてない部分との縦線の位置を合わせるため
-span.gatsby-highlight-code-line::before {
-  position: relative;
-  left: -4px;
-  border: 0.17em solid #c1006d;
-  content: "";
-}
-
-// -なのはハイライトしてない部分とのコード位置を合わせるため
-span.gatsby-highlight-code-line {
-  position: relative;
-  left: -0.17em;
-}
-
+// ----- AlgoliaSearch -----
 .popover {
   max-height: 100vh;
   overflow: scroll;
@@ -227,41 +198,41 @@ span.gatsby-highlight-code-line {
   font-size: 0.7em;
 }
 
-summary {
-  display: list-item;
-}
+// ----- AlgoliaSearch -----
 
-table {
-  border: 1px solid #cccccc;
-}
+.prose {
+  table {
+    border: 1px solid #cccccc;
+  }
 
-th {
-  background-color: #efefef;
-  font-weight: bold;
-  border: 1px solid #cccccc;
-}
+  th {
+    background-color: #efefef;
+    font-weight: bold;
+    border: 1px solid #cccccc;
+  }
 
-tr:nth-child(odd) {
-  background-color: #FFFFFF;
-}
+  tr:nth-child(odd) {
+    background-color: #FFFFFF;
+  }
 
-tr:nth-child(even) {
-  background-color: #f6f8fb;
-}
+  tr:nth-child(even) {
+    background-color: #f6f8fb;
+  }
 
-td, th {
-  border: 1px solid #cccccc;
-}
+  td, th {
+    border: 1px solid #cccccc;
+  }
 
-td[align="left"], th[align="left"] {
-  padding: 0.1em 0.5em;
-  text-align: left;
-}
-td[align="right"], th[align="right"] {
-  padding: 0.1em 0.5em;
-  text-align: right;
-}
-td[align="center"], th[align="center"] {
-  padding: 0.1em 0.5em;
-  text-align: center;
+  td[align="left"], th[align="left"] {
+    padding: 0.1em 0.5em;
+    text-align: left;
+  }
+  td[align="right"], th[align="right"] {
+    padding: 0.1em 0.5em;
+    text-align: right;
+  }
+  td[align="center"], th[align="center"] {
+    padding: 0.1em 0.5em;
+    text-align: center;
+  }
 }

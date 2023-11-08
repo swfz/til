@@ -15,17 +15,19 @@ const Tags: React.FC<PageProps<Queries.MarkdownRemarkByTagQuery, PageContext>> =
   const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`
 
   return (
-    <main style={{ padding: "0.75rem" }}>
+    <main className="h-full bg-white p-4">
       <SEO title="All posts" />
       <div>
-        <h1 className="subtitle">{tagHeader}</h1>
+        <h1 className="text-2xl">{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {
             const slug = node?.fields?.slug || ""
             return <Line key={slug} node={node}></Line>
           })}
         </ul>
-        <Link to="/tags">All tags</Link>
+        <Link className="link" to="/tags">
+          All tags
+        </Link>
       </div>
     </main>
   )

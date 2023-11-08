@@ -2,18 +2,16 @@ import { graphql, PageProps } from "gatsby"
 import React from "react"
 
 import Line from "../components/line"
-import SEO from "../components/seo"
 
 const SamplesPage: React.FC<PageProps<Queries.AllMarkdownQuery>> = ({ data }) => {
   const posts = data.allMarkdownRemark?.edges
 
   return (
-    <>
-      <SEO title="All samples" />
+    <main className="h-full bg-white p-4">
       {posts.map(({ node }) => {
         return <Line key={node?.fields?.slug} node={node}></Line>
       })}
-    </>
+    </main>
   )
 }
 

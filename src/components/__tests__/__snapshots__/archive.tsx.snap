@@ -13,6 +13,7 @@ exports[`Archive snapshot 1`] = `
     >
       <a
         aria-label="year-link"
+        className="link"
         href="/archives/2021"
       >
         2021
@@ -24,8 +25,10 @@ exports[`Archive snapshot 1`] = `
     <ul>
       <li
         aria-label="month-link"
+        className="mb-0"
       >
         <a
+          className="link"
           href="/archives/2021/01"
         >
           <p>
@@ -49,6 +52,7 @@ exports[`Archive snapshot 1`] = `
     >
       <a
         aria-label="year-link"
+        className="link"
         href="/archives/2020"
       >
         2020
@@ -60,8 +64,10 @@ exports[`Archive snapshot 1`] = `
     <ul>
       <li
         aria-label="month-link"
+        className="mb-0"
       >
         <a
+          className="link"
           href="/archives/2020/12"
         >
           <p>
@@ -77,8 +83,10 @@ exports[`Archive snapshot 1`] = `
       </li>
       <li
         aria-label="month-link"
+        className="mb-0"
       >
         <a
+          className="link"
           href="/archives/2020/11"
         >
           <p>

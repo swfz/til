@@ -56,10 +56,6 @@ const plugins: GatsbyConfig["plugins"] = [
           },
         },
         {
-          resolve: `gatsby-remark-bulma`,
-          options: {},
-        },
-        {
           resolve: "gatsby-remark-embed-gist",
           options: {},
         },
@@ -163,6 +159,7 @@ const plugins: GatsbyConfig["plugins"] = [
       // ...
     },
   },
+  "gatsby-plugin-postcss",
 ]
 
 const config: GatsbyConfig = {

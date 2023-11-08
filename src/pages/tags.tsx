@@ -1,8 +1,8 @@
-import { Link, graphql, PageProps, HeadFC } from "gatsby"
-import kebabCase from "lodash/kebabCase"
+import { graphql, PageProps, HeadFC } from "gatsby"
 import React from "react"
 
 import SEO from "../components/seo"
+import { TagsWithCount } from "../components/tags"
 
 type SummarizedTag = {
   [key: string]: {
@@ -25,30 +25,19 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   }, {} as SummarizedTag)
 
   return (
-    <main style={{ padding: "0.75rem" }}>
-      <h1 className="subtitle">Tags</h1>
+    <main className="h-full divide-y divide-zinc-100 bg-white p-4">
+      <h1 className="pb-4 text-2xl">Tags</h1>
       {Object.entries(categories)
         .sort((a, b) => (a[0] === "Other" ? 1 : b[1].count - a[1].count))
         .map(([category, row]) => (
-          <>
-            <hr />
-            <details key={category} open>
+          <div key={category} className="py-4">
+            <details open>
               <summary key={category}>
                 {category} ({row?.count})
               </summary>
-              <span className="tags">
-                {row?.tags.map(tag => (
-                  <Link
-                    key={tag.fieldValue}
-                    className="tag is-link is-light"
-                    to={`/tags/${kebabCase(tag?.fieldValue || "")}/`}
-                  >
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                ))}
-              </span>
+              <TagsWithCount tags={row?.tags} />
             </details>
-          </>
+          </div>
         ))}
     </main>
   )

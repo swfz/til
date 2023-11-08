@@ -63,7 +63,7 @@ export const ArchiveList = (props: Props) => {
         .map(([year, items]) => (
           <details open={isOpen(parseInt(year))} key={year}>
             <summary data-testid="year">
-              <Link aria-label={"year-link"} to={`/archives/${year}`}>
+              <Link className="link" aria-label={"year-link"} to={`/archives/${year}`}>
                 {year}({Object.entries(items).reduce((acc, [, v]) => acc + v.length, 0)})
               </Link>
             </summary>
@@ -71,8 +71,8 @@ export const ArchiveList = (props: Props) => {
               {Object.entries(items)
                 .sort(descFn)
                 .map(([month, items]) => (
-                  <li aria-label={"month-link"} key={`${year}-${month}`}>
-                    <Link to={`/archives/${year}/${month}`}>
+                  <li className="mb-0" aria-label={"month-link"} key={`${year}-${month}`}>
+                    <Link className="link" to={`/archives/${year}/${month}`}>
                       <p>
                         &nbsp;&nbsp;&nbsp;{year}-{month}({items.length})
                       </p>

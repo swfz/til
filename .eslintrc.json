@@ -12,6 +12,7 @@
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
     "prettier" // ルール適用は後勝ちのため最後に記述、eslintと競合している箇所はprettier優先
   ],
   "settings": {
@@ -27,7 +28,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "unused-imports"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "unused-imports", "tailwindcss"],
   "rules": {
     "eqeqeq": "error",
     "react/jsx-handler-names": [

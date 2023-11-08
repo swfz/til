@@ -1,10 +1,9 @@
 import { default as React } from "react"
 
 import Navigation from "../components/navi"
+import Sidebar from "../components/sidebar"
 
-import Archive from "./archive"
-import Bio from "./bio"
-import Pixela from "./pixela"
+import Footer from "./footer"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -12,38 +11,26 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   return (
-    <>
-      <Navigation></Navigation>
-      <div
-        className="columns"
-        style={{
-          marginBottom: 0,
-          paddingTop: `0.5rem`,
-        }}
-      >
-        <div className="column is-6 is-offset-one-fifth" style={{ padding: 0, background: "#FFFFFF" }}>
-          {props.children}
-        </div>
-        <div className="column is-2 sidebar">
-          <Bio></Bio>
-          <hr />
-          <Archive></Archive>
-          <hr />
-          <Pixela></Pixela>
-        </div>
+    <div className="flex min-h-screen flex-col justify-between">
+      <div>
+        <Navigation></Navigation>
       </div>
+      <div className="flex flex-1 flex-col md:flex-row">
+        <div className="basis-0 md:basis-3/12"></div>
 
-      <footer
-        className="footer has-text-grey-lighter has-background-info-dark"
-        style={{
-          padding: `1rem 1.5rem 1rem`,
-          width: `100%`,
-          bottom: 0,
-        }}
-      >
-        <div className="content has-text-centered">© {new Date().getFullYear()}. swfz</div>
-      </footer>
-    </>
+        <div className="basis-6/12">{props.children}</div>
+
+        <div className="h-1 border border-zinc-100 md:hidden" />
+        <div className="basis-2/12 divide-y divide-zinc-100 bg-white p-1 md:bg-gray-100 md:p-2">
+          <Sidebar></Sidebar>
+        </div>
+
+        <div className="grow"></div>
+      </div>
+      <div className="">
+        <Footer></Footer>
+      </div>
+    </div>
   )
 }
 

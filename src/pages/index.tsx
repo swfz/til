@@ -8,7 +8,7 @@ const BlogIndex: React.FC<PageProps<Queries.AllMarkdownQuery>> = ({ data }) => {
   const posts = data.allMarkdownRemark?.edges
 
   return (
-    <main style={{ padding: "0.75em" }}>
+    <main className="h-full bg-white p-4">
       <SEO title="All posts" />
       {posts.map(({ node }) => {
         return <Line key={node?.fields?.slug} node={node}></Line>

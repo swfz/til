@@ -17,29 +17,21 @@ const Navigation: React.FC = () => {
   `)
 
   return (
-    <div className="navbar has-background-info-dark" role="navigation" aria-label="main navigation">
-      <div className="navbar-brand">
-        <a className="navbar-item has-text-grey-lighter" href="/">
-          <span
-            style={{
-              fontWeight: `bold`,
-            }}
-          >
-            {site.siteMetadata.title}
-          </span>
-        </a>
-      </div>
+    <nav className="flex h-14 justify-center bg-blue-muted-600 text-gray-200" aria-label="main navigation">
+      <a className="h-full hover:text-gray-200" href="/">
+        <div className="p-4 font-bold">{site.siteMetadata.title}</div>
+      </a>
 
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-start">
-          <Link className="navbar-item has-text-grey-lighter" to={`/tags`}>
-            Tags
-          </Link>
-        </div>
-      </div>
+      <Link className="hover:bg-white hover:text-gray-200" to={`/tags`}>
+        <div className="p-4">Tags</div>
+      </Link>
 
-      <Search indices={searchIndices}></Search>
-    </div>
+      <div className="flex grow"></div>
+
+      <div className="hidden md:contents">
+        <Search indices={searchIndices}></Search>
+      </div>
+    </nav>
   )
 }
 

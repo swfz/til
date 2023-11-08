@@ -1,27 +1,16 @@
 import { Link, graphql, PageProps, HeadFC } from "gatsby"
 import isNil from "lodash/isNil"
-import kebabCase from "lodash/kebabCase"
 import React from "react"
 
 import { ElementType } from "../@types"
 import Reaction from "../components/reaction"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { Tags } from "../components/tags"
 
 type MarkdownNode = ElementType<Queries.AllMarkdownQuery["allMarkdownRemark"]["edges"]>["node"]
 type PageContext = {
   previous: MarkdownNode
   next: MarkdownNode
-}
-
-const Divider = () => {
-  return (
-    <hr
-      style={{
-        marginTop: rhythm(1),
-      }}
-    />
-  )
 }
 
 const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageContext>> = ({ data, pageContext }) => {
@@ -34,67 +23,54 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
   }
 
   return (
-    <div
-      className="columns"
-      style={{ height: "100%", marginBottom: 0, marginTop: 0, paddingLeft: "0.75em", paddingRight: "0.75em" }}
-    >
-      <div className="column is-1" style={{ background: "#EFEFEF" }}>
+    <div className="flex h-full flex-col md:flex-row">
+      <div className="basis-1/12 bg-white md:bg-transparent">
         <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
       </div>
-      <main className="column is-11">
-        <article>
-          <header>
-            <h1 className="title">{post.frontmatter.title}</h1>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <p
-                style={{
-                  ...scale(-1 / 5),
-                  display: `block`,
-                  marginBottom: rhythm(1),
-                }}
-              >
-                {post.frontmatter.date}
-                <span className="tags">
-                  {post.frontmatter.tags.map(tag => (
-                    <Link className="tag is-link is-light" key={tag} to={`/tags/${kebabCase(tag || "")}`}>
-                      {tag}
-                    </Link>
-                  ))}
-                </span>
-              </p>
+      <main className="grow basis-11/12 divide-y divide-zinc-100 bg-white p-4">
+        <article className="divide-y divide-zinc-100 pb-4">
+          <header className="py-4">
+            <div className="mb-4 text-2xl font-bold">{post.frontmatter.title}</div>
+            <div className="p-1">{post.frontmatter.date}</div>
+            <div className="p-1">
+              <Tags tags={post.frontmatter.tags}></Tags>
             </div>
           </header>
-          <Divider />
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <Divider />
+          <div className="prose py-4" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
-        <div>
-          <h3 className="title is-3">関連記事</h3>
+        <div className="py-4 md:hidden">
+          <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
+        </div>
+
+        <div className="py-4">
+          <h3 className="text-xl font-bold">関連記事</h3>
           <ul>
             {relatedPosts?.map(relatedPost => {
               return (
-                <li key={relatedPost?.fields.slug ?? ""}>
-                  <Link to={relatedPost?.fields.slug ?? ""}>{relatedPost?.frontmatter.title}</Link>
+                <li className="mb-1" key={relatedPost?.fields.slug ?? ""}>
+                  <Link className="link" to={relatedPost?.fields.slug ?? ""}>
+                    {relatedPost?.frontmatter.title}
+                  </Link>
                 </li>
               )
             })}
           </ul>
-          <Divider />
         </div>
 
-        <nav>
-          <ul className="before-after-navi">
-            <li>
+        <nav className="py-4">
+          <ul className="flex justify-between">
+            <li className="mb-0">
               {previous && (
-                <Link to={previous.fields.slug || ""} rel="prev">
+                <Link className="link" to={previous.fields.slug || ""} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
-            <li>
+            <li className="mb-0 grow"></li>
+            <li className="mb-0">
               {next && (
-                <Link to={next.fields.slug || ""} rel="next">
+                <Link className="link" to={next.fields.slug || ""} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               )}

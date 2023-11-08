@@ -23,7 +23,7 @@ const renderShareCount: any = (shareCount: number) => <div className="text-xs">{
 const Reaction: React.FC<{ siteUrl: string; slug: string }> = ({ siteUrl, slug }) => {
   const url = `${siteUrl}${slug}`
   return (
-    <div className="sticky top-1 flex flex-row items-start justify-center gap-2 p-1 md:flex-col">
+    <div className="sticky top-1 flex flex-row items-start justify-center gap-2 p-1 md:flex-col md:items-center">
       <Like slug={slug} />
       <HatenaShareButton url={url}>
         <HatenaIcon size={32} round={true} />

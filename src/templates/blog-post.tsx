@@ -24,7 +24,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
 
   return (
     <div className="flex h-full flex-col md:flex-row">
-      <div className="basis-1/12">
+      <div className="basis-1/12 bg-white md:bg-transparent">
         <Reaction siteUrl={data.site?.siteMetadata?.siteUrl || ""} slug={post.fields.slug}></Reaction>
       </div>
       <main className="grow basis-11/12 divide-y divide-zinc-100 bg-white p-4">

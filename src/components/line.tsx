@@ -15,17 +15,17 @@ type Props = {
 
 const Line: React.VFC<Props> = ({ node }) => {
   return (
-    <article className="rounded border border-gray-100 p-6 shadow">
-      <header className="text-xl">
+    <div className="rounded border border-gray-100 p-6 shadow">
+      <div className="text-xl">
         <small>[{node.frontmatter.date}]</small>
-        <h2 className="text-2xl">
+        <h2 className="pb-2 text-xl">
           <Link className="link" to={node.fields.slug || ""}>
             {node.frontmatter.title}
           </Link>
         </h2>
         <Tags tags={node.frontmatter.tags} />
-      </header>
-    </article>
+      </div>
+    </div>
   )
 }
 

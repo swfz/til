@@ -3,18 +3,17 @@
 @tailwind utilities;
 
 .tag {
-  @apply inline-block px-2 py-1 text-xs text-blue-muted-600 bg-blue-muted-100 rounded;
+  @apply inline-block font-bold px-2 py-1 text-xs border border-blue-muted-300 text-blue-muted-300 rounded-md;
 }
 
 .tag:hover {
-  @apply underline;
+  @apply bg-blue-muted-100;
+}
+
+.tag a:hover {
+  @apply text-gray-400;
 }
 
 .link {
   @apply text-blue-600 hover:text-gray-600 hover:underline;
 }
-
-article a {
-  @apply text-blue-600 hover:text-gray-600 hover:underline;
-}
-

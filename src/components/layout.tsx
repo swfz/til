@@ -18,7 +18,8 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
 
         <div className="basis-6/12">{props.children}</div>
 
-        <div className="basis-2/12 divide-y divide-zinc-100 bg-gray-100 p-1 md:p-2">
+        <div className="h-1 border border-zinc-100 md:hidden" />
+        <div className="basis-2/12 divide-y divide-zinc-100 bg-white p-1 md:bg-gray-100 md:p-2">
           <Sidebar></Sidebar>
         </div>
 

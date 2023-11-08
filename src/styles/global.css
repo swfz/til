@@ -18,6 +18,3 @@ article a {
   @apply text-blue-600 hover:text-gray-600 hover:underline;
 }
 
-li {
-  margin-bottom: 0;
-}

@@ -48,7 +48,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
           <ul>
             {relatedPosts?.map(relatedPost => {
               return (
-                <li key={relatedPost?.fields.slug ?? ""}>
+                <li className="mb-1" key={relatedPost?.fields.slug ?? ""}>
                   <Link className="link" to={relatedPost?.fields.slug ?? ""}>
                     {relatedPost?.frontmatter.title}
                   </Link>
@@ -60,15 +60,15 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
 
         <nav className="py-4">
           <ul className="flex justify-between">
-            <li>
+            <li className="mb-0">
               {previous && (
                 <Link className="link" to={previous.fields.slug || ""} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
-            <li className="grow"></li>
-            <li>
+            <li className="mb-0 grow"></li>
+            <li className="mb-0">
               {next && (
                 <Link className="link" to={next.fields.slug || ""} rel="next">
                   {next.frontmatter.title} →

@@ -71,7 +71,7 @@ export const ArchiveList = (props: Props) => {
               {Object.entries(items)
                 .sort(descFn)
                 .map(([month, items]) => (
-                  <li aria-label={"month-link"} key={`${year}-${month}`}>
+                  <li className="mb-0" aria-label={"month-link"} key={`${year}-${month}`}>
                     <Link className="link" to={`/archives/${year}/${month}`}>
                       <p>
                         &nbsp;&nbsp;&nbsp;{year}-{month}({items.length})

@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.tag {
-  @apply inline-block font-bold px-2 py-1 text-xs border border-blue-muted-300 text-blue-muted-300 rounded-md;
-}
-
-.tag:hover {
-  @apply bg-blue-muted-100;
-}
-
-.tag a:hover {
-  @apply text-gray-400;
-}
-
-.link {
-  @apply text-blue-600 hover:text-gray-600 hover:underline;
+@layer components {
+  .label {
+    @apply inline-block font-bold px-2 py-1 text-xs border border-blue-muted-300 text-blue-muted-300 rounded-md;
+  }
+  .label:hover {
+    @apply bg-blue-muted-100;
+  }
+  .label a:hover {
+    @apply text-gray-400;
+  }
+  .link {
+    @apply text-blue-600 hover:text-gray-600 hover:underline;
+  }
 }

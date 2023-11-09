@@ -27,14 +27,14 @@ exports[`Line snapshot 1`] = `
     >
       <a
         aria-label="tag"
-        className="tag"
+        className="label"
         href="/tags/a/"
       >
         A
       </a>
       <a
         aria-label="tag"
-        className="tag"
+        className="label"
         href="/tags/b/"
       >
         B

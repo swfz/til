@@ -90,7 +90,8 @@
       "Pandas",
       "markdownlint",
       "Obsidian Plugin",
-      "prismjs"
+      "prismjs",
+      "TailwindCSS"
     ]
   },
   {
@@ -152,5 +153,9 @@
       "Windows",
       "docker-compose"
     ]
+  },
+  {
+    "name": "デザイン",
+    "tags": ["Flexbox", "レスポンシブ"]
   }
 ]

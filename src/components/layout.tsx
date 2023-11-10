@@ -24,7 +24,6 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
         <div className="basis-2/12 divide-y divide-zinc-100 bg-white p-1 md:bg-gray-100 md:p-2">
           <Sidebar></Sidebar>
         </div>
-
       </div>
       <div>
         <Footer></Footer>

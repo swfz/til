@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       <div>
         <Navigation></Navigation>
       </div>
-      <div className="flex flex-1 flex-col md:flex-row">
+      <div className="flex grow flex-col md:flex-row">
         <div className="basis-0 md:basis-3/12"></div>
 
         <div className="basis-6/12">{props.children}</div>
@@ -25,9 +25,8 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
           <Sidebar></Sidebar>
         </div>
 
-        <div className="grow"></div>
       </div>
-      <div className="">
+      <div>
         <Footer></Footer>
       </div>
     </div>

@@ -63,14 +63,14 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
             <li className="mb-0">
               {previous && (
                 <Link className="link" to={previous.fields.slug || ""} rel="prev">
-                  ← {previous.frontmatter.title}
+                  ⇦ {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li className="mb-0 grow text-right">
               {next && (
                 <Link className="link" to={next.fields.slug || ""} rel="next">
-                  {next.frontmatter.title} →
+                  {next.frontmatter.title} ⇨
                 </Link>
               )}
             </li>

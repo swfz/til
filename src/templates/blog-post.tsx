@@ -36,7 +36,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostBySlugQuery, PageCont
               <Tags tags={post.frontmatter.tags}></Tags>
             </div>
           </header>
-          <div className="prose py-4" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="prose max-w-4xl py-4" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
         <div className="py-4 md:hidden">

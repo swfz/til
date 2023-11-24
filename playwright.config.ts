@@ -14,12 +14,12 @@ export default defineConfig({
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: "http://127.0.0.1:9000",
+    baseURL: "http://localhost:9000",
     trace: "on-first-retry",
   },
   webServer: {
     command: "yarn gatsby serve",
-    url: "http://127.0.0.1:9000",
+    url: "http://localhost:9000",
     reuseExistingServer: !process.env.CI,
     stdout: "pipe",
     stderr: "pipe",

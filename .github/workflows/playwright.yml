@@ -23,13 +23,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: debug
-        run: |
-          yarn gatsby serve --verbose --port 3000 &
-          sleep 5
-          netstat -an | grep 3000
-          curl -s -D - http://localhost:3000/ -o /dev/null
-
       - name: Run Playwright tests
         env:
           DEBUG: pw:webserver

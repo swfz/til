@@ -132,6 +132,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest --config ./jest.config.js",
+    "vrt": "playwright test",
     "typecheck": "tsc --noEmit",
     "prepare": "husky install",
     "postinstall": "patch-package"

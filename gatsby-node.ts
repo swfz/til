@@ -7,7 +7,6 @@ import kebabCase from "lodash/kebabCase"
 import moment from "moment"
 
 import { Archives } from "./src/@types"
-import { MarkdownRemarkFrontmatter } from "./types/graphql-types"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   // Frontmatterは必ず全て入力している前提
@@ -160,7 +159,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNod
 
   if (node.internal.type === `MarkdownRemark` && node.parent) {
     const parent = getNode(node.parent)
-    const frontmatter = node.frontmatter as MarkdownRemarkFrontmatter
+    const frontmatter = node.frontmatter as Queries.MarkdownRemarkFrontmatter
     const afterStart =
       process.env.START_DATE === undefined || (process.env.START_DATE && frontmatter.date >= process.env.START_DATE)
     const beforeEnd =

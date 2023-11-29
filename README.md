@@ -47,4 +47,6 @@ APIの内容が変わった場合は本番レスポンスを取得して各種JS
 | GATSBY_ALGOLIA_SEARCH_KEY | Algoliaの検索用APIキー | gatsby-algoliaで使用 |
 | GATSBY_ALGOLIA_APP_ID | AlgoliaのAppID | ビルド時に使用 |
 | BUILD | ビルド種別 | ビルド時に使用、Cloudflare側で設定[production, preview] |
+| START_DATE | YYYY-MM-DD | 設定された値以降の記事データをビルド対象とする、主に開発、テスト、執筆時確認用  |
+| END_DATE | YYYY-MM-DD | 設定された値以前の記事データをビルド対象とする、主に開発、テスト、執筆時確認用 |
 

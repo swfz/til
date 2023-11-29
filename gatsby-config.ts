@@ -105,12 +105,6 @@ const plugins: GatsbyConfig["plugins"] = [
       icon: `content/assets/gatsby-icon.png`,
     },
   },
-  {
-    resolve: `gatsby-plugin-typography`,
-    options: {
-      pathToConfigModule: `src/utils/typography`,
-    },
-  },
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-sass`,
   {

@@ -1,8 +1,11 @@
 name: Playwright Tests
 on:
-  # push:
-  #   branches: [main]
-  # pull_request:
+  push:
+    paths-ignore:
+      - 'content/blog/**/*.md'
+  pull_request:
+    paths-ignore:
+      - 'content/blog/**/*.md'
 
 jobs:
   test:
@@ -22,6 +25,8 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Build
+        env:
+          END_DATE: 2023-11-01
         run: yarn build
 
       - name: Run Playwright tests

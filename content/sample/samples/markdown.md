@@ -60,7 +60,7 @@ print $test;
 
 ## 画像
 
-![text](blog.png "alt")
+![image](terminal.png "alt")
 
 ---
 

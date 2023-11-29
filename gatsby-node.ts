@@ -7,6 +7,7 @@ import kebabCase from "lodash/kebabCase"
 import moment from "moment"
 
 import { Archives } from "./src/@types"
+import { MarkdownRemarkFrontmatter } from "./types/graphql-types"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   // Frontmatterは必ず全て入力している前提
@@ -34,6 +35,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
   const archiveTemplate = path.resolve(`./src/templates/archives.tsx`)
+
   const result = await graphql<Queries.AllPostAndTagsQuery>(`
     query AllPostAndTags {
       postsRemark: allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
@@ -154,21 +156,34 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 }
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField, deleteNode } = actions
 
   if (node.internal.type === `MarkdownRemark` && node.parent) {
-    const slug = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value: slug,
-    })
-
     const parent = getNode(node.parent)
-    createNodeField({
-      name: "collection",
-      node,
-      value: parent?.sourceInstanceName,
-    })
+    const frontmatter = node.frontmatter as MarkdownRemarkFrontmatter
+    const afterStart =
+      process.env.START_DATE === undefined || (process.env.START_DATE && frontmatter.date >= process.env.START_DATE)
+    const beforeEnd =
+      process.env.END_DATE === undefined || (process.env.END_DATE && frontmatter.date < process.env.END_DATE)
+    const inTerm = afterStart && beforeEnd
+    const available = inTerm || parent?.sourceInstanceName === "sample"
+
+    if (available) {
+      const slug = createFilePath({ node, getNode })
+
+      createNodeField({
+        name: `slug`,
+        node,
+        value: slug,
+      })
+
+      createNodeField({
+        name: "collection",
+        node,
+        value: parent?.sourceInstanceName,
+      })
+    } else {
+      deleteNode(node, { name: "gatsby-transformer-remark" })
+    }
   }
 }

@@ -7,6 +7,12 @@ import { TagsWithCount } from "../components/tags"
 type SummarizedTag = {
   [key: string]: {
     count: number
+    subCategories: {
+      [key: string]: {
+        count: number
+        tags: { fieldValue: string | null; totalCount: number }[]
+      }
+    }
     tags: { fieldValue: string | null; totalCount: number }[]
   }
 }
@@ -15,13 +21,23 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
   const group = data.allMarkdownRemark.group
 
   const categories = group.reduce((acc, tag) => {
-    const category =
-      data.allCategoriesJson.edges.find(({ node }) => node?.tags?.includes(tag.fieldValue))?.node.name || "Other"
+    const categoryNode = data.allCategoriesJson.edges.find(({ node }) => node?.tags?.includes(tag.fieldValue))?.node
+    const category = categoryNode?.name || "Other"
+    const subCategory = categoryNode?.subCategory || null
 
-    const row = acc[category] || { count: 0, tags: [] }
-    const newData = { count: row.count + tag.totalCount, tags: [...row.tags, tag] }
+    const categoryRow = acc[category] || { count: 0, subCategories: {}, tags: [] }
 
-    return { ...acc, [category]: { ...newData } }
+    if (subCategory) {
+      const row = categoryRow.subCategories[subCategory] || { count: 0, tags: [] }
+      const newData = { count: row.count + tag.totalCount, tags: [...row.tags, tag] }
+      const subCategories = { ...categoryRow.subCategories, [subCategory]: newData }
+      const categoryCount = categoryRow.count + tag.totalCount
+
+      return { ...acc, [category]: { ...categoryRow, count: categoryCount, subCategories: subCategories } }
+    } else {
+      const newData = { count: categoryRow.count + tag.totalCount, tags: [...categoryRow.tags, tag] }
+      return { ...acc, [category]: { subCategories: categoryRow.subCategories, ...newData } }
+    }
   }, {} as SummarizedTag)
 
   return (
@@ -35,6 +51,18 @@ const TagsPage: React.FC<PageProps<Queries.TagsQuery>> = ({ data }) => {
               <summary key={category}>
                 {category} ({row?.count})
               </summary>
+              {Object.entries(row?.subCategories)
+                .sort((a, b) => b[1].count - a[1].count)
+                .map(([subCategory, r]) => (
+                  <div key={subCategory} className="px-4 py-1">
+                    <details open>
+                      <summary key={subCategory}>
+                        {subCategory} ({r?.count})
+                      </summary>
+                      <TagsWithCount tags={r.tags} />
+                    </details>
+                  </div>
+                ))}
               <TagsWithCount tags={row?.tags} />
             </details>
           </div>
@@ -60,6 +88,7 @@ export const pageQuery = graphql`
       edges {
         node {
           name
+          subCategory
           tags
         }
       }

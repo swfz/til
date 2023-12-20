@@ -1,27 +1,32 @@
 [
   {
     "name": "Cloud",
+    "subCategory": "AWS",
+    "tags": ["AWS", "CloudFront", "CloudWatchLogs", "Lambda", "S3"]
+  },
+  {
+    "name": "Cloud",
+    "subCategory": "GoogleCloud",
     "tags": [
-      "AWS",
       "GoogleCloudPlatform",
       "GoogleCloud",
-      "Cloudflare",
-      "BigQuery",
-      "CloudFront",
       "CloudFunctions",
       "CloudScheduler",
-      "CloudWatchLogs",
       "CloudWorkflows",
       "Workflows",
-      "Cloudflare Pages",
-      "Lambda",
-      "S3",
+      "BigQuery",
       "SecretManager",
       "GCS"
     ]
   },
   {
+    "name": "Cloud",
+    "subCategory": "Cloudflare",
+    "tags": ["Cloudflare", "Cloudflare Pages"]
+  },
+  {
     "name": "サービス",
+    "subCategory": null,
     "tags": [
       "Netlify",
       "Sentry",
@@ -47,10 +52,12 @@
   },
   {
     "name": "フレームワーク",
+    "subCategory": null,
     "tags": ["Gatsby", "Nextjs", "Next", "Rails"]
   },
   {
     "name": "言語/ランタイム",
+    "subCategory": null,
     "tags": [
       "Go",
       "Ruby",
@@ -67,6 +74,12 @@
   },
   {
     "name": "ライブラリ",
+    "subCategory": "Ruby",
+    "tags": ["Resque"]
+  },
+  {
+    "name": "ライブラリ",
+    "subCategory": "Node/JavaScript",
     "tags": [
       "MUI",
       "TestingLibrary",
@@ -75,7 +88,6 @@
       "React",
       "TinySegmenter",
       "Tailwindcss",
-      "Resque",
       "textlint",
       "node-fetch",
       "QuerySelector",
@@ -84,15 +96,18 @@
       "Jest",
       "Storybook",
       "MaterialUI",
-      "Matplotlib",
       "msw",
       "Puppeteer",
-      "Pandas",
       "markdownlint",
-      "Obsidian Plugin",
       "prismjs",
-      "TailwindCSS"
+      "TailwindCSS",
+      "Obsidian Plugin"
     ]
+  },
+  {
+    "name": "ライブラリ",
+    "subCategory": "Python",
+    "tags": ["Pandas", "Matplotlib"]
   },
   {
     "name": "ツール/コマンド",
@@ -128,18 +143,22 @@
   },
   {
     "name": "データストア",
+    "subCategory": null,
     "tags": ["MySQL", "SQL", "Redis", "Hive"]
   },
   {
     "name": "エディタ",
+    "subCategory": null,
     "tags": ["IntelliJ", "VS Code", "Vim", "Obsidian"]
   },
   {
     "name": "セキュリティ",
+    "subCategory": null,
     "tags": ["BasicAuth", "ssh", "OpenSSL"]
   },
   {
     "name": "インフラ/DevOps/開発環境",
+    "subCategory": null,
     "tags": [
       "Docker",
       "Ansible",
@@ -156,6 +175,7 @@
   },
   {
     "name": "デザイン",
+    "subCategory": null,
     "tags": ["Flexbox", "レスポンシブ"]
   }
 ]

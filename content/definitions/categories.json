@@ -107,7 +107,7 @@
   {
     "name": "ライブラリ",
     "subCategory": "Python",
-    "tags": ["Pandas", "Matplotlib"]
+    "tags": ["Pandas", "Matplotlib", "pproxy"]
   },
   {
     "name": "ツール/コマンド",

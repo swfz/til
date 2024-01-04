@@ -5,6 +5,7 @@ on:
     workflows:
       - ci
       - lint content
+      - Playwright Tests
     types:
       - completed
 jobs:
@@ -17,7 +18,7 @@ jobs:
           workflow_run: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-      - uses: swfz/failed-log-to-slack-action@main
+      - uses: swfz/failed-log-to-slack-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}

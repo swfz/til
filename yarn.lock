@@ -15953,7 +15953,21 @@ textlint-rule-preset-ja-technical-writing@9.0.0:
     textlint-rule-preset-jtf-style "^2.3.13"
     textlint-rule-sentence-length "^5.0.0"
 
-textlint-rule-preset-jtf-style@2.3.13, textlint-rule-preset-jtf-style@^2.3.13:
+textlint-rule-preset-jtf-style@2.3.14:
+  version "2.3.14"
+  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-2.3.14.tgz#97bdf8806cd635cd278e21931bbded687b93a253"
+  integrity sha512-xkVclRrC921eejsDP79dt7UhwT15825etgQSQx8SvOqaPRNwDdQ7kzep4LIyrdLgPm/3k/gX8qyw0BrN02U27w==
+  dependencies:
+    analyze-desumasu-dearu "^2.1.2"
+    japanese-numerals-to-number "^1.0.2"
+    match-index "^1.0.3"
+    moji "^0.5.1"
+    regexp.prototype.flags "^1.4.3"
+    regx "^1.0.4"
+    textlint-rule-helper "^2.2.1"
+    textlint-rule-prh "^5.2.1"
+
+textlint-rule-preset-jtf-style@^2.3.13:
   version "2.3.13"
   resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-2.3.13.tgz#7adb6d1e93bf2ba315a8fea4f82b4378ffb3c200"
   integrity sha512-DH5V00hOCXK1BLG4/MfxXSFGKzruEQ/fzQG396CwiDK8LB0cMS1Z0O8JYRXMFDbmHRtR7LVXL8/3L1OwQ4TunQ==

@@ -11,7 +11,7 @@
     "@sentry/gatsby": "7.91.0",
     "@tailwindcss/typography": "^0.5.10",
     "@tippyjs/react": "4.2.6",
-    "dompurify": "3.0.6",
+    "dompurify": "3.0.7",
     "dotenv": "16.3.1",
     "gatsby": "5.13.1",
     "gatsby-plugin-algolia": "1.0.3",

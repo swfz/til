@@ -12,8 +12,10 @@ exports[`Search 検索UIのテスト 1`] = `
         action=""
         class="ais-SearchBox-form search-input close"
         novalidate=""
+        role="search"
       >
         <input
+          aria-label="Search"
           autocapitalize="off"
           autocomplete="off"
           autocorrect="off"
@@ -65,6 +67,7 @@ exports[`Search 検索UIのテスト 1`] = `
         >
           <svg
             aria-hidden="true"
+            aria-label="Results are loading"
             class="ais-SearchBox-loadingIcon"
             height="16"
             stroke="#444"
@@ -138,8 +141,10 @@ exports[`Search 検索UIのテスト 2`] = `
         action=""
         class="ais-SearchBox-form search-input open"
         novalidate=""
+        role="search"
       >
         <input
+          aria-label="Search"
           autocapitalize="off"
           autocomplete="off"
           autocorrect="off"
@@ -190,6 +195,7 @@ exports[`Search 検索UIのテスト 2`] = `
         >
           <svg
             aria-hidden="true"
+            aria-label="Results are loading"
             class="ais-SearchBox-loadingIcon"
             height="16"
             stroke="#444"
@@ -1419,8 +1425,10 @@ exports[`Search 検索UIのテスト 3`] = `
         action=""
         class="ais-SearchBox-form search-input open"
         novalidate=""
+        role="search"
       >
         <input
+          aria-label="Search"
           autocapitalize="off"
           autocomplete="off"
           autocorrect="off"
@@ -1471,6 +1479,7 @@ exports[`Search 検索UIのテスト 3`] = `
         >
           <svg
             aria-hidden="true"
+            aria-label="Results are loading"
             class="ais-SearchBox-loadingIcon"
             height="16"
             stroke="#444"
@@ -2259,8 +2268,10 @@ exports[`Search 検索UIのテスト 4`] = `
         action=""
         class="ais-SearchBox-form search-input close"
         novalidate=""
+        role="search"
       >
         <input
+          aria-label="Search"
           autocapitalize="off"
           autocomplete="off"
           autocorrect="off"
@@ -2311,6 +2322,7 @@ exports[`Search 検索UIのテスト 4`] = `
         >
           <svg
             aria-hidden="true"
+            aria-label="Results are loading"
             class="ais-SearchBox-loadingIcon"
             height="16"
             stroke="#444"

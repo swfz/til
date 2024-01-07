@@ -35,6 +35,21 @@ sqlite3 .wrangler/state/v3/d1/miniflare-D1DatabaseObject/hogefugapiyo.sqlite < s
 
 APIの内容が変わった場合は本番レスポンスを取得して各種JSONを更新する
 
+### VRT
+
+playwrightを使用している
+
+記事の数によって変更が生じてしまうため一定過去のデータのみ（2023-11-01以前）GatsbyのNodeを取得するようにしている
+
+そのためビルド時に環境変数の指定が必要
+
+- スナップショットの更新
+
+```
+END_DATE=2023-11-01 yarn build
+yarn vrt -u
+```
+
 ## Environment
 
 | env | value | 備考 |

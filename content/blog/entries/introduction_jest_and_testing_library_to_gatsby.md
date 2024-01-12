@@ -67,7 +67,7 @@ TypeScript関連のようだがよくわからんということでうだうだ�
     Consider using the "jsdom" test environment.
 ```
 
-デフォルトのテスト環境が`node`である
+デフォルトのテスト環境が`node`
 
 レンダリングなどをするテストの場合は`jsdom`環境に変更してあげる必要がある
 

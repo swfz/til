@@ -101,7 +101,8 @@
       "markdownlint",
       "prismjs",
       "TailwindCSS",
-      "Obsidian Plugin"
+      "Obsidian Plugin",
+      "Octokit"
     ]
   },
   {

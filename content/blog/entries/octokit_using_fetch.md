@@ -3,9 +3,10 @@ title: "GitHub ActionsのOctokitでfetchを使いリクエストする"
 date: "2024-01-10"
 description: "requestライブラリを指定する"
 tags:
-  - GitHub Actions
+  - GitHubActions
   - Octokit
   - TypeScript
+  - msw
 ---
 
 GitHub Actionsのカスタムアクションの開発をしていてエラーに遭遇したのでメモ

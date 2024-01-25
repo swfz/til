@@ -46,7 +46,7 @@
     "typography": "0.16.24"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.23.3",
+    "@babel/eslint-parser": "7.23.9",
     "@cloudflare/workers-types": "^4.20231016.0",
     "@playwright/test": "^1.40.0",
     "@testing-library/jest-dom": "6.3.0",

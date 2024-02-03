@@ -145,7 +145,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   })
 
   // check for unmapped categories
-  const OTHER_CATEGORY_TAGS = 9
+  const OTHER_CATEGORY_TAGS = 6
   const categories = result?.data?.categories.edges || []
   const otherCategoryTags = tags.filter(tag => !categories.find(c => c.node.tags?.includes(tag.fieldValue)))
 

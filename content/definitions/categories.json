@@ -47,7 +47,8 @@
       "GoogleAnalytics4",
       "Spreadsheet",
       "Codespace",
-      "GoogleAppsScript"
+      "GoogleAppsScript",
+      "JIRA"
     ]
   },
   {
@@ -178,5 +179,10 @@
     "name": "デザイン",
     "subCategory": null,
     "tags": ["Flexbox", "レスポンシブ"]
+  },
+  {
+    "name": "ファイル",
+    "subCategory": null,
+    "tags": ["SVG", "PNG", "zip", "音声"]
   }
 ]

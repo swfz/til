@@ -70,7 +70,8 @@
       "CSS",
       "Deno",
       "Markdown",
-      "ES2015"
+      "ES2015",
+      "GitBash"
     ]
   },
   {
@@ -172,7 +173,9 @@
       "WSL",
       "WSL2",
       "Windows",
-      "docker-compose"
+      "docker-compose",
+      "Mac",
+      "Homebrew"
     ]
   },
   {

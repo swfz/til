@@ -150,7 +150,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const otherCategoryTags = tags.filter(tag => !categories.find(c => c.node.tags?.includes(tag.fieldValue)))
 
   if (otherCategoryTags.length > OTHER_CATEGORY_TAGS) {
-    reporter.warn(`${otherCategoryTags.map(c => c.fieldValue).join(", ")} are not mapped to any category`)
+    reporter.warn(
+      `${otherCategoryTags.map(c => c.fieldValue).join(", ")} are not mapped to any category ${otherCategoryTags.length}/${OTHER_CATEGORY_TAGS}`
+    )
   }
 }
 

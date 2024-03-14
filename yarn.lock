@@ -1451,9 +1451,9 @@
   integrity sha512-snXIGNiZpqjno3XYQN2lbBB+05hsQR/LSttbtIW1c0gmZ7Kh/DIo0YrxlDxCDulAMFPFM8J+4voLwvYepSj3sw==
 
 "@cloudflare/workers-types@^4.20231016.0":
-  version "4.20240312.0"
-  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20240312.0.tgz#9c78b133e7b4384be7bd914177a05d04268edb31"
-  integrity sha512-tpBNfijiXR/DSZkcUZHxP+80nIvKUWbGO2u4FBLudmJLGPhzgfoQ3tql+FeIhxYslSituMcVQNnJmWTF7FjURg==
+  version "4.20240314.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20240314.0.tgz#3aaf330c6692fbbeaa1eeb8b08b4b9d3b6614d61"
+  integrity sha512-eg2dK/tYSiFvQu3sexjB32WEGi3GEmY6pLRF4nrV9Rwi2F2965o6f6604jQY8whhrmNdEoWErSjhuuUld6xgKQ==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"

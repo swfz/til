@@ -1,7 +1,7 @@
 ---
 title: "ShellScript内で実行するコマンドのJSON引数をよしなにあつかいたい"
 date: "2024-04-29"
-description: "jq"
+description: "jqかヒアドキュメント"
 tags:
   - ShellScript
   - Google Cloud
@@ -44,19 +44,16 @@ message=$(jq -n \
 ヒアドキュメントでも解決できる
 
 ```bash
-read -r -d '' message << EOF
+message=$(cat << EOF
 {
   "val": $val,
   "key": "$key",
   "date": "$date"
 }
 EOF
+)
 ```
 
-- `read`で標準入力から行を読み込む
-- `-r`でバックスラッシュをエスケープ文字として扱わない指定
-    - JSON内でバックスラッシュを使用する場合に問題が出るのを防ぐため
-- `-d ''`でデリミタ指定
-    - 通常は改行文字を入力の終わりとみなすが`-d ''`でnull文字を指定することで終端まで読み込む
+ヒアドキュメントで定義されたテキストを`cat`コマンドで取得し`message`に代入している
 
 覚えておいて損はないはず

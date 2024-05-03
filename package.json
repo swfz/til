@@ -64,7 +64,7 @@
     "autoprefixer": "^10.4.16",
     "babel-jest": "29.7.0",
     "babel-preset-gatsby": "3.13.2",
-    "eslint": "8.57.0",
+    "eslint": "9.2.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-interactive": "10.8.0",

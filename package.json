@@ -108,7 +108,7 @@
     "textlint-rule-preset-jtf-style": "2.3.14",
     "textlint-rule-prh": "6.0.0",
     "textlint-rule-spellcheck-tech-word": "5.0.0",
-    "ts-jest": "29.2.0",
+    "ts-jest": "29.2.1",
     "typescript": "5.5.3"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",

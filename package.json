@@ -133,7 +133,7 @@
     "test": "jest --config ./jest.config.js",
     "vrt": "playwright test",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky install",
+    "prepare": "husky",
     "postinstall": "patch-package"
   },
   "proxy": "http://localhost:8081/",

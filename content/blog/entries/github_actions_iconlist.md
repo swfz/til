@@ -4,7 +4,7 @@ date: "2024-03-04"
 description: ""
 tags:
   - GitHub
-  - GitHub Actions
+  - GitHubActions
 ---
 
 せっかく自作でActionを作ったのでアイコンも設定したい

@@ -48,7 +48,8 @@
       "Spreadsheet",
       "Codespace",
       "GoogleAppsScript",
-      "JIRA"
+      "JIRA",
+      "LookerStudio"
     ]
   },
   {
@@ -71,7 +72,8 @@
       "Deno",
       "Markdown",
       "ES2015",
-      "GitBash"
+      "GitBash",
+      "HTML"
     ]
   },
   {
@@ -186,6 +188,6 @@
   {
     "name": "ファイル",
     "subCategory": null,
-    "tags": ["SVG", "PNG", "zip", "音声"]
+    "tags": ["SVG", "PNG", "zip", "音声", "CSV", "Image"]
   }
 ]

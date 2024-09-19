@@ -143,17 +143,18 @@ p, a, div, h1, h2, h3, h4 {
   // align-items: center;
   margin-top: 0;
   margin-bottom: 0;
-
+  color: #000000;
   width: 20em;
   outline: none;
   font-size: 1em;
   transition: 100ms;
   border-radius: 2px;
-  ::placeholder {
-    color: #CCCCCC;
-  }
   position: relative;
 }
+.search-input ::placeholder {
+  color: #CCCCCC;
+}
+
 .open, .open > input{
   width: 10em;
   background: #FFFFFF;

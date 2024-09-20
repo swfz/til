@@ -2,7 +2,7 @@ import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import _import from "eslint-plugin-import";
+import importPlugin from "eslint-plugin-import";
 import unusedImports from "eslint-plugin-unused-imports";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
@@ -25,14 +25,12 @@ export default [{
         "**/lint-staged.config.js",
         "**/loadershim.js",
         "**/jest.config.js",
+        "**/jest.resolver.js",
         "**/jest-preprocess.js",
         "public/*",
     ],
 }, ...fixupConfigRules(compat.extends(
-    // "google",
     "eslint:recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -44,7 +42,7 @@ export default [{
         react: fixupPluginRules(react),
         "react-hooks": fixupPluginRules(reactHooks),
         "@typescript-eslint": fixupPluginRules(typescriptEslint),
-        import: fixupPluginRules(_import),
+        import: fixupPluginRules(importPlugin),
         "unused-imports": unusedImports,
         tailwindcss: fixupPluginRules(tailwindcss),
     },
@@ -53,11 +51,9 @@ export default [{
         globals: {
             ...globals.browser,
         },
-
         parser: tsParser,
         ecmaVersion: "latest",
         sourceType: "module",
-
         parserOptions: {
             ecmaFeatures: {
                 jsx: true,
@@ -73,16 +69,13 @@ export default [{
 
     rules: {
         eqeqeq: "error",
-
         "react/jsx-handler-names": ["error", {
             eventHandlerPrefix: "handle",
             eventHandlerPropPrefix: "on",
             checkInlineFunction: true,
             checkLocalVariables: false,
         }],
-
         "react/prop-types": "off",
-
         "import/order": ["warn", {
             groups: [
                 "builtin",
@@ -94,15 +87,12 @@ export default [{
                 "object",
                 "type",
             ],
-
             "newlines-between": "always",
-
             alphabetize: {
                 order: "asc",
                 caseInsensitive: false,
             },
         }],
-
         "import/no-unresolved": "off",
         "react/no-array-index-key": "warn",
     },

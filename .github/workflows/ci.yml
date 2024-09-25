@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: actions/setup-node@v4.0.4
         with:
           node-version-file: .node-version
@@ -24,7 +24,7 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: actions/setup-node@v4.0.4
         with:
           node-version-file: .node-version
@@ -37,7 +37,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: actions/setup-node@v4.0.4
         with:
           node-version-file: .node-version
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     name: run eslint
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: actions/setup-node@v4.0.4
         with:
           node-version-file: .node-version
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     name: run prettier check
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: actions/setup-node@v4.0.4
         with:
           node-version-file: .node-version

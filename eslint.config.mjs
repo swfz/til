@@ -11,6 +11,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import gatsbyEslintCustomRules from "./gatsby-eslint-custom-rules.mjs";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,6 +47,7 @@ export default [{
         import: fixupPluginRules(importPlugin),
         "unused-imports": unusedImports,
         tailwindcss: fixupPluginRules(tailwindcss),
+        gatsby: gatsbyEslintCustomRules,
     },
 
     languageOptions: {
@@ -95,5 +98,7 @@ export default [{
         }],
         "import/no-unresolved": "off",
         "react/no-array-index-key": "warn",
+        "gatsby/limited-exports": "warn",
+        "gatsby/no-anonymous-exports": "warn",
     },
 }];

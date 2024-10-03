@@ -1,4 +1,4 @@
-import { queries, feedOptions, gatsbyRequiredRules, remarkRelatedPostsOptions } from "./src/gatsby/config"
+import { queries, feedOptions, remarkRelatedPostsOptions } from "./src/gatsby/config"
 
 import type { GatsbyConfig } from "gatsby"
 
@@ -143,12 +143,10 @@ const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: "gatsby-plugin-eslint",
     options: {
-      // Gatsby required rules directory
-      rulePaths: [gatsbyRequiredRules],
-      // Default settings that may be ommitted or customized
       stages: ["develop"],
       extensions: ["js", "jsx", "ts", "tsx"],
       exclude: ["node_modules", "bower_components", ".cache", "public"],
+      configType: "flat",
       // Any additional eslint-webpack-plugin options below
       // ...
     },

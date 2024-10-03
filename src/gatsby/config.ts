@@ -1,6 +1,3 @@
-// For gatsby-plugin-algolia
-import path from "path"
-
 type Data = {
   data: {
     postsRemark: {
@@ -151,6 +148,3 @@ export const feedOptions = {
     },
   ],
 }
-
-// For gatsby-plugin-eslint
-export const gatsbyRequiredRules = path.join(process.cwd(), "node_modules", "gatsby", "dist", "utils", "eslint-rules")

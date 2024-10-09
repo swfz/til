@@ -1,0 +1,95 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Line > snapshot 1`] = `
+<div
+  className="rounded border border-gray-100 p-6 shadow"
+>
+  <div
+    className="text-xl"
+  >
+    <small>
+      [
+      2021-05-01
+      ]
+    </small>
+    <h2
+      className="pb-2 text-xl"
+    >
+      <a
+        className="link"
+        href="/sample_hoge/fuga"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        hoge
+      </a>
+    </h2>
+    <span
+      className="flex flex-row flex-wrap gap-1"
+    >
+      <a
+        aria-label="tag"
+        className="label"
+        href="/tags/a/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        A
+      </a>
+      <a
+        aria-label="tag"
+        className="label"
+        href="/tags/b/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        B
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Line snapshot 1`] = `
+<div
+  className="rounded border border-gray-100 p-6 shadow"
+>
+  <div
+    className="text-xl"
+  >
+    <small>
+      [
+      2021-05-01
+      ]
+    </small>
+    <h2
+      className="pb-2 text-xl"
+    >
+      <a
+        className="link"
+        href="/sample_hoge/fuga"
+      >
+        hoge
+      </a>
+    </h2>
+    <span
+      className="flex flex-row flex-wrap gap-1"
+    >
+      <a
+        aria-label="tag"
+        className="label"
+        href="/tags/a/"
+      >
+        A
+      </a>
+      <a
+        aria-label="tag"
+        className="label"
+        href="/tags/b/"
+      >
+        B
+      </a>
+    </span>
+  </div>
+</div>
+`;

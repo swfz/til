@@ -1,4 +1,4 @@
-import { rest } from "msw"
+import { http, HttpResponse } from "msw"
 
 import query0Words from "./algolia-search-response-0-words.json"
 import query1Words from "./algolia-search-response-1-words.json"
@@ -222,14 +222,14 @@ const svgContent = `
     </svg>`
 
 export const handlers = [
-  rest.get("https://pixe.la/v1/users/swfz/graphs/til-pageviews", async (req, res, ctx) => {
+  http.get("https://pixe.la/v1/users/swfz/graphs/til-pageviews", async () => {
     const encoder = new TextEncoder()
     const svgBuffer = encoder.encode(svgContent).buffer
 
-    return res(ctx.status(200), ctx.body(svgBuffer))
+    return new HttpResponse(svgBuffer)
   }),
 
-  rest.post("https://*.algolia.net/1/indexes/*/queries", (req, res, ctx) => {
+  http.post("https://*.algolia.net/1/indexes/*/queries", async ({ request }) => {
     const empty = query0Words // First Request: 初回読み込み時に空のクエリでリクエストが走る
 
     const wordCountResponseMap = [
@@ -244,10 +244,10 @@ export const handlers = [
       query8Words, // BigQuery
     ]
 
-    const bodyString = req.body as string
+    const bodyString = await request.text()
 
     if (bodyString.length === 0) {
-      return res(ctx.status(200), ctx.json(empty))
+      return HttpResponse.json(empty)
     }
 
     const body = JSON.parse(bodyString)
@@ -257,19 +257,19 @@ export const handlers = [
     )
 
     if (!params.query || params.query.length === 0 || params.query.length > wordCountResponseMap.length) {
-      return res(ctx.status(200), ctx.json(empty))
+      return HttpResponse.json(empty)
     }
 
-    return res(ctx.status(200), ctx.json(wordCountResponseMap[params.query.length]))
+    return HttpResponse.json(wordCountResponseMap[params.query.length])
   }),
 
-  rest.get("/api/like", (req, res, ctx) => {
-    const url = new URL(req.url.toString())
+  http.get("/api/like", ({ request }) => {
+    const url = new URL(request.url.toString())
     const slug = url.searchParams.get("slug")
 
     const count = slug?.match("samples") ? 2 : 0
     const likes = { results: [{ c: count }] }
 
-    return res(ctx.status(200), ctx.json(likes))
+    return new HttpResponse(JSON.stringify(likes))
   }),
 ]

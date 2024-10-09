@@ -2404,13 +2404,10 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.2.tgz#0f164b726869f71da3c594171df5ebc1c4b0a407"
   integrity sha512-O+6Gs8UeDbyFpbSh2CPEz/UOrrdWPTBYNblZK5CxxLisYt4kGX3Sc+czffFonyjiGSq3jWLwJS/CCJc7tBr4sQ==
 
-"@mswjs/cookies@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@mswjs/cookies/-/cookies-0.2.2.tgz#b4e207bf6989e5d5427539c2443380a33ebb922b"
-  integrity sha512-mlN83YSrcFgk7Dm1Mys40DLssI1KdJji2CMKN8eOlBqsTADYzj2+jWzsANsUTFbxDMWPD5e9bfA1RGqBpS3O1g==
-  dependencies:
-    "@types/set-cookie-parser" "^2.4.0"
-    set-cookie-parser "^2.4.6"
+"@mswjs/cookies@^1.1.0":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@mswjs/cookies/-/cookies-1.1.1.tgz#8b519e2bd8f1577c530beed44a25578eb9a6e72c"
+  integrity sha512-W68qOHEjx1iD+4VjQudlx26CPIoxmIAtK4ZCexU0/UJBG6jYhcuyzKJx+Iw8uhBIGd9eba64XgWVgo20it1qwA==
 
 "@mswjs/interceptors@^0.35.8":
   version "0.35.9"
@@ -3921,13 +3918,6 @@
   version "7.3.13"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.13.tgz#da4bfd73f49bd541d28920ab0e2bf0ee80f71c91"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
-
-"@types/set-cookie-parser@^2.4.0":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@types/set-cookie-parser/-/set-cookie-parser-2.4.2.tgz#b6a955219b54151bfebd4521170723df5e13caad"
-  integrity sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w==
-  dependencies:
-    "@types/node" "*"
 
 "@types/statuses@^2.0.4":
   version "2.0.5"
@@ -13226,13 +13216,13 @@ playwright-core@1.46.1:
   resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.46.1.tgz#28f3ab35312135dda75b0c92a3e5c0e7edb9cc8b"
   integrity sha512-h9LqIQaAv+CYvWzsZ+h3RsrqCStkBHlgo6/TJlFst3cOTlLghBQlJwPOZKQJTKNaD3QIB7aAVQ+gfWbN3NXB7A==
 
-playwright-msw@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/playwright-msw/-/playwright-msw-2.2.1.tgz#04b224885ad3294b1f66da86de60005471b065c7"
-  integrity sha512-LjT68LWqzJX8boy4KbnPp5ACLf7WDpt6RUem0tQQcQKys+45KNlluzBx8HEl1HNiCBYV/XZw1aI1aD2giKXWRg==
+playwright-msw@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/playwright-msw/-/playwright-msw-3.0.1.tgz#9b135e218ac7294af63b0ce7a82880f61c6bda73"
+  integrity sha512-w2bVjt7kPIThOQF9OS/1vDDs0HsQfV9inxMVSUv74x/zhCcrgzVN47xpPk84okf3OcCRHHBJKq8sNeBfCDyhMg==
   dependencies:
-    "@mswjs/cookies" "^0.2.2"
-    strict-event-emitter "^0.4.4"
+    "@mswjs/cookies" "^1.1.0"
+    strict-event-emitter "^0.5.1"
 
 playwright@1.46.1, playwright@^1.40.0:
   version "1.46.1"
@@ -14937,11 +14927,6 @@ set-blocking@^2.0.0:
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==
 
-set-cookie-parser@^2.4.6:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/set-cookie-parser/-/set-cookie-parser-2.6.0.tgz#131921e50f62ff1a66a461d7d62d7b21d5d15a51"
-  integrity sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==
-
 set-function-length@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/set-function-length/-/set-function-length-1.1.1.tgz#4bc39fafb0307224a33e106a7d35ca1218d659ed"
@@ -15408,11 +15393,6 @@ streamx@^2.15.0:
   dependencies:
     fast-fifo "^1.1.0"
     queue-tick "^1.0.1"
-
-strict-event-emitter@^0.4.4:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/strict-event-emitter/-/strict-event-emitter-0.4.6.tgz#ff347c8162b3e931e3ff5f02cfce6772c3b07eb3"
-  integrity sha512-12KWeb+wixJohmnwNFerbyiBrAlq5qJLwIt38etRtKtmmHyDSoGlIqFE9wx+4IwG0aDjI7GV8tc8ZccjWZZtTg==
 
 strict-event-emitter@^0.5.1:
   version "0.5.1"

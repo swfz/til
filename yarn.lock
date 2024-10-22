@@ -12185,10 +12185,10 @@ msgpackr@^1.5.4:
   optionalDependencies:
     msgpackr-extract "^3.0.2"
 
-msw@2.4.13:
-  version "2.4.13"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-2.4.13.tgz#a7617b1836e2ed719187054da189c56c9806f0e0"
-  integrity sha512-EDA7ls/twh3XG5QEYv0LvAnnFs3wYL6GFNMSqG4hh2+1rq7h78iDbh5jB2iaO8hKi1JVmZLO6ItssXmP1A7nxQ==
+msw@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-2.5.0.tgz#4faefdf4efa32191036215296982760763635e48"
+  integrity sha512-DwIGQV/XFzkseQD7Ux3rPWMRa7DpozicRQ87QLX9Gzik2xyqcXvtvlBEUs57RziTBZPe/QzaKSl92fJVdxxt2g==
   dependencies:
     "@bundled-es-modules/cookie" "^2.0.0"
     "@bundled-es-modules/statuses" "^1.0.1"

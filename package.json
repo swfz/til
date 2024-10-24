@@ -89,7 +89,7 @@
     "install": "^0.13.0",
     "jsdom": "^25.0.1",
     "lint-staged": "15.2.10",
-    "msw": "2.5.0",
+    "msw": "2.5.1",
     "playwright": "^1.40.0",
     "playwright-msw": "^3.0.1",
     "postcss": "^8.4.31",

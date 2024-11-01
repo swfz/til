@@ -67,7 +67,7 @@
     "@typescript-eslint/parser": "8.12.2",
     "autoprefixer": "^10.4.16",
     "babel-preset-gatsby": "3.13.2",
-    "eslint": "9.13.0",
+    "eslint": "9.14.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-interactive": "11.1.0",

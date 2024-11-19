@@ -3731,11 +3731,11 @@
   integrity sha512-udCxb8DvjcDKfk1WTBzDsxFbLgYxmQGKrE/ricoMqHRNjSlSUCcamVTA5lIQqzY10mY5qCY0QDwBfFEwhfoDPw==
 
 "@types/dompurify@^3.0.4":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-3.0.5.tgz#02069a2fcb89a163bacf1a788f73cb415dd75cb7"
-  integrity sha512-1Wg0g3BtQF7sSb27fJQAKck1HECM6zV1EB66j8JH9i3LCjYabJa0FSdiSgsD5K/RbrsR0SiraKacLB+T8ZVYAg==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-3.2.0.tgz#56610bf3e4250df57744d61fbd95422e07dfb840"
+  integrity sha512-Fgg31wv9QbLDA0SpTOXO3MaxySc4DKGLi8sna4/Utjo4r3ZRPdCt4UQee8BWr+Q5z21yifghREPJGYaEOEIACg==
   dependencies:
-    "@types/trusted-types" "*"
+    dompurify "*"
 
 "@types/eslint@^7.29.0":
   version "7.29.0"
@@ -4007,11 +4007,6 @@
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.5.tgz#cb6e2a691b70cb177c6e3ae9c1d2e8b2ea8cd304"
   integrity sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==
-
-"@types/trusted-types@*":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.5.tgz#5cac7e7df3275bb95f79594f192d97da3b4fd5fe"
-  integrity sha512-I3pkr8j/6tmQtKV/ZzHtuaqYSQvyjGRKH4go60Rr0IDLlFxuRT5V32uvB1mecM5G1EVAUyF/4r4QZ1GHgz+mxA==
 
 "@types/typography@0.16.8":
   version "0.16.8"
@@ -6948,7 +6943,7 @@ domhandler@^5.0.1, domhandler@^5.0.2, domhandler@^5.0.3:
   dependencies:
     domelementtype "^2.3.0"
 
-dompurify@3.2.0:
+dompurify@*, dompurify@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.2.0.tgz#53c414317c51503183696fcdef6dd3f916c607ed"
   integrity sha512-AMdOzK44oFWqHEi0wpOqix/fUNY707OmoeFDnbi3Q5I8uOpy21ufUA5cDJPr0bosxrflOVD/H2DMSvuGKJGfmQ==

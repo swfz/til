@@ -1,5 +1,5 @@
 ---
-title: "CSSで見えない要素を指定する"
+title: "CSSでレイアウトに影響を与えず見えない要素を指定する"
 date: "2024-11-21"
 description: "visiblity"
 tags:

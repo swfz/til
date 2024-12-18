@@ -34,7 +34,7 @@ jobs:
           DEBUG: pw:webserver
         run: yarn vrt
 
-      - uses: actions/upload-artifact@v4.4.3
+      - uses: actions/upload-artifact@v4.5.0
         if: always()
         with:
           name: playwright-report

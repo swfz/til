@@ -13,6 +13,7 @@ filters:
       - /.*\.[js|ts|yml|rb|rake|json|html]/
       - /\/etc\/.*
       - Cloudflare
+      - Stable
 rules:
   prh:
     rulePaths:

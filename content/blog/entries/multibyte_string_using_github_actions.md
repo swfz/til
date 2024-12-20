@@ -4,7 +4,7 @@ date: "2024-11-26"
 description: "core.quotepath"
 tags:
   - Git
-  - GitHub Actions
+  - GitHubActions
 ---
 
 マルチバイト文字列をActionsの中で扱う場合に気を付けようという話

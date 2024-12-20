@@ -1,6 +1,6 @@
 ---
 title: "chrome拡張が動かなくなってた"
-date: "2024-12-05"
+date: "2024-12-06"
 description: "betaでは対応済み"
 tags:
   - Chrome拡張

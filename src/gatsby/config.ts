@@ -56,6 +56,7 @@ const pageToAlgoliaRecord = ({
   return {
     objectID: id,
     url: `https://til.swfz.io/${fields.slug}`,
+    github: `https://github.com/swfz/til/blob/master/content/blog/${fields.slug}index.md`,
     text: rawMarkdownBody,
     ...frontmatter,
     ...fields,

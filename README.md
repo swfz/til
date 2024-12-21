@@ -65,3 +65,13 @@ yarn vrt -u
 | START_DATE | YYYY-MM-DD | 設定された値以降の記事データをビルド対象とする、主に開発、テスト、執筆時確認用  |
 | END_DATE | YYYY-MM-DD | 設定された値以前の記事データをビルド対象とする、主に開発、テスト、執筆時確認用 |
 
+
+## 記事作成
+
+記事検索に載せるため画像がなくてもディレクトリを作成する
+
+```
+echo article_dir_name \
+| xargs -I{} sh -lc "mkdir content/blog/entries/{} && touch content/blog/entries/{}/index.md"
+```
+

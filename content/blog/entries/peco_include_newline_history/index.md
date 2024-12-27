@@ -123,7 +123,7 @@ function peco-select-history() {
         eval $tac | \
         peco --query "$LBUFFER" | \
         sed s'/ \\\\n/ /g')
-    BUFFER=$(printf "${selected}")
+    BUFFER=$(echo "${selected}")
     zle redisplay
     CURSOR=$#BUFFER
 }

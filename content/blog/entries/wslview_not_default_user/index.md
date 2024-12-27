@@ -177,7 +177,7 @@ options = "metadata,uid=1000,gid=100"
 
 ```bash
 ls -al /mnt/c/Windows/System32/reg.exe
--r-xr-xr-x 2 sawafuji users 77312 Dec  7  2019 /mnt/c/Windows/System32/reg.exe*
+-r-xr-xr-x 2 hoge users 77312 Dec  7  2019 /mnt/c/Windows/System32/reg.exe*
 ```
 
 ```bash

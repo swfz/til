@@ -14,6 +14,7 @@ filters:
       - /\/etc\/.*
       - Cloudflare
       - Stable
+      - の時刻
 rules:
   prh:
     rulePaths:

@@ -28,7 +28,7 @@ ubiについては[Universal Binary Installer](https://til.swfz.io//entries/univ
 "ubi:duckdb/duckdb" = 'latest'
 ```
 
-これを書いた時点ではDuckDBはmiseのregistory.tomlには入っていなかったのでuibバックエンドでインストールする
+これを書いた時点ではDuckDBはmiseのregistory.tomlには入っていなかったのでubiバックエンドでインストールする
 
 - install
 
@@ -58,4 +58,3 @@ ubiコマンドで指定する方法と同様
 最初おためしで使ってみるときはubiバックエンドでインストールしておきつつ、本家の`registory.toml`になければコントリビュートチャンス!
 
 というかバックエンド機能があるからかなりの範囲のツールをカバーできるよな…って感じた
-

@@ -159,8 +159,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
   const { createNodeField, deleteNode } = actions
 
-  console.log('start: ', process.env.START_DATE, 'end: ', process.env.END_DATE);
-  
   if (node.internal.type === `MarkdownRemark` && node.parent) {
     const parent = getNode(node.parent)
     const frontmatter = node.frontmatter as Queries.MarkdownRemarkFrontmatter

@@ -20,7 +20,7 @@ p, a, div, h1, h2, h3, h4 {
 // tailwindcss/typographyを使っているのでproseクラス以下のコードハイライトという前提
 .prose {
   code {
-    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Noto Sans JP", Helvetica , "游ゴシック", sans-serif;
+    font-family: "Noto Sans JP", "JetBrainsMono Nerd Font", "JetBrains Mono", Helvetica , "游ゴシック", sans-serif;
   }
   // 各種言語の数字
   code[class*="language-"] {

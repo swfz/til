@@ -93,7 +93,7 @@
     "playwright": "^1.40.0",
     "playwright-msw": "^3.0.1",
     "postcss": "^8.4.31",
-    "prettier": "3.5.0",
+    "prettier": "3.5.1",
     "react-test-renderer": "18.3.1",
     "tailwindcss": "^3.3.5",
     "textlint": "14.4.2",

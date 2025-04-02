@@ -54,7 +54,7 @@
     "@playwright/test": "^1.40.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
-    "@testing-library/react": "16.2.0",
+    "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/dompurify": "^3.0.4",

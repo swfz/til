@@ -69,7 +69,7 @@
     "babel-preset-gatsby": "3.14.0",
     "eslint": "9.24.0",
     "eslint-config-google": "0.14.0",
-    "eslint-config-prettier": "10.1.1",
+    "eslint-config-prettier": "10.1.2",
     "eslint-interactive": "11.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsdoc": "^50.2.4",

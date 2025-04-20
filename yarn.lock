@@ -789,6 +789,13 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.24.5.tgz#4a4d5ab4315579e5398a82dcf636ca80c3392790"
   integrity sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==
 
+"@babel/parser@^7.27.0":
+  version "7.27.0"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.27.0.tgz#3d7d6ee268e41d2600091cbd4e145ffee85a44ec"
+  integrity sha512-iaepho73/2Pz7w2eMS0Q5f83+0RKI7i4xmiYeBmDzfRVbQtTOG7Ts0S4HzJVsTMGI9keU8rNfuZr8DKfSt7Yyg==
+  dependencies:
+    "@babel/types" "^7.27.0"
+
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/-/plugin-bugfix-safari-id-destructuring-collision-in-function-expression-7.18.6.tgz#da5b8f9a580acdfbe53494dba45ea389fb09a4d2"
@@ -1662,6 +1669,14 @@
     "@babel/helper-string-parser" "^7.24.1"
     "@babel/helper-validator-identifier" "^7.24.5"
     to-fast-properties "^2.0.0"
+
+"@babel/types@^7.27.0":
+  version "7.27.0"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.27.0.tgz#ef9acb6b06c3173f6632d993ecb6d4ae470b4559"
+  integrity sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg==
+  dependencies:
+    "@babel/helper-string-parser" "^7.25.9"
+    "@babel/helper-validator-identifier" "^7.25.9"
 
 "@builder.io/partytown@^0.7.5":
   version "0.7.6"
@@ -17049,12 +17064,12 @@ textlint-rule-preset-jtf-style@^3.0.1:
     textlint-rule-helper "^2.3.1"
     textlint-rule-prh "^6.0.0"
 
-textlint-rule-prh@6.0.0, textlint-rule-prh@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-6.0.0.tgz#2b917bcb80ed3f9c981abd0dc19e461951c55934"
-  integrity sha512-byU7eUyhabX2FKx3ShOktKkmKLG5dhR0ru+PGllKgafKKWXtzOIAhAaDlqMC5qU6b3Jaz5rKQcnroGVCEjcP1Q==
+textlint-rule-prh@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-6.1.0.tgz#8fcbb953d23f863a362acbad0e927048ab473af3"
+  integrity sha512-KrchADHw1/LZ/tAQ2XwL/XdUhunKCvlNmwgp+6hdyzuWX7uojOkDdJWWV0KAN4XWsK6Te5w/SZcYwQ7X6i3B0A==
   dependencies:
-    "@babel/parser" "^7.23.9"
+    "@babel/parser" "^7.27.0"
     prh "^5.4.4"
     textlint-rule-helper "^2.3.1"
 
@@ -17067,6 +17082,15 @@ textlint-rule-prh@^5.3.0:
     prh "^5.4.4"
     textlint-rule-helper "^2.1.1"
     untildify "^3.0.3"
+
+textlint-rule-prh@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-6.0.0.tgz#2b917bcb80ed3f9c981abd0dc19e461951c55934"
+  integrity sha512-byU7eUyhabX2FKx3ShOktKkmKLG5dhR0ru+PGllKgafKKWXtzOIAhAaDlqMC5qU6b3Jaz5rKQcnroGVCEjcP1Q==
+  dependencies:
+    "@babel/parser" "^7.23.9"
+    prh "^5.4.4"
+    textlint-rule-helper "^2.3.1"
 
 textlint-rule-sentence-length@^5.2.0:
   version "5.2.0"

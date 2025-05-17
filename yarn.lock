@@ -12591,10 +12591,10 @@ msgpackr@^1.5.4:
   optionalDependencies:
     msgpackr-extract "^3.0.2"
 
-msw@2.7.6:
-  version "2.7.6"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-2.7.6.tgz#1471ce4311f4c173f287dced31dee211b6958deb"
-  integrity sha512-P+rwn43ktxN8ghcl8q+hSAUlEi0PbJpDhGmDkw4zeUnRj3hBCVynWD+dTu38yLYKCE9ZF1OYcvpy7CTBRcqkZA==
+msw@2.8.3:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-2.8.3.tgz#f197560bbfc653fd092a6d2e6ac456bbb755d80c"
+  integrity sha512-TmzBmhshQdN5WtB6Gew46fvDWlez+iUxiU13d122TApQaOatjotTats51GGpCglzsGkjmf4SvFCV9sNaiesxXg==
   dependencies:
     "@bundled-es-modules/cookie" "^2.0.1"
     "@bundled-es-modules/statuses" "^1.0.1"

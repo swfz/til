@@ -229,7 +229,7 @@ export const handlers = [
     return new HttpResponse(svgBuffer)
   }),
 
-  http.post("https://*.algolia.net/1/indexes/*/queries", async ({ request }) => {
+  http.post("https://*.algolia.net/1/indexes/*/queries", async ({ request }: { request: Request }) => {
     const empty = query0Words // First Request: 初回読み込み時に空のクエリでリクエストが走る
 
     const wordCountResponseMap = [
@@ -263,7 +263,7 @@ export const handlers = [
     return HttpResponse.json(wordCountResponseMap[params.query.length])
   }),
 
-  http.get("/api/like", ({ request }) => {
+  http.get("/api/like", ({ request }: { request: Request }) => {
     const url = new URL(request.url.toString())
     const slug = url.searchParams.get("slug")
 

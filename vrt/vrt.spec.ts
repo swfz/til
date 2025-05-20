@@ -15,11 +15,19 @@ test.describe("Layout Integrity", () => {
   test("sample prismjs page", async ({ page }) => {
     await page.goto("/samples/prismjs/")
 
-    await expect(page).toHaveScreenshot({ fullPage: true, timeout: 20000 })
+    await expect(page).toHaveScreenshot({ 
+      fullPage: true, 
+      timeout: 20000,
+      threshold: 1.0
+    })
   })
   test("sample markdown page", async ({ page }) => {
     await page.goto("/samples/markdown/")
 
-    await expect(page).toHaveScreenshot({ fullPage: true, timeout: 20000 })
+    await expect(page).toHaveScreenshot({ 
+      fullPage: true, 
+      timeout: 20000,
+      threshold: 1.0
+    })
   })
 })

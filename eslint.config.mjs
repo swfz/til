@@ -37,7 +37,7 @@ export default [{
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:tailwindcss/recommended",
+    // Removed tailwindcss recommended config as it's not available in v4.0.0-alpha.0
     "prettier",
 )), {
     plugins: {

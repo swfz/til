@@ -168,13 +168,13 @@ const SampleTimer: NextPage = () => {
 
               <div className="flex flex-row p-1">
                   <button
-                    className="mx-1 flex items-center rounded border border-gray-400 bg-white p-2 font-semibold text-gray-800 shadow hover:bg-gray-100"
+                    className="mx-1 flex items-center rounded border border-gray-400 bg-white p-2 font-semibold text-gray-800 shadow-sm hover:bg-gray-100"
                     onClick={startTimer}
                   >
                     Start
                   </button>
                   <button
-                    className="mx-1 flex items-center rounded border border-gray-400 bg-white p-2 font-semibold text-gray-800 shadow hover:bg-gray-100"
+                    className="mx-1 flex items-center rounded border border-gray-400 bg-white p-2 font-semibold text-gray-800 shadow-sm hover:bg-gray-100"
                     onClick={pauseTimer}
                   >
                     Pause

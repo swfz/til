@@ -1509,9 +1509,9 @@
     regenerator-runtime "^0.14.0"
 
 "@babel/runtime@^7.1.2":
-  version "7.27.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.27.1.tgz#9fce313d12c9a77507f264de74626e87fd0dc541"
-  integrity sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==
+  version "7.27.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.27.3.tgz#10491113799fb8d77e1d9273384d5d68deeea8f6"
+  integrity sha512-7EYtGezsdiDMyY80+65EzwiGmcJqpmcZCojSXaRgdrBaGtWTgDZKq69cPIVped6MkIM78cTQ2GOiEYjwOlG4xw==
 
 "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.21.0"
@@ -4001,9 +4001,9 @@
   integrity sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==
 
 "@types/qs@^6.5.3":
-  version "6.9.18"
-  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.18.tgz#877292caa91f7c1b213032b34626505b746624c2"
-  integrity sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA==
+  version "6.14.0"
+  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.14.0.tgz#d8b60cecf62f2db0fb68e5e006077b9178b85de5"
+  integrity sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==
 
 "@types/reach__router@^1.3.10":
   version "1.3.11"
@@ -14066,9 +14066,9 @@ postcss@^8.2.15, postcss@^8.2.9, postcss@^8.3.11, postcss@^8.4.24, postcss@^8.4.
     source-map-js "^1.2.1"
 
 preact@^10.10.0:
-  version "10.26.6"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.26.6.tgz#388963cc4aa15fceafd65c17fbeddc395fdb0ceb"
-  integrity sha512-5SRRBinwpwkaD+OqlBDeITlRgvd8I8QlxHJw9AxSdMNV6O+LodN9nUyYGpSF7sadHjs6RzeFShMexC6DbtWr9g==
+  version "10.26.7"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.26.7.tgz#7b4b2620dfbbd9d4654d88f1b3cee0fb9dea6e80"
+  integrity sha512-43xS+QYc1X1IPbw03faSgY6I6OYWcLrJRv3hU0+qMOfh/XCHcP0MX2CVjNARYR2cC/guu975sta4OcjlczxD7g==
 
 prebuild-install@^7.1.1:
   version "7.1.2"
@@ -14394,10 +14394,10 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
-react-instantsearch-core@7.15.7:
-  version "7.15.7"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-core/-/react-instantsearch-core-7.15.7.tgz#c6f70f19115f1cb9a6b78c64b19d3e54757fcff9"
-  integrity sha512-9FOHY66VMD0FnxF1dT9g5eEPmGybeKwVAa/T2JX1AqLJCQMHysjEl6qH4+/F8M82KdCqzBof4mpFosPiAVuruA==
+react-instantsearch-core@7.15.8:
+  version "7.15.8"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-core/-/react-instantsearch-core-7.15.8.tgz#61d44461eb3966c8a246b76d68f291cc9f9fe341"
+  integrity sha512-A9AV5iurHw4QwRIraWMcBXJvFUm+lsKg8nPmvB+JVnM4nY9eJqthPiM9SOuTe1xIPvj3Gnn/nMBVxj0RB6h1IA==
   dependencies:
     "@babel/runtime" "^7.1.2"
     algoliasearch-helper "3.25.0"
@@ -14405,14 +14405,14 @@ react-instantsearch-core@7.15.7:
     use-sync-external-store "^1.0.0"
 
 react-instantsearch@^7.2.0:
-  version "7.15.7"
-  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-7.15.7.tgz#cb351b3b7dae9f5e495785231a583cb39e9633b2"
-  integrity sha512-UX81UyyuCe0uoAes9M8f7NKv1CkAdRWw1QgR+DucGWqnVeE9srntPprtNbMBGzcXUuV4wur8AP6iRYXn5tm+Vg==
+  version "7.15.8"
+  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-7.15.8.tgz#43062a16fdee0a084e394f67d19f23644bee2a40"
+  integrity sha512-mQUQ32e60dLp/Cumw02OAmcEZox1QeaVrjf/YonEywtYQdJR/tUIuctP3g6yJcWxsRg5gmAWprGrpYMY0OQZFQ==
   dependencies:
     "@babel/runtime" "^7.1.2"
     instantsearch-ui-components "0.11.1"
     instantsearch.js "4.78.3"
-    react-instantsearch-core "7.15.7"
+    react-instantsearch-core "7.15.8"
 
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0":
   version "18.2.0"

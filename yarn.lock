@@ -1704,9 +1704,9 @@
     tough-cookie "^4.1.4"
 
 "@cloudflare/workers-types@^4.20231016.0":
-  version "4.20250618.0"
-  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20250618.0.tgz#58b794beab67c13a38fee987e7c7de078a519ab5"
-  integrity sha512-5c26+nZEXDRrlzsIaVt3npuElwLi6bhLZHyDfMX5JmcM9sogeBMyyXrU3gJG0DII3QenE7DuyMC8uFzJHTcnDA==
+  version "4.20250619.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20250619.0.tgz#8a46679df484f9bff03b8d76b6c7e68cda1e6353"
+  integrity sha512-OYmVTA45rEEsOmchtltDnrG6BBaOPB7LUGKoyE8AwkfanUOc3/wwuMZ50i1jq6NKrV1TZLsKUKzrwe1NtVGOzQ==
 
 "@csstools/color-helpers@^5.0.2":
   version "5.0.2"

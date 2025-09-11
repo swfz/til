@@ -1692,9 +1692,9 @@
     statuses "^2.0.1"
 
 "@cloudflare/workers-types@^4.20231016.0":
-  version "4.20250910.0"
-  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20250910.0.tgz#12e41a235bc7297e283bf426001b5db80f824b56"
-  integrity sha512-sxkeMWt8IA7OLSAAI0q4nyPdPIKkwheldnutNLESx35MSumXOvYE5HrwJgLRWtjV12k4UzaBy/zvPZ85fiAyAQ==
+  version "4.20250911.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20250911.0.tgz#5b85253afaf608840cf0e21ef5f510d6e0b339ed"
+  integrity sha512-Ardq4aDdNOfnvU/qC8anznZYSsMlfZnMgLAdwxESf3bMdgkb+GV01LpY8NzridFe7cFeprfiDNANBZoeUeEDlg==
 
 "@csstools/color-helpers@^5.1.0":
   version "5.1.0"

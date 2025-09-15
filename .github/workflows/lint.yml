@@ -11,7 +11,7 @@ jobs:
     name: run textlint
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4.4.0
+      - uses: actions/setup-node@v5.0.0
         with:
           node-version-file: .node-version
           cache: yarn

@@ -12,7 +12,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@tippyjs/react": "4.2.6",
     "dompurify": "3.2.7",
-    "dotenv": "17.2.2",
+    "dotenv": "17.2.3",
     "gatsby": "5.14.5",
     "gatsby-plugin-algolia": "1.0.3",
     "gatsby-plugin-feed": "5.14.0",

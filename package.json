@@ -88,7 +88,7 @@
     "identity-obj-proxy": "3.0.0",
     "install": "^0.13.0",
     "jsdom": "^26.0.0",
-    "lint-staged": "16.2.4",
+    "lint-staged": "16.2.5",
     "msw": "2.11.6",
     "playwright": "^1.40.0",
     "playwright-msw": "^3.0.1",

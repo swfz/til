@@ -97,7 +97,7 @@
     "prettier": "3.6.2",
     "react-test-renderer": "18.3.1",
     "tailwindcss": "^3.3.5",
-    "textlint": "15.2.3",
+    "textlint": "15.3.0",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-filter-rule-node-types": "1.1.0",
     "textlint-filter-rule-whitelist": "2.0.0",

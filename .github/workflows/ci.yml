@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.1
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: .node-version
-          cache: yarn
+          cache: pnpm
       - name: build
         # dummy ID
         env:
@@ -18,63 +19,67 @@ jobs:
           GOOGLE_TAGMANAGER_TRACKING_ID: G-hoge
           GATSBY_CPU_COUNT: logical_cores
         run: |
-          yarn
-          yarn build
+          pnpm install
+          pnpm build
 
   typecheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.1
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: .node-version
-          cache: yarn
+          cache: pnpm
       - name: typecheck
         run: |
-          yarn
-          yarn typecheck
+          pnpm install
+          pnpm typecheck
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.1
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: .node-version
-          cache: yarn
+          cache: pnpm
       - name: test
         # dummy ID
         env:
           GOOGLE_ANALYTICS_TRACKING_ID: UA-hoge
           GOOGLE_TAGMANAGER_TRACKING_ID: G-hoge
         run: |
-          yarn
-          yarn test
+          pnpm install
+          pnpm test
 
   eslint:
     runs-on: ubuntu-latest
     name: run eslint
     steps:
       - uses: actions/checkout@v6.0.1
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: .node-version
-          cache: yarn
+          cache: pnpm
       - name: lint check eslint
         run: |
-          yarn
-          yarn lint:es
+          pnpm install
+          pnpm lint:es
 
   prettier:
     runs-on: ubuntu-latest
     name: run prettier check
     steps:
       - uses: actions/checkout@v6.0.1
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: .node-version
-          cache: yarn
+          cache: pnpm
       - name: lint check eslint
         run: |
-          yarn
-          yarn lint:format
+          pnpm install
+          pnpm lint:format

@@ -11,12 +11,12 @@ jobs:
     name: run textlint
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: .node-version
-          cache: yarn
+          cache: pnpm
       - name: lint check markdown
         run: |
-          yarn
-          yarn lint:md
-
+          pnpm install
+          pnpm lint:md

@@ -5,13 +5,13 @@
 ## development
 
 ```
-yarn dev
+pnpm dev
 ```
 
 - with Cloudflare function d1
 
 ```
-npx wrangler pages dev --d1=DB --proxy=8000 -- yarn dev
+npx wrangler pages dev --d1=DB --proxy=8000 -- pnpm dev
 ```
 
 - 初期
@@ -46,8 +46,8 @@ playwrightを使用している
 - スナップショットの更新
 
 ```
-END_DATE=2023-11-01 yarn build
-yarn vrt -u
+END_DATE=2023-11-01 pnpm build
+pnpm vrt -u
 ```
 
 ## Environment

@@ -1,0 +1,38 @@
+name: Update Playwright Snapshots
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-snapshots:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6.1.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps
+
+      - name: Build
+        env:
+          END_DATE: 2023-11-01
+        run: pnpm build
+
+      - name: Update Playwright Snapshots
+        run: pnpm vrt --update-snapshots
+
+      - name: Commit updated snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vrt/__snapshots__/
+          git diff --cached --quiet || git commit -m "chore: update playwright snapshots"
+          git push

@@ -16,7 +16,7 @@ export default defineConfig({
   reporter: "html",
   expect: {
     toHaveScreenshot: {
-      maxDiffPixels: 30,
+      maxDiffPixelRatio: 0.04,
     },
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

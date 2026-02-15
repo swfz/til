@@ -84,7 +84,7 @@
     "gatsby-plugin-sass": "6.16.0",
     "gatsby-plugin-sitemap": "6.16.0",
     "gatsby-remark-external-links": "0.0.4",
-    "globals": "^16.0.0",
+    "globals": "^17.0.0",
     "husky": "9.1.7",
     "identity-obj-proxy": "3.0.0",
     "install": "^0.13.0",

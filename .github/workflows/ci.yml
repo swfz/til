@@ -6,8 +6,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.1
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: .node-version
           cache: yarn
@@ -24,8 +24,8 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.1
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: .node-version
           cache: yarn
@@ -37,8 +37,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.1
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: .node-version
           cache: yarn
@@ -55,8 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     name: run eslint
     steps:
-      - uses: actions/checkout@v6.0.1
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: .node-version
           cache: yarn
@@ -69,8 +69,8 @@ jobs:
     runs-on: ubuntu-latest
     name: run prettier check
     steps:
-      - uses: actions/checkout@v6.0.1
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: .node-version
           cache: yarn

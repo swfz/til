@@ -8,9 +8,12 @@ import { ArchiveList } from "../archive"
 
 beforeAll(() => {
   // 2021-03-10T15:00:00.000Z
-  const mockDate = new Date(1615388400000)
-  vi.spyOn(global, "Date").mockImplementation(() => mockDate)
-  global.Date.now = vi.fn(() => mockDate.getTime())
+  vi.useFakeTimers({ toFake: ["Date"] })
+  vi.setSystemTime(new Date(1615388400000))
+})
+
+afterAll(() => {
+  vi.useRealTimers()
 })
 
 describe("Archive", () => {

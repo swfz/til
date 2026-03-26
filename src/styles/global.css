@@ -1,6 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-blue-muted-50: #F4F8FB;
+  --color-blue-muted-100: #EAF1F6;
+  --color-blue-muted-200: #CADBE9;
+  --color-blue-muted-300: #A9C5DC;
+  --color-blue-muted-400: #699AC2;
+  --color-blue-muted-500: #296FA8;
+  --color-blue-muted-600: #256497;
+  --color-blue-muted-700: #194365;
+  --color-blue-muted-800: #12324C;
+  --color-blue-muted-900: #0C2132;
+}
 
 @layer components {
   .label {

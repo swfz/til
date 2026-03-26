@@ -32,11 +32,18 @@ jobs:
       - name: Run Playwright tests
         env:
           DEBUG: pw:webserver
-        run: yarn vrt
+        run: yarn vrt -u
 
       - uses: actions/upload-artifact@v6.0.0
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v6.0.0
+        if: always()
+        with:
+          name: updated-snapshots
+          path: vrt/__snapshots__/
           retention-days: 30

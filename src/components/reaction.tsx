@@ -25,10 +25,12 @@ const Reaction: React.FC<{ siteUrl: string; slug: string }> = ({ siteUrl, slug }
   return (
     <div className="sticky top-1 flex flex-row items-start justify-center gap-2 p-1 md:flex-col md:items-center">
       <Like slug={slug} />
-      <HatenaShareButton url={url}>
-        <HatenaIcon size={32} round={true} />
+      <div className="flex flex-col items-center">
+        <HatenaShareButton url={url}>
+          <HatenaIcon size={32} round={true} />
+        </HatenaShareButton>
         <HatenaShareCount url={url}>{renderShareCount}</HatenaShareCount>
-      </HatenaShareButton>
+      </div>
       <PocketShareButton url={url}>
         <PocketIcon size={32} round={true} />
       </PocketShareButton>
@@ -38,10 +40,12 @@ const Reaction: React.FC<{ siteUrl: string; slug: string }> = ({ siteUrl, slug }
       <LineShareButton url={url}>
         <LineIcon size={32} round={true} />
       </LineShareButton>
-      <FacebookShareButton url={url}>
-        <FacebookIcon size={32} round={true} />
+      <div className="flex flex-col items-center">
+        <FacebookShareButton url={url}>
+          <FacebookIcon size={32} round={true} />
+        </FacebookShareButton>
         <FacebookShareCount url={url}>{renderShareCount}</FacebookShareCount>
-      </FacebookShareButton>
+      </div>
     </div>
   )
 }

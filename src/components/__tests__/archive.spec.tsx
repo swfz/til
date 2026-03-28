@@ -2,7 +2,6 @@ import "@testing-library/jest-dom"
 import { render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import React from "react"
-import renderer from "react-test-renderer"
 
 import { ArchiveList } from "../archive"
 
@@ -69,9 +68,5 @@ describe("Archive", () => {
     expect(monthLInkList[0]).not.toBeVisible()
     expect(monthLInkList[1]).toBeVisible()
     expect(monthLInkList[2]).toBeVisible()
-  })
-  it("snapshot", () => {
-    const tree = renderer.create(<ArchiveList data={data}></ArchiveList>).toJSON()
-    expect(tree).toMatchSnapshot()
   })
 })

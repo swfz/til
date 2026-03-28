@@ -4247,13 +4247,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-test-renderer@19.1.0":
-  version "19.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-19.1.0.tgz#1d0af8f2e1b5931e245b8b5b234d1502b854dc10"
-  integrity sha512-XD0WZrHqjNrxA/MaR9O22w/RNidWR9YZmBdRGI7wcnWGrv/3dA8wKCJ8m63Sn+tLJhcjmuhOi629N66W6kgWzQ==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*":
   version "18.3.11"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.11.tgz#9d530601ff843ee0d7030d4227ea4360236bd537"
@@ -14768,11 +14761,6 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-is@^19.2.4:
-  version "19.2.4"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.2.4.tgz#a080758243c572ccd4a63386537654298c99d135"
-  integrity sha512-W+EWGn2v0ApPKgKKCy/7s7WHXkboGcsrXE+2joLyVxkbyVQfO3MUEaUQDHoSmb8TFFrSKYa9mw64WZHNHSDzYA==
-
 react-refresh@^0.14.1:
   version "0.14.2"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.2.tgz#3833da01ce32da470f1f936b9d477da5c7028bf9"
@@ -14794,14 +14782,6 @@ react-share@^5.0.0:
   dependencies:
     classnames "^2.3.2"
     jsonp "^0.2.1"
-
-react-test-renderer@19.2.4:
-  version "19.2.4"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-19.2.4.tgz#c26f93fc8da5409472626cd873d005a1974df3ff"
-  integrity sha512-Ttl5D7Rnmi6JGMUpri4UjB4BAN0FPs4yRDnu2XSsigCWOLm11o8GwRlVsh27ER+4WFqsGtrBuuv5zumUaRCmKw==
-  dependencies:
-    react-is "^19.2.4"
-    scheduler "^0.27.0"
 
 react-typography@0.16.23:
   version "0.16.23"

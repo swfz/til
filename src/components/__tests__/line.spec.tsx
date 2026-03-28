@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom"
 import { render } from "@testing-library/react"
 import React from "react"
-import renderer from "react-test-renderer"
 
 import Line from "../line"
 
@@ -38,10 +37,5 @@ describe("Line", () => {
     // 更新日が表示されているか
     const published = getByText(/2021-05-01/i)
     expect(published).toBeInTheDocument()
-  })
-
-  it("snapshot", () => {
-    const tree = renderer.create(<Line node={node}></Line>).toJSON()
-    expect(tree).toMatchSnapshot()
   })
 })

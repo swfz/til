@@ -146,6 +146,7 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@sentry/cli",
+      "gatsby",
       "lmdb",
       "msgpackr-extract",
       "msw",

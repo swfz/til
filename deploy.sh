@@ -23,12 +23,12 @@ if [ "$BUILD" = "production" ]; then
 
   if [ "$rc" = "1" ]; then
     echo "content changed."
-    CONTENT_CHANGED=true yarn build
+    CONTENT_CHANGED=true pnpm build
   else
     echo "content not changed."
-    CONTENT_CHANGED=false yarn build
+    CONTENT_CHANGED=false pnpm build
   fi
 else
   echo "this build is preview build."
-  CONTENT_CHANGED=false yarn build
+  CONTENT_CHANGED=false pnpm build
 fi

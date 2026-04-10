@@ -140,17 +140,6 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-remark-related-posts",
     options: remarkRelatedPostsOptions,
   },
-  {
-    resolve: "gatsby-plugin-eslint",
-    options: {
-      stages: ["develop"],
-      extensions: ["js", "jsx", "ts", "tsx"],
-      exclude: ["node_modules", "bower_components", ".cache", "public"],
-      configType: "flat",
-      // Any additional eslint-webpack-plugin options below
-      // ...
-    },
-  },
   "gatsby-plugin-postcss",
 ]
 

@@ -144,5 +144,14 @@
   "msw": {
     "workerDirectory": "static"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "pnpm@10.29.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@sentry/cli",
+      "lmdb",
+      "msgpackr-extract",
+      "msw",
+      "sharp"
+    ]
+  }
 }

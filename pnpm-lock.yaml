@@ -210,12 +210,6 @@ importers:
       eslint-plugin-unused-imports:
         specifier: 4.4.1
         version: 4.4.1(@typescript-eslint/eslint-plugin@8.58.0(@typescript-eslint/parser@8.58.0(eslint@10.1.0(jiti@2.6.1))(typescript@6.0.2))(eslint@10.1.0(jiti@2.6.1))(typescript@6.0.2))(eslint@10.1.0(jiti@2.6.1))
-      eslint-webpack-plugin:
-        specifier: 5.0.3
-        version: 5.0.3(eslint@10.1.0(jiti@2.6.1))(webpack@5.98.0)
-      gatsby-plugin-eslint:
-        specifier: 4.0.4
-        version: 4.0.4(eslint-webpack-plugin@5.0.3(eslint@10.1.0(jiti@2.6.1))(webpack@5.98.0))(eslint@10.1.0(jiti@2.6.1))(gatsby@5.16.1(babel-eslint@10.1.0(eslint@10.1.0(jiti@2.6.1)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(type-fest@4.41.0)(typescript@6.0.2))
       gatsby-plugin-postcss:
         specifier: ^6.12.0
         version: 6.16.0(gatsby@5.16.1(babel-eslint@10.1.0(eslint@10.1.0(jiti@2.6.1)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(type-fest@4.41.0)(typescript@6.0.2))(postcss@8.5.8)(typescript@6.0.2)(webpack@5.98.0)
@@ -1363,14 +1357,6 @@ packages:
     resolution: {integrity: sha512-AokJm4tuBHillT+FpMtxQ60n8ObyXBatq7jD2/JA9dxbDDokKQm8KMht5ibGzLVU9IJDIKK4TPKgMHEYMn3lMg==}
     engines: {node: '>=18'}
 
-  '@jest/schemas@29.6.3':
-    resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-
-  '@jest/types@29.6.3':
-    resolution: {integrity: sha512-u3UPsIilWKOM3F9CXtrG8LEJmNxwoCQC/XVj4IKYXvvpx7QIi/Kg1LI5uDmDpKlac62NUtX7eLjRh+jVZcLOzw==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
 
@@ -2017,9 +2003,6 @@ packages:
   '@sigmacomputing/babel-plugin-lodash@3.3.5':
     resolution: {integrity: sha512-VFhaHjlNzWyBtBm3YdqOwP8GbQHK7sWzXKpSUBTLjl2Zz6/9PwCK4qXZXI5CHpDjmvbouHUDbjrZP2KU5h6VQg==}
 
-  '@sinclair/typebox@0.27.8':
-    resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
-
   '@sindresorhus/base62@1.0.0':
     resolution: {integrity: sha512-TeheYy0ILzBEI/CO55CP6zJCSdSWeRtGnHy8U8dWSUH4I68iqTsy7HkMktR4xakThc9jotkPQUXT4ITdbV7cHA==}
     engines: {node: '>=18'}
@@ -2371,15 +2354,6 @@ packages:
   '@types/http-proxy@1.17.11':
     resolution: {integrity: sha512-HC8G7c1WmaF2ekqpnFq626xd3Zz0uvaqFmBJNRZCGEZCXkvSdJoNFn/8Ygbd9fKNQj8UzLdCETaI0UWPAjK7IA==}
 
-  '@types/istanbul-lib-coverage@2.0.4':
-    resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
-
-  '@types/istanbul-lib-report@3.0.0':
-    resolution: {integrity: sha512-plGgXAPfVKFoYfa9NpYDAkseG+g6Jr294RqeqcqDixSbU34MZVJRi/P+7Y8GDpzkEwLaGZZOpKIEmeVZNtKsrg==}
-
-  '@types/istanbul-reports@3.0.1':
-    resolution: {integrity: sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==}
-
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -2453,12 +2427,6 @@ packages:
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
-
-  '@types/yargs-parser@21.0.0':
-    resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
-
-  '@types/yargs@17.0.24':
-    resolution: {integrity: sha512-6i0aC7jV6QzQB8ne1joVZ0eSFIstHsCrobmOtghM11yGlH0j43FKL2UhWdELkyps0zuf7qVTUVCCR+tgSlyLLw==}
 
   '@types/yoga-layout@1.9.2':
     resolution: {integrity: sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==}
@@ -4259,13 +4227,6 @@ packages:
       eslint: ^7.0.0 || ^8.0.0
       webpack: ^4.0.0 || ^5.0.0
 
-  eslint-webpack-plugin@5.0.3:
-    resolution: {integrity: sha512-P2Id4RMSMQMwMEuw3W9x3n2qDbKPeD+tehWMY3ENFsoSPKNZ9i3WTZEsFE7NeQIpNebhNEGw8qorvpLVq1rK1g==}
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      eslint: ^8.0.0 || ^9.0.0
-      webpack: ^5.0.0
-
   eslint@10.1.0:
     resolution: {integrity: sha512-S9jlY/ELKEUwwQnqWDO+f+m6sercqOPSqXM5Go94l7DOmxHVDgmSFGWEzeE/gwgTAr0W103BWt0QLe/7mabIvA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
@@ -4707,13 +4668,6 @@ packages:
     engines: {node: '>=12.13.0'}
     peerDependencies:
       gatsby: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
-
-  gatsby-plugin-eslint@4.0.4:
-    resolution: {integrity: sha512-o3WKrW+ssF6XJmmTAfy7XeLsbTzdTwibBDnM6/Ub2cSDNXd1YjshtidJu4BXOLvtWW/LoqpMfWi0OPbVsb/ZLA==}
-    peerDependencies:
-      eslint: ^7.18.0 || ^8
-      eslint-webpack-plugin: ^2.4.3 || ^3 || ^4
-      gatsby: ^2 || ^3 || ^4 || ^5
 
   gatsby-plugin-feed@5.16.0:
     resolution: {integrity: sha512-oKRmIbZjUS6TRRZJVP3n79jlqY5B99n4ovLxOrdrkWobmyGpIxUBRwUcIx8mrKz/7k9wxci3cdbn7pY9K18p9A==}
@@ -5683,10 +5637,6 @@ packages:
   javascript-stringify@2.1.0:
     resolution: {integrity: sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==}
 
-  jest-util@29.7.0:
-    resolution: {integrity: sha512-z6EbKajIpqGKU56y5KBUgy1dt1ihhQJgWzUlZHArA/+X2ad7Cb5iF+AK1EWVL/Bo7Rz9uurpqw6SiBCefUbCGA==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-
   jest-worker@26.6.2:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
@@ -5694,10 +5644,6 @@ packages:
   jest-worker@27.5.1:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
-
-  jest-worker@29.7.0:
-    resolution: {integrity: sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
   jiti@1.21.7:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
@@ -10597,19 +10543,6 @@ snapshots:
 
   '@isaacs/cliui@9.0.0': {}
 
-  '@jest/schemas@29.6.3':
-    dependencies:
-      '@sinclair/typebox': 0.27.8
-
-  '@jest/types@29.6.3':
-    dependencies:
-      '@jest/schemas': 29.6.3
-      '@types/istanbul-lib-coverage': 2.0.4
-      '@types/istanbul-reports': 3.0.1
-      '@types/node': 25.2.3
-      '@types/yargs': 17.0.24
-      chalk: 4.1.2
-
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -11280,8 +11213,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@sinclair/typebox@0.27.8': {}
-
   '@sindresorhus/base62@1.0.0': {}
 
   '@sindresorhus/is@4.6.0': {}
@@ -11733,16 +11664,6 @@ snapshots:
     dependencies:
       '@types/node': 25.2.3
 
-  '@types/istanbul-lib-coverage@2.0.4': {}
-
-  '@types/istanbul-lib-report@3.0.0':
-    dependencies:
-      '@types/istanbul-lib-coverage': 2.0.4
-
-  '@types/istanbul-reports@3.0.1':
-    dependencies:
-      '@types/istanbul-lib-report': 3.0.0
-
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
@@ -11812,12 +11733,6 @@ snapshots:
   '@types/typography@0.16.9': {}
 
   '@types/unist@2.0.11': {}
-
-  '@types/yargs-parser@21.0.0': {}
-
-  '@types/yargs@17.0.24':
-    dependencies:
-      '@types/yargs-parser': 21.0.0
 
   '@types/yoga-layout@1.9.2': {}
 
@@ -14050,17 +13965,6 @@ snapshots:
       schema-utils: 3.1.2
       webpack: 5.98.0
 
-  eslint-webpack-plugin@5.0.3(eslint@10.1.0(jiti@2.6.1))(webpack@5.98.0):
-    dependencies:
-      '@types/eslint': 9.6.1
-      eslint: 10.1.0(jiti@2.6.1)
-      flatted: 3.3.3
-      jest-worker: 29.7.0
-      micromatch: 4.0.8
-      normalize-path: 3.0.0
-      schema-utils: 4.3.3
-      webpack: 5.98.0
-
   eslint@10.1.0(jiti@2.6.1):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@10.1.0(jiti@2.6.1))
@@ -14735,13 +14639,6 @@ snapshots:
       algoliasearch: 4.17.0
       gatsby: 5.16.1(babel-eslint@10.1.0(eslint@10.1.0(jiti@2.6.1)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(type-fest@4.41.0)(typescript@6.0.2)
       lodash.chunk: 4.2.0
-
-  gatsby-plugin-eslint@4.0.4(eslint-webpack-plugin@5.0.3(eslint@10.1.0(jiti@2.6.1))(webpack@5.98.0))(eslint@10.1.0(jiti@2.6.1))(gatsby@5.16.1(babel-eslint@10.1.0(eslint@10.1.0(jiti@2.6.1)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(type-fest@4.41.0)(typescript@6.0.2)):
-    dependencies:
-      eslint: 10.1.0(jiti@2.6.1)
-      eslint-webpack-plugin: 5.0.3(eslint@10.1.0(jiti@2.6.1))(webpack@5.98.0)
-      gatsby: 5.16.1(babel-eslint@10.1.0(eslint@10.1.0(jiti@2.6.1)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(type-fest@4.41.0)(typescript@6.0.2)
-      webpack-merge: 5.9.0
 
   gatsby-plugin-feed@5.16.0(gatsby@5.16.1(babel-eslint@10.1.0(eslint@10.1.0(jiti@2.6.1)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(type-fest@4.41.0)(typescript@6.0.2))(graphql@16.12.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
@@ -16123,15 +16020,6 @@ snapshots:
 
   javascript-stringify@2.1.0: {}
 
-  jest-util@29.7.0:
-    dependencies:
-      '@jest/types': 29.6.3
-      '@types/node': 25.2.3
-      chalk: 4.1.2
-      ci-info: 3.9.0
-      graceful-fs: 4.2.11
-      picomatch: 2.3.1
-
   jest-worker@26.6.2:
     dependencies:
       '@types/node': 25.2.3
@@ -16141,13 +16029,6 @@ snapshots:
   jest-worker@27.5.1:
     dependencies:
       '@types/node': 25.2.3
-      merge-stream: 2.0.0
-      supports-color: 8.1.1
-
-  jest-worker@29.7.0:
-    dependencies:
-      '@types/node': 25.2.3
-      jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 

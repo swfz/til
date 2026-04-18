@@ -121,7 +121,7 @@ importers:
         specifier: 7.28.6
         version: 7.28.6(@babel/core@7.29.0)(eslint@10.2.0(jiti@2.6.1))
       '@cloudflare/workers-types':
-        specifier: ^4.20231016.0
+        specifier: ^4.20260403.1
         version: 4.20260403.1
       '@eslint/compat':
         specifier: ^2.0.3

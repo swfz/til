@@ -121,8 +121,8 @@ importers:
         specifier: 7.28.6
         version: 7.28.6(@babel/core@7.29.0)(eslint@10.2.1(jiti@2.6.1))
       '@cloudflare/workers-types':
-        specifier: 4.20260403.1
-        version: 4.20260403.1
+        specifier: 4.20260420.1
+        version: 4.20260420.1
       '@eslint/compat':
         specifier: 2.0.5
         version: 2.0.5(eslint@10.2.1(jiti@2.6.1))
@@ -1044,8 +1044,8 @@ packages:
     deprecated: Use @qwik.dev/partytown instead
     hasBin: true
 
-  '@cloudflare/workers-types@4.20260403.1':
-    resolution: {integrity: sha512-p6oSNt3yUwcxSoXZ7qCog7+kgQbkSx1Beoci7TMb/xbRF05VR0cO/p1XUE2SLHZ7IgSIc3tNMpFKa0L0fa3Lzg==}
+  '@cloudflare/workers-types@4.20260420.1':
+    resolution: {integrity: sha512-DHT9JnSn9cIiCSdL76OxW+Xvc1+ml1CWzWvgVwreoHQ+E604aeFxPPHp9X7nE+XRWm2NH4l0OgtxUI5T/nuI3g==}
 
   '@csstools/color-helpers@6.0.2':
     resolution: {integrity: sha512-LMGQLS9EuADloEFkcTBR3BwV/CGHV7zyDxVRtVDTwdI2Ca4it0CCVTT9wCkxSgokjE5Ho41hEPgb8OEUwoXr6Q==}
@@ -10172,7 +10172,7 @@ snapshots:
 
   '@builder.io/partytown@0.7.6': {}
 
-  '@cloudflare/workers-types@4.20260403.1': {}
+  '@cloudflare/workers-types@4.20260420.1': {}
 
   '@csstools/color-helpers@6.0.2': {}
 

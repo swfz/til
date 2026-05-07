@@ -142,7 +142,7 @@
   "msw": {
     "workerDirectory": "static"
   },
-  "packageManager": "pnpm@10.33.1",
+  "packageManager": "pnpm@10.33.2",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@sentry/cli",

@@ -8,7 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@sentry/gatsby": "10.50.0",
+    "@sentry/gatsby": "10.49.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tippyjs/react": "4.2.6",
     "dompurify": "3.4.1",
@@ -142,15 +142,5 @@
   "msw": {
     "workerDirectory": "static"
   },
-  "packageManager": "pnpm@11.0.3",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@sentry/cli",
-      "gatsby",
-      "lmdb",
-      "msgpackr-extract",
-      "msw",
-      "sharp"
-    ]
-  }
+  "packageManager": "pnpm@11.0.2"
 }

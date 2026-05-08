@@ -1,0 +1,15 @@
+shamefullyHoist: true
+minimumReleaseAge: 3
+strictDepBuilds: false
+
+allowBuilds:
+  "@sentry/cli": true
+  core-js: false
+  core-js-pure: false
+  es5-ext: false
+  gatsby: true
+  gatsby-cli: false
+  lmdb: true
+  msgpackr-extract: true
+  msw: true
+  sharp: true

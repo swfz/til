@@ -1,3 +1,4 @@
+import fs from "fs"
 import path from "path"
 
 import { GatsbyNode } from "gatsby"
@@ -154,6 +155,72 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       `${otherCategoryTags.map(c => c.fieldValue).join(", ")} are not mapped to any category ${otherCategoryTags.length}/${OTHER_CATEGORY_TAGS}`
     )
   }
+}
+
+export const onPostBuild: GatsbyNode["onPostBuild"] = async ({ graphql, reporter }) => {
+  // CONTENT_CHANGED が明示的に "false" のときはインデックス更新をスキップ
+  // (Cloudflare Pages 側の skipIndexing 条件と揃える)
+  if (process.env.CONTENT_CHANGED === "false") {
+    reporter.info("[search-index] CONTENT_CHANGED=false のため search-index.json 出力をスキップ")
+    return
+  }
+
+  type SearchIndexQuery = {
+    postsRemark: {
+      edges: {
+        node: {
+          id: string
+          rawMarkdownBody: string | null
+          timeToRead: number | null
+          frontmatter: { date: string; title: string; tags: string[] | null; description: string }
+          fields: { slug: string }
+        }
+      }[]
+    }
+  }
+
+  const result = await graphql<SearchIndexQuery>(`
+    {
+      postsRemark: allMarkdownRemark(filter: { fields: { collection: { eq: "blog" } } }) {
+        edges {
+          node {
+            id
+            rawMarkdownBody
+            timeToRead
+            frontmatter {
+              date
+              title
+              tags
+              description
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors || !result.data) {
+    reporter.panicOnBuild("[search-index] GraphQL 取得失敗", result.errors)
+    return
+  }
+
+  const records = result.data.postsRemark.edges.map(({ node }) => ({
+    objectID: node.id,
+    slug: node.fields.slug,
+    title: node.frontmatter.title,
+    description: node.frontmatter.description,
+    tags: node.frontmatter.tags ?? [],
+    date: node.frontmatter.date,
+    timeToRead: node.timeToRead ?? 0,
+    text: node.rawMarkdownBody ?? "",
+  }))
+
+  const outputPath = path.join(__dirname, "public", "search-index.json")
+  fs.writeFileSync(outputPath, JSON.stringify(records))
+  reporter.info(`[search-index] ${records.length} records → ${outputPath}`)
 }
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {

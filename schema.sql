@@ -1,1 +1,0 @@
-CREATE TABLE likes (slug TEXT,ip TEXT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, UNIQUE(slug, ip));

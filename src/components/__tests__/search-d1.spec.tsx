@@ -8,13 +8,13 @@ import { act } from "react-dom/test-utils"
 import { handlers } from "../../mocks/handler"
 import Search from "../search/index"
 
-describe("Search", () => {
+describe("Search (D1)", () => {
   const user = userEvent.setup()
   const server = setupServer(...handlers)
   const originalProvider = process.env.GATSBY_SEARCH_PROVIDER
 
   beforeAll(() => {
-    process.env.GATSBY_SEARCH_PROVIDER = "algolia"
+    process.env.GATSBY_SEARCH_PROVIDER = "d1"
   })
 
   afterAll(() => {
@@ -33,7 +33,7 @@ describe("Search", () => {
     server.close()
   })
 
-  it("検索UIのテスト", async () => {
+  it("検索UIのテスト(D1)", { timeout: 15000 }, async () => {
     const { baseElement, container, getByTestId, getAllByTestId, getByTitle, getByPlaceholderText } = render(
       <Search indices={[{ name: "til" }]}></Search>
     )
@@ -46,24 +46,27 @@ describe("Search", () => {
     await user.click(searchButton)
     user.type(searchInput, "Bi")
 
-    // 検索入力後すぐはリクエストが送信されないので結果が返ってきていない状態
+    // 入力直後はリクエスト未送信
     expect(getByTestId("search-result-count")).toHaveTextContent("0 results")
     expect(getByTestId("search-result")).not.toBeVisible()
 
-    // 1秒後にリクエスト、レンダリングされるので2秒まってレンダリングされたかの確認
+    // 1秒後にデバウンス、ただし2文字なので trigram で空結果
     await act(async () => {
       await new Promise(r => setTimeout(r, 2000))
     })
-    expect(getByTestId("search-result-count")).toHaveTextContent("41 results")
+    expect(getByTestId("search-result-count")).toHaveTextContent("0 results")
+
+    // 3文字目を入力 → 20件返る
+    user.type(searchInput, "g")
+    await act(async () => {
+      await new Promise(r => setTimeout(r, 2000))
+    })
+    expect(getByTestId("search-result-count")).toHaveTextContent("20 results")
     expect(getAllByTestId("search-result-item").length).toEqual(20)
     expect(container).toMatchSnapshot()
 
-    // Query内容が変わったとき、すぐにはリクエストが送信されないため変更なし
-    user.type(searchInput, "g")
-    expect(getByTestId("search-result-count")).toHaveTextContent("41 results")
-    expect(getAllByTestId("search-result-item").length).toEqual(20)
-
-    // 入力が終わったと判断され、新たにリクエスト送信。検索結果にも反映されているかの確認
+    // 8文字まで伸ばすと別 fixture (12件)
+    user.type(searchInput, "Query")
     await act(async () => {
       await new Promise(r => setTimeout(r, 2000))
     })
@@ -71,7 +74,7 @@ describe("Search", () => {
     expect(getAllByTestId("search-result-item").length).toEqual(12)
     expect(container).toMatchSnapshot()
 
-    // 外側をクリックで検索結果が非表示になる
+    // 外側クリックで非表示
     await user.click(baseElement)
     expect(getByTestId("search-result")).not.toBeVisible()
     expect(container).toMatchSnapshot()

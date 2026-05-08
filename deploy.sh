@@ -24,6 +24,9 @@ if [ "$BUILD" = "production" ]; then
   if [ "$rc" = "1" ]; then
     echo "content changed."
     CONTENT_CHANGED=true pnpm build
+    # 記事に差分があるときだけ D1 FTS5 インデックスを本番 DB に同期
+    # (preview と差分なしビルドでの本番 D1 への過剰書き込みを抑制する)
+    CLOUDFLARE_API_TOKEN="$CF_API_KEY" CLOUDFLARE_ACCOUNT_ID="$CF_ACCOUNT_ID" pnpm sync-fts
   else
     echo "content not changed."
     CONTENT_CHANGED=false pnpm build

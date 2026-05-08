@@ -1,21 +1,12 @@
 import { http, HttpResponse } from "msw"
 
-import query0Words from "./algolia-search-response-0-words.json"
-import query1Words from "./algolia-search-response-1-words.json"
-import query2Words from "./algolia-search-response-2-words.json"
-import query3Words from "./algolia-search-response-3-words.json"
-import query4Words from "./algolia-search-response-4-words.json"
-import query5Words from "./algolia-search-response-5-words.json"
-import query6Words from "./algolia-search-response-6-words.json"
-import query7Words from "./algolia-search-response-7-words.json"
-import query8Words from "./algolia-search-response-8-words.json"
 import d1Query3Words from "./d1-search-response-3-words.json"
 import d1Query8Words from "./d1-search-response-8-words.json"
 
 // FIXME: ./pixela.png をplaywright側で読み込めなかったので一旦インラインSVGにしている
 const svgContent = `
     <?xml version="1.0" standalone="no"?>
-    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 220 135"><defs>
         <style type="text/css"><![CDATA[
@@ -27,7 +18,7 @@ const svgContent = `
             fill: #000000;}
         ]]></style>
       </defs>
-      
+
         <rect x="0" y="0" width="220" height="135" fill="white" fill-opacity="0.5" stroke="none"/><g transform="translate(16, 20)">
         <g transform="translate(0, 0)"><a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210711/retina.svg" target="_blank"><rect data-tippy-content="8 pageviews on 2021-07-11" class="each-day" rx="2" ry="2" width="10" height="10" x="13" y="0" fill="#ffd5d5" data-count="8" data-date="2021-07-11" data-unit="pageviews" data-retina="false" data-retinaday="20210711" data-index="94" /></a>
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210712/retina.svg" target="_blank"><rect data-tippy-content="142 pageviews on 2021-07-12" class="each-day" rx="2" ry="2" width="10" height="10" x="13" y="12" fill="#ff0000" data-count="142" data-date="2021-07-12" data-unit="pageviews" data-retina="false" data-retinaday="20210712" data-index="93" /></a>
@@ -77,7 +68,7 @@ const svgContent = `
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210825/retina.svg" target="_blank"><rect data-tippy-content="64 pageviews on 2021-08-25" class="each-day" rx="2" ry="2" width="10" height="10" x="7" y="36" fill="#ff2b2b" data-count="64" data-date="2021-08-25" data-unit="pageviews" data-retina="false" data-retinaday="20210825" data-index="49" /></a>
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210826/retina.svg" target="_blank"><rect data-tippy-content="52 pageviews on 2021-08-26" class="each-day" rx="2" ry="2" width="10" height="10" x="7" y="48" fill="#ff2b2b" data-count="52" data-date="2021-08-26" data-unit="pageviews" data-retina="false" data-retinaday="20210826" data-index="48" /></a>
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210827/retina.svg" target="_blank"><rect data-tippy-content="74 pageviews on 2021-08-27" class="each-day" rx="2" ry="2" width="10" height="10" x="7" y="60" fill="#ff0000" data-count="74" data-date="2021-08-27" data-unit="pageviews" data-retina="false" data-retinaday="20210827" data-index="47" /></a>
-        <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210828/retina.svg" target="_blank"><rect data-tippy-content="57 pageviews on 2021-08-28" class="each-day" rx="2" ry="2" width="10" height="10" x="7" y="72" fill="#ff2b2b" data-count="57" data-date="2021-08-28" data-unit="pageviews" data-retina="false" data-retinaday="20210828" data-index="46" /></a></g>
+        <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210828/retina.svg" target="_blank"><rect data-tippy-content="57 pageviews on 2021-08-28" class="each-day" rx="2" ry="2" width="10" height="10" x="7" y="60" fill="#ff2b2b" data-count="57" data-date="2021-08-28" data-unit="pageviews" data-retina="false" data-retinaday="20210828" data-index="46" /></a></g>
         <g transform="translate(91, 0)"><a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210829/retina.svg" target="_blank"><rect data-tippy-content="12 pageviews on 2021-08-29" class="each-day" rx="2" ry="2" width="10" height="10" x="6" y="0" fill="#ffd5d5" data-count="12" data-date="2021-08-29" data-unit="pageviews" data-retina="false" data-retinaday="20210829" data-index="45" /></a>
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210830/retina.svg" target="_blank"><rect data-tippy-content="36 pageviews on 2021-08-30" class="each-day" rx="2" ry="2" width="10" height="10" x="6" y="12" fill="#ff8080" data-count="36" data-date="2021-08-30" data-unit="pageviews" data-retina="false" data-retinaday="20210830" data-index="44" /></a>
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20210831/retina.svg" target="_blank"><rect data-tippy-content="56 pageviews on 2021-08-31" class="each-day" rx="2" ry="2" width="10" height="10" x="6" y="24" fill="#ff2b2b" data-count="56" data-date="2021-08-31" data-unit="pageviews" data-retina="false" data-retinaday="20210831" data-index="43" /></a>
@@ -122,17 +113,17 @@ const svgContent = `
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20211009/retina.svg" target="_blank"><rect data-tippy-content="35 pageviews on 2021-10-09" class="each-day" rx="2" ry="2" width="10" height="10" x="1" y="72" fill="#ff8080" data-count="35" data-date="2021-10-09" data-unit="pageviews" data-retina="false" data-retinaday="20211009" data-index="4" /></a></g>
         <g transform="translate(169, 0)"><a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20211010/retina.svg" target="_blank"><rect data-tippy-content="20 pageviews on 2021-10-10" class="each-day" rx="2" ry="2" width="10" height="10" x="0" y="0" fill="#ffd5d5" data-count="20" data-date="2021-10-10" data-unit="pageviews" data-retina="false" data-retinaday="20211010" data-index="3" /></a>
         <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20211011/retina.svg" target="_blank"><rect data-tippy-content="119 pageviews on 2021-10-11" class="each-day" rx="2" ry="2" width="10" height="10" x="0" y="12" fill="#ff0000" data-count="119" data-date="2021-10-11" data-unit="pageviews" data-retina="false" data-retinaday="20211011" data-index="2" /></a>
-        
-              <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20211012/retina.svg" target="_blank"><rect class="each-day" rx="2" ry="2" width="10" height="10" x="0" y="24" fill="#ffd5d5" data-count="10" data-date="2021-10-12" data-unit="pageviews" data-retina="true" data-retinaday="20211012" data-index="1" /></a>
+
+              <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews/20211012/retina.svg" target="_blank"><rect class="each-day" rx="2" ry="2" width="10" height="10" x="0" y="24" fill="#ffd5d5" data-count="10" data-date="2021-10-12" data-unit="pageviews" data-retina="false" data-retinaday="20211012" data-index="1" /></a>
         </g><text x="13" y="-5" class="month">7</text><text x="39" y="-5" class="month">8</text><text x="104" y="-5" class="month">9</text><text x="156" y="-5" class="month">10</text>
-            
-          
-            
-          
-            
-          
-            
-          
+
+
+
+
+
+
+
+
         <g transform="translate(109 , 3)">
           <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="99" fill="#eeeeee"/>
         </g>
@@ -148,10 +139,10 @@ const svgContent = `
         <g transform="translate(169 , 3)">
           <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="99" fill="#ff0000"/>
         </g>
-    
+
     <a href="https://pixe.la/v1/users/swfz/graphs/til-pageviews.html" target="_blank">
     <g>
-    
+
     <rect x="5" y="93" width="23px" height="22px" fill="white" fill-opacity="0.5" stroke="none"/>
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" x="5" y="93" width="23px" height="22px" viewBox="0 0 7600 7480" preserveAspectRatio="xMidYMid meet">
     <g id="layer101" fill="#000000" stroke="none">
@@ -213,12 +204,12 @@ const svgContent = `
     <g id="layer105" fill="#d6e58a" stroke="none">
      <path d="M2290 5830 l0 -500 500 0 500 0 0 500 0 500 -500 0 -500 0 0 -500z"/>
      <path d="M0 4690 l0 -500 500 0 500 0 0 500 0 500 -500 0 -500 0 0 -500z"/>
-     <path d="M2640 4003 c-118 -19 -252 -51 -339 -80 -383 -127 -694 -376 -893 -713 -297 -502 -315 -1155 -43 -1536 67 -94 146 -159 260 -214 274 -134 588 -143 818 -23 91 47 219 172 264 258 l32 60 -6 1128 -6 1127 -31 -1 c-17 -1 -42 -4 -56 -6z"/>
+     <path d="M2640 4003 c-118 -19 -252 -51 -339 -80 -383 -127 -694 -376 -893 -713 -297 -502 -315 -1155 -43 -1536 67 -94 146 -159 260 -214 274 -134 588 -143 818 -23 91 47 219 172 264 258 l32 60 -6 1128 -6 1127 -31 -1 c-17 -1 -42 -6 -56 -6z"/>
      </g>
     </svg>
     </g>
     </a>
-    
+
         <text class="legend" x="93" y="113">0</text>
         <text class="legend" x="188" y="112">+</text></g>
     </svg>`
@@ -229,40 +220,6 @@ export const handlers = [
     const svgBuffer = encoder.encode(svgContent).buffer
 
     return new HttpResponse(svgBuffer)
-  }),
-
-  http.post("https://*.algolia.net/1/indexes/*/queries", async ({ request }) => {
-    const empty = query0Words // First Request: 初回読み込み時に空のクエリでリクエストが走る
-
-    const wordCountResponseMap = [
-      empty, // 空
-      query1Words, // B
-      query2Words, // Bi
-      query3Words, // Big
-      query4Words, // BigQ
-      query5Words, // BigQu
-      query6Words, // BigQue
-      query7Words, // BigQuer
-      query8Words, // BigQuery
-    ]
-
-    const bodyString = await request.text()
-
-    if (bodyString.length === 0) {
-      return HttpResponse.json(empty)
-    }
-
-    const body = JSON.parse(bodyString)
-    const params = [...new URLSearchParams(body.requests[0].params).entries()].reduce(
-      (obj, e) => ({ ...obj, [e[0]]: e[1] }),
-      {} as { query: string }
-    )
-
-    if (!params.query || params.query.length === 0 || params.query.length > wordCountResponseMap.length) {
-      return HttpResponse.json(empty)
-    }
-
-    return HttpResponse.json(wordCountResponseMap[params.query.length])
   }),
 
   http.get("/api/search", ({ request }) => {

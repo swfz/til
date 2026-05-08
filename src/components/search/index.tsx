@@ -1,157 +1,122 @@
-import { MultipleQueriesResponse, MultipleQueriesQuery } from "@algolia/client-search"
-import algoliasearch from "algoliasearch/lite"
+import DOMPurify from "dompurify"
 import { Link } from "gatsby"
-import { default as React, useState, useRef } from "react"
-import { InstantSearch, SearchBox, Index, Highlight, Snippet, useSearchBox, useHits, Hits } from "react-instantsearch"
+import { default as React, useState, useRef, useEffect, useCallback } from "react"
 
-import SearchD1 from "./d1"
 import useClickOutside from "./use-click-outside"
 
-import type { Hit, SearchClient } from "instantsearch.js"
-import type { UseSearchBoxProps } from "react-instantsearch"
-
-type PageHitProps = {
-  hit: Hit
+type Hit = {
+  slug: string
+  title: string
+  tags: string[]
+  date: string
+  timeToRead: number
+  snippet: string
 }
 
-type SearchProps = {
-  indices: Indices[]
-}
+const DEBOUNCE_MS = 1000
+const MIN_QUERY_LENGTH = 3
 
-type Indices = {
-  name: string
-}
+const sanitize = (html: string) => DOMPurify.sanitize(html, { ALLOWED_TAGS: ["mark"], ALLOWED_ATTR: [] })
 
-// NOTE: queryHookはSearchBoxConnectorParamsを持ってきたかったが持ってくる方法がわからなかったのでコピーしている
-type CustomSearchProps = {
-  indices: Indices[]
-  queryHook: UseSearchBoxProps["queryHook"]
-}
-
-type SearchResultProps = {
-  indices: Indices[]
-  className: string
-  show: string | boolean
-}
-
-const PageHit = ({ hit }: PageHitProps) => (
-  <div className="search-result-item" data-testid="search-result-item">
-    <Link className="link" to={hit.slug}>
-      <Highlight attribute="title" hit={hit} />
-    </Link>
-    <br />
-    <Snippet
-      attribute="text"
-      hit={hit}
-      classNames={{
-        root: "search-result-item-snippet",
-      }}
-    />
-  </div>
-)
-
-const SearchResult = ({ indices, className, show }: SearchResultProps) => {
-  const { results } = useHits({})
-
-  return (
-    <div data-testid="search-result" className={className} style={{ display: show ? `block` : `none` }}>
-      <div data-testid="search-result-count">{results?.nbHits} results</div>
-      {indices.map(index => (
-        <Index key={index.name} indexName={index.name}>
-          <Hits
-            classNames={{
-              list: "search-result-list",
-            }}
-            hitComponent={PageHit}
-          ></Hits>
-        </Index>
-      ))}
-    </div>
-  )
-}
-
-const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
-  const { query } = useSearchBox({})
+const Search = () => {
+  const [query, setQuery] = useState("")
+  const [hits, setHits] = useState<Hit[]>([])
+  const [nbHits, setNbHits] = useState(0)
   const [hasFocus, setFocus] = useState(false)
 
-  const searchRootRef = useRef<HTMLDivElement>(null)
-  useClickOutside(searchRootRef, () => setFocus(false))
+  const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const rootRef = useRef<HTMLDivElement>(null)
+  useClickOutside(rootRef, () => setFocus(false))
 
-  return (
-    <div className="search-root" ref={searchRootRef}>
-      <SearchBox
-        placeholder="Search"
-        onFocus={() => {
-          setFocus(true)
-        }}
-        queryHook={queryHook}
-        classNames={{
-          form: hasFocus ? "search-input open" : "search-input close",
-          input: "search-input",
-          submit: "search-button",
-          reset: "reset-button",
-          submitIcon: "search-icon",
-        }}
-      ></SearchBox>
-      <SearchResult show={query && query.length > 0 && hasFocus} className="popover" indices={indices}></SearchResult>
-    </div>
-  )
-}
+  // クエリ更新時は1秒のデバウンスを挟んでからリクエスト/リセットを行う(既存のas-you-type抑制と揃える)
+  useEffect(() => {
+    if (timerRef.current) clearTimeout(timerRef.current)
 
-const SearchAlgolia = ({ indices }: SearchProps) => {
-  const timerId = useRef<ReturnType<typeof setTimeout>>()
-
-  const algoliaClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID || "",
-    process.env.GATSBY_ALGOLIA_SEARCH_KEY || ""
-  )
-
-  const searchClient: SearchClient = {
-    ...algoliaClient,
-    // NOTE: https://www.algolia.com/doc/guides/building-search-ui/going-further/conditional-requests/react-hooks/
-    // クエリ文字列が空の場合はリクエストを送らずダミーのレスポンスを返す実装を挟んでいる
-    search: <SearchResponse,>(requests: Readonly<MultipleQueriesQuery[]>) => {
-      if (requests.every(({ params }) => !params?.query)) {
-        return Promise.resolve<MultipleQueriesResponse<SearchResponse>>({
-          results: requests.map(() => ({
-            hits: [],
-            nbHits: 0,
-            nbPages: 0,
-            page: 0,
-            processingTimeMS: 0,
-            hitsPerPage: 0,
-            exhaustiveNbHits: true,
-            query: "",
-            params: "",
-          })),
-        })
+    timerRef.current = setTimeout(async () => {
+      // trigram は3文字未満では実用的にマッチしないので空結果に倒す
+      if (query.length < MIN_QUERY_LENGTH) {
+        setHits([])
+        setNbHits(0)
+        return
       }
 
-      return algoliaClient.search(requests)
-    },
-  }
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`)
+        const json = (await res.json()) as { hits: Hit[]; nbHits: number }
+        setHits(json.hits)
+        setNbHits(json.nbHits)
+      } catch {
+        setHits([])
+        setNbHits(0)
+      }
+    }, DEBOUNCE_MS)
 
-  // NOTE: https://www.algolia.com/doc/guides/building-search-ui/going-further/improve-performance/react-hooks/#disabling-as-you-type
-  // 入力確定判断まで1秒待つ
-  const queryHook: CustomSearchProps["queryHook"] = (query, search) => {
-    if (timerId.current) {
-      clearTimeout(timerId.current)
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
     }
+  }, [query])
 
-    timerId.current = setTimeout(() => search(query), 1000)
-  }
+  const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }, [])
+
+  const onReset = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setQuery("")
+  }, [])
+
+  const show = query.length > 0 && hasFocus
 
   return (
-    <InstantSearch searchClient={searchClient} indexName={indices[0].name}>
-      <CustomSearch queryHook={queryHook} indices={indices}></CustomSearch>
-    </InstantSearch>
+    <div className="search-root" ref={rootRef}>
+      <form
+        className={hasFocus ? "search-input open" : "search-input close"}
+        role="search"
+        onSubmit={onSubmit}
+        onReset={onReset}
+      >
+        <input
+          className="search-input"
+          type="search"
+          placeholder="Search"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          onFocus={() => setFocus(true)}
+        />
+        <button type="submit" title="Submit the search query" className="search-button">
+          <svg className="search-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M11.5 11.5L15 15M1 7a6 6 0 1012 0 6 6 0 00-12 0z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+        <button type="reset" title="Clear the search query" className="reset-button" hidden={query.length === 0}>
+          ×
+        </button>
+      </form>
+      <div data-testid="search-result" className="popover" style={{ display: show ? "block" : "none" }}>
+        <div data-testid="search-result-count">{nbHits} results</div>
+        <ul className="search-result-list">
+          {hits.map(hit => (
+            <li key={hit.slug} className="search-result-item" data-testid="search-result-item">
+              <Link className="link" to={hit.slug}>
+                <span dangerouslySetInnerHTML={{ __html: sanitize(hit.title) }} />
+              </Link>
+              <br />
+              <span
+                className="search-result-item-snippet"
+                dangerouslySetInnerHTML={{ __html: sanitize(hit.snippet) }}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   )
-}
-
-const Search = (props: SearchProps) => {
-  const provider = process.env.GATSBY_SEARCH_PROVIDER || "algolia"
-  if (provider === "d1") return <SearchD1 />
-  return <SearchAlgolia {...props} />
 }
 
 export default Search

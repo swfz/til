@@ -29,11 +29,11 @@ sqlite3 .wrangler/state/v3/d1/miniflare-D1DatabaseObject/hogefugapiyo.sqlite < s
 ```
 
 
-### Algolia APIのモックデータ
+### 検索 API のモックデータ
 
-開発では基本的にAlgoliaにリクエストが飛ばないようになっている
+開発では基本的に外部の検索リクエストが飛ばないよう、`/api/search`をMSWでモックしている
 
-APIの内容が変わった場合は本番レスポンスを取得して各種JSONを更新する
+レスポンス内容を変えたい場合は`src/mocks/d1-search-response-*.json`を更新する
 
 ### VRT
 
@@ -56,11 +56,6 @@ yarn vrt -u
 |:-|:-|:-|
 | GOOGLE_ANALYTICS_TRACKING_ID | GAのトラッキングID | ビルド時に使用 |
 | GOOGLE_TAGMANAGER_TRACKING_ID | GTMのトラッキングID | ビルド時に使用 |
-| ALGOLIA_APP_ID | AlgoliaのAppID | ビルド時に使用 |
-| ALGOLIA_API_KEY| Algoliaの更新用APIキー | ビルド時に使用 |
-| ALGOLIA_INDEX_NAME| Algoliaのインデックス名 | gatsby-algoliaで使用 |
-| GATSBY_ALGOLIA_SEARCH_KEY | Algoliaの検索用APIキー | gatsby-algoliaで使用 |
-| GATSBY_ALGOLIA_APP_ID | AlgoliaのAppID | ビルド時に使用 |
 | BUILD | ビルド種別 | ビルド時に使用、Cloudflare側で設定[production, preview] |
 | START_DATE | YYYY-MM-DD | 設定された値以降の記事データをビルド対象とする、主に開発、テスト、執筆時確認用  |
 | END_DATE | YYYY-MM-DD | 設定された値以前の記事データをビルド対象とする、主に開発、テスト、執筆時確認用 |

@@ -4,8 +4,6 @@ import React from "react"
 import Search from "./search"
 
 const Navigation: React.FC = () => {
-  const searchIndices = [{ name: `til`, title: `Pages` }]
-
   const { site } = useStaticQuery(graphql`
     query Layout {
       site {
@@ -29,7 +27,7 @@ const Navigation: React.FC = () => {
       <div className="flex grow"></div>
 
       <div className="hidden md:contents">
-        <Search indices={searchIndices}></Search>
+        <Search></Search>
       </div>
     </nav>
   )

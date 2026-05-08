@@ -12,7 +12,9 @@ type Record = {
   text: string
 }
 
-const CHUNK_SIZE = 50
+// SQLite (D1) の 1 statement あたり ~1MB 上限を踏まないように 1 行ずつ INSERT する。
+// 1 記事の text が ~200KB 程度ある可能性があるため、安全側で 1 件ずつ。
+const CHUNK_SIZE = 1
 const projectRoot = path.resolve(__dirname, "..")
 const inputPath = path.join(projectRoot, "public", "search-index.json")
 const outputPath = path.join(projectRoot, "public", "fts.sql")

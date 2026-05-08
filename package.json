@@ -90,7 +90,6 @@
     "msw": "2.13.5",
     "playwright": "1.59.1",
     "playwright-msw": "3.0.1",
-    "tsx": "4.21.0",
     "postcss": "8.5.10",
     "prettier": "3.8.3",
     "tailwindcss": "4.2.4",
@@ -111,9 +110,10 @@
     "textlint-rule-preset-jtf-style": "3.0.3",
     "textlint-rule-prh": "6.1.0",
     "textlint-rule-spellcheck-tech-word": "5.0.0",
+    "tsx": "4.21.0",
     "typescript": "6.0.3",
     "vitest": "4.1.5",
-    "wrangler": "3.114.0"
+    "wrangler": "4.90.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [

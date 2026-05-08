@@ -9,6 +9,8 @@ import query5Words from "./algolia-search-response-5-words.json"
 import query6Words from "./algolia-search-response-6-words.json"
 import query7Words from "./algolia-search-response-7-words.json"
 import query8Words from "./algolia-search-response-8-words.json"
+import d1Query3Words from "./d1-search-response-3-words.json"
+import d1Query8Words from "./d1-search-response-8-words.json"
 
 // FIXME: ./pixela.png をplaywright側で読み込めなかったので一旦インラインSVGにしている
 const svgContent = `
@@ -261,6 +263,19 @@ export const handlers = [
     }
 
     return HttpResponse.json(wordCountResponseMap[params.query.length])
+  }),
+
+  http.get("/api/search", ({ request }) => {
+    const url = new URL(request.url)
+    const q = (url.searchParams.get("q") || "").trim()
+    const empty = { hits: [], nbHits: 0 }
+
+    // 3文字未満は trigram のため空結果(本物の Pages Function と同じ仕様)
+    if (q.length < 3) return HttpResponse.json(empty)
+
+    // テスト fixture: 3文字なら 20件、8文字なら 12件
+    if (q.length >= 8) return HttpResponse.json(d1Query8Words)
+    return HttpResponse.json(d1Query3Words)
   }),
 
   http.get("/api/like", ({ request }) => {

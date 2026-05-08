@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { default as React, useState, useRef } from "react"
 import { InstantSearch, SearchBox, Index, Highlight, Snippet, useSearchBox, useHits, Hits } from "react-instantsearch"
 
+import SearchD1 from "./d1"
 import useClickOutside from "./use-click-outside"
 
 import type { Hit, SearchClient } from "instantsearch.js"
@@ -97,7 +98,7 @@ const CustomSearch = ({ indices, queryHook }: CustomSearchProps) => {
   )
 }
 
-const Search = ({ indices }: SearchProps) => {
+const SearchAlgolia = ({ indices }: SearchProps) => {
   const timerId = useRef<ReturnType<typeof setTimeout>>()
 
   const algoliaClient = algoliasearch(
@@ -145,6 +146,12 @@ const Search = ({ indices }: SearchProps) => {
       <CustomSearch queryHook={queryHook} indices={indices}></CustomSearch>
     </InstantSearch>
   )
+}
+
+const Search = (props: SearchProps) => {
+  const provider = process.env.GATSBY_SEARCH_PROVIDER || "algolia"
+  if (provider === "d1") return <SearchD1 />
+  return <SearchAlgolia {...props} />
 }
 
 export default Search

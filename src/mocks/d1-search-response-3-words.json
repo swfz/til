@@ -1,0 +1,165 @@
+{
+  "hits": [
+    {
+      "slug": "/entries/bigquery_sa_permission_from_cli/",
+      "title": "<mark>Big</mark>Queryで特定データセットに権限を付与する",
+      "tags": ["BigQuery"],
+      "date": "2022-10-12",
+      "timeToRead": 1,
+      "snippet": "...特定の<mark>Big</mark>Queryデータセットに..."
+    },
+    {
+      "slug": "/entries/bigquery_empty_string_array/",
+      "title": "<mark>Big</mark>QueryでStringの空配列を生成する",
+      "tags": ["BigQuery"],
+      "date": "2022-07-22",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>Queryで空配列..."
+    },
+    {
+      "slug": "/entries/bigquery_3/",
+      "title": "Mock <mark>Big</mark> 3",
+      "tags": ["BigQuery"],
+      "date": "2022-01-01",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_4/",
+      "title": "Mock <mark>Big</mark> 4",
+      "tags": ["BigQuery"],
+      "date": "2022-01-02",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_5/",
+      "title": "Mock <mark>Big</mark> 5",
+      "tags": ["BigQuery"],
+      "date": "2022-01-03",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_6/",
+      "title": "Mock <mark>Big</mark> 6",
+      "tags": ["BigQuery"],
+      "date": "2022-01-04",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_7/",
+      "title": "Mock <mark>Big</mark> 7",
+      "tags": ["BigQuery"],
+      "date": "2022-01-05",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_8/",
+      "title": "Mock <mark>Big</mark> 8",
+      "tags": ["BigQuery"],
+      "date": "2022-01-06",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_9/",
+      "title": "Mock <mark>Big</mark> 9",
+      "tags": ["BigQuery"],
+      "date": "2022-01-07",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_10/",
+      "title": "Mock <mark>Big</mark> 10",
+      "tags": ["BigQuery"],
+      "date": "2022-01-08",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_11/",
+      "title": "Mock <mark>Big</mark> 11",
+      "tags": ["BigQuery"],
+      "date": "2022-01-09",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_12/",
+      "title": "Mock <mark>Big</mark> 12",
+      "tags": ["BigQuery"],
+      "date": "2022-01-10",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_13/",
+      "title": "Mock <mark>Big</mark> 13",
+      "tags": ["BigQuery"],
+      "date": "2022-01-11",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_14/",
+      "title": "Mock <mark>Big</mark> 14",
+      "tags": ["BigQuery"],
+      "date": "2022-01-12",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_15/",
+      "title": "Mock <mark>Big</mark> 15",
+      "tags": ["BigQuery"],
+      "date": "2022-01-13",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_16/",
+      "title": "Mock <mark>Big</mark> 16",
+      "tags": ["BigQuery"],
+      "date": "2022-01-14",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_17/",
+      "title": "Mock <mark>Big</mark> 17",
+      "tags": ["BigQuery"],
+      "date": "2022-01-15",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_18/",
+      "title": "Mock <mark>Big</mark> 18",
+      "tags": ["BigQuery"],
+      "date": "2022-01-16",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_19/",
+      "title": "Mock <mark>Big</mark> 19",
+      "tags": ["BigQuery"],
+      "date": "2022-01-17",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    },
+    {
+      "slug": "/entries/bigquery_20/",
+      "title": "Mock <mark>Big</mark> 20",
+      "tags": ["BigQuery"],
+      "date": "2022-01-18",
+      "timeToRead": 1,
+      "snippet": "...<mark>Big</mark>..."
+    }
+  ],
+  "nbHits": 20
+}

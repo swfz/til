@@ -90,6 +90,7 @@
     "msw": "2.13.5",
     "playwright": "1.59.1",
     "playwright-msw": "3.0.1",
+    "tsx": "4.21.0",
     "postcss": "8.5.10",
     "prettier": "3.8.3",
     "tailwindcss": "4.2.4",
@@ -111,7 +112,8 @@
     "textlint-rule-prh": "6.1.0",
     "textlint-rule-spellcheck-tech-word": "5.0.0",
     "typescript": "6.0.3",
-    "vitest": "4.1.5"
+    "vitest": "4.1.5",
+    "wrangler": "3.114.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -133,6 +135,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "vitest run",
+    "build:fts-sql": "tsx scripts/build-fts-sql.ts",
+    "sync-fts": "pnpm build:fts-sql && wrangler d1 execute til --remote --file=public/fts.sql",
+    "sync-fts:local": "pnpm build:fts-sql && wrangler d1 execute til --local --file=public/fts.sql",
     "vrt": "playwright test",
     "typecheck": "tsc --noEmit",
     "prepare": "husky",

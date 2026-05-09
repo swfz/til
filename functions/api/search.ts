@@ -29,7 +29,7 @@ export const onRequestGet: PagesFunction<Env> = async context => {
   const result = await context.env.DB.prepare(
     `SELECT
        slug, title, tags, date, timeToRead,
-       snippet(blog_fts, 3, '<mark>', '</mark>', '...', 16) AS snippet,
+       snippet(blog_fts, 3, '<mark>', '</mark>', '...', 60) AS snippet,
        bm25(blog_fts) AS rank
      FROM blog_fts
      WHERE blog_fts MATCH ?1

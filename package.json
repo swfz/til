@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
-    "@cloudflare/workers-types": "4.20260430.1",
+    "@cloudflare/workers-types": "4.20260501.1",
     "@eslint/compat": "2.0.5",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",

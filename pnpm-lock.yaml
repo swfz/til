@@ -235,14 +235,14 @@ importers:
         specifier: 17.0.2
         version: 17.0.2
       msw:
-        specifier: 2.14.4
-        version: 2.14.4(@types/node@24.12.3)(typescript@6.0.3)
+        specifier: 2.14.5
+        version: 2.14.5(@types/node@24.12.3)(typescript@6.0.3)
       playwright:
         specifier: 1.59.1
         version: 1.59.1
       playwright-msw:
         specifier: 3.0.1
-        version: 3.0.1(@playwright/test@1.59.1)(msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3))
+        version: 3.0.1(@playwright/test@1.59.1)(msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3))
       postcss:
         specifier: 8.5.14
         version: 8.5.14
@@ -311,7 +311,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: 4.1.5
-        version: 4.1.5(@types/node@24.12.3)(jsdom@29.1.1)(msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0))
+        version: 4.1.5(@types/node@24.12.3)(jsdom@29.1.1)(msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0))
       wrangler:
         specifier: 4.90.0
         version: 4.90.0(@cloudflare/workers-types@4.20260507.1)
@@ -5958,10 +5958,6 @@ packages:
     resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
     engines: {node: '>=8'}
 
-  is-fullwidth-code-point@5.0.0:
-    resolution: {integrity: sha512-OVa3u9kkBbw7b8Xw5F9P+D/T9X+Z4+JruYVNapTjPYZYUznQ5YfWeFkOj606XYYW8yugTfC8Pj0hYqvi4ryAhA==}
-    engines: {node: '>=18'}
-
   is-fullwidth-code-point@5.1.0:
     resolution: {integrity: sha512-5XHYaSyiqADb4RnZ1Bdad6cPp8Toise4TzEjcOYDHZkTCbKgiUl7WTUCpNWHuxmDt91wnsZBc9xinNzopv3JMQ==}
     engines: {node: '>=18'}
@@ -6866,8 +6862,8 @@ packages:
   msgpackr@1.11.8:
     resolution: {integrity: sha512-bC4UGzHhVvgDNS7kn9tV8fAucIYUBuGojcaLiz7v+P63Lmtm0Xeji8B/8tYKddALXxJLpwIeBmUN3u64C4YkRA==}
 
-  msw@2.14.4:
-    resolution: {integrity: sha512-HVPZJ9Rx4nDCWhjNQ57lKQGSE+0zDHw0xWE2IN2rLOUTLkagEBWNlvWuKYNwG2pQWq96TMd8NiSK/6vO1udnWQ==}
+  msw@2.14.5:
+    resolution: {integrity: sha512-X6G05oX4x0e+CNI55KMdhMmwHCBKf2iwazGr+iwsdoJ94JA1ED7wSXb6V+lLPdqFkmIlPiGYvayqnaNcOzobDA==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -12446,7 +12442,7 @@ snapshots:
 
   '@types/cors@2.8.13':
     dependencies:
-      '@types/node': 24.12.2
+      '@types/node': 24.12.3
 
   '@types/debug@0.0.30': {}
 
@@ -12491,7 +12487,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 24.12.2
+      '@types/node': 24.12.3
 
   '@types/lodash@4.17.24': {}
 
@@ -12546,7 +12542,7 @@ snapshots:
 
   '@types/set-cookie-parser@2.4.10':
     dependencies:
-      '@types/node': 24.12.2
+      '@types/node': 24.12.3
 
   '@types/statuses@2.0.6': {}
 
@@ -12749,13 +12745,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.5(msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0))':
+  '@vitest/mocker@4.1.5(msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0))':
     dependencies:
       '@vitest/spy': 4.1.5
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      msw: 2.14.4(@types/node@24.12.3)(typescript@6.0.3)
+      msw: 2.14.5(@types/node@24.12.3)(typescript@6.0.3)
       vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0)
 
   '@vitest/pretty-format@4.1.5':
@@ -16720,10 +16716,6 @@ snapshots:
 
   is-fullwidth-code-point@3.0.0: {}
 
-  is-fullwidth-code-point@5.0.0:
-    dependencies:
-      get-east-asian-width: 1.4.0
-
   is-fullwidth-code-point@5.1.0:
     dependencies:
       get-east-asian-width: 1.4.0
@@ -17680,7 +17672,7 @@ snapshots:
     optionalDependencies:
       msgpackr-extract: 3.0.3
 
-  msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3):
+  msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3):
     dependencies:
       '@inquirer/confirm': 6.0.12(@types/node@24.12.3)
       '@mswjs/interceptors': 0.41.8
@@ -18199,11 +18191,11 @@ snapshots:
 
   playwright-core@1.59.1: {}
 
-  playwright-msw@3.0.1(@playwright/test@1.59.1)(msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3)):
+  playwright-msw@3.0.1(@playwright/test@1.59.1)(msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3)):
     dependencies:
       '@mswjs/cookies': 1.1.1
       '@playwright/test': 1.59.1
-      msw: 2.14.4(@types/node@24.12.3)(typescript@6.0.3)
+      msw: 2.14.5(@types/node@24.12.3)(typescript@6.0.3)
       strict-event-emitter: 0.5.1
 
   playwright@1.59.1:
@@ -19402,7 +19394,7 @@ snapshots:
   slice-ansi@7.1.0:
     dependencies:
       ansi-styles: 6.2.3
-      is-fullwidth-code-point: 5.0.0
+      is-fullwidth-code-point: 5.1.0
 
   slice-ansi@8.0.0:
     dependencies:
@@ -20668,10 +20660,10 @@ snapshots:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  vitest@4.1.5(@types/node@24.12.3)(jsdom@29.1.1)(msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0)):
+  vitest@4.1.5(@types/node@24.12.3)(jsdom@29.1.1)(msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.5
-      '@vitest/mocker': 4.1.5(msw@2.14.4(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0))
+      '@vitest/mocker': 4.1.5(msw@2.14.5(@types/node@24.12.3)(typescript@6.0.3))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.12.3)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(terser@5.39.0)(tsx@4.21.0)(yaml@2.9.0))
       '@vitest/pretty-format': 4.1.5
       '@vitest/runner': 4.1.5
       '@vitest/snapshot': 4.1.5

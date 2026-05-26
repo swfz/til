@@ -58,7 +58,7 @@
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/dompurify": "3.2.0",
     "@types/lodash": "4.17.24",
-    "@types/node": "24.12.3",
+    "@types/node": "24.12.4",
     "@types/react-dom": "19.2.3",
     "@types/react-helmet": "6.1.11",
     "@types/typography": "0.16.9",

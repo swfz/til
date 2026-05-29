@@ -65,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "8.59.3",
     "@typescript-eslint/parser": "8.59.3",
     "babel-preset-gatsby": "3.16.0",
-    "eslint": "10.3.0",
+    "eslint": "10.4.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-interactive": "14.0.0",

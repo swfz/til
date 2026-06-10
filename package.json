@@ -111,7 +111,7 @@
     "tsx": "4.22.3",
     "typescript": "6.0.3",
     "vitest": "4.1.7",
-    "wrangler": "4.94.0"
+    "wrangler": "4.95.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [

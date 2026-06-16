@@ -1,4 +1,3 @@
-
 allowBuilds:
   "@sentry/cli": true
   core-js: false
@@ -15,3 +14,6 @@ allowBuilds:
 minimumReleaseAge: 3
 shamefullyHoist: true
 strictDepBuilds: false
+minimumReleaseAgeExclude:
+  # Renovate security update: dompurify@3.4.9
+  - dompurify@3.4.9

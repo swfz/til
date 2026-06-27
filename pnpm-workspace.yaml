@@ -17,3 +17,5 @@ strictDepBuilds: false
 minimumReleaseAgeExclude:
   # Renovate security update: dompurify@3.4.9 || 3.4.11
   - dompurify@3.4.9 || 3.4.11
+  # Renovate security update: pnpm@11.8.0
+  - pnpm@11.8.0

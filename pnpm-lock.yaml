@@ -112,8 +112,8 @@ importers:
         version: 0.16.24
     devDependencies:
       '@babel/eslint-parser':
-        specifier: 8.0.0
-        version: 8.0.0(@babel/core@7.29.0)(eslint@10.5.0(jiti@2.6.1))
+        specifier: 8.0.1
+        version: 8.0.1(@babel/core@7.29.0)(eslint@10.5.0(jiti@2.6.1))
       '@cloudflare/workers-types':
         specifier: 4.20260616.1
         version: 4.20260616.1
@@ -378,8 +378,8 @@ packages:
       '@babel/core': ^7.11.0
       eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
 
-  '@babel/eslint-parser@8.0.0':
-    resolution: {integrity: sha512-D2IM6c2rNnVkzf+Jttv+J+sINoYn3KQlikmsKC0LSjZyACNpEYcuvT/M3rNVEW062/HMXh5UqV9Ab7T8IgL78w==}
+  '@babel/eslint-parser@8.0.1':
+    resolution: {integrity: sha512-2javO8pAQv/ld6sS6OcxoLAlzZEZy+xm99bnoAfMhzKSumKhdF5wylpbZB7XTorWr3KLPtx5K95eduJPOy1mzA==}
     engines: {node: ^22.18.0 || >=24.11.0}
     peerDependencies:
       '@babel/core': ^8.0.0
@@ -9885,7 +9885,7 @@ snapshots:
       eslint-visitor-keys: 2.1.0
       semver: 6.3.1
 
-  '@babel/eslint-parser@8.0.0(@babel/core@7.29.0)(eslint@10.5.0(jiti@2.6.1))':
+  '@babel/eslint-parser@8.0.1(@babel/core@7.29.0)(eslint@10.5.0(jiti@2.6.1))':
     dependencies:
       '@babel/core': 7.29.0
       eslint: 10.5.0(jiti@2.6.1)

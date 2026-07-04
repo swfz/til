@@ -37,16 +37,16 @@ export default [{
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:tailwindcss/recommended",
     "prettier",
-)), {
+)),
+...Array.isArray(tailwindcss.configs.recommended) ? tailwindcss.configs.recommended : [tailwindcss.configs.recommended],
+{
     plugins: {
         react: fixupPluginRules(react),
         "react-hooks": fixupPluginRules(reactHooks),
         "@typescript-eslint": fixupPluginRules(typescriptEslint),
         import: fixupPluginRules(importPlugin),
         "unused-imports": unusedImports,
-        tailwindcss: fixupPluginRules(tailwindcss),
         gatsby: gatsbyEslintCustomRules,
     },
 
@@ -67,6 +67,9 @@ export default [{
     settings: {
         react: {
             version: "detect",
+        },
+        tailwindcss: {
+            cssConfigPath: "src/styles/global.css",
         },
     },
 

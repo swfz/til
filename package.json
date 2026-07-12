@@ -88,7 +88,7 @@
     "msw": "2.14.6",
     "playwright": "1.61.1",
     "playwright-msw": "3.0.1",
-    "postcss": "8.5.15",
+    "postcss": "8.5.16",
     "prettier": "3.9.1",
     "tailwindcss": "4.3.1",
     "textlint": "15.7.1",

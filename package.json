@@ -47,7 +47,7 @@
     "@babel/eslint-parser": "8.0.1",
     "@cloudflare/workers-types": "5.20260710.1",
     "@eslint/compat": "2.1.0",
-    "@eslint/eslintrc": "3.3.5",
+    "@eslint/eslintrc": "3.3.6",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.61.1",
     "@tailwindcss/postcss": "4.3.2",

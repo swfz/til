@@ -19,3 +19,5 @@ minimumReleaseAgeExclude:
   - dompurify@3.4.9 || 3.4.11 || 3.4.12
   # Renovate security update: pnpm@11.8.0
   - pnpm@11.8.0
+  # Renovate security update: postcss@8.5.18
+  - postcss@8.5.18

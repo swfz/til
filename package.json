@@ -57,7 +57,7 @@
     "@testing-library/user-event": "14.6.1",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/dompurify": "3.2.0",
-    "@types/lodash": "4.17.24",
+    "@types/lodash": "4.17.25",
     "@types/node": "24.13.3",
     "@types/react-dom": "19.2.4",
     "@types/react-helmet": "6.1.11",

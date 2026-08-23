@@ -190,8 +190,8 @@ importers:
         specifier: 2.32.0
         version: 2.32.0(@typescript-eslint/parser@8.66.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
       eslint-plugin-jsdoc:
-        specifier: 64.0.1
-        version: 64.0.1(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
+        specifier: 64.0.2
+        version: 64.0.2(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
       eslint-plugin-react:
         specifier: 7.37.5
         version: 7.37.5(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))
@@ -4722,8 +4722,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-jsdoc@64.0.1:
-    resolution: {integrity: sha512-WfEdwOUWNcndV+oogANwff4Y4rd3tJ9EBzzUO2U5FGSFqHM4FwwDi4kYPhl5IVhUZAVQozYiQfts9ea0TUa7lg==}
+  eslint-plugin-jsdoc@64.0.2:
+    resolution: {integrity: sha512-v4wT1chDIRtMYDxX1Y19E27PzlMJl95b5lreyw8ikfJKgo7rVfvT+GK8IvMgnI6rnSPxbOY+DiVNqazf0Dtm2g==}
     engines: {node: ^22.22.2 || >=24.15.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
@@ -14678,7 +14678,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-jsdoc@64.0.1(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2):
+  eslint-plugin-jsdoc@64.0.2(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
       '@es-joy/jsdoccomment': 0.93.2
       '@es-joy/resolve.exports': 1.2.0

@@ -13,7 +13,7 @@ type Props = {
   node: MarkdownNode
 } & JSX.IntrinsicAttributes
 
-const Line: React.VFC<Props> = ({ node }) => {
+const Line: React.FC<Props> = ({ node }) => {
   return (
     <div className="rounded border border-gray-100 p-6 shadow">
       <div className="text-xl">

@@ -5,5 +5,6 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     exclude: ["**/node_modules/**", "vrt/**"],
+    setupFiles: ["./vitest-setup.ts"],
   },
 })

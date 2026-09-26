@@ -179,8 +179,8 @@ importers:
         specifier: 3.4.15
         version: 3.4.15
       dotenv:
-        specifier: 17.4.2
-        version: 17.4.2
+        specifier: 18.0.1
+        version: 18.0.1
       gatsby:
         specifier: 5.16.1
         version: 5.16.1(babel-eslint@10.1.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2))(csso@4.2.0)(esbuild@0.27.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(supports-color@10.2.2)(type-fest@4.41.0)(typescript@6.0.3)
@@ -4606,9 +4606,10 @@ packages:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
 
-  dotenv@17.4.2:
-    resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
+  dotenv@18.0.1:
+    resolution: {integrity: sha512-0eR4m4D/jH5eaI3evo2ZqqMii5mrTCR12v12VChdie6O1gPHs7XAjzTep0CWc1Bd+oNx3vVfbi734dK4zghigw==}
     engines: {node: '>=12'}
+    hasBin: true
 
   dotenv@7.0.0:
     resolution: {integrity: sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==}
@@ -14437,7 +14438,7 @@ snapshots:
 
   dotenv@16.4.5: {}
 
-  dotenv@17.4.2: {}
+  dotenv@18.0.1: {}
 
   dotenv@7.0.0: {}
 

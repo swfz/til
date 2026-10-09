@@ -25,7 +25,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "pnpm gatsby serve",
+    command: "gatsby serve",
     url: "http://localhost:9000",
     reuseExistingServer: !process.env.CI,
     stdout: "pipe",

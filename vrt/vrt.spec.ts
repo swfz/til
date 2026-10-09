@@ -1,14 +1,27 @@
+import { defineNetworkFixture } from "@msw/playwright"
 import { test as base, expect } from "@playwright/test"
-import { createWorkerFixture } from "playwright-msw"
 
 import { handlers } from "../src/mocks/handler"
 
-import type { MockServiceWorker } from "playwright-msw"
+import type { NetworkFixture } from "@msw/playwright"
 
+// playwright-mswはmsw v3に未対応のため、MSW公式の@msw/playwrightでモックする
 const test = base.extend<{
-  worker: MockServiceWorker
+  network: NetworkFixture
 }>({
-  worker: createWorkerFixture([...handlers]),
+  network: [
+    async ({ context }, use) => {
+      const network = defineNetworkFixture({
+        context,
+        handlers: [...handlers],
+      })
+
+      await network.enable()
+      await use(network)
+      await network.disable()
+    },
+    { auto: true },
+  ],
 })
 
 test.describe("Layout Integrity", () => {

@@ -44,7 +44,7 @@
     "typography": "0.16.24"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "8.0.6",
+    "@babel/eslint-parser": "8.0.7",
     "@cloudflare/workers-types": "5.20261007.1",
     "@eslint/compat": "2.1.1",
     "@eslint/eslintrc": "3.3.7",

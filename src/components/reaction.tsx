@@ -1,51 +1,34 @@
 import React from "react"
 import {
-  PocketShareButton,
-  PocketIcon,
-  TwitterShareButton,
-  TwitterIcon,
+  XShareButton,
+  XLegacyIcon,
   LineShareButton,
-  LineIcon,
+  LineLegacyIcon,
   HatenaShareButton,
-  HatenaShareCount,
-  HatenaIcon,
+  HatenaLegacyIcon,
   FacebookShareButton,
-  FacebookShareCount,
-  FacebookIcon,
+  FacebookLegacyIcon,
 } from "react-share"
 
 import Like from "../components/like"
-
-// FIXME: ShareCountの型情報を合わせられなかったのでやむなくany+disableにした
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const renderShareCount: any = (shareCount: number) => <div className="text-xs">{shareCount}</div>
 
 const Reaction: React.FC<{ siteUrl: string; slug: string }> = ({ siteUrl, slug }) => {
   const url = `${siteUrl}${slug}`
   return (
     <div className="sticky top-1 flex flex-row items-start justify-center gap-2 p-1 md:flex-col md:items-center">
       <Like slug={slug} />
-      <div className="flex flex-col items-center">
-        <HatenaShareButton url={url}>
-          <HatenaIcon size={32} round={true} />
-        </HatenaShareButton>
-        <HatenaShareCount url={url}>{renderShareCount}</HatenaShareCount>
-      </div>
-      <PocketShareButton url={url}>
-        <PocketIcon size={32} round={true} />
-      </PocketShareButton>
-      <TwitterShareButton url={url}>
-        <TwitterIcon size={32} round={true} />
-      </TwitterShareButton>
+      <HatenaShareButton url={url}>
+        <HatenaLegacyIcon size={32} round={true} />
+      </HatenaShareButton>
+      <XShareButton url={url}>
+        <XLegacyIcon size={32} round={true} />
+      </XShareButton>
       <LineShareButton url={url}>
-        <LineIcon size={32} round={true} />
+        <LineLegacyIcon size={32} round={true} />
       </LineShareButton>
-      <div className="flex flex-col items-center">
-        <FacebookShareButton url={url}>
-          <FacebookIcon size={32} round={true} />
-        </FacebookShareButton>
-        <FacebookShareCount url={url}>{renderShareCount}</FacebookShareCount>
-      </div>
+      <FacebookShareButton url={url}>
+        <FacebookLegacyIcon size={32} round={true} />
+      </FacebookShareButton>
     </div>
   )
 }

@@ -88,7 +88,7 @@
     "lint-staged": "17.6.0",
     "msw": "3.0.3",
     "playwright": "1.63.0",
-    "postcss": "8.5.29",
+    "postcss": "8.5.30",
     "prettier": "3.9.10",
     "tailwindcss": "4.3.3",
     "textlint": "15.8.0",

@@ -106,7 +106,7 @@
     "textlint-rule-preset-ja-spacing": "3.0.3",
     "textlint-rule-preset-ja-technical-writing": "12.0.2",
     "textlint-rule-preset-jtf-style": "3.0.3",
-    "textlint-rule-prh": "6.1.0",
+    "textlint-rule-prh": "6.1.1",
     "textlint-rule-spellcheck-tech-word": "5.0.0",
     "tsx": "4.23.15",
     "typescript": "6.0.3",

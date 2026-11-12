@@ -286,7 +286,7 @@ importers:
         version: 10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))
       '@msw/playwright':
         specifier: 0.7.0
-        version: 0.7.0(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(supports-color@10.2.2)
+        version: 0.7.0(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(supports-color@10.2.2)
       '@playwright/test':
         specifier: 1.63.0
         version: 1.63.0
@@ -298,7 +298,7 @@ importers:
         version: 10.4.2
       '@testing-library/jest-dom':
         specifier: 7.0.1
-        version: 7.0.1(@testing-library/dom@10.4.2)(vitest@5.0.5(@types/node@26.6.5)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))
+        version: 7.0.1(@testing-library/dom@10.4.2)(vitest@5.0.5(@types/node@26.6.6)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))
       '@testing-library/react':
         specifier: 16.3.3
         version: 16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -315,8 +315,8 @@ importers:
         specifier: 4.17.27
         version: 4.17.27
       '@types/node':
-        specifier: 26.6.5
-        version: 26.6.5
+        specifier: 26.6.6
+        version: 26.6.6
       '@types/react-dom':
         specifier: 19.3.0
         version: 19.3.0(@types/react@19.3.0)
@@ -397,7 +397,7 @@ importers:
         version: 17.6.0
       msw:
         specifier: 3.0.3
-        version: 3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
+        version: 3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
       playwright:
         specifier: 1.63.0
         version: 1.63.0
@@ -469,10 +469,10 @@ importers:
         version: 6.0.3
       vitest:
         specifier: 5.0.5
-        version: 5.0.5(@types/node@26.6.5)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
+        version: 5.0.5(@types/node@26.6.6)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
       wrangler:
         specifier: 4.155.0
-        version: 4.155.0(@cloudflare/workers-types@5.20261028.1)(@types/node@26.6.5)
+        version: 4.155.0(@cloudflare/workers-types@5.20261028.1)(@types/node@26.6.6)
 
 packages:
 
@@ -3360,8 +3360,8 @@ packages:
   '@types/node@24.19.2':
     resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
 
-  '@types/node@26.6.5':
-    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
+  '@types/node@26.6.6':
+    resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -11904,30 +11904,30 @@ snapshots:
 
   '@inquirer/ansi@2.0.5': {}
 
-  '@inquirer/confirm@6.0.12(@types/node@26.6.5)':
+  '@inquirer/confirm@6.0.12(@types/node@26.6.6)':
     dependencies:
-      '@inquirer/core': 11.1.9(@types/node@26.6.5)
-      '@inquirer/type': 4.0.5(@types/node@26.6.5)
+      '@inquirer/core': 11.1.9(@types/node@26.6.6)
+      '@inquirer/type': 4.0.5(@types/node@26.6.6)
     optionalDependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
-  '@inquirer/core@11.1.9(@types/node@26.6.5)':
+  '@inquirer/core@11.1.9(@types/node@26.6.6)':
     dependencies:
       '@inquirer/ansi': 2.0.5
       '@inquirer/figures': 2.0.5
-      '@inquirer/type': 4.0.5(@types/node@26.6.5)
+      '@inquirer/type': 4.0.5(@types/node@26.6.6)
       cli-width: 4.1.0
       fast-wrap-ansi: 0.2.0
       mute-stream: 3.0.0
       signal-exit: 4.1.0
     optionalDependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@inquirer/figures@2.0.5': {}
 
-  '@inquirer/type@4.0.5(@types/node@26.6.5)':
+  '@inquirer/type@4.0.5(@types/node@26.6.6)':
     optionalDependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -12054,10 +12054,10 @@ snapshots:
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.3':
     optional: true
 
-  '@msw/playwright@0.7.0(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(supports-color@10.2.2)':
+  '@msw/playwright@0.7.0(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(supports-color@10.2.2)':
     dependencies:
       '@mswjs/interceptors': 0.45.7(supports-color@10.2.2)
-      msw: 3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
+      msw: 3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
       outvariant: 1.4.3
     transitivePeerDependencies:
       - supports-color
@@ -12763,7 +12763,7 @@ snapshots:
       picocolors: 1.1.1
       pretty-format: 27.5.1
 
-  '@testing-library/jest-dom@7.0.1(@testing-library/dom@10.4.2)(vitest@5.0.5(@types/node@26.6.5)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))':
+  '@testing-library/jest-dom@7.0.1(@testing-library/dom@10.4.2)(vitest@5.0.5(@types/node@26.6.6)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))':
     dependencies:
       '@adobe/css-tools': 4.4.4
       '@testing-library/dom': 10.4.2
@@ -12773,7 +12773,7 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
     optionalDependencies:
-      vitest: 5.0.5(@types/node@26.6.5)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
+      vitest: 5.0.5(@types/node@26.6.6)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
 
   '@testing-library/react@16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
@@ -13037,7 +13037,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.2.0
       '@types/keyv': 3.1.4
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       '@types/responselike': 1.0.3
 
   '@types/chai@5.2.3':
@@ -13049,7 +13049,7 @@ snapshots:
 
   '@types/cors@2.8.13':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/debug@0.0.30': {}
 
@@ -13090,7 +13090,7 @@ snapshots:
 
   '@types/http-proxy@1.17.11':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/json-schema@7.0.15': {}
 
@@ -13098,7 +13098,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/lodash@4.17.27': {}
 
@@ -13116,7 +13116,7 @@ snapshots:
     dependencies:
       undici-types: 7.24.6
 
-  '@types/node@26.6.5':
+  '@types/node@26.6.6':
     dependencies:
       undici-types: 8.9.0
 
@@ -13151,17 +13151,17 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/sax@1.2.4':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/semver@7.3.13': {}
 
   '@types/set-cookie-parser@2.4.10':
     dependencies:
-      '@types/node': 24.19.2
+      '@types/node': 26.6.6
 
   '@types/trusted-types@2.0.7':
     optional: true
@@ -13453,15 +13453,15 @@ snapshots:
     dependencies:
       resolve: 1.22.8
 
-  '@vitest/mocker@5.0.5(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))':
+  '@vitest/mocker@5.0.5(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.0.5
       estree-walker: 3.0.3
       magic-string: 1.4.4
     optionalDependencies:
-      msw: 3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
-      vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)
+      msw: 3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
+      vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)
 
   '@vitest/spy@5.0.5': {}
 
@@ -14982,7 +14982,7 @@ snapshots:
   engine.io@6.6.4(supports-color@10.2.2):
     dependencies:
       '@types/cors': 2.8.13
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -17494,13 +17494,13 @@ snapshots:
 
   jest-worker@26.6.2:
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       merge-stream: 2.0.0
       supports-color: 7.2.0
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -18163,10 +18163,10 @@ snapshots:
       webpack: 5.98.0(esbuild@0.27.3)
       webpack-sources: 1.4.3
 
-  miniflare@5.20261023.2-beta(@types/node@26.6.5):
+  miniflare@5.20261023.2-beta(@types/node@26.6.6):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
       undici: 7.30.1
       workerd: 1.20261023.1
       ws: 8.21.0
@@ -18256,9 +18256,9 @@ snapshots:
     optionalDependencies:
       msgpackr-extract: 3.0.3
 
-  msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)):
+  msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)):
     dependencies:
-      '@inquirer/confirm': 6.0.12(@types/node@26.6.5)
+      '@inquirer/confirm': 6.0.12(@types/node@26.6.6)
       '@msw/url': 0.1.2
       '@mswjs/interceptors': 0.45.7(supports-color@10.2.2)
       cookie: 2.0.1
@@ -18273,7 +18273,7 @@ snapshots:
     optionalDependencies:
       graphql: 16.12.0
       typescript: 6.0.3
-      vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)
+      vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -19836,7 +19836,7 @@ snapshots:
       - bare-buffer
       - react-native-b4a
 
-  sharp@0.35.5(@types/node@26.6.5):
+  sharp@0.35.5(@types/node@26.6.6):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -19867,7 +19867,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.5
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   shebang-command@2.0.0:
     dependencies:
@@ -21185,7 +21185,7 @@ snapshots:
       unist-util-stringify-position: 2.0.3
       vfile-message: 2.0.4
 
-  vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0):
+  vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.7
@@ -21193,7 +21193,7 @@ snapshots:
       rolldown: 1.0.0-rc.12(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       esbuild: 0.27.3
       fsevents: 2.3.3
       jiti: 2.7.0
@@ -21205,10 +21205,10 @@ snapshots:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  vitest@5.0.5(@types/node@26.6.5)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)):
+  vitest@5.0.5(@types/node@26.6.6)(jsdom@30.1.3)(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.0.5(msw@3.0.3(@types/node@26.6.5)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
+      '@vitest/mocker': 5.0.5(msw@3.0.3(@types/node@26.6.6)(graphql@16.12.0)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)))(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0))
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -21219,10 +21219,10 @@ snapshots:
       tinybench: 6.2.2
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.5)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)
+      vite: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.6)(esbuild@0.27.3)(jiti@2.7.0)(sass@1.106.1)(terser@5.39.0)(tsx@4.23.15)(yaml@2.9.0)
       why-is-node-running: 3.2.1
     optionalDependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       jsdom: 30.1.3
     transitivePeerDependencies:
       - msw
@@ -21470,13 +21470,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261023.1
       '@cloudflare/workerd-windows-64': 1.20261023.1
 
-  wrangler@4.155.0(@cloudflare/workers-types@5.20261028.1)(@types/node@26.6.5):
+  wrangler@4.155.0(@cloudflare/workers-types@5.20261028.1)(@types/node@26.6.6):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261023.1)
       blake3-wasm: 2.1.5
       esbuild: 0.28.2
-      miniflare: 5.20261023.2-beta(@types/node@26.6.5)
+      miniflare: 5.20261023.2-beta(@types/node@26.6.6)
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20261023.1

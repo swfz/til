@@ -53,7 +53,7 @@
     "@playwright/test": "1.63.0",
     "@tailwindcss/postcss": "4.3.5",
     "@testing-library/dom": "10.4.2",
-    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/jest-dom": "8.0.0",
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.10",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
